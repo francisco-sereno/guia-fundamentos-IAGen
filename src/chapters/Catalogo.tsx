@@ -44,7 +44,7 @@ export const CatalogoContent = () => {
     { name: "Automatic prompt engineering (APE)", type: "Avanzado", color: "text-red-400", description: "Usar el propio modelo de lenguaje para generar, evaluar y optimizar prompts para una tarea específica.", example: '"Genera 5 variaciones de prompts para pedirte que mejores mi CV. Evalúalas y dime cuál produciría el mejor resultado."' },
     { name: "Code prompting", type: "Intermedio", color: "text-amber-400", description: "Técnicas específicas para guiar al modelo en la escritura, depuración, explicación o traducción de código fuente.", example: '"Explícame este fragmento de código Python línea por línea y sugiere cómo optimizarlo para mi prueba técnica."' },
     { name: "Generate knowledge prompting", type: "Intermedio", color: "text-amber-400", description: "Pedir al modelo que primero genere conocimiento o hechos relevantes sobre un tema antes de responder a la pregunta principal para mejorar la precisión.", example: '"Primero, enumera las 5 habilidades más demandadas en análisis de datos este año. Luego, basándote en esa lista, dime cómo debería estructurar mi CV."' },
-    { name: "Automatic reasoning and tool-use (ART)", type: "Avanzado", color: "text-red-400", description: "Combinar el razonamiento automático con la capacidad de usar herramientas externas (como calculadoras o buscadores) para resolver problemas complejos.", example: '"Calcula mi salario neto esperado si pido $60,000 brutos en Madrid. Usa la herramienta de cálculo de impuestos y explícame el desglose paso a paso."' },
+    { name: "Automatic reasoning and tool-use (ART)", type: "Avanzado", color: "text-red-400", description: "Combinar el razonamiento automático con la capacidad de usar herramientas externas (como calculadoras o buscadores) para resolver problemas complejos.", example: '"Calcula mi sueldo líquido esperado si pido $2.500.000 brutos en Santiago. Usa la herramienta de cálculo de impuestos y explícame el desglose paso a paso."' },
     { name: "GraphPrompt", type: "Avanzado", color: "text-red-400", description: "Estructurar la información y las relaciones en forma de grafo para ayudar al modelo a entender conexiones complejas entre conceptos o entidades.", example: '"Considera estas relaciones: Yo conozco a Ana. Ana trabaja en TechCorp. TechCorp busca un analista. ¿Cómo puedo usar mi red para llegar a la vacante?"' },
   ];
 
@@ -776,9 +776,9 @@ export const CatalogoContent = () => {
             <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
                 <div className="flex justify-between items-start mb-2">
                     <p className="text-xs font-bold text-slate-500 uppercase">Ejemplo práctico: SofIA</p>
-                    <CopyButton text="Calcula mi salario neto esperado si pido $60,000 brutos en Madrid. Usa la herramienta de cálculo de impuestos y explícame el desglose paso a paso." />
+                    <CopyButton text="Calcula mi sueldo líquido esperado si pido $2.500.000 brutos en Santiago. Usa la herramienta de cálculo de impuestos y explícame el desglose paso a paso." />
                 </div>
-                <p className="text-sm text-slate-300 italic">"Calcula mi salario neto esperado si pido $60,000 brutos en Madrid. Usa la herramienta de cálculo de impuestos y explícame el desglose paso a paso."</p>
+                <p className="text-sm text-slate-300 italic">"Calcula mi sueldo líquido esperado si pido $2.500.000 brutos en Santiago. Usa la herramienta de cálculo de impuestos y explícame el desglose paso a paso."</p>
             </div>
         </div>
 
