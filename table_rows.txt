@@ -1,0 +1,259 @@
+
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Zero-shot prompting</td>
+              <td className="p-3"><span className="text-emerald-400 font-semibold text-xs uppercase tracking-wider">Básico</span></td>
+              <td className="p-3 text-slate-300 text-sm">Pedir directamente a la IA que realice una tarea sin darle ejemplos previos, confiando en su conocimiento general.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Analiza mi historial laboral en retail y genera una lista de 5 competencias transferibles que sean valiosas para un rol de analista de operaciones."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Few-shot prompting</td>
+              <td className="p-3"><span className="text-emerald-400 font-semibold text-xs uppercase tracking-wider">Básico</span></td>
+              <td className="p-3 text-slate-300 text-sm">Proporcionar algunos ejemplos del tipo de respuesta que esperas antes de hacer tu pregunta principal.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Convierte estas tareas en logros:\nEjemplo 1: 'Supervisé personal' → 'Lideré un equipo de 12 personas logrando un 15% más de eficiencia'\nAhora hazlo con: 'Manejé el cierre de caja diario...'"</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Chain-of-thought (CoT)</td>
+              <td className="p-3"><span className="text-amber-400 font-semibold text-xs uppercase tracking-wider">Intermedio</span></td>
+              <td className="p-3 text-slate-300 text-sm">Pedirle a la IA que muestre su razonamiento paso a paso antes de dar una respuesta final.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Analiza paso a paso si mi experiencia en gestión de inventarios es relevante para logística: 1. Define requisitos de logística 2. Compara con mis tareas 3. Identifica brechas 4. Concluye."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Role prompting</td>
+              <td className="p-3"><span className="text-emerald-400 font-semibold text-xs uppercase tracking-wider">Básico</span></td>
+              <td className="p-3 text-slate-300 text-sm">Asignarle a la IA un rol específico (experto, profesor, consultor) para que responda desde esa perspectiva.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Actúa como una experta en reclutamiento de startups tecnológicas. Revisa mi resumen profesional y dime si suena demasiado tradicional o si encaja con la cultura ágil."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Self-consistency</td>
+              <td className="p-3"><span className="text-red-400 font-semibold text-xs uppercase tracking-wider">Avanzado</span></td>
+              <td className="p-3 text-slate-300 text-sm">Generar múltiples respuestas con razonamiento independiente y seleccionar la más consistente.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Genera 3 análisis independientes sobre si mi perfil es mejor para 'Project Coordinator' o 'Operations Associate'. Luego, resume los puntos en común de los 3 análisis."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Prompt chaining</td>
+              <td className="p-3"><span className="text-red-400 font-semibold text-xs uppercase tracking-wider">Avanzado</span></td>
+              <td className="p-3 text-slate-300 text-sm">Dividir una tarea compleja en una secuencia de prompts más simples, donde la salida de uno alimenta al siguiente.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Paso 1: Extrae mis 3 mayores logros. [Respuesta] Paso 2: Redáctalos usando el método STAR. [Respuesta] Paso 3: Optimízalos para una oferta de analista de datos."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Tree of thoughts</td>
+              <td className="p-3"><span className="text-red-400 font-semibold text-xs uppercase tracking-wider">Avanzado</span></td>
+              <td className="p-3 text-slate-300 text-sm">Explorar múltiples caminos de razonamiento simultáneamente, evaluando cada rama antes de continuar.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Explora 3 estrategias para mi transición: 1. Ascenso interno 2. Cambio de industria 3. Emprendimiento. Evalúa riesgos y beneficios de cada una para mi situación actual."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">ReAct (reasoning + acting)</td>
+              <td className="p-3"><span className="text-red-400 font-semibold text-xs uppercase tracking-wider">Avanzado</span></td>
+              <td className="p-3 text-slate-300 text-sm">Alternar entre razonamiento (pensar) y acción (hacer), permitiendo ajustar el enfoque basándose en resultados intermedios.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Pensamiento: Analiza mi CV. Acción: Sugiere 3 cursos de Coursera. Pensamiento: Evalúa cuál es más urgente. Acción: Crea un plan de estudio de 4 semanas."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Meta-prompting</td>
+              <td className="p-3"><span className="text-amber-400 font-semibold text-xs uppercase tracking-wider">Intermedio</span></td>
+              <td className="p-3 text-slate-300 text-sm">Prioriza los aspectos arquitectónicos y sintácticos de la resolución de un problema, descartando la carga narrativa específica para evitar sesgos.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Aplica el siguiente marco lógico abstracto (Identificar variables -> Calcular determinantes -> Estructurar despeje) a mi problema de transición laboral, sin dejarte influenciar por el sector específico."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Directional stimulus prompting (DSP)</td>
+              <td className="p-3"><span className="text-amber-400 font-semibold text-xs uppercase tracking-wider">Intermedio</span></td>
+              <td className="p-3 text-slate-300 text-sm">Utiliza un modelo auxiliar para generar "pistas" latentes o estímulos direccionales que guían al modelo principal sin alterar sus parámetros.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"[El sistema genera internamente 5 palabras clave sobre mi CV] -> Usa estas directrices invisibles para redactar mi resumen profesional de forma altamente optimizada."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Auto-consistencia informada por confianza (CISC)</td>
+              <td className="p-3"><span className="text-red-400 font-semibold text-xs uppercase tracking-wider">Avanzado</span></td>
+              <td className="p-3 text-slate-300 text-sm">El modelo genera múltiples rutas de razonamiento y asigna un puntaje de confianza a cada una, realizando una votación ponderada para elegir la mejor respuesta.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Genera 3 estrategias para mi entrevista técnica. Para cada una, asigna un puntaje de confianza (0-100) basado en su viabilidad, y entrégame solo la estrategia con mayor puntaje ponderado."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Reflexion (auto-corrección crítica)</td>
+              <td className="p-3"><span className="text-red-400 font-semibold text-xs uppercase tracking-wider">Avanzado</span></td>
+              <td className="p-3 text-slate-300 text-sm">El agente evalúa su propia respuesta preliminar emitiendo críticas explícitas para forzar una rectificación iterativa, aunque requiere validadores externos para no degenerar.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Redacta mi carta de presentación. Luego, evalúala críticamente marcando errores sintácticos o de tono, y reescríbela corrigiendo esos fallos específicos."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Retrieval augmented generation (RAG)</td>
+              <td className="p-3"><span className="text-purple-400 font-semibold text-xs uppercase tracking-wider">Frontera 2026</span></td>
+              <td className="p-3 text-slate-300 text-sm">Combina el modelo generativo con la recuperación de información en tiempo real desde bases de datos externas para evitar alucinaciones.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"[El sistema consulta la base de datos actualizada de salarios 2026] -> Basado en los datos recuperados, sugiere un rango salarial realista para mi perfil en Madrid."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Absolute zero reasoner (AZR)</td>
+              <td className="p-3"><span className="text-purple-400 font-semibold text-xs uppercase tracking-wider">Frontera 2026</span></td>
+              <td className="p-3 text-slate-300 text-sm">Un paradigma de coevolución donde un modelo 'Propositor' inventa desafíos y un 'Resolutor' los soluciona, aprendiendo sin intervención humana.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Utiliza un entorno AZR para simular escenarios de entrevistas técnicas cada vez más difíciles, adaptándose dinámicamente a mis respuestas hasta que domine el tema."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Multimodal CoT (Chain of Thought Multimodal)</td>
+              <td className="p-3"><span className="text-purple-400 font-semibold text-xs uppercase tracking-wider">Frontera 2026</span></td>
+              <td className="p-3 text-slate-300 text-sm">Integra razonamiento topológico, espacial y visual, permitiendo al modelo digerir diagramas complejos y datos pictóricos simultáneamente.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"[Subo un diagrama de arquitectura de software complejo] -> Analiza este esquema visual y explica cómo mi experiencia previa se alinea con esta topología."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Plan-and-solve prompting</td>
+              <td className="p-3"><span className="text-amber-400 font-semibold text-xs uppercase tracking-wider">Intermedio</span></td>
+              <td className="p-3 text-slate-300 text-sm">Divide el problema en un plan de pasos y luego lo ejecuta secuencialmente para evitar omisiones.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Primero comprendamos el problema de mi transición laboral y diseñemos un plan. Luego, ejecutemos el plan paso a paso."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Universal self-consistency</td>
+              <td className="p-3"><span className="text-red-400 font-semibold text-xs uppercase tracking-wider">Avanzado</span></td>
+              <td className="p-3 text-slate-300 text-sm">El propio modelo evalúa y agrega respuestas de formato abierto para encontrar un consenso.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Revisa estas 5 cartas de presentación generadas previamente y sintetiza un consenso con los mejores argumentos de cada una."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Program-aided language models (PAL)</td>
+              <td className="p-3"><span className="text-purple-400 font-semibold text-xs uppercase tracking-wider">Frontera 2026</span></td>
+              <td className="p-3 text-slate-300 text-sm">El modelo traduce el problema a código (ej. Python) y un intérprete externo lo ejecuta para obtener resultados exactos.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Escribe un script en Python para calcular mi salario neto esperado tras impuestos, y ejecútalo para darme la cifra exacta."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Skeleton-of-thought (SoT)</td>
+              <td className="p-3"><span className="text-red-400 font-semibold text-xs uppercase tracking-wider">Avanzado</span></td>
+              <td className="p-3 text-slate-300 text-sm">Genera primero un esqueleto o esquema de la respuesta y luego expande cada punto en paralelo para reducir la latencia.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Primero, dame un esquema de 5 puntos clave para mi entrevista. Luego, expande cada punto detalladamente."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Chain of density (CoD)</td>
+              <td className="p-3"><span className="text-amber-400 font-semibold text-xs uppercase tracking-wider">Intermedio</span></td>
+              <td className="p-3 text-slate-300 text-sm">Refina iterativamente un resumen, forzando al modelo a incluir cada vez más entidades clave manteniendo la misma longitud.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Resume mi CV en 80 palabras. Luego, reescríbelo 3 veces, añadiendo más logros específicos en cada iteración sin exceder las 80 palabras."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Active-prompt</td>
+              <td className="p-3"><span className="text-red-400 font-semibold text-xs uppercase tracking-wider">Avanzado</span></td>
+              <td className="p-3 text-slate-300 text-sm">Identifica las preguntas con mayor incertidumbre y solicita ejemplos específicos para esas áreas antes de inferir.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Revisa estas posibles preguntas de entrevista. Identifica las 3 donde tus respuestas varían más y pídeme ejemplos de mi experiencia para anclarlas."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Negative prompting</td>
+              <td className="p-3"><span className="text-emerald-400 font-semibold text-xs uppercase tracking-wider">Básico</span></td>
+              <td className="p-3 text-slate-300 text-sm">Instrucciones explícitas sobre lo que el modelo *no* debe hacer o incluir, muy usado en generación de imágenes y control de formato.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Escribe un correo de seguimiento. NO uses jerga corporativa, NO te disculpes por molestar, y NO excedas los 3 párrafos."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Compaction systems / agentic memory</td>
+              <td className="p-3"><span className="text-purple-400 font-semibold text-xs uppercase tracking-wider">Frontera 2026</span></td>
+              <td className="p-3 text-slate-300 text-sm">Técnicas para gestionar el límite de contexto, resumiendo interacciones pasadas y manteniendo notas externas.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Resume nuestra conversación de la última hora en 5 viñetas y guárdalas en tu memoria a largo plazo antes de continuar con la siguiente tarea."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Manager-worker (multi-agente)</td>
+              <td className="p-3"><span className="text-purple-400 font-semibold text-xs uppercase tracking-wider">Frontera 2026</span></td>
+              <td className="p-3 text-slate-300 text-sm">Un agente supervisor divide y asigna tareas a agentes trabajadores especializados, consolidando luego sus resultados.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Agente supervisor: Asigna la revisión de mi CV al agente de RRHH y el análisis de mercado al agente de datos. Luego consolida ambos reportes."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Peer review (multi-agente)</td>
+              <td className="p-3"><span className="text-purple-400 font-semibold text-xs uppercase tracking-wider">Frontera 2026</span></td>
+              <td className="p-3 text-slate-300 text-sm">Múltiples agentes debaten o revisan el trabajo del otro para encontrar errores y llegar a un consenso robusto.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Agente 1: Escribe mi carta de presentación. Agente 2: Critica la carta buscando debilidades. Agente 1: Reescribe basándote en las críticas."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Pipelines (multi-agente)</td>
+              <td className="p-3"><span className="text-purple-400 font-semibold text-xs uppercase tracking-wider">Frontera 2026</span></td>
+              <td className="p-3 text-slate-300 text-sm">Flujo secuencial donde la salida de un agente especializado es la entrada del siguiente, refinando la información paso a paso.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Pasa mi perfil por el pipeline: Agente extractor -> Agente analista -> Agente redactor, para obtener un perfil de LinkedIn perfecto."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Prompt exacto</td>
+              <td className="p-3"><span className="text-emerald-400 font-semibold text-xs uppercase tracking-wider">Básico</span></td>
+              <td className="p-3 text-slate-300 text-sm">Instrucción directa y precisa para obtener un resultado específico sin ambigüedades.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Traduce el siguiente párrafo al inglés británico, manteniendo un tono formal."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Contextual prompting</td>
+              <td className="p-3"><span className="text-emerald-400 font-semibold text-xs uppercase tracking-wider">Básico</span></td>
+              <td className="p-3 text-slate-300 text-sm">Proporciona información de fondo o detalles situacionales para enmarcar la respuesta del modelo.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Contexto: Estoy aplicando a una empresa de tecnología que valora la innovación. Sugiere 3 preguntas para hacer al final de la entrevista."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Prompt iterativo</td>
+              <td className="p-3"><span className="text-amber-400 font-semibold text-xs uppercase tracking-wider">Intermedio</span></td>
+              <td className="p-3 text-slate-300 text-sm">Proceso de enviar un prompt, evaluar la respuesta y enviar un prompt ajustado para refinar el resultado.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Hazlo más corto. Ahora, cambia el tono para que suene más entusiasta. Por último, añade un llamado a la acción."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Prompt basado en conocimiento</td>
+              <td className="p-3"><span className="text-amber-400 font-semibold text-xs uppercase tracking-wider">Intermedio</span></td>
+              <td className="p-3 text-slate-300 text-sm">Incorpora datos o hechos específicos en el prompt para fundamentar la respuesta del modelo.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Sabiendo que el salario promedio para este rol es de 45.000€ y la empresa acaba de recibir financiación, ¿cómo debería negociar mi oferta?"</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Prompt comparativo</td>
+              <td className="p-3"><span className="text-amber-400 font-semibold text-xs uppercase tracking-wider">Intermedio</span></td>
+              <td className="p-3 text-slate-300 text-sm">Solicita al modelo que evalúe, contraste o compare dos o más elementos, conceptos o soluciones.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Compara las ventajas y desventajas de trabajar en una startup frente a una corporación multinacional para mi perfil."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Prompt combinado</td>
+              <td className="p-3"><span className="text-red-400 font-semibold text-xs uppercase tracking-wider">Avanzado</span></td>
+              <td className="p-3 text-slate-300 text-sm">Integra múltiples técnicas (ej. few-shot + CoT + role) en una sola instrucción compleja.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Actúa como reclutador (Role). Analiza paso a paso (CoT) mi CV. Usa este formato de salida: [Ejemplo] (Few-shot)."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Prompt inverso</td>
+              <td className="p-3"><span className="text-amber-400 font-semibold text-xs uppercase tracking-wider">Intermedio</span></td>
+              <td className="p-3 text-slate-300 text-sm">Se le da al modelo un resultado (ej. un texto o imagen) y se le pide que genere el prompt que lo habría creado.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Aquí tienes una oferta de trabajo perfecta para mí. ¿Qué prompt usarías para generar una oferta similar en el futuro?"</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">JSON prompt / working with schemas</td>
+              <td className="p-3"><span className="text-red-400 font-semibold text-xs uppercase tracking-wider">Avanzado</span></td>
+              <td className="p-3 text-slate-300 text-sm">Obliga al modelo a estructurar su salida (o entrada) en un formato de datos estricto como JSON para integraciones de software.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Extrae mis habilidades y devuélvelas estrictamente en este formato JSON: { 'habilidades_tecnicas': [], 'habilidades_blandas': [] }"</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Prompt para deep research</td>
+              <td className="p-3"><span className="text-purple-400 font-semibold text-xs uppercase tracking-wider">Frontera 2026</span></td>
+              <td className="p-3 text-slate-300 text-sm">Instrucciones diseñadas para que el modelo realice investigaciones exhaustivas, cruzando múltiples fuentes y sintetizando hallazgos.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Realiza una investigación profunda sobre las tendencias de contratación en IA para 2026, citando fuentes y cruzando datos de mercado."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Prompt para usar agentes IA</td>
+              <td className="p-3"><span className="text-purple-400 font-semibold text-xs uppercase tracking-wider">Frontera 2026</span></td>
+              <td className="p-3 text-slate-300 text-sm">Instrucciones que definen el objetivo, contexto y restricciones para que un agente autónomo ejecute tareas complejas.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Agente de búsqueda de empleo: Tu objetivo es encontrar 5 ofertas diarias que coincidan con mi perfil, filtrando las que requieran presencialidad."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">System prompting</td>
+              <td className="p-3"><span className="text-amber-400 font-semibold text-xs uppercase tracking-wider">Intermedio</span></td>
+              <td className="p-3 text-slate-300 text-sm">Define el comportamiento base, las reglas fundamentales y la identidad del modelo a nivel de sistema.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"System: Eres un asistente de carrera. Nunca des consejos médicos o legales. Responde siempre en español."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Step-back prompting</td>
+              <td className="p-3"><span className="text-amber-400 font-semibold text-xs uppercase tracking-wider">Intermedio</span></td>
+              <td className="p-3 text-slate-300 text-sm">Pide al modelo que primero responda una pregunta general o abstracta sobre el tema antes de resolver el problema específico.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Antes de decirme cómo responder a esta pregunta de entrevista, explícame qué buscan evaluar generalmente los reclutadores con ella."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Automatic prompt engineering (APE)</td>
+              <td className="p-3"><span className="text-red-400 font-semibold text-xs uppercase tracking-wider">Avanzado</span></td>
+              <td className="p-3 text-slate-300 text-sm">Usar el propio modelo de lenguaje para generar, evaluar y optimizar prompts para una tarea específica.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Genera 5 variaciones de prompts para pedirte que mejores mi CV. Evalúalas y dime cuál produciría el mejor resultado."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Code prompting</td>
+              <td className="p-3"><span className="text-amber-400 font-semibold text-xs uppercase tracking-wider">Intermedio</span></td>
+              <td className="p-3 text-slate-300 text-sm">Técnicas específicas para guiar al modelo en la escritura, depuración, explicación o traducción de código fuente.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Explícame este fragmento de código Python línea por línea y sugiere cómo optimizarlo para mi prueba técnica."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Generate knowledge prompting</td>
+              <td className="p-3"><span className="text-amber-400 font-semibold text-xs uppercase tracking-wider">Intermedio</span></td>
+              <td className="p-3 text-slate-300 text-sm">Pedir al modelo que primero genere conocimiento o hechos relevantes sobre un tema antes de responder a la pregunta principal para mejorar la precisión.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Primero, enumera las 5 habilidades más demandadas en análisis de datos este año. Luego, basándote en esa lista, dime cómo debería estructurar mi CV."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">Automatic reasoning and tool-use (ART)</td>
+              <td className="p-3"><span className="text-red-400 font-semibold text-xs uppercase tracking-wider">Avanzado</span></td>
+              <td className="p-3 text-slate-300 text-sm">Combinar el razonamiento automático con la capacidad de usar herramientas externas (como calculadoras o buscadores) para resolver problemas complejos.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Calcula mi salario neto esperado si pido $60,000 brutos en Madrid. Usa la herramienta de cálculo de impuestos y explícame el desglose paso a paso."</td>
+            </tr>
+            <tr className="border-b border-slate-700/50 hover:bg-slate-800/30 transition-colors">
+              <td className="p-3 font-medium text-indigo-300">GraphPrompt</td>
+              <td className="p-3"><span className="text-red-400 font-semibold text-xs uppercase tracking-wider">Avanzado</span></td>
+              <td className="p-3 text-slate-300 text-sm">Estructurar la información y las relaciones en forma de grafo para ayudar al modelo a entender conexiones complejas entre conceptos o entidades.</td>
+              <td className="p-3 text-slate-400 text-sm italic">"Considera estas relaciones: Yo conozco a Ana. Ana trabaja en TechCorp. TechCorp busca un analista. ¿Cómo puedo usar mi red para llegar a la vacante?"</td>
+            </tr>

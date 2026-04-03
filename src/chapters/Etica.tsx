@@ -3,29 +3,29 @@ import { InfoCard, GlossaryTerm, Accordion, AuthorNote } from '../components/Sha
 
 export const EticaContent = () => (
   <div className="prose-custom">
-    <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-6">Autenticidad y ética en la IA generativa</h1>
-    <p className="text-xl text-slate-300 mb-8">navegando dilemas éticos en contratación algorítmica</p>
-
     <AuthorNote>
-      Este capítulo es quizás el más importante. La tecnología avanza rápido, pero nuestra integridad profesional debe ser nuestra brújula. No permitas que la eficiencia de la IA nuble tu juicio sobre lo que es correcto.
+      La tecnología avanza rápido, pero nuestra integridad debe ser la brújula. En esta sección exploramos cómo las personas pueden usar la IA de forma honesta, manteniendo su esencia mientras navegan sistemas automatizados.
     </AuthorNote>
 
+    <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-6">Autenticidad y ética en la IA generativa</h1>
+    <p className="text-xl text-slate-300 mb-8">Navegando dilemas éticos en contratación algorítmica</p>
+
     <h2 id="sec-3-0" className="text-2xl font-bold mb-4 text-indigo-400 scroll-mt-24">🎯 Introducción</h2>
-    <p>En la era de la inteligencia artificial generativa, millones de profesionales enfrentan un dilema existencial y ético: ¿cómo utilizar estas poderosas herramientas tecnológicas sin comprometer la autenticidad personal y los principios éticos fundamentales? Este apunte examina críticamente las tensiones entre eficiencia tecnológica e integridad profesional.</p>
+    <p>En la era de la inteligencia artificial generativa, muchas personas enfrentan un dilema existencial y ético: ¿cómo utilizar estas poderosas herramientas tecnológicas sin comprometer la autenticidad personal y los principios éticos fundamentales? Esta guía examina críticamente las tensiones entre eficiencia tecnológica e integridad.</p>
 
     <div className="grid md:grid-cols-3 gap-6 mt-8 mb-8">
         <InfoCard type="idea" title="Objetivo">
-            <p className="text-sm">Desarrollar competencias críticas para el uso ético de IA generativa en contextos profesionales.</p>
+            <p className="text-sm">Desarrollar competencias críticas para el uso ético de IA generativa en contextos de búsqueda de herramientas y oportunidades.</p>
         </InfoCard>
         <InfoCard type="conexion" title="Desafío">
-            <p className="text-sm">Equilibrar la eficiencia tecnológica con la autenticidad y responsabilidad profesional.</p>
+            <p className="text-sm">Equilibrar la eficiencia tecnológica con la autenticidad y responsabilidad personal.</p>
         </InfoCard>
         <InfoCard type="practica" title="Propuesta">
             <p className="text-sm">Un marco ético fundamentado en estándares internacionales y reflexión crítica.</p>
         </InfoCard>
     </div>
 
-    <h2 id="sec-3-1" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">📖 Caso de estudio: El dilema de SofIA</h2>
+    <h2 id="sec-3-1" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">📖 Caso de estudio: el dilema de SofIA</h2>
     
     <InfoCard type="reflexion" title="Contexto del caso">
         <p className="mb-4">SofIA es una profesional en transición laboral, con amplia experiencia en gestión de proyectos. A pesar de su trayectoria comprobada, enfrenta un obstáculo recurrente en su proceso de reinserción: sus postulaciones son sistemáticamente rechazadas por sistemas ATS (Applicant Tracking Systems) debido a que su currículum no utiliza las palabras clave específicas que estos algoritmos priorizan.</p>
@@ -33,7 +33,7 @@ export const EticaContent = () => (
     </InfoCard>
 
     <Accordion title="❓ Preguntas centrales del dilema">
-        <ul className="list-disc list-inside space-y-2 text-slate-300">
+        <ul className="space-y-2 text-slate-300">
             <li>¿Usar IAGen para modificar su CV es ético o equivale a "engañar al sistema"?</li>
             <li>¿Dónde está el límite entre optimización legítima y fabricación de información?</li>
         </ul>
@@ -47,7 +47,21 @@ export const EticaContent = () => (
         </ul>
     </Accordion>
 
-    <h2 id="sec-3-2" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">I. Los sistemas ATS: ¿Eficiencia o sesgo algorítmico?</h2>
+    <h2 id="sec-3-2" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">I. La crisis de la "caja negra": interpretabilidad y sesgos algorítmicos</h2>
+    <p>A medida que los modelos de IA se vuelven más profundos y paramétricamente densos, surge un problema fundamental: la pérdida de interpretabilidad. Operan como "cajas negras" donde incluso sus creadores no pueden rastrear exactamente cómo una entrada específica produjo una salida determinada.</p>
+
+    <Accordion title="Interpretabilidad vs. explicabilidad">
+        <div className="space-y-4">
+            <InfoCard type="definicion" title="Interpretabilidad (el 'cómo')">
+                <p>Es una propiedad intrínseca del modelo. Un modelo es interpretable si un humano puede comprender su mecánica interna (ej. un árbol de decisión simple). Las redes neuronales profundas tienen interpretabilidad casi nula.</p>
+            </InfoCard>
+            <InfoCard type="definicion" title="Explicabilidad (el 'por qué')">
+                <p>Es una propiedad extrínseca. Implica crear herramientas o modelos secundarios que intentan justificar las decisiones de la caja negra en términos comprensibles para los humanos (ej. "El crédito fue denegado porque la variable 'ingresos' tuvo el mayor peso negativo").</p>
+            </InfoCard>
+        </div>
+    </Accordion>
+
+    <h2 id="sec-3-3" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">II. Los sistemas ATS: ¿eficiencia o sesgo algorítmico?</h2>
     <p>Los Applicant Tracking Systems (ATS) son software que automatizan la gestión de procesos de contratación. Utilizan <GlossaryTerm term="Algoritmo">algoritmos</GlossaryTerm> de procesamiento de lenguaje natural (PLN) e inteligencia artificial para analizar currículos, identificar palabras clave relevantes y clasificar candidatos.</p>
 
     <Accordion title="¿Cómo funcionan los ATS?">
@@ -69,15 +83,15 @@ export const EticaContent = () => (
     </InfoCard>
 
     <Accordion title="Tipos de sesgos documentados en ATS">
-        <ul className="list-disc list-inside space-y-3 text-slate-300">
+        <ul className="space-y-3 text-slate-300">
             <li><strong>Sesgo de género:</strong> Penalización de lagunas laborales (que afectan desproporcionadamente a mujeres), favorecimiento de lenguaje "asertivo" sobre "colaborativo".</li>
             <li><strong>Sesgo racial y étnico:</strong> Discriminación basada en nombres que suenan "étnicos" o códigos postales asociados con comunidades minoritarias.</li>
-            <li><strong>Sesgo por edad:</strong> Discriminación contra candidatos mayores si los datos de entrenamiento favorecen contrataciones recientes de profesionales jóvenes.</li>
+            <li><strong>Sesgo por edad:</strong> Discriminación contra candidatos mayores si los datos de entrenamiento favorecen contrataciones recientes de personas jóvenes.</li>
             <li><strong>Sesgo por discapacidad:</strong> Penalización de historiales laborales no tradicionales o rechazo de formatos de CV adaptados para tecnologías de asistencia.</li>
         </ul>
     </Accordion>
 
-    <h2 id="sec-3-3" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">II. El ecosistema de la IAGen para optimización de CVs</h2>
+    <h2 id="sec-3-4" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">III. El ecosistema de la IAGen para optimización de CV</h2>
     
     <Accordion title="Tipos de herramientas de IAGen disponibles">
         <div className="grid md:grid-cols-2 gap-6">
@@ -96,7 +110,7 @@ export const EticaContent = () => (
         </div>
     </Accordion>
 
-    <h3 className="text-xl font-bold mt-6 mb-4 text-indigo-300">El continuo ético: De la optimización legítima a la fabricación</h3>
+    <h3 className="text-xl font-bold mt-6 mb-4 text-indigo-300">El continuo ético: de la optimización legítima a la fabricación</h3>
     <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse">
             <thead>
@@ -131,11 +145,11 @@ export const EticaContent = () => (
         </table>
     </div>
 
-    <h2 id="sec-3-4" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">III. Marco ético de la UNESCO para la inteligencia artificial</h2>
+    <h2 id="sec-3-5" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">IV. Marco ético de la UNESCO para la inteligencia artificial</h2>
     <p>La Recomendación sobre la ética de la inteligencia artificial (UNESCO, 2021) proporciona principios rectores aplicables al dilema de SofIA.</p>
 
     <Accordion title="Principios éticos fundamentales aplicados">
-        <ul className="list-disc list-inside space-y-3 text-slate-300">
+        <ul className="space-y-3 text-slate-300">
             <li><strong>Proporcionalidad e inocuidad:</strong> Los sistemas de IA no deben causar daño y su uso debe ser proporcional al objetivo perseguido.</li>
             <li><strong>Equidad y no discriminación:</strong> Los sistemas de IA deben ser inclusivos y accesibles para todos, sin crear o reforzar sesgos injustos.</li>
             <li><strong>Derecho a la intimidad:</strong> La privacidad debe protegerse. SofIA debe tener derecho a saber qué datos personales recopila la herramienta de IAGen.</li>
@@ -144,7 +158,7 @@ export const EticaContent = () => (
         </ul>
     </Accordion>
 
-    <h2 id="sec-3-5" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">IV. Análisis de casos prácticos</h2>
+    <h2 id="sec-3-6" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">V. Análisis de casos prácticos</h2>
     
     <div className="space-y-6">
         <InfoCard type="conexion" title="1. El 'traductor' de currículos">
@@ -163,9 +177,27 @@ export const EticaContent = () => (
         </InfoCard>
     </div>
 
-    <h2 id="sec-3-6" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">V. Reflexión final y síntesis</h2>
+    <h2 id="sec-3-7" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">VI. El problema del rey Midas: alineación de valores</h2>
+    <p className="mb-4">"Si usamos... una agencia mecánica en cuya operación no podemos interferir eficazmente... será mejor que estemos muy seguros de que el propósito introducido en la máquina es el propósito que realmente deseamos". - Norbert Wiener, 1960.</p>
+    
+    <InfoCard type="reflexion" title="¿Qué es el problema del rey Midas?">
+        <p>En IA, esto se conoce como el <strong>problema de alineación de valores</strong>. Consiste en obtener literalmente lo que se pide, no lo que se quiere, con consecuencias desastrosas. Un sistema superinteligente que persigue un objetivo imperfecto podría tener consecuencias negativas a gran escala.</p>
+    </InfoCard>
+
+    <Accordion title="🎯 La trampa de la utilidad y el riesgo de la automatización">
+        <div className="space-y-4">
+            <InfoCard type="conexion" title="Riesgo: pobreza de atención">
+                <p>Optimizar 'Clicks' no es lo mismo que optimizar 'Bienestar Humano'. Herbert Simon señaló que la riqueza de información crea pobreza de atención.</p>
+            </InfoCard>
+            <InfoCard type="practica" title="Solución: Inverse Reinforcement Learning (IRL)">
+                <p>En lugar de codificar recompensas fijas, el agente observa el comportamiento experto para inferir preferencias subyacentes. El objetivo no es crear agentes simplemente inteligentes, sino agentes <strong>demostrablemente beneficiosos</strong>.</p>
+            </InfoCard>
+        </div>
+    </Accordion>
+
+    <h2 id="sec-3-8" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">VII. Reflexión final y síntesis</h2>
     <InfoCard type="idea" title="Lecciones fundamentales">
-        <ul className="list-disc list-inside space-y-3">
+        <ul className="space-y-3">
             <li><strong>La ética no es un estado binario:</strong> Existe un espectro entre usos claramente aceptables y claramente inaceptables.</li>
             <li><strong>La autenticidad es negociable, la veracidad no:</strong> SofIA puede adaptar su tono y lenguaje, pero no puede fabricar experiencias inexistentes.</li>
             <li><strong>Los sistemas injustos no justifican respuestas igualmente problemáticas:</strong> Aunque los ATS contienen sesgos, esto no otorga carta blanca para el engaño.</li>

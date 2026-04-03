@@ -4,7 +4,7 @@ import {
   BookOpen, ChevronLeft, ChevronRight, Menu, X, 
   Sparkles, BrainCircuit, AlertTriangle, MapPin, 
   TerminalSquare, ShieldCheck, Rocket, CheckCircle2,
-  Info, Lightbulb, Link as LinkIcon, XCircle
+  Info, Lightbulb, Link as LinkIcon, XCircle, Copy, Check
 } from 'lucide-react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -15,16 +15,30 @@ export function cn(...inputs: ClassValue[]) {
 
 // --- GLOSSARY DATA ---
 export const glossaryTerms: Record<string, string> = {
-  "IA generativa": "Tipo de inteligencia artificial capaz de crear contenido nuevo (texto, imágenes, código, etc.) a partir de patrones aprendidos en grandes volúmenes de datos.",
-  "IA tradicional": "Sistemas de IA diseñados principalmente para analizar datos, reconocer patrones y hacer predicciones o clasificaciones basadas en reglas predefinidas o entrenamiento previo, sin generar contenido original.",
-  "Alucinaciones": "Respuestas generadas por un modelo de IA que suenan plausibles y convincentes, pero que son incorrectas o no están basadas en hechos reales.",
-  "Prompt": "Instrucción o texto de entrada que se proporciona a un modelo de IA generativa para guiar su respuesta o creación de contenido.",
-  "Algoritmo": "Conjunto de instrucciones o reglas definidas paso a paso que un programa informático sigue para realizar una tarea o resolver un problema.",
-  "Sesgos": "Prejuicios o inclinaciones sistemáticas presentes en los resultados de un modelo de IA, generalmente derivados de los datos con los que fue entrenado.",
-  "LLM": "Large Language Model (Gran Modelo de Lenguaje). Un modelo de IA entrenado con cantidades masivas de texto para entender y generar lenguaje humano.",
-  "RAG": "Retrieval-Augmented Generation. Técnica que mejora las respuestas de un LLM conectándolo a una base de datos externa para obtener información actualizada y precisa.",
-  "Agente Autónomo": "Sistema de IA que puede percibir su entorno, tomar decisiones y ejecutar acciones de forma independiente para alcanzar un objetivo específico.",
-  "Multimodalidad": "Capacidad de un modelo de IA para procesar y generar múltiples tipos de datos simultáneamente, como texto, imágenes, audio y video."
+  "IA generativa": "Rama de la inteligencia artificial que crea contenido original (texto, imágenes, audio o código) a partir de patrones aprendidos en grandes volúmenes de datos.",
+  "IA tradicional": "Sistemas diseñados para analizar datos, reconocer patrones y realizar predicciones o clasificaciones basadas en reglas, sin generar contenido nuevo.",
+  "Alucinaciones": "Fenómeno donde un modelo de IA genera información que parece coherente y verídica, pero que es incorrecta o inventada.",
+  "Prompt": "Instrucción, pregunta o texto de entrada que se proporciona a un modelo de IA para guiar su respuesta o la creación de contenido.",
+  "Algoritmo": "Conjunto de reglas o pasos lógicos que un sistema informático sigue para procesar información y resolver una tarea específica.",
+  "Sesgos": "Prejuicios o errores sistemáticos en los resultados de la IA, causados generalmente por desequilibrios en los datos usados durante su entrenamiento.",
+  "LLM (Large Language Model)": "Gran modelo de lenguaje. Modelo de IA entrenado con billones de palabras para comprender y generar lenguaje humano de forma natural.",
+  "LLM": "Siglas de Large Language Model (gran modelo de lenguaje). Modelo de IA entrenado con billones de palabras para comprender y generar lenguaje humano.",
+  "RAG (Retrieval-Augmented Generation)": "Técnica que permite a la IA consultar fuentes externas de confianza en tiempo real para dar respuestas más precisas, actualizadas y fundamentadas.",
+  "RAG": "Siglas de Retrieval-Augmented Generation. Técnica que permite a la IA consultar fuentes externas de confianza para dar respuestas más precisas y actualizadas.",
+  "Agente autónomo": "Sistema de IA capaz de percibir su entorno, razonar sobre objetivos y ejecutar acciones de forma independiente para completar tareas complejas sin intervención humana constante.",
+  "Multimodalidad": "Capacidad de un modelo de IA para procesar, entender y generar simultáneamente diferentes tipos de datos, como texto, imagen y sonido.",
+  "Token": "Unidad mínima de información (como una sílaba o palabra corta) que los modelos de lenguaje utilizan para procesar y generar texto.",
+  "Temperatura": "Parámetro de configuración que determina el nivel de creatividad o aleatoriedad en las respuestas de un modelo de IA.",
+  "Alineación": "Campo de estudio que busca asegurar que los objetivos y comportamientos de los sistemas de IA coincidan con los valores e intenciones humanas.",
+  "Ingeniería de prompts": "Práctica de diseñar, refinar y optimizar las instrucciones de entrada para obtener los mejores resultados posibles de un modelo de IA.",
+  "Parámetros": "Variables internas de un modelo de IA que se ajustan durante el entrenamiento y que determinan cómo el sistema procesa la información.",
+  "Aprendizaje supervisado": "Tipo de aprendizaje automático donde el modelo se entrena con datos etiquetados, es decir, con ejemplos que ya incluyen la respuesta correcta.",
+  "Aprendizaje no supervisado": "Método de entrenamiento donde el modelo busca patrones, estructuras o agrupaciones en datos que no tienen etiquetas ni respuestas predefinidas.",
+  "Aprendizaje por refuerzo": "Técnica de aprendizaje basada en la interacción con un entorno, donde el sistema recibe recompensas o penalizaciones para aprender a tomar decisiones óptimas.",
+  "Transfer Learning": "Capacidad de un modelo para aplicar conocimientos adquiridos en una tarea previa a un problema nuevo pero relacionado, acelerando su entrenamiento.",
+  "Agent-based modeling": "Modelado basado en agentes. Simulación computacional donde múltiples 'agentes' autónomos interactúan en un entorno. En el desarrollo profesional, ayuda a predecir dinámicas de mercado y comportamientos organizacionales.",
+  "Simulated annealing": "Recocido simulado. Algoritmo de optimización inspirado en la metalurgia. En IA, permite a los modelos escapar de soluciones subóptimas (óptimos locales) para encontrar la mejor estrategia global, útil para resolver problemas complejos de planificación.",
+  "Genetic algorithms": "Algoritmos genéticos. Métodos de búsqueda y optimización basados en la evolución natural (selección, mutación, cruce). Se utilizan en IA para evolucionar soluciones a problemas complejos, iterando estrategias hasta encontrar la más eficiente."
 };
 
 export const GlossaryTerm = ({ term, children }: { term: string; children?: React.ReactNode }) => {
@@ -34,7 +48,7 @@ export const GlossaryTerm = ({ term, children }: { term: string; children?: Reac
   return (
     <span className="relative inline-block group">
       <button 
-        className="text-indigo-400 font-semibold underline decoration-indigo-400/50 decoration-dotted underline-offset-4 hover:text-indigo-300 transition-colors cursor-help"
+        className="text-indigo-300 font-medium border-b border-indigo-400/30 hover:border-indigo-400 hover:text-indigo-200 transition-all duration-300 cursor-help"
         onClick={() => setIsOpen(!isOpen)}
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
@@ -44,39 +58,40 @@ export const GlossaryTerm = ({ term, children }: { term: string; children?: Reac
       </button>
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.span 
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            className="absolute z-50 bottom-full left-1/2 transform -translate-x-1/2 mb-3 w-72 p-4 bg-slate-800/95 backdrop-blur-xl border border-indigo-500/30 text-slate-200 text-sm rounded-xl shadow-2xl pointer-events-none"
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="absolute z-50 bottom-full left-1/2 transform -translate-x-1/2 mb-3 w-72 p-5 bg-slate-800/95 backdrop-blur-xl border border-indigo-500/30 text-slate-200 text-sm rounded-2xl shadow-2xl pointer-events-none"
           >
-            <strong className="block text-indigo-300 mb-1 font-mono text-xs uppercase tracking-wider">{term}</strong>
+            <strong className="block text-indigo-300 mb-2 font-mono text-xs uppercase tracking-wider">{term}</strong>
             <span className="leading-relaxed">{definition}</span>
-            <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-8 border-transparent border-t-slate-800/95"></div>
-          </motion.div>
+            <span className="absolute top-full left-1/2 transform -translate-x-1/2 border-8 border-transparent border-t-slate-800/95"></span>
+          </motion.span>
         )}
       </AnimatePresence>
     </span>
   );
 };
 
-export const InfoCard = ({ type, title, children }: { type: 'idea' | 'conexion' | 'definicion' | 'reflexion' | 'practica'; title?: string; children: React.ReactNode; }) => {
+export const InfoCard = ({ type, title, children }: { type: 'idea' | 'conexion' | 'definicion' | 'reflexion' | 'practica' | 'ejemplo'; title?: string; children: React.ReactNode; }) => {
   const styles = {
     idea: { bg: 'bg-amber-500/10', border: 'border-amber-500/30', icon: Lightbulb, iconColor: 'text-amber-400' },
     conexion: { bg: 'bg-emerald-500/10', border: 'border-emerald-500/30', icon: LinkIcon, iconColor: 'text-emerald-400' },
     definicion: { bg: 'bg-blue-500/10', border: 'border-blue-500/30', icon: Info, iconColor: 'text-blue-400' },
     reflexion: { bg: 'bg-purple-500/10', border: 'border-purple-500/30', icon: BrainCircuit, iconColor: 'text-purple-400' },
     practica: { bg: 'bg-pink-500/10', border: 'border-pink-500/30', icon: TerminalSquare, iconColor: 'text-pink-400' },
+    ejemplo: { bg: 'bg-indigo-500/10', border: 'border-indigo-500/30', icon: Rocket, iconColor: 'text-indigo-400' },
   };
 
   const currentStyle = styles[type];
   const Icon = currentStyle.icon;
 
   return (
-    <div className={cn("relative p-6 rounded-2xl border backdrop-blur-sm my-6", currentStyle.bg, currentStyle.border)}>
+    <div className={cn("relative p-6 rounded-2xl backdrop-blur-sm my-8 bg-gradient-to-br from-slate-800/80 via-slate-900/80 to-slate-950/80 border border-white/10 hover:border-indigo-500/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-1")}>
       <div className="flex items-start gap-4">
-        <div className={cn("p-2 rounded-lg bg-slate-900/50 border border-white/5", currentStyle.iconColor)}>
+        <div className={cn("p-3 rounded-xl bg-slate-900/50 border border-white/5 shadow-inner", currentStyle.iconColor)}>
           <Icon size={24} />
         </div>
         <div className="flex-1">
@@ -166,24 +181,35 @@ export const QuizComponent = ({ quiz }: { quiz: QuizData }) => {
             "px-6 py-3 rounded-xl font-medium transition-all duration-300",
             selectedOption === null 
               ? "bg-slate-800 text-slate-500 cursor-not-allowed" 
-              : "bg-indigo-600 hover:bg-indigo-500 text-white shadow-[0_0_15px_rgba(79,70,229,0.3)]"
+              : "bg-indigo-600 hover:bg-indigo-500 text-white shadow-[0_0_15px_rgba(79,70,229,0.3)] hover:shadow-[0_0_25px_rgba(79,70,229,0.5)] hover:-translate-y-0.5"
           )}
         >
           Comprobar respuesta
         </button>
       ) : (
         <motion.div 
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 10, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ type: "spring", bounce: 0.4 }}
           className={cn(
-            "p-5 rounded-xl border mt-6",
+            "p-6 rounded-xl border mt-6 relative overflow-hidden",
             isCorrect ? "bg-emerald-500/10 border-emerald-500/30" : "bg-amber-500/10 border-amber-500/30"
           )}
         >
-          <h4 className={cn("font-bold mb-2", isCorrect ? "text-emerald-400" : "text-amber-400")}>
-            {isCorrect ? "¡Correcto!" : "Respuesta incorrecta"}
+          {isCorrect && (
+            <motion.div 
+              initial={{ scale: 0, opacity: 0, rotate: -45 }}
+              animate={{ scale: 1, opacity: 0.1, rotate: 0 }}
+              transition={{ duration: 0.5 }}
+              className="absolute -right-4 -top-4 text-emerald-500 pointer-events-none"
+            >
+              <Sparkles size={120} />
+            </motion.div>
+          )}
+          <h4 className={cn("font-bold text-lg mb-3 flex items-center gap-2", isCorrect ? "text-emerald-400" : "text-amber-400")}>
+            {isCorrect ? <><CheckCircle2 size={24} /> ¡Excelente!</> : <><AlertTriangle size={24} /> Sigue intentando</>}
           </h4>
-          <p className="text-slate-300 text-sm leading-relaxed">{quiz.explanation}</p>
+          <p className="text-slate-300 text-base leading-relaxed relative z-10">{quiz.explanation}</p>
         </motion.div>
       )}
     </div>
@@ -193,13 +219,22 @@ export const QuizComponent = ({ quiz }: { quiz: QuizData }) => {
 export const Accordion = ({ title, children }: { title: string, children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="mb-4 rounded-xl border border-slate-700 bg-slate-800/50 overflow-hidden">
+    <div className={cn(
+      "mb-4 rounded-xl border transition-all duration-300 overflow-hidden",
+      isOpen ? "border-indigo-500/30 bg-slate-800/80 shadow-lg" : "border-slate-700 bg-slate-800/40 hover:bg-slate-800/60"
+    )}>
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-6 py-4 flex justify-between items-center font-bold text-slate-200 hover:bg-slate-700/50 transition-colors"
+        className="w-full px-6 py-5 flex justify-between items-center font-bold text-slate-200 transition-colors"
       >
-        <span>{title}</span>
-        <span className="text-xl">{isOpen ? '−' : '+'}</span>
+        <span className="text-left pr-4">{title}</span>
+        <motion.span 
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+          className="text-indigo-400 flex-shrink-0"
+        >
+          <ChevronRight size={20} className={isOpen ? "rotate-90" : ""} />
+        </motion.span>
       </button>
       <AnimatePresence>
         {isOpen && (
@@ -207,9 +242,12 @@ export const Accordion = ({ title, children }: { title: string, children: React.
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="px-6 pb-4 text-slate-300"
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="px-6 pb-5 text-slate-300"
           >
-            {children}
+            <div className="pt-2 border-t border-white/5">
+              {children}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -217,18 +255,36 @@ export const Accordion = ({ title, children }: { title: string, children: React.
   );
 };
 
-export const AuthorNote = ({ children }: { children: React.ReactNode }) => {
+export const AuthorNote = ({ title = "Nota del autor", children }: { title?: string; children: React.ReactNode }) => {
   return (
-    <div className="my-8 p-6 rounded-2xl bg-indigo-900/20 border border-indigo-500/30 flex items-start gap-4">
+    <div className="my-8 p-6 rounded-2xl bg-indigo-700/15 border border-indigo-500/30 flex items-start gap-4">
       <div className="p-2 rounded-lg bg-indigo-900/50 border border-indigo-500/20 text-indigo-400">
         <Info size={24} />
       </div>
       <div className="flex-1">
-        <h4 className="font-bold text-lg mb-2 text-indigo-400">Nota del autor</h4>
+        <h4 className="font-extrabold text-lg mb-2 text-indigo-400 tracking-tight">{title}</h4>
         <div className="text-slate-300 leading-relaxed text-sm md:text-base italic">
           {children}
         </div>
       </div>
     </div>
+  );
+};
+
+export const CopyButton = ({ text }: { text: string }) => {
+  const [copied, setCopied] = useState(false);
+  const handleCopy = () => {
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+  return (
+    <button 
+      onClick={handleCopy} 
+      className="p-1.5 rounded-md bg-slate-800 border border-slate-700 text-slate-400 hover:text-indigo-400 hover:border-indigo-500/50 transition-all"
+      title="Copiar prompt"
+    >
+      {copied ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
+    </button>
   );
 };

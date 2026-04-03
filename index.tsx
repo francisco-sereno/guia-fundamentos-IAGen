@@ -14,6 +14,7 @@ import { Modulo1Content } from './src/chapters/Modulo1';
 import { Modulo2Content } from './src/chapters/Modulo2';
 import { CatalogoContent } from './src/chapters/Catalogo';
 import { EticaContent } from './src/chapters/Etica';
+import { FuturoContent } from './src/chapters/Futuro';
 import { ReferenciasContent } from './src/chapters/Referencias';
 import { QuizComponent } from './src/components/Shared';
 
@@ -32,23 +33,24 @@ const chapters = [
     subtitles: [
       "Introducción: el caso de SofIA",
       "¿Qué es la inteligencia artificial?",
+      "La trayectoria de la IA: ciclos de entusiasmo y realidad",
       "Modelos y agentes de IA",
       "¿Qué es la inteligencia artificial generativa?",
       "Mitos de la IA",
-      "Funcionamiento técnico",
-      "Aplicación práctica",
-      "Ingeniería de prompts",
+      "Funcionamiento técnico: ¿cómo funciona realmente?",
+      "Aplicación práctica: el diagnóstico de competencias con SofIA",
+      "Ingeniería de prompts: la clave del éxito",
       "Democratización del acceso profesional"
     ],
     icons: [
-      Info, BrainCircuit, BrainCircuit, Sparkles, AlertTriangle, 
-      TerminalSquare, MapPin, TerminalSquare, Rocket
+      Info, BrainCircuit, BookOpen, BrainCircuit, Sparkles, 
+      AlertTriangle, TerminalSquare, MapPin, TerminalSquare, Rocket
     ],
     quiz: {
       question: "¿Cuál es la principal diferencia que introduce la IA generativa en el contexto laboral actual?",
       options: [
         "Reemplaza completamente la necesidad de trabajadores humanos en tareas creativas.",
-        "Permite crear contenido nuevo original, transformando cómo los profesionales abordan sus tareas diarias.",
+        "Permite crear contenido nuevo original, transformando cómo las personas abordan sus tareas diarias.",
         "Solo sirve para analizar datos numéricos y crear gráficos estadísticos.",
         "Es una tecnología exclusiva para programadores y científicos de datos."
       ],
@@ -58,13 +60,13 @@ const chapters = [
   },
   {
     id: "modulo2",
-    title: "Ingeniería de Prompts",
+    title: "Ingeniería de prompts",
     icon: TerminalSquare,
     content: <Modulo2Content />,
     subtitles: [
-      "Introducción",
+      "Introducción al paradigma de la ingeniería de contexto",
       "Fundamentos teóricos",
-      "Técnicas avanzadas de prompting",
+      "Interacción paramétrica e inferencia condicionada",
       "Caso de estudio: SofIA",
       "Buenas prácticas y errores comunes",
       "Conclusión y perspectivas futuras"
@@ -84,13 +86,14 @@ const chapters = [
   },
   {
     id: "catalogo",
-    title: "Catálogo de Técnicas",
+    title: "Catálogo de técnicas",
     icon: Sparkles,
     content: <CatalogoContent />,
     subtitles: [
-      "Introducción al catálogo"
+      "Introducción al catálogo",
+      "Tabla resumen de técnicas"
     ],
-    icons: [Sparkles],
+    icons: [Sparkles, TerminalSquare],
     quiz: {
       question: "¿Qué técnica de prompting implica proporcionar algunos ejemplos del tipo de respuesta que esperas?",
       options: [
@@ -105,21 +108,23 @@ const chapters = [
   },
   {
     id: "etica",
-    title: "Autenticidad y Ética",
+    title: "Autenticidad y ética",
     icon: ShieldCheck,
     content: <EticaContent />,
     subtitles: [
       "Introducción",
-      "Caso de estudio: El dilema de SofIA",
-      "Los sistemas ATS: ¿Eficiencia o sesgo algorítmico?",
-      "El ecosistema de la IAGen para optimización de CVs",
+      "Caso de estudio: el dilema de SofIA",
+      "La crisis de la 'caja negra': interpretabilidad y sesgos algorítmicos",
+      "Los sistemas ATS: ¿eficiencia o sesgo algorítmico?",
+      "El ecosistema de la IAGen para optimización de CV",
       "Marco ético de la UNESCO para la inteligencia artificial",
       "Análisis de casos prácticos",
+      "El problema del rey Midas: alineación de valores",
       "Reflexión final y síntesis"
     ],
-    icons: [Info, Lightbulb, AlertTriangle, TerminalSquare, ShieldCheck, CheckCircle2, Rocket],
+    icons: [Info, Lightbulb, BrainCircuit, AlertTriangle, TerminalSquare, ShieldCheck, CheckCircle2, ShieldCheck, Rocket],
     quiz: {
-      question: "Según el continuo ético en la optimización de CVs, ¿qué acción se considera 'Claramente inaceptable'?",
+      question: "Según el continuo ético en la optimización de CV, ¿qué acción se considera 'claramente inaceptable'?",
       options: [
         "Uso de IA para mejorar la presentación sin alterar hechos.",
         "Reformulación de experiencias que exagera sutilmente el nivel de responsabilidad.",
@@ -128,6 +133,33 @@ const chapters = [
       ],
       correctAnswerIndex: 3,
       explanation: "La fabricación de información falsa, como inventar títulos académicos o proyectos inexistentes, cruza la línea hacia lo éticamente inaceptable y constituye un engaño."
+    }
+  },
+  {
+    id: "futuro",
+    title: "El futuro de la IA",
+    icon: Rocket,
+    content: <FuturoContent />,
+    subtitles: [
+      "Hacia una inteligencia general e integrada",
+      "El 'momento PC' de la robótica",
+      "Desafíos de escala y representación",
+      "Transición neurológica: la cognición versus la consciencia artificial",
+      "El horizonte final de eventos: inteligencia artificial general y la singularidad tecnológica",
+      "De la alquimia a la ingeniería de sistemas",
+      "Impacto, responsabilidad y riesgos"
+    ],
+    icons: [BrainCircuit, MapPin, AlertTriangle, BrainCircuit, Sparkles, TerminalSquare, ShieldCheck],
+    quiz: {
+      question: "¿Cuál es el principal desafío de la 'parálisis de la escala' en la planificación de la IA?",
+      options: [
+        "La falta de potencia computacional para procesar datos.",
+        "La dificultad de los algoritmos actuales para escalar a planes de millones de pasos.",
+        "La imposibilidad de entrenar modelos con datos no etiquetados.",
+        "El alto costo de los sensores LIDAR y RADAR."
+      ],
+      correctAnswerIndex: 1,
+      explanation: "La parálisis de la escala se refiere a que los algoritmos de búsqueda actuales solo escalan a decenas de pasos, mientras que tareas humanas complejas requieren millones de pasos primitivos."
     }
   },
   {
@@ -144,7 +176,9 @@ const InteractiveBook = () => {
   const [currentChapterIndex, setCurrentChapterIndex] = useState(0);
   const [activeSubtitleIndex, setActiveSubtitleIndex] = useState(0);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isFocusMode, setIsFocusMode] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [chapterProgress, setChapterProgress] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -189,9 +223,19 @@ const InteractiveBook = () => {
       headings.forEach(h => observer.observe(h));
     }, 500);
 
+    const handleScroll = () => {
+      if (!container) return;
+      const { scrollTop, scrollHeight, clientHeight } = container;
+      const progress = (scrollTop / (scrollHeight - clientHeight)) * 100;
+      setChapterProgress(isNaN(progress) ? 0 : progress);
+    };
+
+    container.addEventListener('scroll', handleScroll);
+
     return () => {
       clearTimeout(timeoutId);
       observer.disconnect();
+      container.removeEventListener('scroll', handleScroll);
     };
   }, [currentChapterIndex]);
 
@@ -246,13 +290,14 @@ const InteractiveBook = () => {
       <motion.aside 
         initial={false}
         animate={{ 
-          width: isSidebarOpen ? (isMobile ? '85%' : '320px') : '0px',
-          x: isSidebarOpen ? 0 : (isMobile ? '-100%' : 0)
+          width: isSidebarOpen && !isFocusMode ? (isMobile ? '85%' : '320px') : '0px',
+          x: isSidebarOpen && !isFocusMode ? 0 : (isMobile ? '-100%' : 0),
+          opacity: isSidebarOpen && !isFocusMode ? 1 : 0
         }}
         transition={{ type: 'spring', bounce: 0, duration: 0.4 }}
         className={cn(
           "fixed md:relative z-50 h-screen flex-shrink-0 bg-slate-900/80 backdrop-blur-2xl border-r border-white/10 overflow-hidden flex flex-col",
-          !isSidebarOpen && !isMobile && "md:w-0 md:border-none"
+          (!isSidebarOpen || isFocusMode) && !isMobile && "md:w-0 md:border-none"
         )}
       >
         <div className="p-6 flex items-center justify-between border-b border-white/5">
@@ -342,18 +387,48 @@ const InteractiveBook = () => {
       <main className="flex-1 flex flex-col h-screen overflow-hidden relative">
         
         {/* Top Navigation Bar */}
-        <header className="h-16 flex-shrink-0 flex items-center px-4 md:px-8 border-b border-white/5 bg-slate-950/50 backdrop-blur-md sticky top-0 z-30">
-          <button 
-            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            className="p-2 -ml-2 rounded-lg hover:bg-white/5 text-slate-400 transition-colors"
-          >
-            <Menu size={24} />
-          </button>
-          
-          <div className="ml-4 flex-1 flex justify-center md:justify-start">
+        <header className="h-16 flex-shrink-0 flex items-center justify-between px-4 md:px-8 border-b border-white/5 bg-slate-950/80 backdrop-blur-md sticky top-0 z-30">
+          <div className="flex items-center gap-4">
+            <button 
+              onClick={() => {
+                if (isFocusMode) setIsFocusMode(false);
+                setIsSidebarOpen(!isSidebarOpen);
+              }}
+              className="p-2 -ml-2 rounded-lg hover:bg-white/5 text-slate-400 transition-colors"
+              title="Alternar índice"
+            >
+              <Menu size={24} />
+            </button>
             <span className="text-sm font-mono text-slate-500 hidden md:inline-block">
               Capítulo {currentChapterIndex + 1} de {chapters.length}
             </span>
+          </div>
+          
+          <div className="flex items-center gap-4">
+            {!isMobile && (
+              <button
+                onClick={() => setIsFocusMode(!isFocusMode)}
+                className={cn(
+                  "flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-colors border",
+                  isFocusMode 
+                    ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/30" 
+                    : "bg-slate-800/50 text-slate-400 border-white/5 hover:bg-slate-800 hover:text-slate-300"
+                )}
+                title="Modo Lectura"
+              >
+                <BookOpen size={14} />
+                {isFocusMode ? "Modo Lectura Activo" : "Modo Lectura"}
+              </button>
+            )}
+          </div>
+          
+          {/* Chapter Reading Progress Bar */}
+          <div className="absolute bottom-0 left-0 h-[2px] bg-indigo-500/20 w-full">
+            <motion.div 
+              className="h-full bg-indigo-500"
+              style={{ width: `${chapterProgress}%` }}
+              layout
+            />
           </div>
         </header>
 
@@ -362,13 +437,16 @@ const InteractiveBook = () => {
           ref={scrollContainerRef}
           className="flex-1 overflow-y-auto scroll-smooth pb-32 pt-8 px-4 md:px-12 lg:px-24 xl:px-32"
         >
-          <div className="max-w-4xl mx-auto">
+          <div className={cn(
+            "mx-auto transition-all duration-500",
+            isFocusMode ? "max-w-3xl" : "max-w-4xl"
+          )}>
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentChapter.id}
-                initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                exit={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
+                initial={{ opacity: 0, x: 20, filter: 'blur(10px)' }}
+                animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+                exit={{ opacity: 0, x: -20, filter: 'blur(10px)' }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
                 className="min-h-[60vh]"
               >
@@ -403,7 +481,7 @@ const InteractiveBook = () => {
                     : "bg-indigo-600 hover:bg-indigo-500 text-white shadow-[0_0_20px_rgba(79,70,229,0.3)] hover:shadow-[0_0_25px_rgba(79,70,229,0.5)]"
                 )}
               >
-                <span>Siguiente Capítulo</span>
+                <span>Siguiente capítulo</span>
                 <ChevronRight size={20} />
               </button>
             </div>
