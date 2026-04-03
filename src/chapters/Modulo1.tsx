@@ -484,5 +484,14 @@ export const Modulo1Content = () => (
     <InfoCard type="idea" title="Reflexión final">
         <p>La IA generativa no debe verse como un "reemplazo" del desarrollo de competencias humanas, sino como un <strong>"copiloto profesional"</strong> que amplifica nuestras capacidades. El pensamiento crítico, la autenticidad y la verificación constante siguen siendo responsabilidades humanas ineludibles.</p>
     </InfoCard>
+
+    <h2 id="sec-0-10" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">🤔 Preguntas de reflexión</h2>
+    <InfoCard type="reflexion" title="Para profundizar en el capítulo">
+        <ul className="list-disc ml-5 space-y-2 text-slate-300">
+            <li>¿Cómo crees que el caso de SofIA se aplica a tu propia trayectoria profesional?</li>
+            <li>¿Qué mitos sobre la IA te sorprendieron más y por qué?</li>
+            <li>¿De qué manera podrías utilizar la ingeniería de prompts para mejorar tu comunicación profesional?</li>
+        </ul>
+    </InfoCard>
   </div>
 );

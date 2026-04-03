@@ -398,5 +398,14 @@ export const Modulo2Content = () => (
     <h2 id="sec-1-5" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">6. Conclusión y perspectivas futuras</h2>
     <p>La ingeniería de prompts ha evolucionado rápidamente de un conjunto ad-hoc de trucos empíricos a un campo con fundamentos teóricos sólidos y metodologías sistemáticas. Lo que comenzó como simple "prompt tuning" se ha convertido en una disciplina que requiere comprensión de arquitecturas de modelos, lingüística aplicada, diseño de interfaces, y consideraciones éticas profundas.</p>
     <p>A medida que estos sistemas continúan evolucionando, también lo harán las técnicas y metodologías de la ingeniería de prompts. Sin embargo, los principios fundamentales establecidos —claridad, contexto, estructura e iteración sistemática— probablemente permanecerán como pilares de la práctica efectiva.</p>
+
+    <h2 id="sec-1-6" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">🤔 Preguntas de reflexión</h2>
+    <InfoCard type="reflexion" title="Para profundizar en el capítulo">
+        <ul className="list-disc ml-5 space-y-2 text-slate-300">
+            <li>¿Cuál de las técnicas de ingeniería de prompts presentadas te parece más útil para tu trabajo diario?</li>
+            <li>¿Cómo podrías aplicar la técnica de "Chain of Thought" para resolver un problema complejo que enfrentas actualmente?</li>
+            <li>¿Por qué es importante iterar sobre los prompts en lugar de esperar la respuesta perfecta a la primera?</li>
+        </ul>
+    </InfoCard>
   </div>
 );

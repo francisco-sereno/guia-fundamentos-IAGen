@@ -288,3 +288,78 @@ export const CopyButton = ({ text }: { text: string }) => {
     </button>
   );
 };
+
+export const AboutModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
+  if (!isOpen) return null;
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md" onClick={onClose}>
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 20 }}
+        className="bg-slate-900 border border-indigo-500/30 p-8 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl shadow-indigo-500/10"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex justify-between items-start mb-8">
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Acerca de esta guía</h2>
+          <button onClick={onClose} className="p-2 rounded-full hover:bg-slate-800 text-slate-400 hover:text-white transition-colors">
+            <X size={24} />
+          </button>
+        </div>
+        
+        <section className="mb-8">
+          <h3 className="text-lg font-semibold text-indigo-300 mb-3 flex items-center gap-2">
+            <Info size={20} /> Objetivo educativo
+          </h3>
+          <p className="text-slate-300 leading-relaxed bg-slate-800/50 p-4 rounded-xl border border-slate-700">Esta guía interactiva ha sido diseñada para acompañar a profesionales en su proceso de aprendizaje y aplicación de técnicas de *prompting* en la búsqueda de oportunidades laborales, proporcionando un marco ético y práctico.</p>
+        </section>
+
+        <section className="mb-8">
+          <h3 className="text-lg font-semibold text-indigo-300 mb-3 flex items-center gap-2">
+            <Sparkles size={20} /> Funciones principales
+          </h3>
+          <div className="grid grid-cols-2 gap-3">
+            {['Contenido modular', 'Navegación inteligente', 'Glosario interactivo', 'Ejemplos y cuestionarios'].map((item) => (
+              <div key={item} className="flex items-center gap-2 text-slate-300 bg-slate-800/30 p-3 rounded-lg border border-slate-700/50">
+                <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                {item}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <section className="bg-slate-800/30 p-5 rounded-2xl border border-slate-700/50">
+            <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+              <TerminalSquare size={20} className="text-pink-400" /> Stack tecnológico
+            </h3>
+            <ul className="text-slate-400 text-sm space-y-2">
+              <li className="flex items-center gap-2"><span>•</span> React 18</li>
+              <li className="flex items-center gap-2"><span>•</span> TypeScript</li>
+              <li className="flex items-center gap-2"><span>•</span> Vite</li>
+              <li className="flex items-center gap-2"><span>•</span> Tailwind CSS 4</li>
+            </ul>
+          </section>
+          <section className="bg-slate-800/30 p-5 rounded-2xl border border-slate-700/50">
+            <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+              <Rocket size={20} className="text-indigo-400" /> Stack gráfico
+            </h3>
+            <ul className="text-slate-400 text-sm space-y-2">
+              <li className="flex items-center gap-2"><span>•</span> Framer Motion</li>
+              <li className="flex items-center gap-2"><span>•</span> Lucide Icons</li>
+              <li className="flex items-center gap-2"><span>•</span> Inter y Space Grotesk</li>
+            </ul>
+          </section>
+        </div>
+
+        <section className="bg-gradient-to-r from-indigo-900/20 to-purple-900/20 p-6 rounded-2xl border border-indigo-500/20 text-center">
+          <h3 className="text-lg font-semibold text-white mb-2">Créditos</h3>
+          <p className="text-slate-300 mb-4">Desarrollado por Francisco Sereño.</p>
+          <a href="https://www.linkedin.com/in/francisco-sereno/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-medium transition-all shadow-lg shadow-indigo-600/20 hover:shadow-indigo-600/40">
+            <LinkIcon size={18} /> Visitar LinkedIn
+          </a>
+        </section>
+      </motion.div>
+    </div>
+  );
+};

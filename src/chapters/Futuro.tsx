@@ -115,5 +115,14 @@ export const FuturoContent = () => (
     <InfoCard type="idea" title="Conclusión">
       <p>"Solo podemos ver una corta distancia hacia adelante, pero vemos que queda mucho por hacer." — Alan Turing (1950)</p>
     </InfoCard>
+
+    <h2 id="sec-reflexion" className="text-2xl font-bold mt-12 mb-6 text-indigo-400 scroll-mt-24">🤔 Preguntas de reflexión</h2>
+    <div className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700">
+      <ul className="list-decimal list-inside space-y-3 text-slate-300">
+        <li>¿Cómo crees que la evolución de la IA hacia sistemas integrados (robótica) cambiará las habilidades más demandadas en el futuro?</li>
+        <li>¿Qué impacto crees que tendrá la "singularidad tecnológica" en la forma en que entendemos el trabajo y la creatividad humana?</li>
+        <li>¿Cómo podemos prepararnos hoy para un mercado laboral donde la IA sea un colaborador autónomo en lugar de una simple herramienta?</li>
+      </ul>
+    </div>
   </div>
 );

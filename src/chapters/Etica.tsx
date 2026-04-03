@@ -146,19 +146,110 @@ export const EticaContent = () => (
     </div>
 
     <h2 id="sec-3-5" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">IV. Marco ético de la UNESCO para la inteligencia artificial</h2>
-    <p>La Recomendación sobre la ética de la inteligencia artificial (UNESCO, 2021) proporciona principios rectores aplicables al dilema de SofIA.</p>
+    <p className="mb-6">La <em>Recomendación sobre la ética de la inteligencia artificial</em>, adoptada por la UNESCO en 2021, constituye el primer instrumento normativo mundial sobre esta materia. Proporciona un marco universal de valores y principios para orientar el desarrollo de la IA de manera responsable.</p>
 
-    <Accordion title="Principios éticos fundamentales aplicados">
-        <ul className="space-y-3 text-slate-300">
-            <li><strong>Proporcionalidad e inocuidad:</strong> Los sistemas de IA no deben causar daño y su uso debe ser proporcional al objetivo perseguido.</li>
-            <li><strong>Equidad y no discriminación:</strong> Los sistemas de IA deben ser inclusivos y accesibles para todos, sin crear o reforzar sesgos injustos.</li>
-            <li><strong>Derecho a la intimidad:</strong> La privacidad debe protegerse. SofIA debe tener derecho a saber qué datos personales recopila la herramienta de IAGen.</li>
-            <li><strong>Supervisión y decisión humanas:</strong> Las decisiones finales en asuntos que afectan vidas (como la contratación) deben ser tomadas por humanos.</li>
-            <li><strong>Transparencia y explicabilidad:</strong> Si un ATS rechaza a SofIA, ella debería tener derecho a una explicación comprensible sobre los criterios utilizados.</li>
-        </ul>
+    <div className="space-y-4 mb-8">
+        <Accordion title="💎 Valores fundamentales">
+            <div className="grid md:grid-cols-2 gap-4 p-2">
+                <InfoCard type="definicion" title="Derechos humanos y dignidad">
+                    <p className="text-sm">Respeto, protección y promoción de los derechos humanos, las libertades fundamentales y la dignidad humana como base inalienable.</p>
+                </InfoCard>
+                <InfoCard type="definicion" title="Medio ambiente y ecosistemas">
+                    <p className="text-sm">Reconocimiento de la necesidad existencial de proteger el medio ambiente y los ecosistemas para el disfrute de los beneficios de la IA.</p>
+                </InfoCard>
+                <InfoCard type="definicion" title="Diversidad e inclusión">
+                    <p className="text-sm">Garantizar la participación activa de todas las personas y grupos, independientemente de su origen, género o condición.</p>
+                </InfoCard>
+                <InfoCard type="definicion" title="Sociedades pacíficas y justas">
+                    <p className="text-sm">Propiciar un futuro interconectado en beneficio de todos, basado en la solidaridad y la convivencia armónica.</p>
+                </InfoCard>
+            </div>
+        </Accordion>
+
+        <Accordion title="⚖️ Principios rectores">
+            <div className="grid md:grid-cols-2 gap-4 p-2">
+                <div className="space-y-3">
+                    <li className="text-sm text-slate-300"><strong>Proporcionalidad e inocuidad:</strong> El uso de la IA debe ser proporcional al objetivo legítimo y no causar daño.</li>
+                    <li className="text-sm text-slate-300"><strong>Seguridad y protección:</strong> Evitar daños no deseados y vulnerabilidades a ataques durante todo el ciclo de vida.</li>
+                    <li className="text-sm text-slate-300"><strong>Equidad y no discriminación:</strong> Promover la justicia social y combatir sesgos que exacerben desigualdades.</li>
+                    <li className="text-sm text-slate-300"><strong>Sostenibilidad:</strong> Evaluar impactos humanos, sociales, culturales, económicos y ambientales.</li>
+                    <li className="text-sm text-slate-300"><strong>Privacidad y protección de datos:</strong> Garantizar el control de las personas sobre su información personal.</li>
+                </div>
+                <div className="space-y-3">
+                    <li className="text-sm text-slate-300"><strong>Supervisión y decisión humanas:</strong> La responsabilidad ética y jurídica debe recaer siempre en seres humanos.</li>
+                    <li className="text-sm text-slate-300"><strong>Transparencia y explicabilidad:</strong> Los resultados de la IA deben ser inteligibles y sus criterios comprensibles.</li>
+                    <li className="text-sm text-slate-300"><strong>Responsabilidad y rendición de cuentas:</strong> Atribución clara de consecuencias por las decisiones basadas en IA.</li>
+                    <li className="text-sm text-slate-300"><strong>Sensibilización y educación:</strong> Fomentar la alfabetización digital y la capacitación en ética de la IA.</li>
+                    <li className="text-sm text-slate-300"><strong>Gobernanza colaborativa:</strong> Participación de múltiples partes interesadas y cooperación internacional.</li>
+                </div>
+            </div>
+        </Accordion>
+
+        <Accordion title="🌍 Ámbitos de actuación política">
+            <p className="text-sm text-slate-400 mb-4 px-2">La UNESCO identifica 11 áreas críticas donde los gobiernos y organizaciones deben actuar para asegurar una IA ética:</p>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 p-2 mb-6">
+                {[
+                    "Evaluación del impacto ético", "Gobernanza y administración", "Política de datos",
+                    "Cooperación internacional", "Medio ambiente", "Igualdad de género",
+                    "Cultura", "Educación e investigación", "Comunicación e información",
+                    "Economía y trabajo", "Salud y bienestar social"
+                ].map((area, index) => (
+                    <div key={index} className="bg-slate-800/50 border border-slate-700 p-3 rounded-xl text-xs text-indigo-300 font-medium flex items-center gap-2">
+                        <div className="w-5 h-5 rounded-full bg-indigo-500/20 flex items-center justify-center text-[10px] text-indigo-400">{index + 1}</div>
+                        {area}
+                    </div>
+                ))}
+            </div>
+            
+            <div className="space-y-4 px-2">
+                <div className="bg-indigo-500/5 border-l-4 border-indigo-500 p-4 rounded-r-xl">
+                    <h4 className="text-sm font-bold text-indigo-300 mb-1">👩‍💻 Igualdad de género</h4>
+                    <p className="text-xs text-slate-400">Evitar que la IA exacerbe las brechas salariales o la representación desigual. Se deben asignar fondos para planes con perspectiva de género en el desarrollo de IA.</p>
+                </div>
+                <div className="bg-emerald-500/5 border-l-4 border-emerald-500 p-4 rounded-r-xl">
+                    <h4 className="text-sm font-bold text-emerald-300 mb-1">🎓 Educación e investigación</h4>
+                    <p className="text-xs text-slate-400">Promover la adquisición de "competencias previas" (alfabetización básica, aritmética, ética) para que la población pueda usar la IA de forma empoderada.</p>
+                </div>
+                <div className="bg-amber-500/5 border-l-4 border-amber-500 p-4 rounded-r-xl">
+                    <h4 className="text-sm font-bold text-amber-300 mb-1">💼 Economía y trabajo</h4>
+                    <p className="text-xs text-slate-400">Garantizar una transición equitativa para empleados en riesgo mediante programas de perfeccionamiento y reconversión profesional.</p>
+                </div>
+            </div>
+        </Accordion>
+    </div>
+
+    <InfoCard type="idea" title="Aplicación al dilema de SofIA">
+        <p>Siguiendo el marco de la UNESCO, SofIA tiene derecho a la <strong>explicabilidad</strong> (entender por qué un ATS la rechaza) y a la <strong>supervisión humana</strong> (que su perfil no sea descartado sin una revisión final por una persona). Al mismo tiempo, ella debe actuar con <strong>responsabilidad</strong>, asegurando que el uso de herramientas de IA para optimizar su CV no vulnere la veracidad de su información.</p>
+    </InfoCard>
+
+    <h2 id="sec-3-6" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">Definiciones clave según la UNESCO</h2>
+    <p className="mb-6">Para comprender el alcance de la ética, la UNESCO establece definiciones precisas que delimitan responsabilidades:</p>
+
+    <div className="grid md:grid-cols-2 gap-6 mb-8">
+        <InfoCard type="definicion" title="Sistemas de IA">
+            <p className="text-sm">Tecnologías de procesamiento de información que integran modelos y algoritmos que producen una capacidad para aprender y realizar tareas cognitivas, dando lugar a resultados como la predicción y la adopción de decisiones en entornos materiales y virtuales.</p>
+        </InfoCard>
+        <InfoCard type="definicion" title="Actores de la IA">
+            <p className="text-sm">Cualquier persona física o jurídica que participe en al menos una etapa del ciclo de vida de los sistemas de IA (investigadores, programadores, empresas, usuarios finales, etc.).</p>
+        </InfoCard>
+    </div>
+
+    <Accordion title="🔄 El ciclo de vida de la IA">
+        <p className="text-sm text-slate-300 mb-4">La ética no se aplica solo al uso final, sino a todas las etapas:</p>
+        <div className="flex flex-wrap gap-2">
+            {[
+                "Investigación", "Concepción", "Desarrollo", "Despliegue", "Utilización", 
+                "Mantenimiento", "Funcionamiento", "Comercialización", "Financiación", 
+                "Seguimiento", "Evaluación", "Validación", "Desmontaje"
+            ].map((etapa, i) => (
+                <span key={i} className="px-3 py-1 bg-slate-800 border border-slate-700 rounded-full text-xs text-slate-400">
+                    {etapa}
+                </span>
+            ))}
+        </div>
     </Accordion>
 
-    <h2 id="sec-3-6" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">V. Análisis de casos prácticos</h2>
+    <h2 id="sec-3-7" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">V. Análisis de casos prácticos</h2>
     
     <div className="space-y-6">
         <InfoCard type="conexion" title="1. El 'traductor' de currículos">
@@ -177,7 +268,7 @@ export const EticaContent = () => (
         </InfoCard>
     </div>
 
-    <h2 id="sec-3-7" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">VI. El problema del rey Midas: alineación de valores</h2>
+    <h2 id="sec-3-8" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">VI. El problema del rey Midas: alineación de valores</h2>
     <p className="mb-4">"Si usamos... una agencia mecánica en cuya operación no podemos interferir eficazmente... será mejor que estemos muy seguros de que el propósito introducido en la máquina es el propósito que realmente deseamos". - Norbert Wiener, 1960.</p>
     
     <InfoCard type="reflexion" title="¿Qué es el problema del rey Midas?">
@@ -195,7 +286,7 @@ export const EticaContent = () => (
         </div>
     </Accordion>
 
-    <h2 id="sec-3-8" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">VII. Reflexión final y síntesis</h2>
+    <h2 id="sec-3-9" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">VII. Reflexión final y síntesis</h2>
     <InfoCard type="idea" title="Lecciones fundamentales">
         <ul className="space-y-3">
             <li><strong>La ética no es un estado binario:</strong> Existe un espectro entre usos claramente aceptables y claramente inaceptables.</li>
@@ -203,5 +294,14 @@ export const EticaContent = () => (
             <li><strong>Los sistemas injustos no justifican respuestas igualmente problemáticas:</strong> Aunque los ATS contienen sesgos, esto no otorga carta blanca para el engaño.</li>
         </ul>
     </InfoCard>
+
+    <h2 id="sec-reflexion" className="text-2xl font-bold mt-12 mb-6 text-indigo-400 scroll-mt-24">🤔 Preguntas de reflexión</h2>
+    <div className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700">
+      <ul className="list-decimal list-inside space-y-3 text-slate-300">
+        <li>¿Dónde trazas tú la línea ética al usar IA para optimizar tu perfil profesional?</li>
+        <li>¿Cómo puedes equilibrar la necesidad de ser competitivo ante un ATS con la honestidad sobre tus capacidades reales?</li>
+        <li>¿Qué principios del marco de la UNESCO consideras más relevantes para proteger tu propia identidad digital?</li>
+      </ul>
+    </div>
   </div>
 );
