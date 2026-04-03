@@ -172,11 +172,146 @@ const chapters = [
   }
 ];
 
+const AboutModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="absolute inset-0 bg-slate-950/80 backdrop-blur-md"
+          />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            className="relative w-full max-w-2xl max-h-[85vh] bg-slate-900 border border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col"
+          >
+            {/* Header */}
+            <div className="p-6 border-b border-white/5 flex items-center justify-between bg-slate-900/50">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-indigo-500/20 rounded-xl text-indigo-400">
+                  <Info size={24} />
+                </div>
+                <h2 className="text-xl font-bold text-white">Acerca de la Guía</h2>
+              </div>
+              <button 
+                onClick={onClose}
+                className="p-2 hover:bg-white/5 rounded-full text-slate-400 transition-colors"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Content */}
+            <div className="flex-1 overflow-y-auto p-6 md:p-8 space-y-8">
+              {/* Propósito */}
+              <section>
+                <h3 className="text-indigo-400 font-bold mb-3 flex items-center gap-2">
+                  <Sparkles size={18} /> Propósito
+                </h3>
+                <p className="text-slate-300 leading-relaxed">
+                  Esta plataforma educativa interactiva ha sido diseñada para el estudio de los <strong>Fundamentos de la Inteligencia Artificial</strong>. Ofrece una experiencia de aprendizaje inmersiva, estructurada y altamente navegable, facilitando la comprensión de conceptos complejos mediante interactividad y diseño moderno.
+                </p>
+              </section>
+
+              {/* Características */}
+              <section>
+                <h3 className="text-indigo-400 font-bold mb-3 flex items-center gap-2">
+                  <CheckCircle2 size={18} /> Características
+                </h3>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-400">
+                  <li className="flex items-start gap-2">
+                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0" />
+                    Contenido modular y estructurado
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0" />
+                    Navegación inteligente con Scroll Spy
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0" />
+                    Modo Lectura (Focus Mode)
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0" />
+                    Glosario y Quizzes interactivos
+                  </li>
+                </ul>
+              </section>
+
+              {/* Stack */}
+              <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h3 className="text-indigo-400 font-bold mb-3 flex items-center gap-2 text-sm uppercase tracking-wider">
+                    Stack Tecnológico
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {['React 18', 'TypeScript', 'Vite', 'Tailwind CSS 4'].map(tech => (
+                      <span key={tech} className="px-2 py-1 bg-slate-800 border border-white/5 rounded text-xs text-slate-300">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-indigo-400 font-bold mb-3 flex items-center gap-2 text-sm uppercase tracking-wider">
+                    Stack Gráfico
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {['Framer Motion', 'Lucide Icons', 'Inter Font', 'Space Grotesk'].map(tech => (
+                      <span key={tech} className="px-2 py-1 bg-slate-800 border border-white/5 rounded text-xs text-slate-300">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </section>
+
+              {/* Créditos */}
+              <section className="pt-6 border-t border-white/5">
+                <div className="bg-indigo-500/10 border border-indigo-500/20 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-4">
+                  <div>
+                    <p className="text-xs text-indigo-300 uppercase font-bold mb-1">Desarrollado por</p>
+                    <h4 className="text-xl font-bold text-white">Francisco Sereño</h4>
+                  </div>
+                  <a 
+                    href="https://www.linkedin.com/in/franciscosereno/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl transition-all shadow-lg shadow-indigo-500/20 font-medium"
+                  >
+                    <LinkIcon size={18} />
+                    LinkedIn
+                  </a>
+                </div>
+              </section>
+
+              <div className="flex justify-end pt-4">
+                <button 
+                  onClick={onClose}
+                  className="px-6 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl transition-colors text-sm font-medium"
+                >
+                  Cerrar
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
+  );
+};
+
 const InteractiveBook = () => {
   const [currentChapterIndex, setCurrentChapterIndex] = useState(0);
   const [activeSubtitleIndex, setActiveSubtitleIndex] = useState(0);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isFocusMode, setIsFocusMode] = useState(false);
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [chapterProgress, setChapterProgress] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -272,6 +407,7 @@ const InteractiveBook = () => {
 
   return (
     <div className="min-h-screen flex bg-slate-950 text-slate-200 overflow-hidden selection:bg-indigo-500/30">
+      <AboutModal isOpen={isAboutOpen} onClose={() => setIsAboutOpen(false)} />
       
       {/* Mobile Sidebar Overlay */}
       <AnimatePresence>
@@ -405,6 +541,13 @@ const InteractiveBook = () => {
           </div>
           
           <div className="flex items-center gap-4">
+            <button
+              onClick={() => setIsAboutOpen(true)}
+              className="p-2 rounded-lg hover:bg-white/5 text-slate-400 transition-colors"
+              title="Acerca de"
+            >
+              <Info size={20} />
+            </button>
             {!isMobile && (
               <button
                 onClick={() => setIsFocusMode(!isFocusMode)}

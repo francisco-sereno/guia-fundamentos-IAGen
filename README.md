@@ -1,42 +1,65 @@
 # Guía Interactiva: Fundamentos de la IA
 
-Este proyecto es una guía interactiva diseñada como un material de estudio sobre los "Fundamentos de la Inteligencia Artificial". La aplicación presenta el contenido de una manera estructurada y fácil de navegar, enriquecida con elementos interactivos para mejorar la experiencia de aprendizaje.
+Este proyecto es una plataforma educativa interactiva diseñada para el estudio de los **Fundamentos de la Inteligencia Artificial**. La aplicación ofrece una experiencia de aprendizaje inmersiva, estructurada y altamente navegable, integrando elementos visuales y funcionales modernos para facilitar la comprensión de conceptos complejos.
 
-Fue creada utilizando React y TypeScript, y está estilizada con Tailwind CSS para un diseño moderno y responsivo.
+---
 
-## ✨ Características Principales
+## 🚀 Características Principales
 
-- **Contenido Estructurado:** El material está organizado en secciones claras y numeradas, desde la introducción hasta las referencias.
-- **Navegación Dinámica:** Una barra lateral de navegación (índice) que permite saltar a cualquier sección del documento.
-- **Scroll Spy Activo:** La sección actual que se está viendo se resalta automáticamente en el índice de la barra lateral.
-- **Componentes Interactivos:**
-    - **Acordeones:** Las subsecciones están dentro de elementos de acordeón expandibles para mantener la interfaz limpia.
-    - **Tarjetas de Información:** Bloques de contenido estilizados (`idea-destacada`, `card-conexion`, `card-definicion`, etc.) para resaltar conceptos clave, definiciones y ejercicios prácticos.
-- **Diseño Responsivo:** La interfaz se adapta a diferentes tamaños de pantalla, con una barra lateral plegable en dispositivos móviles.
-- **Modal de Información:** Un botón flotante que abre una ventana modal con información sobre el recurso, el autor y la licencia.
+- **Contenido Modular:** Organizado en capítulos temáticos que cubren desde la historia de la IA hasta técnicas avanzadas de prompting y ética.
+- **Navegación Inteligente:** Barra lateral dinámica con sistema de *Scroll Spy* que resalta automáticamente la sección activa.
+- **Modo Lectura (Focus Mode):** Interfaz optimizada para minimizar distracciones y centrar la atención en el contenido.
+- **Progreso en Tiempo Real:** Indicadores visuales de avance tanto a nivel de capítulo como global.
+- **Interactividad Avanzada:**
+    - **Glosario Emergente:** Definiciones instantáneas al pasar el cursor sobre términos técnicos.
+    - **Quizzes Interactivos:** Evaluaciones al final de cada módulo con retroalimentación inmediata.
+    - **Acordeones y Tarjetas:** Organización de contenido mediante elementos expandibles y tarjetas categorizadas (Ideas, Conexiones, Definiciones, Prácticas).
+- **Diseño Responsivo:** Experiencia fluida y adaptada para dispositivos móviles, tablets y computadoras de escritorio.
 
-## 🛠️ Tecnologías Utilizadas
+---
 
-- **React:** Biblioteca de JavaScript para construir la interfaz de usuario con componentes.
-- **TypeScript:** Superset de JavaScript que añade tipado estático para un desarrollo más robusto.
-- **React Hooks (`useState`, `useEffect`, `useRef`):** Para gestionar el estado de los componentes y los efectos secundarios (como la lógica de scroll y eventos).
-- **Tailwind CSS:** Framework de CSS "utility-first" para un diseño rápido y personalizable.
-- **HTML5 & CSS3:** Estructura semántica y estilos personalizados adicionales.
+## 🛠️ Funciones del Sistema
 
-## 📂 Estructura del Proyecto
+1. **Gestión de Capítulos:** Sistema de navegación entre módulos con persistencia de estado.
+2. **Evaluación Continua:** Motor de cuestionarios que valida el conocimiento adquirido en cada sección.
+3. **Copiado de Prompts:** Herramienta integrada para copiar ejemplos de prompts directamente al portapapeles.
+4. **Seguimiento de Lectura:** Cálculo dinámico del porcentaje de lectura basado en el desplazamiento del usuario.
+5. **Interfaz Adaptativa:** Menú lateral colapsable y ajustes de diseño automáticos según el tamaño de pantalla.
 
-- `index.html`: El punto de entrada de la aplicación. Carga las fuentes, scripts de React y el archivo principal de la aplicación.
-- `index.tsx`: Contiene todo el código de la aplicación React. Define los componentes (Sidebar, Section, AccordionItem, etc.) y la lógica de la aplicación principal (`App`).
-- `index.css`: Hoja de estilos personalizada que define las variables de color, estilos base y clases de utilidad para los componentes interactivos.
-- `metadata.json`: Metadatos de la aplicación.
-- `README.md`: Este archivo.
+---
 
-## 🚀 Cómo Empezar
+## 💻 Stack Tecnológico
 
-Para ejecutar esta aplicación, simplemente abre el archivo `index.html` en un navegador web moderno. No se requiere un proceso de compilación, ya que utiliza `esm.sh` para importar los módulos de React directamente en el navegador.
+El desarrollo se basa en tecnologías de vanguardia para asegurar rendimiento y escalabilidad:
 
-## 📄 Licencia
+- **React 18:** Biblioteca principal para la gestión de la interfaz y el estado.
+- **TypeScript:** Tipado estático para garantizar la robustez y mantenibilidad del código.
+- **Vite:** Herramienta de construcción (build tool) ultra rápida para el desarrollo frontend.
+- **Tailwind CSS 4:** Framework de estilos "utility-first" para un diseño altamente personalizado y eficiente.
+- **React Hooks:** Uso intensivo de `useState`, `useEffect`, `useRef` y `useMemo` para la lógica reactiva.
+
+---
+
+## 🎨 Stack Gráfico y Visual
+
+La estética y las animaciones son pilares fundamentales de la experiencia de usuario:
+
+- **Framer Motion:** Biblioteca líder para animaciones fluidas, transiciones de página y micro-interacciones.
+- **Lucide React:** Set de iconos vectoriales consistentes y elegantes para una navegación intuitiva.
+- **Google Fonts (Inter & Space Grotesk):** Tipografía seleccionada para maximizar la legibilidad y el aspecto tecnológico.
+- **Tailwind Merge & CLSX:** Utilidades para la gestión dinámica y eficiente de clases CSS.
+
+---
+
+## 📄 Créditos y Autoría
+
+Este proyecto fue desarrollado íntegramente por:
+
+**Francisco Sereño**  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/franciscosereno/)
+
+---
+
+## ⚖️ Licencia
 
 Este material se distribuye bajo una licencia **Creative Commons (CC BY-NC-SA 4.0)**. Puede ser compartido y adaptado para fines no comerciales, siempre que se otorgue el crédito apropiado al autor original.
-
-**Autor:** Francisco Sereño
