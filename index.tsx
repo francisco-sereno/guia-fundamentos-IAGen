@@ -259,7 +259,7 @@ const InteractiveBook = () => {
           <div className="flex items-center gap-3 text-indigo-400">
             <BookOpen size={24} />
             <div className="flex flex-col">
-              <span className="font-bold text-lg tracking-tight whitespace-nowrap">Guía IA 2026</span>
+              <span className="font-bold text-lg tracking-tight whitespace-nowrap">Dominando la IA</span>
               <span className="text-xs text-slate-500">por Francisco Sereño</span>
             </div>
           </div>
