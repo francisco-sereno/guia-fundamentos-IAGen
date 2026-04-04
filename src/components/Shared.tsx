@@ -4,7 +4,8 @@ import {
   BookOpen, ChevronLeft, ChevronRight, Menu, X, 
   Sparkles, BrainCircuit, AlertTriangle, MapPin, 
   TerminalSquare, ShieldCheck, Rocket, CheckCircle2,
-  Info, Lightbulb, Link as LinkIcon, XCircle, Copy, Check
+  Info, Lightbulb, Link as LinkIcon, XCircle, Copy, Check,
+  Layers, Compass, HelpCircle, Code2, FileCode2, Zap, Palette, MonitorPlay, Smile, Type, User
 } from 'lucide-react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -319,12 +320,18 @@ export const AboutModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
             <Sparkles size={20} /> Funciones principales
           </h3>
           <div className="grid grid-cols-2 gap-3">
-            {['Contenido modular', 'Navegación inteligente', 'Glosario interactivo', 'Ejemplos y cuestionarios'].map((item) => (
-              <div key={item} className="flex items-center gap-2 text-slate-300 bg-slate-800/30 p-3 rounded-lg border border-slate-700/50">
-                <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
-                {item}
-              </div>
-            ))}
+            <div className="flex items-center gap-2 text-slate-300 bg-slate-800/30 p-3 rounded-lg border border-slate-700/50">
+              <Layers size={16} className="text-indigo-400" /> Contenido modular
+            </div>
+            <div className="flex items-center gap-2 text-slate-300 bg-slate-800/30 p-3 rounded-lg border border-slate-700/50">
+              <Compass size={16} className="text-indigo-400" /> Navegación inteligente
+            </div>
+            <div className="flex items-center gap-2 text-slate-300 bg-slate-800/30 p-3 rounded-lg border border-slate-700/50">
+              <BookOpen size={16} className="text-indigo-400" /> Glosario interactivo
+            </div>
+            <div className="flex items-center gap-2 text-slate-300 bg-slate-800/30 p-3 rounded-lg border border-slate-700/50">
+              <HelpCircle size={16} className="text-indigo-400" /> Ejemplos y cuestionarios
+            </div>
           </div>
         </section>
 
@@ -334,10 +341,10 @@ export const AboutModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
               <TerminalSquare size={20} className="text-pink-400" /> Stack tecnológico
             </h3>
             <ul className="text-slate-400 text-sm space-y-2">
-              <li className="flex items-center gap-2"><span>•</span> React 18</li>
-              <li className="flex items-center gap-2"><span>•</span> TypeScript</li>
-              <li className="flex items-center gap-2"><span>•</span> Vite</li>
-              <li className="flex items-center gap-2"><span>•</span> Tailwind CSS 4</li>
+              <li className="flex items-center gap-2"><Code2 size={16} className="text-slate-500" /> React 18</li>
+              <li className="flex items-center gap-2"><FileCode2 size={16} className="text-slate-500" /> TypeScript</li>
+              <li className="flex items-center gap-2"><Zap size={16} className="text-slate-500" /> Vite</li>
+              <li className="flex items-center gap-2"><Palette size={16} className="text-slate-500" /> Tailwind CSS 4</li>
             </ul>
           </section>
           <section className="bg-slate-800/30 p-5 rounded-2xl border border-slate-700/50">
@@ -345,15 +352,17 @@ export const AboutModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
               <Rocket size={20} className="text-indigo-400" /> Stack gráfico
             </h3>
             <ul className="text-slate-400 text-sm space-y-2">
-              <li className="flex items-center gap-2"><span>•</span> Framer Motion</li>
-              <li className="flex items-center gap-2"><span>•</span> Lucide Icons</li>
-              <li className="flex items-center gap-2"><span>•</span> Inter y Space Grotesk</li>
+              <li className="flex items-center gap-2"><MonitorPlay size={16} className="text-slate-500" /> Framer Motion</li>
+              <li className="flex items-center gap-2"><Smile size={16} className="text-slate-500" /> Lucide Icons</li>
+              <li className="flex items-center gap-2"><Type size={16} className="text-slate-500" /> Inter y Space Grotesk</li>
             </ul>
           </section>
         </div>
 
         <section className="bg-gradient-to-r from-indigo-900/20 to-purple-900/20 p-6 rounded-2xl border border-indigo-500/20 text-center">
-          <h3 className="text-lg font-semibold text-white mb-2">Créditos</h3>
+          <h3 className="text-lg font-semibold text-white mb-2 flex items-center justify-center gap-2">
+            <User size={20} className="text-indigo-400" /> Créditos
+          </h3>
           <p className="text-slate-300 mb-4">Desarrollado por Francisco Sereño.</p>
           <a href="https://www.linkedin.com/in/francisco-sereno/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-medium transition-all shadow-lg shadow-indigo-600/20 hover:shadow-indigo-600/40">
             <LinkIcon size={18} /> Visitar LinkedIn
