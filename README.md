@@ -1,53 +1,48 @@
 # Guía interactiva: Fundamentos de la inteligencia artificial
 
-Este proyecto es una plataforma educativa interactiva diseñada para el estudio de los **fundamentos de la inteligencia artificial**. La aplicación ofrece una experiencia de aprendizaje inmersiva, estructurada y altamente navegable, integrando elementos visuales y funcionales modernos para facilitar la comprensión de conceptos complejos.
+Este proyecto es una plataforma educativa interactiva diseñada para el estudio profundo de los **fundamentos de la inteligencia artificial**. La aplicación ofrece una experiencia de aprendizaje inmersiva, estructurada y altamente navegable, integrando elementos visuales y funcionales modernos para facilitar la comprensión de conceptos complejos, desde la arquitectura de los grandes modelos de lenguaje (LLM) hasta la ingeniería de agentes autónomos.
 
 ---
 
 ## 🚀 Características principales
 
-- **Contenido modular:** Organizado en capítulos temáticos que cubren desde la historia de la inteligencia artificial hasta técnicas avanzadas de *prompting* y ética.
-- **Navegación inteligente:** Barra lateral dinámica con sistema de *scroll spy* que resalta automáticamente la sección activa.
-- **Modo lectura (*focus mode*):** Interfaz optimizada para minimizar distracciones y centrar la atención en el contenido.
-- **Progreso en tiempo real:** Indicadores visuales de avance tanto a nivel de capítulo como global.
-- **Interactividad avanzada:**
-    - **Glosario emergente:** Definiciones instantáneas al pasar el cursor sobre términos técnicos.
-    - **Cuestionarios interactivos:** Evaluaciones al final de cada módulo con retroalimentación inmediata.
-    - **Acordeones y tarjetas:** Organización de contenido mediante elementos expandibles y tarjetas categorizadas (ideas, conexiones, definiciones, prácticas).
-- **Diseño responsivo:** Experiencia fluida y adaptada para dispositivos móviles, tabletas y computadoras de escritorio.
+- **Contenido modular y especializado:** Organizado en capítulos que cubren:
+    - **Fundamentos:** Historia, tipos de IA y conceptos base.
+    - **LLM:** Arquitectura Transformer, entrenamiento y mecanismos de atención.
+    - **Ingeniería de prompts:** Técnicas desde *zero-shot* hasta *chain-of-thought*.
+    - **Agentes de IA:** Autonomía, herramientas (APIs, *function calling*, RAG) y sistemas multiagente.
+    - **Ética y futuro:** Sesgos, responsabilidad y la senda hacia la AGI.
+- **Catálogo interactivo de técnicas:** Galería visual y tabla técnica de más de 15 técnicas de *prompting* con ejemplos prácticos y opción de copiado rápido.
+- **Visualización avanzada de conceptos:**
+    - **Diagramas dinámicos:** Arquitectura Transformer simplificada y flujo de trabajo multiagente (orquestador, especialistas y herramientas).
+    - **Tablas comparativas:** Desglose de niveles de autonomía agéntica y comparativa técnica entre RAG y *chain-of-thought*.
+- **Navegación inteligente:** Barra lateral dinámica con sistema de *scroll spy* y progreso de lectura en tiempo real.
+- **Interactividad y accesibilidad:**
+    - **Glosario emergente:** Definiciones instantáneas al pasar el cursor.
+    - **Cuestionarios interactivos:** Evaluaciones modulares con retroalimentación inmediata.
+    - **Norma de capitalización del español:** Todo el contenido sigue estrictamente las reglas gramaticales de capitalización en español.
+- **Referencias académicas:** Bibliografía actualizada siguiendo la norma **APA7**.
 
 ---
 
 ## 🛠️ Funciones del sistema
 
-1. **Gestión de capítulos:** Sistema de navegación entre módulos con persistencia de estado.
-2. **Evaluación continua:** Motor de cuestionarios que valida el conocimiento adquirido en cada sección.
-3. **Copiado de *prompts*:** Herramienta integrada para copiar ejemplos de *prompts* directamente al portapapeles.
-4. **Seguimiento de lectura:** Cálculo dinámico del porcentaje de lectura basado en el desplazamiento del usuario.
-5. **Interfaz adaptativa:** Menú lateral colapsable y ajustes de diseño automáticos según el tamaño de pantalla.
+1. **Gestión de capítulos:** Navegación fluida entre módulos con persistencia de estado y modo lectura (*focus mode*).
+2. **Motor de evaluación:** Sistema de cuestionarios que valida el conocimiento adquirido con validación de respuestas.
+3. **Herramientas de productividad:** Botones integrados para copiar ejemplos de *prompts* optimizados directamente al portapapeles.
+4. **Seguimiento dinámico:** Cálculo del porcentaje de lectura basado en el desplazamiento y la interacción del usuario.
+5. **Interfaz responsiva:** Diseño adaptativo para dispositivos móviles, tabletas y computadoras, con menú lateral colapsable.
 
 ---
 
 ## 💻 Stack tecnológico
 
-El desarrollo se basa en tecnologías de vanguardia para asegurar rendimiento y escalabilidad:
-
-- **React 18:** Biblioteca principal para la gestión de la interfaz y el estado.
-- **TypeScript:** Tipado estático para garantizar la robustez y mantenibilidad del código.
-- **Vite:** Herramienta de construcción (*build tool*) ultra rápida para el desarrollo *frontend*.
-- **Tailwind CSS 4:** *Framework* de estilos *utility-first* para un diseño altamente personalizado y eficiente.
-- **React Hooks:** Uso intensivo de `useState`, `useEffect`, `useRef` y `useMemo` para la lógica reactiva.
-
----
-
-## 🎨 Stack gráfico y visual
-
-La estética y las animaciones son pilares fundamentales de la experiencia de usuario:
-
-- **Framer Motion:** Biblioteca líder para animaciones fluidas, transiciones de página y micro-interacciones.
-- **Lucide React:** Set de iconos vectoriales consistentes y elegantes para una navegación intuitiva.
-- **Google Fonts (Inter y Space Grotesk):** Tipografía seleccionada para maximizar la legibilidad y el aspecto tecnológico.
-- **Tailwind Merge y CLSX:** Utilidades para la gestión dinámica y eficiente de clases CSS.
+- **React 18:** Biblioteca principal para la interfaz reactiva.
+- **TypeScript:** Garantía de robustez y mantenibilidad mediante tipado estático.
+- **Vite:** Herramienta de construcción de alto rendimiento.
+- **Tailwind CSS 4:** Estilos *utility-first* para un diseño moderno y eficiente.
+- **Framer Motion:** Animaciones fluidas, transiciones de página y micro-interacciones de alta calidad.
+- **Lucide React:** Set de iconos vectoriales consistentes para una mejor jerarquía visual.
 
 ---
 

@@ -5,7 +5,7 @@ import {
   BookOpen, ChevronLeft, ChevronRight, Menu, X, 
   Sparkles, BrainCircuit, AlertTriangle, MapPin, 
   TerminalSquare, ShieldCheck, Rocket, CheckCircle2,
-  Info, Lightbulb, Link as LinkIcon
+  Info, Lightbulb, Link as LinkIcon, HelpCircle, Bot, Network, Zap, Layers, Target, GraduationCap, Briefcase, Database, MessageSquare
 } from 'lucide-react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -14,8 +14,11 @@ import { Modulo1Content } from './src/chapters/Modulo1';
 import { Modulo2Content } from './src/chapters/Modulo2';
 import { CatalogoContent } from './src/chapters/Catalogo';
 import { EticaContent } from './src/chapters/Etica';
+import { AgentesContent } from './src/chapters/Agentes';
 import { FuturoContent } from './src/chapters/Futuro';
+import { FAQContent } from './src/chapters/FAQ';
 import { ReferenciasContent } from './src/chapters/Referencias';
+import { LLMContent } from './src/chapters/LLMs';
 import { QuizComponent, AboutModal } from './src/components/Shared';
 
 // Utility for tailwind classes
@@ -40,11 +43,12 @@ const chapters = [
       "Funcionamiento técnico: ¿cómo funciona realmente?",
       "Aplicación práctica: el diagnóstico de competencias con SofIA",
       "Ingeniería de prompts: la clave del éxito",
-      "Democratización del acceso profesional"
+      "Democratización del acceso profesional",
+      "🤔 Preguntas de reflexión"
     ],
     icons: [
       Info, BrainCircuit, BookOpen, BrainCircuit, Sparkles, 
-      AlertTriangle, TerminalSquare, MapPin, TerminalSquare, Rocket
+      AlertTriangle, TerminalSquare, MapPin, TerminalSquare, Rocket, HelpCircle
     ],
     quiz: {
       question: "¿Cuál es la principal diferencia que introduce la IA generativa en el contexto laboral actual?",
@@ -59,6 +63,31 @@ const chapters = [
     }
   },
   {
+    id: "llms",
+    title: "Modelos de lenguaje (LLMs)",
+    icon: Database,
+    content: <LLMContent />,
+    subtitles: [
+      "¿Qué es un LLM?",
+      "La arquitectura Transformer",
+      "El proceso de entrenamiento",
+      "Técnicas de inferencia: RAG vs. CoT",
+      "Configurando la salida del LLM"
+    ],
+    icons: [BrainCircuit, Network, Database, Zap, MessageSquare],
+    quiz: {
+      question: "¿Qué innovación arquitectónica permitió a los modelos de lenguaje procesar texto en paralelo y entender mejor el contexto a largo plazo?",
+      options: [
+        "Redes Neuronales Recurrentes (RNNs)",
+        "La arquitectura Transformer (Mecanismo de Auto-Atención)",
+        "Redes Neuronales Convolucionales (CNNs)",
+        "Sistemas Multiagente"
+      ],
+      correctAnswerIndex: 1,
+      explanation: "La arquitectura Transformer, introducida en 2017, revolucionó el procesamiento del lenguaje natural al permitir el procesamiento paralelo y utilizar el mecanismo de auto-atención para evaluar la importancia de cada palabra en relación con las demás."
+    }
+  },
+  {
     id: "modulo2",
     title: "Ingeniería de prompts",
     icon: TerminalSquare,
@@ -69,9 +98,10 @@ const chapters = [
       "Interacción paramétrica e inferencia condicionada",
       "Caso de estudio: SofIA",
       "Buenas prácticas y errores comunes",
-      "Conclusión y perspectivas futuras"
+      "Conclusión y perspectivas futuras",
+      "🤔 Preguntas de reflexión"
     ],
-    icons: [Info, BrainCircuit, Sparkles, Lightbulb, AlertTriangle, Rocket],
+    icons: [Info, BrainCircuit, Sparkles, Lightbulb, AlertTriangle, Rocket, HelpCircle],
     quiz: {
       question: "¿Qué técnica de prompting consiste en pedirle al modelo que muestre su razonamiento paso a paso?",
       options: [
@@ -90,10 +120,13 @@ const chapters = [
     icon: Sparkles,
     content: <CatalogoContent />,
     subtitles: [
-      "Introducción al catálogo",
-      "Tabla resumen de técnicas"
+      "🎯 Introducción al catálogo",
+      "📚 Fundamentos del catálogo",
+      "🛠️ Galería de técnicas aplicadas",
+      "📊 Tabla resumen de técnicas",
+      "🤔 Preguntas de reflexión"
     ],
-    icons: [Sparkles, TerminalSquare],
+    icons: [Sparkles, BookOpen, Layers, TerminalSquare, HelpCircle],
     quiz: {
       question: "¿Qué técnica de prompting implica proporcionar algunos ejemplos del tipo de respuesta que esperas?",
       options: [
@@ -121,9 +154,10 @@ const chapters = [
       "Definiciones clave según la UNESCO",
       "Análisis de casos prácticos",
       "El problema del rey Midas: alineación de valores",
-      "Reflexión final y síntesis"
+      "Reflexión final y síntesis",
+      "🤔 Preguntas de reflexión"
     ],
-    icons: [Info, Lightbulb, BrainCircuit, AlertTriangle, TerminalSquare, ShieldCheck, BookOpen, CheckCircle2, ShieldCheck, Rocket],
+    icons: [Info, Lightbulb, BrainCircuit, AlertTriangle, TerminalSquare, ShieldCheck, BookOpen, CheckCircle2, ShieldCheck, Rocket, HelpCircle],
     quiz: {
       question: "Según el continuo ético en la optimización de CV, ¿qué acción se considera 'claramente inaceptable'?",
       options: [
@@ -134,6 +168,40 @@ const chapters = [
       ],
       correctAnswerIndex: 3,
       explanation: "La fabricación de información falsa, como inventar títulos académicos o proyectos inexistentes, cruza la línea hacia lo éticamente inaceptable y constituye un engaño."
+    }
+  },
+  {
+    id: "agentes",
+    title: "Agentes de IA",
+    icon: Bot,
+    content: <AgentesContent />,
+    subtitles: [
+      "¿Qué es exactamente un agente de IA?",
+      "Modelos vs. agentes",
+      "La anatomía de un agente",
+      "Tipos de agentes de IA",
+      "Las llaves al mundo exterior: herramientas",
+      "¿Cuándo necesitas realmente un agente?",
+      "Los 5 niveles de autonomía agéntica",
+      "Arquitecturas multiagente y frameworks",
+      "Del concepto al código: construyendo un agente",
+      "Casos de uso reales",
+      "Seguridad y guardrails",
+      "El factor humano: centauros y cyborgs",
+      "Preparando a tu equipo para la IA agéntica",
+      "Caso práctico: el flujo de trabajo agéntico de SofIA"
+    ],
+    icons: [Bot, BrainCircuit, BrainCircuit, Network, Zap, Target, Layers, Network, TerminalSquare, Target, ShieldCheck, Bot, GraduationCap, Briefcase],
+    quiz: {
+      question: "¿Cuál es la principal diferencia entre un chatbot básico y un agente de IA?",
+      options: [
+        "El chatbot puede usar herramientas externas, el agente no.",
+        "El agente es proactivo, puede planificar y usar herramientas para lograr objetivos, mientras el chatbot es reactivo.",
+        "El chatbot tiene memoria a largo plazo, el agente solo a corto plazo.",
+        "No hay diferencia, son dos términos para la misma tecnología."
+      ],
+      correctAnswerIndex: 1,
+      explanation: "A diferencia de un chatbot que solo responde a la entrada inmediata, un agente de IA es proactivo, puede planificar pasos, usar herramientas externas (como APIs) y trabajar de manera autónoma hacia un objetivo."
     }
   },
   {
@@ -148,9 +216,10 @@ const chapters = [
       "Transición neurológica: la cognición versus la consciencia artificial",
       "El horizonte final de eventos: inteligencia artificial general y la singularidad tecnológica",
       "De la alquimia a la ingeniería de sistemas",
-      "Impacto, responsabilidad y riesgos"
+      "Impacto, responsabilidad y riesgos",
+      "🤔 Preguntas de reflexión"
     ],
-    icons: [BrainCircuit, MapPin, AlertTriangle, BrainCircuit, Sparkles, TerminalSquare, ShieldCheck],
+    icons: [BrainCircuit, MapPin, AlertTriangle, BrainCircuit, Sparkles, TerminalSquare, ShieldCheck, HelpCircle],
     quiz: {
       question: "¿Cuál es el principal desafío de la 'parálisis de la escala' en la planificación de la IA?",
       options: [
@@ -162,6 +231,18 @@ const chapters = [
       correctAnswerIndex: 1,
       explanation: "La parálisis de la escala se refiere a que los algoritmos de búsqueda actuales solo escalan a decenas de pasos, mientras que tareas humanas complejas requieren millones de pasos primitivos."
     }
+  },
+  {
+    id: "faq",
+    title: "Preguntas frecuentes",
+    icon: HelpCircle,
+    content: <FAQContent />,
+    subtitles: [
+      "Fundamentos de la IA",
+      "Ingeniería de prompts",
+      "Problemas comunes"
+    ],
+    icons: [BrainCircuit, TerminalSquare, AlertTriangle]
   },
   {
     id: "referencias",
@@ -210,7 +291,7 @@ const InteractiveBook = () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const id = entry.target.id;
-          const match = id.match(/sec-\d+-(\d+)/);
+          const match = id.match(/sec-[a-zA-Z0-9]+-(\d+)/);
           if (match) {
             setActiveSubtitleIndex(parseInt(match[1], 10));
           }
@@ -221,7 +302,7 @@ const InteractiveBook = () => {
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
     const timeoutId = setTimeout(() => {
-      const headings = container.querySelectorAll(`[id^="sec-${currentChapterIndex}-"]`);
+      const headings = container.querySelectorAll(`[id^="sec-${chapters[currentChapterIndex].id}-"]`);
       headings.forEach(h => observer.observe(h));
     }, 500);
 
@@ -265,7 +346,7 @@ const InteractiveBook = () => {
   };
 
   const scrollToSection = (subIdx: number) => {
-    const element = document.getElementById(`sec-${currentChapterIndex}-${subIdx}`);
+    const element = document.getElementById(`sec-${chapters[currentChapterIndex].id}-${subIdx}`);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       if (isMobile) setIsSidebarOpen(false);
@@ -318,7 +399,7 @@ const InteractiveBook = () => {
         </div>
 
         <div className="flex-1 overflow-y-auto py-6 px-4 space-y-2 custom-scrollbar">
-          <div className="text-xs font-mono text-slate-500 uppercase tracking-wider mb-4 px-2">Tabla de Contenidos</div>
+          <div className="text-xs font-mono text-slate-500 uppercase tracking-wider mb-4 px-2">Tabla de contenidos</div>
           {chapters.map((chapter, idx) => {
             const Icon = chapter.icon;
             const isActive = idx === currentChapterIndex;

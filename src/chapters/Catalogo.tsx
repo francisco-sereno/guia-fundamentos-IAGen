@@ -57,19 +57,19 @@ export const CatalogoContent = () => {
     </AuthorNote>
 
     <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-6">Catálogo de técnicas de prompting</h1>
-    <p className="text-xl text-slate-300 mb-8">Caso de estudio: SofIA | Persona en búsqueda de empleo</p>
+    <p className="text-xl text-slate-300 mb-8">Caso de estudio: SofIA | persona en búsqueda de empleo</p>
 
-    <h2 id="sec-2-0" className="text-2xl font-bold mb-4 text-indigo-400 scroll-mt-32">🎯 Introducción al catálogo</h2>
+    <h2 id="sec-catalogo-0" className="text-2xl font-bold mb-4 text-indigo-400 scroll-mt-32">🎯 Introducción al catálogo</h2>
     <p>Este catálogo interactivo te permite explorar y dominar 43 técnicas esenciales de prompting aplicadas al caso de <strong>SofIA</strong>, una persona en búsqueda de empleo que utiliza la IA para potenciar su perfil profesional.</p>
 
-    <h2 id="sec-fundamentos" className="text-2xl font-bold mt-12 mb-6 text-indigo-400 scroll-mt-32">📚 Fundamentos del catálogo</h2>
+    <h2 id="sec-catalogo-1" className="text-2xl font-bold mt-12 mb-6 text-indigo-400 scroll-mt-32">📚 Fundamentos del catálogo</h2>
     <p className="mb-6">Cada técnica presentada aquí ha sido seleccionada por su relevancia en el flujo de trabajo de un profesional moderno. Desde las bases del <em>Zero-shot</em> hasta las fronteras de los sistemas multi-agente, estas herramientas permiten una comunicación precisa y efectiva con los modelos de lenguaje.</p>
     
     <InfoCard type="ejemplo" title="Cómo usar este catálogo">
       Puedes navegar por la galería visual para ver ejemplos rápidos o consultar la tabla resumen al final para una comparativa técnica detallada. Cada ejemplo está diseñado para ser copiado y adaptado a tus propias necesidades.
     </InfoCard>
 
-    <h2 id="sec-galeria" className="text-2xl font-bold mt-12 mb-6 text-indigo-400 scroll-mt-32">🛠️ Galería de técnicas aplicadas</h2>
+    <h2 id="sec-catalogo-2" className="text-2xl font-bold mt-12 mb-6 text-indigo-400 scroll-mt-32">🛠️ Galería de técnicas aplicadas</h2>
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
       {techniques.map((tech, index) => {
         const getTypeStyles = (type) => {
@@ -123,7 +123,7 @@ export const CatalogoContent = () => {
       })}
     </div>
 
-    <h2 id="sec-2-1" className="text-2xl font-bold mt-12 mb-6 text-indigo-400 scroll-mt-32">📊 Tabla resumen de técnicas</h2>
+    <h2 id="sec-catalogo-3" className="text-2xl font-bold mt-12 mb-6 text-indigo-400 scroll-mt-32">📊 Tabla resumen de técnicas</h2>
     <div className="bg-slate-900/80 border border-slate-700 rounded-2xl overflow-hidden">
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse min-w-full md:table block">
@@ -167,7 +167,7 @@ export const CatalogoContent = () => {
         </table>
       </div>
     </div>
-    <h2 id="sec-reflexion" className="text-2xl font-bold mt-12 mb-6 text-indigo-400 scroll-mt-32">🤔 Preguntas de reflexión</h2>
+    <h2 id="sec-catalogo-4" className="text-2xl font-bold mt-12 mb-6 text-indigo-400 scroll-mt-32">🤔 Preguntas de reflexión</h2>
     <div className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700">
       <ul className="list-decimal list-inside space-y-3 text-slate-300">
         <li>¿Qué técnica de prompting te parece más útil para tu situación laboral actual y por qué?</li>

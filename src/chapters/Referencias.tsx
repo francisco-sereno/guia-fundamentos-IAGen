@@ -3,19 +3,23 @@ import React from 'react';
 export const ReferenciasContent = () => (
   <div className="prose-custom">
     <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-6">Referencias</h1>
-    <h2 id="sec-5-0" className="text-2xl font-bold mb-4 text-indigo-400 scroll-mt-24">Recursos y fuentes consultadas</h2>
+    <h2 id="sec-referencias-0" className="text-2xl font-bold mb-4 text-indigo-400 scroll-mt-24">Recursos y fuentes consultadas</h2>
     <ul className="space-y-4 text-slate-300">
-      <li><strong>Google Cloud.</strong> ¿Qué es la inteligencia artificial? Recuperado de: <a href="https://cloud.google.com/learn/what-is-artificial-intelligence?hl=es-419" className="text-indigo-400 hover:underline">https://cloud.google.com/learn/what-is-artificial-intelligence?hl=es-419</a></li>
-      <li><strong>Google Cloud.</strong> ¿Qué es la ingeniería de instrucciones? Recuperado de: <a href="https://cloud.google.com/discover/what-is-prompt-engineering?hl=es-419" className="text-indigo-400 hover:underline">https://cloud.google.com/discover/what-is-prompt-engineering?hl=es-419</a></li>
-      <li><strong>Prompt Engineering Guide.</strong> Técnicas de Prompting. Recuperado de: <a href="https://www.promptingguide.ai/es/techniques" className="text-indigo-400 hover:underline">https://www.promptingguide.ai/es/techniques</a></li>
-      <li><strong>IBM.</strong> AI Models. Recuperado de: <a href="https://www.ibm.com/es-es/think/topics/ai-model" className="text-indigo-400 hover:underline">https://www.ibm.com/es-es/think/topics/ai-model</a></li>
-      <li><strong>IBM.</strong> AI Agents. Recuperado de: <a href="https://www.ibm.com/es-es/think/ai-agents" className="text-indigo-400 hover:underline">https://www.ibm.com/es-es/think/topics/ai-agents</a></li>
-      <li><strong>Russell, S. y Norvig, P. (2021).</strong> Artificial Intelligence: A Modern Approach, 4th Edition. Pearson.</li>
-      <li><strong>UNESCO (2021).</strong> Recomendación sobre la Ética de la Inteligencia Artificial.</li>
-      <li><strong>Vaswani, A., et al. (2017).</strong> Attention Is All You Need. Advances in Neural Information Processing Systems.</li>
-      <li><strong>Cevallos, et al. (2023).</strong> Reinforcement Learning from Human Feedback (RLHF) in Large Language Models.</li>
-      <li><strong>CEPAL (2024).</strong> Informe sobre el impacto de la IA en el mercado laboral de América Latina.</li>
-      <li><strong>Deloitte (2025).</strong> Tendencias tecnológicas y el futuro del trabajo en América Latina.</li>
+      <li><strong>Google Cloud. (s.f.).</strong> <em>¿Qué es la inteligencia artificial?</em> Recuperado de: <a href="https://cloud.google.com/learn/what-is-artificial-intelligence?hl=es-419" className="text-indigo-400 hover:underline">https://cloud.google.com/learn/what-is-artificial-intelligence?hl=es-419</a></li>
+      <li><strong>Google Cloud. (s.f.).</strong> <em>¿Qué es la ingeniería de instrucciones?</em> Recuperado de: <a href="https://cloud.google.com/discover/what-is-prompt-engineering?hl=es-419" className="text-indigo-400 hover:underline">https://cloud.google.com/discover/what-is-prompt-engineering?hl=es-419</a></li>
+      <li><strong>Prompt Engineering Guide. (s.f.).</strong> <em>Técnicas de prompting</em>. Recuperado de: <a href="https://www.promptingguide.ai/es/techniques" className="text-indigo-400 hover:underline">https://www.promptingguide.ai/es/techniques</a></li>
+      <li><strong>Wiesinger, J., Marlow, P., & Vuskovic, V. (2025).</strong> <em>Agents whitepaper</em>. Google Cloud.</li>
+      <li><strong>Databricks. (s.f.).</strong> <em>Tipos de agentes de IA: definiciones, funciones y ejemplos</em>. Recuperado de: <a href="https://www.databricks.com/es/blog/types-ai-agents-definitions-roles-and-examples" className="text-indigo-400 hover:underline">https://www.databricks.com/es/blog/types-ai-agents-definitions-roles-and-examples</a></li>
+      <li><strong>Gartner. (2025).</strong> <em>Top 10 strategic technology trends for 2026</em>.</li>
+      <li><strong>IBM. (s.f.).</strong> <em>AI models</em>. Recuperado de: <a href="https://www.ibm.com/es-es/think/topics/ai-model" className="text-indigo-400 hover:underline">https://www.ibm.com/es-es/think/topics/ai-model</a></li>
+      <li><strong>IBM. (s.f.).</strong> <em>AI agents</em>. Recuperado de: <a href="https://www.ibm.com/es-es/think/ai-agents" className="text-indigo-400 hover:underline">https://www.ibm.com/es-es/think/topics/ai-agents</a></li>
+      <li><strong>Russell, S., & Norvig, P. (2021).</strong> <em>Artificial intelligence: A modern approach</em> (4th ed.). Pearson.</li>
+      <li><strong>UNESCO. (2021).</strong> <em>Recomendación sobre la ética de la inteligencia artificial</em>.</li>
+      <li><strong>Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017).</strong> <em>Attention is all you need</em>. Advances in Neural Information Processing Systems.</li>
+      <li><strong>Boonstra, L. (2025).</strong> <em>Prompt engineering</em>. Google.</li>
+      <li><strong>Cevallos, et al. (2023).</strong> <em>Reinforcement learning from human feedback (RLHF) in large language models</em>.</li>
+      <li><strong>CEPAL. (2024).</strong> <em>Informe sobre el impacto de la IA en el mercado laboral de América Latina</em>.</li>
+      <li><strong>Deloitte. (2025).</strong> <em>Tendencias tecnológicas y el futuro del trabajo en América Latina</em>.</li>
     </ul>
   </div>
 );

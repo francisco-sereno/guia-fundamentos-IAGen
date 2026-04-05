@@ -10,7 +10,7 @@ export const Modulo2Content = () => (
     <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-6">Ingeniería de prompts</h1>
     <p className="text-xl text-slate-300 mb-8">Fundamentos y aplicaciones en inteligencia artificial generativa</p>
 
-    <h2 id="sec-1-0" className="text-2xl font-bold mb-4 text-indigo-400 scroll-mt-24">1. Introducción al paradigma de la ingeniería de contexto</h2>
+    <h2 id="sec-modulo2-0" className="text-2xl font-bold mb-4 text-indigo-400 scroll-mt-24">1. Introducción al paradigma de la ingeniería de contexto</h2>
     <p>La <strong>ingeniería de prompts</strong> ha evolucionado hacia lo que hoy se conoce como <strong>Ingeniería de Contexto</strong>. En un contexto donde los modelos de lenguaje grandes (<GlossaryTerm term="LLM">LLM</GlossaryTerm>) son cada vez más accesibles y potentes, la capacidad de comunicarse efectivamente con estos sistemas se ha convertido en una competencia fundamental para todas las personas. El axioma "Basura entra, basura sale" (Garbage In, Garbage Out) mantiene su vigencia: la distinción entre una respuesta genérica y una salida experta radica íntegramente en la arquitectura de la solicitud.</p>
 
     <InfoCard type="idea" title="Principios fundamentales de la interacción">
@@ -21,7 +21,7 @@ export const Modulo2Content = () => (
       </ul>
     </InfoCard>
 
-    <h2 id="sec-1-1" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">2. Fundamentos teóricos</h2>
+    <h2 id="sec-modulo2-1" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">2. Fundamentos teóricos</h2>
     
     <Accordion title="2.1 Definición y contexto conceptual">
       <InfoCard type="definicion" title="¿Qué es la ingeniería de instrucciones?">
@@ -95,10 +95,10 @@ export const Modulo2Content = () => (
       </div>
     </Accordion>
 
-    <h2 id="sec-1-2" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">3. Interacción paramétrica e inferencia condicionada</h2>
+    <h2 id="sec-modulo2-2" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">3. Interacción paramétrica e inferencia condicionada</h2>
     <p className="text-slate-300 mb-6">Estas estrategias aprovechan el conocimiento paramétrico del modelo para mapear el lenguaje natural a representaciones internas de resolución de tareas.</p>
 
-    <Accordion title="3.1 Solicitud directa sin ejemplos (Zero-shot prompting)">
+    <Accordion title="3.1 Solicitud directa sin ejemplos (zero-shot prompting)">
       <InfoCard type="definicion" title="Concepto">
         <p>El <strong>zero-shot prompting</strong> instruye directamente al modelo para ejecutar una tarea basándose exclusivamente en la vasta red de conocimiento paramétrico que adquirió durante su preentrenamiento, sin proporcionar ejemplos previos.</p>
       </InfoCard>
@@ -356,7 +356,7 @@ export const Modulo2Content = () => (
       </div>
     </Accordion>
 
-    <h2 id="sec-1-3" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">4. Caso de estudio: SofIA</h2>
+    <h2 id="sec-modulo2-3" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">4. Caso de estudio: SofIA</h2>
     <p>El caso de SofIA demuestra que la ingeniería de prompts efectiva no es sobre usar una única técnica avanzada, sino sobre <strong>orquestar múltiples técnicas estratégicamente</strong> según las necesidades de cada sub-tarea.</p>
     
     <div className="space-y-6 mt-6">
@@ -371,7 +371,7 @@ export const Modulo2Content = () => (
       </InfoCard>
     </div>
 
-    <h2 id="sec-1-4" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">5. Buenas prácticas y errores comunes</h2>
+    <h2 id="sec-modulo2-4" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">5. Buenas prácticas y errores comunes</h2>
     
     <div className="grid md:grid-cols-2 gap-6">
       <div className="bg-emerald-500/10 border border-emerald-500/30 p-6 rounded-xl">
@@ -395,11 +395,11 @@ export const Modulo2Content = () => (
       </div>
     </div>
 
-    <h2 id="sec-1-5" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">6. Conclusión y perspectivas futuras</h2>
+    <h2 id="sec-modulo2-5" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">6. Conclusión y perspectivas futuras</h2>
     <p>La ingeniería de prompts ha evolucionado rápidamente de un conjunto ad-hoc de trucos empíricos a un campo con fundamentos teóricos sólidos y metodologías sistemáticas. Lo que comenzó como simple "prompt tuning" se ha convertido en una disciplina que requiere comprensión de arquitecturas de modelos, lingüística aplicada, diseño de interfaces, y consideraciones éticas profundas.</p>
     <p>A medida que estos sistemas continúan evolucionando, también lo harán las técnicas y metodologías de la ingeniería de prompts. Sin embargo, los principios fundamentales establecidos —claridad, contexto, estructura e iteración sistemática— probablemente permanecerán como pilares de la práctica efectiva.</p>
 
-    <h2 id="sec-1-6" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">🤔 Preguntas de reflexión</h2>
+    <h2 id="sec-modulo2-6" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">🤔 Preguntas de reflexión</h2>
     <InfoCard type="reflexion" title="Para profundizar en el capítulo">
         <ul className="list-disc ml-5 space-y-2 text-slate-300">
             <li>¿Cuál de las técnicas de ingeniería de prompts presentadas te parece más útil para tu trabajo diario?</li>

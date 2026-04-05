@@ -10,14 +10,14 @@ export const Modulo1Content = () => (
     <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-6">Fundamentos de la IA generativa</h1>
     <p className="text-xl text-slate-300 mb-8">El caso de SofIA y el diagnóstico de competencias</p>
 
-    <h2 id="sec-0-0" className="text-2xl font-bold mb-4 text-indigo-400 scroll-mt-24">🚀 Introducción: el caso de SofIA</h2>
+    <h2 id="sec-modulo1-0" className="text-2xl font-bold mb-4 text-indigo-400 scroll-mt-24">🚀 Introducción: el caso de SofIA</h2>
     <p>La <strong>inteligencia artificial generativa</strong> representa una de las transformaciones tecnológicas más significativas de nuestra era. Esta guía explora sus fundamentos conceptuales, funcionamiento técnico y aplicaciones prácticas, utilizando como eje articulador el caso de <strong>SofIA</strong>: una persona en transición laboral que utiliza herramientas de IA generativa para realizar su propio diagnóstico de competencias y optimizar su proceso de búsqueda de empleo.</p>
 
     <InfoCard type="idea" title="Idea central">
       <p>La IA generativa no es magia, ni debe reemplazar el pensamiento crítico humano. Es una <strong>herramienta de amplificación</strong> que, utilizada con comprensión conceptual y <GlossaryTerm term="Prompt">prompts</GlossaryTerm> efectivos, puede democratizar el acceso a capacidades que antes estaban reservadas para expertos.</p>
     </InfoCard>
 
-    <h2 id="sec-0-1" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">🧠 ¿Qué es la inteligencia artificial?</h2>
+    <h2 id="sec-modulo1-1" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">🧠 ¿Qué es la inteligencia artificial?</h2>
     <p>La inteligencia artificial (IA) es la ciencia y la ingeniería de crear máquinas inteligentes. A pesar de su impacto, no existe una sola definición. Históricamente, la investigación se ha dividido en torno a dos preguntas fundamentales: ¿El objetivo es el pensamiento interno o el comportamiento externo? ¿Nos enfocamos en la fidelidad humana o en la racionalidad?</p>
     
     <Accordion title="🏛️ Los cuatro enfoques para definir la inteligencia">
@@ -41,7 +41,7 @@ export const Modulo1Content = () => (
       </div>
     </Accordion>
 
-    <h2 id="sec-0-2" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">⏳ La trayectoria de la IA: ciclos de entusiasmo y realidad</h2>
+    <h2 id="sec-modulo1-2" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">⏳ La trayectoria de la IA: ciclos de entusiasmo y realidad</h2>
     <p className="mb-4">La historia de la IA no es una línea recta, sino una serie de ciclos de éxito seguidos por crisis de financiamiento (inviernos de la IA).</p>
     <div className="space-y-4">
       <div className="border-l-2 border-indigo-500 pl-4">
@@ -66,18 +66,18 @@ export const Modulo1Content = () => (
       </div>
     </div>
 
-    <h2 id="sec-0-3" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">🤖 Tipos y componentes de la IA</h2>
+    <h2 className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">🤖 Tipos y componentes de la IA</h2>
     
     <Accordion title="📊 Tipos de inteligencia artificial">
       <p className="mb-4">La inteligencia artificial se clasifica generalmente en tres categorías principales según sus capacidades y nivel de desarrollo:</p>
       <div className="space-y-4">
-        <InfoCard type="definicion" title="1. IA Estrecha o Débil (Narrow AI)">
+        <InfoCard type="definicion" title="1. IA estrecha o débil (Narrow AI)">
           <p>Es la IA que existe hoy en día. Está diseñada y entrenada para realizar una tarea específica o un conjunto limitado de tareas (ej. reconocimiento facial, asistentes de voz, recomendaciones de productos). Aunque puede parecer muy inteligente, opera bajo un conjunto estricto de restricciones y limitaciones.</p>
         </InfoCard>
-        <InfoCard type="definicion" title="2. IA General o Fuerte (AGI)">
+        <InfoCard type="definicion" title="2. IA general o fuerte (AGI)">
           <p>Es una forma teórica de IA que tendría una inteligencia equivalente a la humana. Podría comprender, aprender y aplicar conocimientos en diferentes dominios para resolver problemas complejos, de manera similar a como lo hace un ser humano. Aún no existe.</p>
         </InfoCard>
-        <InfoCard type="definicion" title="3. Superinteligencia Artificial (ASI)">
+        <InfoCard type="definicion" title="3. Superinteligencia artificial (ASI)">
           <p>Es un concepto hipotético donde la IA superaría la inteligencia y capacidad humana en todos los aspectos, desde la creatividad hasta la resolución de problemas generales y las habilidades sociales.</p>
         </InfoCard>
       </div>
@@ -120,7 +120,7 @@ export const Modulo1Content = () => (
       </div>
     </Accordion>
 
-    <h2 id="sec-0-4" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">🤖 Modelos y agentes de IA</h2>
+    <h2 id="sec-modulo1-3" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">🤖 Modelos y agentes de IA</h2>
     
     <Accordion title="📦 ¿Qué es un modelo de IA?">
       <p>Un <strong>modelo de IA</strong> es un programa que ha sido entrenado con un conjunto de datos para reconocer determinados patrones o tomar decisiones sin más intervención humana. Aplican diferentes algoritmos a las entradas de datos para lograr las salidas para las que han sido programados.</p>
@@ -194,7 +194,7 @@ export const Modulo1Content = () => (
       </div>
 
       <div className="mt-8">
-        <h4 className="font-bold text-indigo-300 mb-3">Ejemplos prácticos de Agentes de IA en acción</h4>
+        <h4 className="font-bold text-indigo-300 mb-3">Ejemplos prácticos de agentes de IA en acción</h4>
         <p className="text-sm text-slate-300 mb-4">A continuación, se presentan tres ejemplos concretos de cómo los agentes de IA operan en diferentes escenarios, detallando su entorno, objetivo, actuadores y sensores (PEAS):</p>
         <div className="space-y-4">
           <InfoCard type="ejemplo" title="1. Agente de productividad personal">
@@ -222,7 +222,7 @@ export const Modulo1Content = () => (
       </div>
     </Accordion>
 
-    <h2 id="sec-0-4" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">✨ ¿Qué es la inteligencia artificial generativa?</h2>
+    <h2 id="sec-modulo1-4" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">✨ ¿Qué es la inteligencia artificial generativa?</h2>
     
     <InfoCard type="definicion" title="Definición">
       <p>La <GlossaryTerm term="IA generativa">IA generativa</GlossaryTerm> es una rama de la inteligencia artificial que tiene la capacidad de <strong>crear contenido original y novedoso</strong> —como textos, imágenes, audio o código— a partir de patrones aprendidos de grandes cantidades de datos.</p>
@@ -249,30 +249,30 @@ export const Modulo1Content = () => (
       </InfoCard>
     </Accordion>
 
-    <h2 id="sec-0-5" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">🚫 Mitos de la IA</h2>
+    <h2 id="sec-modulo1-5" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">🚫 Mitos de la IA</h2>
     
     <div className="space-y-4">
-      <Accordion title="Mito 1: La IA es 100% objetiva y neutral">
+      <Accordion title="Mito 1: la IA es 100% objetiva y neutral">
         <p><strong>Realidad:</strong> Los modelos de IA aprenden de datos generados por humanos, los cuales contienen sesgos históricos y culturales. Si no se auditan, los sistemas de IA pueden perpetuar e incluso amplificar estos sesgos.</p>
       </Accordion>
-      <Accordion title="Mito 2: La IA reemplazará todos los trabajos humanos">
+      <Accordion title="Mito 2: la IA reemplazará todos los trabajos humanos">
         <p><strong>Realidad:</strong> Si bien la IA automatizará ciertas tareas, es más probable que transforme los empleos en lugar de eliminarlos por completo. La IA actúa como un copiloto que aumenta la productividad, y surgirán nuevos roles enfocados en la gestión y supervisión de estas tecnologías.</p>
       </Accordion>
-      <Accordion title="Mito 3: La IA tiene conciencia y entiende lo que dice">
+      <Accordion title="Mito 3: la IA tiene conciencia y entiende lo que dice">
         <p><strong>Realidad:</strong> Los modelos como los LLM son motores estadísticos avanzados que predicen la siguiente palabra basándose en patrones. No tienen comprensión real, empatía, ni conciencia de sí mismos.</p>
       </Accordion>
-      <Accordion title="Mito 4: La IA es una caja mágica infalible">
+      <Accordion title="Mito 4: la IA es una caja mágica infalible">
         <p><strong>Realidad:</strong> La IA comete errores, sufre de "alucinaciones" (inventa datos con confianza) y depende completamente de la calidad de sus datos de entrenamiento y de las instrucciones (prompts) que recibe.</p>
       </Accordion>
-      <Accordion title="Mito 5: La IA creará una singularidad tecnológica incontrolable">
+      <Accordion title="Mito 5: la IA creará una singularidad tecnológica incontrolable">
         <p><strong>Realidad:</strong> La "singularidad" es una hipótesis teórica sobre una IA que se mejora a sí misma indefinidamente. Actualmente, estamos lejos de sistemas con esa capacidad, y el desarrollo de la IA está sujeto a marcos éticos, regulatorios y de seguridad humana.</p>
       </Accordion>
-      <Accordion title="Mito 6: La IA avanzada siempre será malévola">
+      <Accordion title="Mito 6: la IA avanzada siempre será malévola">
         <p><strong>Realidad:</strong> La IA no tiene intenciones, deseos ni emociones. Su comportamiento depende de su diseño, sus datos de entrenamiento y los objetivos que le establezcan los humanos. La seguridad y el alineamiento de la IA son áreas de investigación activa para asegurar que actúe de manera beneficiosa.</p>
       </Accordion>
     </div>
 
-    <h2 id="sec-0-6" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">⚙️ Funcionamiento técnico: ¿cómo funciona realmente?</h2>
+    <h2 id="sec-modulo1-6" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">⚙️ Funcionamiento técnico: ¿cómo funciona realmente?</h2>
     
     <Accordion title="🧬 Arquitectura Transformer">
         <p className="mb-3">Los modelos de lenguaje generativo modernos se basan en la arquitectura <strong>Transformer</strong> (Vaswani et al., 2017), que revolucionó el procesamiento de lenguaje natural.</p>
@@ -328,7 +328,7 @@ export const Modulo1Content = () => (
         </InfoCard>
     </Accordion>
 
-    <h2 id="sec-0-7" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">🎯 Aplicación práctica: el diagnóstico de competencias con SofIA</h2>
+    <h2 id="sec-modulo1-7" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">🎯 Aplicación práctica: el diagnóstico de competencias con SofIA</h2>
     
     <InfoCard type="reflexion" title="🤖 El caso de SofIA">
         <p><strong>SofIA</strong> es una profesional en transición laboral que utiliza herramientas de IA generativa para realizar su propio <strong>diagnóstico de competencias</strong>: analizar su historial laboral, extraer las competencias subyacentes y mapearlas con las palabras clave que buscan los empleadores en ofertas de trabajo específicas.</p>
@@ -381,7 +381,7 @@ export const Modulo1Content = () => (
         </ul>
     </Accordion>
 
-    <h2 id="sec-0-8" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">✍️ Ingeniería de prompts: la clave del éxito</h2>
+    <h2 id="sec-modulo1-8" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">✍️ Ingeniería de prompts: la clave del éxito</h2>
     
     <InfoCard type="idea" title="La importancia del prompt">
         <p><strong>La calidad de los resultados de una IA generativa depende directamente de la calidad de las instrucciones (prompts) que le proporcionamos.</strong> Un prompt mal formulado generará respuestas genéricas o irrelevantes; un prompt bien diseñado puede producir resultados excepcionalmente útiles.</p>
@@ -445,7 +445,7 @@ export const Modulo1Content = () => (
         </ol>
     </Accordion>
 
-    <h2 id="sec-0-9" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">🌍 Democratización del acceso profesional</h2>
+    <h2 id="sec-modulo1-9" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">🌍 Democratización del acceso profesional</h2>
     
     <p>Una de las promesas más importantes de la IA generativa es la <strong>democratización del acceso</strong> a herramientas y servicios que antes estaban reservados para quienes podían pagar consultores especializados.</p>
 
@@ -485,7 +485,7 @@ export const Modulo1Content = () => (
         <p>La IA generativa no debe verse como un "reemplazo" del desarrollo de competencias humanas, sino como un <strong>"copiloto profesional"</strong> que amplifica nuestras capacidades. El pensamiento crítico, la autenticidad y la verificación constante siguen siendo responsabilidades humanas ineludibles.</p>
     </InfoCard>
 
-    <h2 id="sec-0-10" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">🤔 Preguntas de reflexión</h2>
+    <h2 id="sec-modulo1-10" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">🤔 Preguntas de reflexión</h2>
     <InfoCard type="reflexion" title="Para profundizar en el capítulo">
         <ul className="list-disc ml-5 space-y-2 text-slate-300">
             <li>¿Cómo crees que el caso de SofIA se aplica a tu propia trayectoria profesional?</li>

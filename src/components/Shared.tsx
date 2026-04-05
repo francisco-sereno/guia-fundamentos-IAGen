@@ -39,7 +39,19 @@ export const glossaryTerms: Record<string, string> = {
   "Transfer Learning": "Capacidad de un modelo para aplicar conocimientos adquiridos en una tarea previa a un problema nuevo pero relacionado, acelerando su entrenamiento.",
   "Agent-based modeling": "Modelado basado en agentes. Simulación computacional donde múltiples 'agentes' autónomos interactúan en un entorno. En el desarrollo profesional, ayuda a predecir dinámicas de mercado y comportamientos organizacionales.",
   "Simulated annealing": "Recocido simulado. Algoritmo de optimización inspirado en la metalurgia. En IA, permite a los modelos escapar de soluciones subóptimas (óptimos locales) para encontrar la mejor estrategia global, útil para resolver problemas complejos de planificación.",
-  "Genetic algorithms": "Algoritmos genéticos. Métodos de búsqueda y optimización basados en la evolución natural (selección, mutación, cruce). Se utilizan en IA para evolucionar soluciones a problemas complejos, iterando estrategias hasta encontrar la más eficiente."
+  "Genetic algorithms": "Algoritmos genéticos. Métodos de búsqueda y optimización basados en la evolución natural (selección, mutación, cruce). Se utilizan en IA para evolucionar soluciones a problemas complejos, iterando estrategias hasta encontrar la más eficiente.",
+  "Ventana de contexto": "Cantidad máxima de texto (medida en tokens) que un modelo de IA puede procesar y 'recordar' en una sola interacción.",
+  "Fine-tuning": "Ajuste fino. Proceso de reentrenar un modelo de IA preexistente con un conjunto de datos más pequeño y específico para adaptarlo a una tarea particular.",
+  "Zero-shot": "Técnica de prompting donde se le pide a la IA que realice una tarea sin proporcionarle ningún ejemplo previo.",
+  "Few-shot": "Técnica de prompting donde se proporcionan algunos ejemplos (generalmente de 2 a 5) para guiar a la IA sobre cómo debe responder.",
+  "Top-P": "Parámetro de muestreo que controla la diversidad de las respuestas de la IA limitando la selección a un subconjunto de palabras probables.",
+  "Embeddings": "Representaciones matemáticas (vectores) de palabras, frases o imágenes que permiten a la IA comprender relaciones semánticas y similitudes.",
+  "Base de datos vectorial": "Sistema de almacenamiento optimizado para guardar y buscar 'embeddings', fundamental para técnicas como RAG.",
+  "Inferencia": "Fase en la que un modelo de IA entrenado se utiliza para hacer predicciones o generar contenido a partir de nuevos datos de entrada.",
+  "Red neuronal": "Arquitectura computacional inspirada en el cerebro humano, compuesta por capas de nodos interconectados (neuronas artificiales).",
+  "Deep Learning": "Aprendizaje profundo. Subcampo del aprendizaje automático que utiliza redes neuronales con múltiples capas para modelar patrones complejos.",
+  "Machine Learning": "Aprendizaje automático. Rama de la IA que permite a los sistemas aprender y mejorar a partir de la experiencia sin ser programados explícitamente.",
+  "AGI (Inteligencia Artificial General)": "Nivel teórico de IA que igualaría o superaría la capacidad humana para comprender, aprender y realizar cualquier tarea intelectual."
 };
 
 export const GlossaryTerm = ({ term, children }: { term: string; children?: React.ReactNode }) => {
@@ -272,6 +284,41 @@ export const AuthorNote = ({ title = "Nota del autor", children }: { title?: str
   );
 };
 
+export const Workflow = ({ steps }: { steps: { label: string; icon: any; description: string }[] }) => {
+  return (
+    <div className="my-12 space-y-4 relative">
+      {/* Vertical connector line */}
+      <div className="absolute left-8 top-8 bottom-8 w-0.5 bg-indigo-500/20 hidden md:block" />
+      
+      {steps.map((step, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.1 }}
+          className="relative flex flex-col md:flex-row gap-6 items-start group"
+        >
+          <div className="hidden md:flex items-center justify-center w-16 h-16 rounded-full bg-slate-900 border-2 border-indigo-500/50 text-indigo-400 z-10 shrink-0 group-hover:border-indigo-400 group-hover:scale-110 transition-all duration-300 shadow-lg shadow-indigo-500/10">
+            <step.icon size={24} />
+          </div>
+          <div className="bg-slate-800/40 p-6 rounded-2xl border border-slate-700/50 flex-1 hover:border-indigo-500/30 transition-colors">
+            <div className="flex items-center gap-3 mb-2">
+              <div className="md:hidden p-2 bg-indigo-500/20 rounded-lg text-indigo-400">
+                <step.icon size={20} />
+              </div>
+              <h4 className="text-lg font-bold text-indigo-300">{step.label}</h4>
+            </div>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              {step.description}
+            </p>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
 export const CopyButton = ({ text }: { text: string }) => {
   const [copied, setCopied] = useState(false);
   const handleCopy = () => {
@@ -292,82 +339,139 @@ export const CopyButton = ({ text }: { text: string }) => {
 
 export const AboutModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
   if (!isOpen) return null;
+
+  const containerVariants = {
+    hidden: { opacity: 0, scale: 0.95, y: 20 },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 30,
+        staggerChildren: 0.1,
+        delayChildren: 0.1
+      }
+    },
+    exit: { opacity: 0, scale: 0.95, y: 20, transition: { duration: 0.2 } }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
+  };
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md" onClick={onClose}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/80 backdrop-blur-xl" onClick={onClose}>
       <motion.div 
-        initial={{ opacity: 0, scale: 0.95, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.95, y: 20 }}
-        className="bg-slate-900 border border-indigo-500/30 p-8 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl shadow-indigo-500/10"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        className="bg-slate-900/90 border border-white/10 p-6 sm:p-8 rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto custom-scrollbar shadow-2xl shadow-indigo-500/10 relative"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex justify-between items-start mb-8">
-          <h2 className="text-3xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Acerca de esta guía</h2>
-          <button onClick={onClose} className="p-2 rounded-full hover:bg-slate-800 text-slate-400 hover:text-white transition-colors">
-            <X size={24} />
+        {/* Background decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-indigo-500/10 to-transparent pointer-events-none rounded-t-3xl" />
+        <div className="absolute -top-24 -right-24 w-48 h-48 bg-purple-500/20 blur-[100px] rounded-full pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-indigo-500/20 blur-[100px] rounded-full pointer-events-none" />
+
+        <div className="flex justify-between items-start mb-8 relative z-10">
+          <div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-2">Acerca de esta guía</h2>
+            <p className="text-indigo-400 font-medium">Dominando la Inteligencia Artificial</p>
+          </div>
+          <button onClick={onClose} className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors border border-white/5">
+            <X size={20} />
           </button>
         </div>
         
-        <section className="mb-8">
-          <h3 className="text-lg font-semibold text-indigo-300 mb-3 flex items-center gap-2">
-            <Info size={20} /> Objetivo educativo
-          </h3>
-          <p className="text-slate-300 leading-relaxed bg-slate-800/50 p-4 rounded-xl border border-slate-700">Esta guía interactiva ha sido diseñada para acompañar a profesionales en su proceso de aprendizaje y aplicación de técnicas de *prompting* en la búsqueda de oportunidades laborales, proporcionando un marco ético y práctico.</p>
-        </section>
+        <div className="space-y-6 relative z-10">
+          <motion.section variants={itemVariants} className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 p-6 rounded-2xl border border-white/5 shadow-inner">
+            <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+              <Info size={20} className="text-blue-400" /> Objetivo educativo
+            </h3>
+            <p className="text-slate-300 leading-relaxed text-sm sm:text-base">
+              Esta guía interactiva ha sido diseñada para acompañar a profesionales en su proceso de aprendizaje y aplicación de técnicas de <strong>prompting</strong> en la búsqueda de oportunidades laborales, proporcionando un marco ético y práctico.
+            </p>
+          </motion.section>
 
-        <section className="mb-8">
-          <h3 className="text-lg font-semibold text-indigo-300 mb-3 flex items-center gap-2">
-            <Sparkles size={20} /> Funciones principales
-          </h3>
-          <div className="grid grid-cols-2 gap-3">
-            <div className="flex items-center gap-2 text-slate-300 bg-slate-800/30 p-3 rounded-lg border border-slate-700/50">
-              <Layers size={16} className="text-indigo-400" /> Contenido modular
+          <motion.section variants={itemVariants}>
+            <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2 px-2">
+              <Sparkles size={20} className="text-amber-400" /> Funciones principales
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {[
+                { icon: Layers, text: "Contenido modular", color: "text-indigo-400", bg: "bg-indigo-400/10" },
+                { icon: Compass, text: "Navegación inteligente", color: "text-emerald-400", bg: "bg-emerald-400/10" },
+                { icon: BookOpen, text: "Glosario interactivo", color: "text-purple-400", bg: "bg-purple-400/10" },
+                { icon: HelpCircle, text: "Ejemplos y cuestionarios", color: "text-pink-400", bg: "bg-pink-400/10" }
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 text-slate-200 bg-slate-800/40 hover:bg-slate-800/60 p-4 rounded-xl border border-white/5 hover:border-white/10 transition-all group">
+                  <div className={cn("p-2 rounded-lg", item.bg)}>
+                    <item.icon size={18} className={item.color} />
+                  </div>
+                  <span className="font-medium text-sm">{item.text}</span>
+                </div>
+              ))}
             </div>
-            <div className="flex items-center gap-2 text-slate-300 bg-slate-800/30 p-3 rounded-lg border border-slate-700/50">
-              <Compass size={16} className="text-indigo-400" /> Navegación inteligente
-            </div>
-            <div className="flex items-center gap-2 text-slate-300 bg-slate-800/30 p-3 rounded-lg border border-slate-700/50">
-              <BookOpen size={16} className="text-indigo-400" /> Glosario interactivo
-            </div>
-            <div className="flex items-center gap-2 text-slate-300 bg-slate-800/30 p-3 rounded-lg border border-slate-700/50">
-              <HelpCircle size={16} className="text-indigo-400" /> Ejemplos y cuestionarios
-            </div>
+          </motion.section>
+
+          <div className="grid sm:grid-cols-2 gap-6">
+            <motion.section variants={itemVariants} className="bg-slate-800/40 p-6 rounded-2xl border border-white/5">
+              <h3 className="text-base font-semibold text-white mb-4 flex items-center gap-2">
+                <TerminalSquare size={18} className="text-emerald-400" /> Stack tecnológico
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  { icon: Code2, text: "React 18" },
+                  { icon: FileCode2, text: "TypeScript" },
+                  { icon: Zap, text: "Vite" },
+                  { icon: Palette, text: "Tailwind CSS 4" }
+                ].map((tech, i) => (
+                  <span key={i} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900/50 border border-white/5 text-xs font-medium text-slate-300">
+                    <tech.icon size={14} className="text-slate-500" /> {tech.text}
+                  </span>
+                ))}
+              </div>
+            </motion.section>
+
+            <motion.section variants={itemVariants} className="bg-slate-800/40 p-6 rounded-2xl border border-white/5">
+              <h3 className="text-base font-semibold text-white mb-4 flex items-center gap-2">
+                <Rocket size={18} className="text-pink-400" /> Stack gráfico
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  { icon: MonitorPlay, text: "Framer Motion" },
+                  { icon: Smile, text: "Lucide Icons" },
+                  { icon: Type, text: "Inter & Space Grotesk" }
+                ].map((tech, i) => (
+                  <span key={i} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900/50 border border-white/5 text-xs font-medium text-slate-300">
+                    <tech.icon size={14} className="text-slate-500" /> {tech.text}
+                  </span>
+                ))}
+              </div>
+            </motion.section>
           </div>
-        </section>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
-          <section className="bg-slate-800/30 p-5 rounded-2xl border border-slate-700/50">
-            <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-              <TerminalSquare size={20} className="text-pink-400" /> Stack tecnológico
-            </h3>
-            <ul className="text-slate-400 text-sm space-y-2">
-              <li className="flex items-center gap-2"><Code2 size={16} className="text-slate-500" /> React 18</li>
-              <li className="flex items-center gap-2"><FileCode2 size={16} className="text-slate-500" /> TypeScript</li>
-              <li className="flex items-center gap-2"><Zap size={16} className="text-slate-500" /> Vite</li>
-              <li className="flex items-center gap-2"><Palette size={16} className="text-slate-500" /> Tailwind CSS 4</li>
-            </ul>
-          </section>
-          <section className="bg-slate-800/30 p-5 rounded-2xl border border-slate-700/50">
-            <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-              <Rocket size={20} className="text-indigo-400" /> Stack gráfico
-            </h3>
-            <ul className="text-slate-400 text-sm space-y-2">
-              <li className="flex items-center gap-2"><MonitorPlay size={16} className="text-slate-500" /> Framer Motion</li>
-              <li className="flex items-center gap-2"><Smile size={16} className="text-slate-500" /> Lucide Icons</li>
-              <li className="flex items-center gap-2"><Type size={16} className="text-slate-500" /> Inter y Space Grotesk</li>
-            </ul>
-          </section>
+          <motion.section variants={itemVariants} className="relative overflow-hidden bg-gradient-to-r from-indigo-600/10 to-purple-600/10 p-6 sm:p-8 rounded-2xl border border-indigo-500/20 text-center flex flex-col items-center justify-center mt-4">
+            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay"></div>
+            <div className="p-3 bg-indigo-500/20 rounded-full mb-4 border border-indigo-500/30">
+              <User size={24} className="text-indigo-300" />
+            </div>
+            <h3 className="text-xl font-bold text-white mb-1">Francisco Sereño</h3>
+            <p className="text-indigo-300/80 text-sm mb-6 font-medium">Desarrollador y Autor</p>
+            <a 
+              href="https://www.linkedin.com/in/francisco-sereno/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="relative z-10 inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-medium transition-all shadow-lg shadow-indigo-600/20 hover:shadow-indigo-600/40 hover:-translate-y-0.5"
+            >
+              <LinkIcon size={18} /> Conectar en LinkedIn
+            </a>
+          </motion.section>
         </div>
-
-        <section className="bg-gradient-to-r from-indigo-900/20 to-purple-900/20 p-6 rounded-2xl border border-indigo-500/20 text-center">
-          <h3 className="text-lg font-semibold text-white mb-2 flex items-center justify-center gap-2">
-            <User size={20} className="text-indigo-400" /> Créditos
-          </h3>
-          <p className="text-slate-300 mb-4">Desarrollado por Francisco Sereño.</p>
-          <a href="https://www.linkedin.com/in/francisco-sereno/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-medium transition-all shadow-lg shadow-indigo-600/20 hover:shadow-indigo-600/40">
-            <LinkIcon size={18} /> Visitar LinkedIn
-          </a>
-        </section>
       </motion.div>
     </div>
   );
