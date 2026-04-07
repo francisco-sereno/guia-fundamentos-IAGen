@@ -93,15 +93,18 @@ const chapters = [
     icon: TerminalSquare,
     content: <Modulo2Content />,
     subtitles: [
-      "Introducción al paradigma de la ingeniería de contexto",
-      "Fundamentos teóricos",
-      "Interacción paramétrica e inferencia condicionada",
-      "Caso de estudio: SofIA",
-      "Buenas prácticas y errores comunes",
-      "Conclusión y perspectivas futuras",
+      "1. Introducción",
+      "2. Fundamentos teóricos",
+      "3. Técnicas avanzadas",
+      "4. Diferencias entre modelos principales",
+      "5. Metodologías de optimización",
+      "6. Conexión práctica: el mega-prompt",
+      "7. Aplicaciones prácticas y casos de estudio",
+      "8. Herramientas y ecosistema tecnológico",
+      "9. Perspectivas futuras y conclusiones",
       "🤔 Preguntas de reflexión"
     ],
-    icons: [Info, BrainCircuit, Sparkles, Lightbulb, AlertTriangle, Rocket, HelpCircle],
+    icons: [Info, BrainCircuit, Zap, Layers, Target, TerminalSquare, Briefcase, Database, Rocket, HelpCircle],
     quiz: {
       question: "¿Qué técnica de prompting consiste en pedirle al modelo que muestre su razonamiento paso a paso?",
       options: [
@@ -145,19 +148,16 @@ const chapters = [
     icon: ShieldCheck,
     content: <EticaContent />,
     subtitles: [
-      "Introducción",
-      "Caso de estudio: el dilema de SofIA",
-      "La crisis de la 'caja negra': interpretabilidad y sesgos algorítmicos",
-      "Los sistemas ATS: ¿eficiencia o sesgo algorítmico?",
-      "El ecosistema de la IAGen para optimización de CV",
-      "Marco ético de la UNESCO para la inteligencia artificial",
-      "Definiciones clave según la UNESCO",
-      "Análisis de casos prácticos",
-      "El problema del rey Midas: alineación de valores",
-      "Reflexión final y síntesis",
+      "1. Introducción",
+      "2. Caso de estudio: el dilema de SofIA",
+      "3. La crisis de la 'caja negra': interpretabilidad y sesgos algorítmicos",
+      "4. Los sistemas ATS: ¿eficiencia o sesgo algorítmico?",
+      "5. El marco ético de la UNESCO",
+      "6. Para reflexionar: la ética del prompt",
+      "7. Caso práctico: el espectro de la ética",
       "🤔 Preguntas de reflexión"
     ],
-    icons: [Info, Lightbulb, BrainCircuit, AlertTriangle, TerminalSquare, ShieldCheck, BookOpen, CheckCircle2, ShieldCheck, Rocket, HelpCircle],
+    icons: [Info, Lightbulb, BrainCircuit, AlertTriangle, ShieldCheck, MessageSquare, Target, HelpCircle],
     quiz: {
       question: "Según el continuo ético en la optimización de CV, ¿qué acción se considera 'claramente inaceptable'?",
       options: [
@@ -210,16 +210,15 @@ const chapters = [
     icon: Rocket,
     content: <FuturoContent />,
     subtitles: [
-      "Hacia una inteligencia general e integrada",
-      "El 'momento PC' de la robótica",
-      "Desafíos de escala y representación",
-      "Transición neurológica: la cognición versus la consciencia artificial",
-      "El horizonte final de eventos: inteligencia artificial general y la singularidad tecnológica",
-      "De la alquimia a la ingeniería de sistemas",
-      "Impacto, responsabilidad y riesgos",
+      "1. Hacia una inteligencia general e integrada",
+      "2. Desafíos en el escalado de la IA",
+      "3. El futuro del aprendizaje: de lo supervisado a lo predictivo",
+      "4. Cognición vs. conciencia: el debate filosófico",
+      "5. Impactos y riesgos: la singularidad tecnológica",
+      "6. Impacto, responsabilidad y riesgos",
       "🤔 Preguntas de reflexión"
     ],
-    icons: [BrainCircuit, MapPin, AlertTriangle, BrainCircuit, Sparkles, TerminalSquare, ShieldCheck, HelpCircle],
+    icons: [BrainCircuit, AlertTriangle, Zap, BrainCircuit, Sparkles, ShieldCheck, HelpCircle],
     quiz: {
       question: "¿Cuál es el principal desafío de la 'parálisis de la escala' en la planificación de la IA?",
       options: [

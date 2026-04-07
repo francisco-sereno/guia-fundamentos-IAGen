@@ -7,10 +7,10 @@ export const EticaContent = () => (
       La tecnología avanza rápido, pero nuestra integridad debe ser la brújula. En esta sección exploramos cómo las personas pueden usar la IA de forma honesta, manteniendo su esencia mientras navegan sistemas automatizados.
     </AuthorNote>
 
-    <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-6">Autenticidad y ética en la IA generativa</h1>
-    <p className="text-xl text-slate-300 mb-8">Navegando dilemas éticos en contratación algorítmica</p>
+    <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-6">Ética y responsabilidad en la era de la IA generativa</h1>
+    <p className="text-xl text-slate-300 mb-8">Navegando los desafíos morales de la automatización inteligente.</p>
 
-    <h2 id="sec-etica-0" className="text-2xl font-bold mb-4 text-indigo-400 scroll-mt-24">🎯 Introducción</h2>
+    <h2 id="sec-etica-0" className="text-2xl font-bold mb-4 text-indigo-400 scroll-mt-24">1. Introducción</h2>
     <p>En la era de la inteligencia artificial generativa, muchas personas enfrentan un dilema existencial y ético: ¿cómo utilizar estas poderosas herramientas tecnológicas sin comprometer la autenticidad personal y los principios éticos fundamentales? Esta guía examina críticamente las tensiones entre eficiencia tecnológica e integridad.</p>
 
     <div className="grid md:grid-cols-3 gap-6 mt-8 mb-8">
@@ -25,7 +25,7 @@ export const EticaContent = () => (
         </InfoCard>
     </div>
 
-    <h2 id="sec-etica-1" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">📖 Caso de estudio: el dilema de SofIA</h2>
+    <h2 id="sec-etica-1" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">2. Caso de estudio: el dilema de SofIA</h2>
     
     <InfoCard type="reflexion" title="Contexto del caso">
         <p className="mb-4">SofIA es una profesional en transición laboral, con amplia experiencia en gestión de proyectos. A pesar de su trayectoria comprobada, enfrenta un obstáculo recurrente en su proceso de reinserción: sus postulaciones son sistemáticamente rechazadas por sistemas ATS (Applicant Tracking Systems) debido a que su currículum no utiliza las palabras clave específicas que estos algoritmos priorizan.</p>
@@ -34,8 +34,9 @@ export const EticaContent = () => (
 
     <Accordion title="❓ Preguntas centrales del dilema">
         <ul className="space-y-2 text-slate-300">
-            <li>¿Usar IAGen para modificar su CV es ético o equivale a "engañar al sistema"?</li>
-            <li>¿Dónde está el límite entre optimización legítima y fabricación de información?</li>
+            <li>¿Es ético usar una IA para redactar logros que, aunque reales, están expresados en palabras que SofIA nunca usaría?</li>
+            <li>¿Dónde termina la "optimización" y dónde empieza la "falta de autenticidad"?</li>
+            <li>¿Usar IA para modificar su CV equivale a "engañar al sistema"?</li>
         </ul>
     </Accordion>
 
@@ -47,7 +48,7 @@ export const EticaContent = () => (
         </ul>
     </Accordion>
 
-    <h2 id="sec-etica-2" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">I. La crisis de la "caja negra": interpretabilidad y sesgos algorítmicos</h2>
+    <h2 id="sec-etica-2" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">3. La crisis de la "caja negra": interpretabilidad y sesgos algorítmicos</h2>
     <p>A medida que los modelos de IA se vuelven más profundos y paramétricamente densos, surge un problema fundamental: la pérdida de interpretabilidad. Operan como "cajas negras" donde incluso sus creadores no pueden rastrear exactamente cómo una entrada específica produjo una salida determinada.</p>
 
     <Accordion title="Interpretabilidad vs. explicabilidad">
@@ -61,7 +62,7 @@ export const EticaContent = () => (
         </div>
     </Accordion>
 
-    <h2 id="sec-etica-3" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">II. Los sistemas ATS: ¿eficiencia o sesgo algorítmico?</h2>
+    <h2 id="sec-etica-3" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">4. Los sistemas ATS: ¿eficiencia o sesgo algorítmico?</h2>
     <p>Los Applicant Tracking Systems (ATS) son software que automatizan la gestión de procesos de contratación. Utilizan <GlossaryTerm term="Algoritmo">algoritmos</GlossaryTerm> de procesamiento de lenguaje natural (PLN) e inteligencia artificial para analizar currículos, identificar palabras clave relevantes y clasificar candidatos.</p>
 
     <Accordion title="¿Cómo funcionan los ATS?">
@@ -84,223 +85,89 @@ export const EticaContent = () => (
 
     <Accordion title="Tipos de sesgos documentados en ATS">
         <ul className="space-y-3 text-slate-300">
-            <li><strong>Sesgo de género:</strong> Penalización de lagunas laborales (que afectan desproporcionadamente a mujeres), favorecimiento de lenguaje "asertivo" sobre "colaborativo".</li>
+            <li><strong>Sesgo de género:</strong> Preferencia implícita por términos o trayectorias tradicionalmente masculinas.</li>
+            <li><strong>Sesgo de prestigio:</strong> Sobrevaloración de ciertas universidades o empresas de renombre, ignorando el talento de otras instituciones.</li>
+            <li><strong>Sesgo de brecha laboral:</strong> Penalización automática de periodos de inactividad (como cuidados familiares), que afectan desproporcionadamente a las mujeres.</li>
             <li><strong>Sesgo racial y étnico:</strong> Discriminación basada en nombres que suenan "étnicos" o códigos postales asociados con comunidades minoritarias.</li>
-            <li><strong>Sesgo por edad:</strong> Discriminación contra candidatos mayores si los datos de entrenamiento favorecen contrataciones recientes de personas jóvenes.</li>
-            <li><strong>Sesgo por discapacidad:</strong> Penalización de historiales laborales no tradicionales o rechazo de formatos de CV adaptados para tecnologías de asistencia.</li>
         </ul>
     </Accordion>
 
-    <h2 id="sec-etica-4" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">III. El ecosistema de la IAGen para optimización de CV</h2>
-    
-    <Accordion title="Tipos de herramientas de IAGen disponibles">
-        <div className="grid md:grid-cols-2 gap-6">
-            <InfoCard type="practica" title="Reescritores de CV">
-                <p>Reformulan descripciones de experiencia laboral usando lenguaje más "profesional" o "corporativo".</p>
-            </InfoCard>
-            <InfoCard type="practica" title="Optimizadores de palabras clave">
-                <p>Analizan descripciones de trabajo y sugieren palabras clave específicas que el ATS probablemente busque.</p>
-            </InfoCard>
-            <InfoCard type="practica" title="Generadores de cartas de presentación">
-                <p>Crean cartas de presentación completas basadas en el CV del candidato y la descripción del puesto.</p>
-            </InfoCard>
-            <InfoCard type="practica" title="Analizadores de compatibilidad ATS">
-                <p>Puntúan el CV del candidato simulando el análisis que haría un ATS real.</p>
-            </InfoCard>
-        </div>
-    </Accordion>
-
-    <h3 className="text-xl font-bold mt-6 mb-4 text-indigo-300">El continuo ético: de la optimización legítima a la fabricación</h3>
-    <div className="overflow-x-auto">
-        <table className="w-full text-left border-collapse">
-            <thead>
-                <tr className="bg-slate-800 text-slate-200">
-                    <th className="p-3 border border-slate-700">Zona ética</th>
-                    <th className="p-3 border border-slate-700">Descripción</th>
-                    <th className="p-3 border border-slate-700">Ejemplos</th>
-                </tr>
-            </thead>
-            <tbody className="text-slate-300">
-                <tr>
-                    <td className="p-3 border border-slate-700 text-emerald-400 font-bold">✅ Claramente aceptable</td>
-                    <td className="p-3 border border-slate-700">Uso de IA para mejorar la presentación sin alterar hechos.</td>
-                    <td className="p-3 border border-slate-700">Corrección gramatical, mejora de formato, traducción precisa de terminología técnica a lenguaje común.</td>
-                </tr>
-                <tr>
-                    <td className="p-3 border border-slate-700 text-blue-400 font-bold">⚖️ Zona gris</td>
-                    <td className="p-3 border border-slate-700">Reformulación de experiencias que exagera sutilmente el nivel de responsabilidad.</td>
-                    <td className="p-3 border border-slate-700">"Coordiné envíos" → "Orquesté operaciones logísticas complejas"; verdadero en esencia pero amplificado en escala percibida.</td>
-                </tr>
-                <tr>
-                    <td className="p-3 border border-slate-700 text-amber-400 font-bold">⚠️ Problemático</td>
-                    <td className="p-3 border border-slate-700">Agregar habilidades o experiencias no completamente veraces.</td>
-                    <td className="p-3 border border-slate-700">Listar "dominio avanzado de Python" cuando solo se completó un curso introductorio.</td>
-                </tr>
-                <tr>
-                    <td className="p-3 border border-slate-700 text-red-400 font-bold">❌ Claramente inaceptable</td>
-                    <td className="p-3 border border-slate-700">Fabricación de información falsa.</td>
-                    <td className="p-3 border border-slate-700">Inventar títulos académicos, falsificar empleadores, crear proyectos inexistentes.</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <h2 id="sec-etica-5" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">IV. Marco ético de la UNESCO para la inteligencia artificial</h2>
+    <h2 id="sec-etica-4" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">5. El marco ético de la UNESCO</h2>
     <p className="mb-6">La <em>Recomendación sobre la ética de la inteligencia artificial</em>, adoptada por la UNESCO en 2021, constituye el primer instrumento normativo mundial sobre esta materia. Proporciona un marco universal de valores y principios para orientar el desarrollo de la IA de manera responsable.</p>
 
-    <div className="space-y-4 mb-8">
-        <Accordion title="💎 Valores fundamentales">
-            <div className="grid md:grid-cols-2 gap-4 p-2">
-                <InfoCard type="definicion" title="Derechos humanos y dignidad">
-                    <p className="text-sm">Respeto, protección y promoción de los derechos humanos, las libertades fundamentales y la dignidad humana como base inalienable.</p>
-                </InfoCard>
-                <InfoCard type="definicion" title="Medio ambiente y ecosistemas">
-                    <p className="text-sm">Reconocimiento de la necesidad existencial de proteger el medio ambiente y los ecosistemas para el disfrute de los beneficios de la IA.</p>
-                </InfoCard>
-                <InfoCard type="definicion" title="Diversidad e inclusión">
-                    <p className="text-sm">Garantizar la participación activa de todas las personas y grupos, independientemente de su origen, género o condición.</p>
-                </InfoCard>
-                <InfoCard type="definicion" title="Sociedades pacíficas y justas">
-                    <p className="text-sm">Propiciar un futuro interconectado en beneficio de todos, basado en la solidaridad y la convivencia armónica.</p>
-                </InfoCard>
-            </div>
-        </Accordion>
-
-        <Accordion title="⚖️ Principios rectores">
-            <div className="grid md:grid-cols-2 gap-4 p-2">
-                <div className="space-y-3">
-                    <li className="text-sm text-slate-300"><strong>Proporcionalidad e inocuidad:</strong> El uso de la IA debe ser proporcional al objetivo legítimo y no causar daño.</li>
-                    <li className="text-sm text-slate-300"><strong>Seguridad y protección:</strong> Evitar daños no deseados y vulnerabilidades a ataques durante todo el ciclo de vida.</li>
-                    <li className="text-sm text-slate-300"><strong>Equidad y no discriminación:</strong> Promover la justicia social y combatir sesgos que exacerben desigualdades.</li>
-                    <li className="text-sm text-slate-300"><strong>Sostenibilidad:</strong> Evaluar impactos humanos, sociales, culturales, económicos y ambientales.</li>
-                    <li className="text-sm text-slate-300"><strong>Privacidad y protección de datos:</strong> Garantizar el control de las personas sobre su información personal.</li>
-                </div>
-                <div className="space-y-3">
-                    <li className="text-sm text-slate-300"><strong>Supervisión y decisión humanas:</strong> La responsabilidad ética y jurídica debe recaer siempre en seres humanos.</li>
-                    <li className="text-sm text-slate-300"><strong>Transparencia y explicabilidad:</strong> Los resultados de la IA deben ser inteligibles y sus criterios comprensibles.</li>
-                    <li className="text-sm text-slate-300"><strong>Responsabilidad y rendición de cuentas:</strong> Atribución clara de consecuencias por las decisiones basadas en IA.</li>
-                    <li className="text-sm text-slate-300"><strong>Sensibilización y educación:</strong> Fomentar la alfabetización digital y la capacitación en ética de la IA.</li>
-                    <li className="text-sm text-slate-300"><strong>Gobernanza colaborativa:</strong> Participación de múltiples partes interesadas y cooperación internacional.</li>
-                </div>
-            </div>
-        </Accordion>
-
-        <Accordion title="🌍 Ámbitos de actuación política">
-            <p className="text-sm text-slate-400 mb-4 px-2">La UNESCO identifica 11 áreas críticas donde los gobiernos y organizaciones deben actuar para asegurar una IA ética:</p>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 p-2 mb-6">
-                {[
-                    "Evaluación del impacto ético", "Gobernanza y administración", "Política de datos",
-                    "Cooperación internacional", "Medio ambiente", "Igualdad de género",
-                    "Cultura", "Educación e investigación", "Comunicación e información",
-                    "Economía y trabajo", "Salud y bienestar social"
-                ].map((area, index) => (
-                    <div key={index} className="bg-slate-800/50 border border-slate-700 p-3 rounded-xl text-xs text-indigo-300 font-medium flex items-center gap-2">
-                        <div className="w-5 h-5 rounded-full bg-indigo-500/20 flex items-center justify-center text-[10px] text-indigo-400">{index + 1}</div>
-                        {area}
-                    </div>
-                ))}
-            </div>
-            
-            <div className="space-y-4 px-2">
-                <div className="bg-indigo-500/5 border-l-4 border-indigo-500 p-4 rounded-r-xl">
-                    <h4 className="text-sm font-bold text-indigo-300 mb-1">👩‍💻 Igualdad de género</h4>
-                    <p className="text-xs text-slate-400">Evitar que la IA exacerbe las brechas salariales o la representación desigual. Se deben asignar fondos para planes con perspectiva de género en el desarrollo de IA.</p>
-                </div>
-                <div className="bg-emerald-500/5 border-l-4 border-emerald-500 p-4 rounded-r-xl">
-                    <h4 className="text-sm font-bold text-emerald-300 mb-1">🎓 Educación e investigación</h4>
-                    <p className="text-xs text-slate-400">Promover la adquisición de "competencias previas" (alfabetización básica, aritmética, ética) para que la población pueda usar la IA de forma empoderada.</p>
-                </div>
-                <div className="bg-amber-500/5 border-l-4 border-amber-500 p-4 rounded-r-xl">
-                    <h4 className="text-sm font-bold text-amber-300 mb-1">💼 Economía y trabajo</h4>
-                    <p className="text-xs text-slate-400">Garantizar una transición equitativa para empleados en riesgo mediante programas de perfeccionamiento y reconversión profesional.</p>
-                </div>
-            </div>
-        </Accordion>
+    <div className="grid md:grid-cols-2 gap-6 my-8">
+      <div className="p-5 bg-slate-800/40 rounded-xl border border-slate-700">
+        <h4 className="font-bold text-white mb-2">Proporcionalidad e inocuidad</h4>
+        <p className="text-sm text-slate-400">El uso de la IA no debe exceder lo necesario para lograr un objetivo legítimo ni causar daño a terceros.</p>
+      </div>
+      <div className="p-5 bg-slate-800/40 rounded-xl border border-slate-700">
+        <h4 className="font-bold text-white mb-2">Transparencia y explicabilidad</h4>
+        <p className="text-sm text-slate-400">Debemos ser capaces de entender y explicar por qué una IA tomó cierta decisión o generó cierto contenido.</p>
+      </div>
+      <div className="p-5 bg-slate-800/40 rounded-xl border border-slate-700">
+        <h4 className="font-bold text-white mb-2">Responsabilidad y rendición de cuentas</h4>
+        <p className="text-sm text-slate-400">Los humanos siempre deben ser los responsables finales de las decisiones tomadas con ayuda de la IA.</p>
+      </div>
+      <div className="p-5 bg-slate-800/40 rounded-xl border border-slate-700">
+        <h4 className="font-bold text-white mb-2">Equidad y no discriminación</h4>
+        <p className="text-sm text-slate-400">Asegurar que los beneficios de la IA sean accesibles para todos y no refuercen desigualdades existentes.</p>
+      </div>
     </div>
 
-    <InfoCard type="idea" title="Aplicación al dilema de SofIA">
-        <p>Siguiendo el marco de la UNESCO, SofIA tiene derecho a la <strong>explicabilidad</strong> (entender por qué un ATS la rechaza) y a la <strong>supervisión humana</strong> (que su perfil no sea descartado sin una revisión final por una persona). Al mismo tiempo, ella debe actuar con <strong>responsabilidad</strong>, asegurando que el uso de herramientas de IA para optimizar su CV no vulnere la veracidad de su información.</p>
-    </InfoCard>
-
-    <h2 id="sec-etica-6" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">Definiciones clave según la UNESCO</h2>
-    <p className="mb-6">Para comprender el alcance de la ética, la UNESCO establece definiciones precisas que delimitan responsabilidades:</p>
-
-    <div className="grid md:grid-cols-2 gap-6 mb-8">
-        <InfoCard type="definicion" title="Sistemas de IA">
-            <p className="text-sm">Tecnologías de procesamiento de información que integran modelos y algoritmos que producen una capacidad para aprender y realizar tareas cognitivas, dando lugar a resultados como la predicción y la adopción de decisiones en entornos materiales y virtuales.</p>
-        </InfoCard>
-        <InfoCard type="definicion" title="Actores de la IA">
-            <p className="text-sm">Cualquier persona física o jurídica que participe en al menos una etapa del ciclo de vida de los sistemas de IA (investigadores, programadores, empresas, usuarios finales, etc.).</p>
-        </InfoCard>
-    </div>
-
-    <Accordion title="🔄 El ciclo de vida de la IA">
-        <p className="text-sm text-slate-300 mb-4">La ética no se aplica solo al uso final, sino a todas las etapas:</p>
-        <div className="flex flex-wrap gap-2">
-            {[
-                "Investigación", "Concepción", "Desarrollo", "Despliegue", "Utilización", 
-                "Mantenimiento", "Funcionamiento", "Comercialización", "Financiación", 
-                "Seguimiento", "Evaluación", "Validación", "Desmontaje"
-            ].map((etapa, i) => (
-                <span key={i} className="px-3 py-1 bg-slate-800 border border-slate-700 rounded-full text-xs text-slate-400">
-                    {etapa}
-                </span>
-            ))}
-        </div>
-    </Accordion>
-
-    <h2 id="sec-etica-7" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">V. Análisis de casos prácticos</h2>
+    <h2 id="sec-etica-5" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">6. Para reflexionar: la ética del prompt</h2>
+    <p>La capacidad de influir en las salidas de la IA a través de la ingeniería de prompts conlleva una responsabilidad ética significativa. No se trata solo de <em>qué</em> podemos obtener, sino de <em>cómo</em> lo obtenemos y <em>para qué</em> lo usamos.</p>
     
-    <div className="space-y-6">
-        <InfoCard type="conexion" title="1. El 'traductor' de currículos">
-            <p><strong>Situación:</strong> SofIA utiliza IAGen para transformar sus descripciones. El sistema sugiere reemplazar "organicé envíos diarios" por "orquesté operaciones logísticas multifuncionales".</p>
-            <p><strong>Enfoque ético recomendado:</strong> SofIA puede usar la sugerencia como inspiración, pero debe editarla para reflejar con precisión sus responsabilidades. Ejemplo: "Coordiné operaciones logísticas diarias, gestionando envíos y optimizando procesos".</p>
-        </InfoCard>
-
-        <InfoCard type="conexion" title="2. La laguna en el historial laboral">
-            <p><strong>Situación:</strong> SofIA tomó dos años de licencia para cuidar a un familiar. La IAGen sugiere: "Período de desarrollo profesional independiente".</p>
-            <p><strong>Enfoque ético recomendado:</strong> Optar por una formulación honesta pero profesional: "Período de responsabilidades familiares, durante el cual mantuve actualización profesional mediante cursos en línea". Esto es veraz y normaliza las responsabilidades de cuidado.</p>
-        </InfoCard>
-
-        <InfoCard type="conexion" title="3. La carta de presentación generada por IA">
-            <p><strong>Situación:</strong> La IAGen escribe una carta impecable, pero SofIA siente que "no suena como ella".</p>
-            <p><strong>Enfoque ético recomendado:</strong> Usar la IA como punto de partida, pero personalizar significativamente el contenido: incorporar ejemplos específicos, ajustar el tono y asegurar que la carta final sea una colaboración entre la estructura de la IA y la voz auténtica de SofIA.</p>
-        </InfoCard>
+    <div className="space-y-4 mt-6">
+      <Accordion title="6.1 La delgada línea de la veracidad">
+        <p>¿Es aceptable usar un prompt para "embellecer" una experiencia laboral hasta el punto de que no refleje la realidad? La ética del prompt sugiere que la IA debe ser una herramienta de <strong>amplificación</strong> de la verdad, no de <strong>fabricación</strong> de la misma.</p>
+      </Accordion>
+      <Accordion title="6.2 Sesgos inducidos por el usuario">
+        <p>A veces, nuestros propios prompts pueden inducir sesgos en la IA. Por ejemplo, pedirle que "redacte un perfil para un líder agresivo y dominante" puede forzar al modelo a recurrir a estereotipos de género perjudiciales.</p>
+      </Accordion>
+      <Accordion title="6.3 Propiedad intelectual y autoría">
+        <p>¿Quién es el autor de un texto generado por IA? ¿El ingeniero que diseñó el prompt o el modelo que procesó la información? Este debate sigue abierto y redefine nuestra comprensión de la creatividad y el trabajo intelectual.</p>
+      </Accordion>
     </div>
 
-    <h2 id="sec-etica-8" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">VI. El problema del rey Midas: alineación de valores</h2>
-    <p className="mb-4">"Si usamos... una agencia mecánica en cuya operación no podemos interferir eficazmente... será mejor que estemos muy seguros de que el propósito introducido en la máquina es el propósito que realmente deseamos". - Norbert Wiener, 1960.</p>
-    
-    <InfoCard type="reflexion" title="¿Qué es el problema del rey Midas?">
-        <p>En IA, esto se conoce como el <strong>problema de alineación de valores</strong>. Consiste en obtener literalmente lo que se pide, no lo que se quiere, con consecuencias desastrosas. Un sistema superinteligente que persigue un objetivo imperfecto podría tener consecuencias negativas a gran escala.</p>
-    </InfoCard>
+    <h2 id="sec-etica-6" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">7. Caso práctico: el espectro de la ética</h2>
+    <p className="mb-6">Consideremos tres niveles de uso de la IA por parte de SofIA para su CV:</p>
 
-    <Accordion title="🎯 La trampa de la utilidad y el riesgo de la automatización">
-        <div className="space-y-4">
-            <InfoCard type="conexion" title="Riesgo: pobreza de atención">
-                <p>Optimizar 'Clicks' no es lo mismo que optimizar 'Bienestar Humano'. Herbert Simon señaló que la riqueza de información crea pobreza de atención.</p>
-            </InfoCard>
-            <InfoCard type="practica" title="Solución: Inverse Reinforcement Learning (IRL)">
-                <p>En lugar de codificar recompensas fijas, el agente observa el comportamiento experto para inferir preferencias subyacentes. El objetivo no es crear agentes simplemente inteligentes, sino agentes <strong>demostrablemente beneficiosos</strong>.</p>
-            </InfoCard>
+    <div className="space-y-4">
+      <div className="flex gap-4 items-start p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl">
+        <div className="mt-1 text-emerald-400 font-bold">Nivel 1</div>
+        <div>
+          <h5 className="font-bold text-white">Uso ético (Asistente)</h5>
+          <p className="text-sm text-slate-300">SofIA usa la IA para corregir la gramática de sus logros reales y sugerir sinónimos más profesionales. La esencia y los datos son 100% suyos.</p>
         </div>
-    </Accordion>
+      </div>
 
-    <h2 id="sec-etica-9" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">VII. Reflexión final y síntesis</h2>
-    <InfoCard type="idea" title="Lecciones fundamentales">
-        <ul className="space-y-3">
-            <li><strong>La ética no es un estado binario:</strong> Existe un espectro entre usos claramente aceptables y claramente inaceptables.</li>
-            <li><strong>La autenticidad es negociable, la veracidad no:</strong> SofIA puede adaptar su tono y lenguaje, pero no puede fabricar experiencias inexistentes.</li>
-            <li><strong>Los sistemas injustos no justifican respuestas igualmente problemáticas:</strong> Aunque los ATS contienen sesgos, esto no otorga carta blanca para el engaño.</li>
-        </ul>
-    </InfoCard>
+      <div className="flex gap-4 items-start p-4 bg-amber-500/10 border border-amber-500/30 rounded-xl">
+        <div className="mt-1 text-amber-400 font-bold">Nivel 2</div>
+        <div>
+          <h5 className="font-bold text-white">Zona gris (Optimizador)</h5>
+          <p className="text-sm text-slate-300">SofIA le pide a la IA que "traduzca" sus tareas de retail al lenguaje de operaciones logísticas. El riesgo es que la IA exagere la relevancia de sus tareas previas.</p>
+        </div>
+      </div>
 
-    <h2 id="sec-etica-10" className="text-2xl font-bold mt-12 mb-6 text-indigo-400 scroll-mt-24">🤔 Preguntas de reflexión</h2>
+      <div className="flex gap-4 items-start p-4 bg-red-500/10 border border-red-500/30 rounded-xl">
+        <div className="mt-1 text-red-400 font-bold">Nivel 3</div>
+        <div>
+          <h5 className="font-bold text-white">Uso no ético (Fabricante)</h5>
+          <p className="text-sm text-slate-300">SofIA le pide a la IA que invente logros con números específicos (ej. "aumenté las ventas un 20%") que nunca ocurrieron, solo para pasar el filtro del ATS.</p>
+        </div>
+      </div>
+    </div>
+
+    <AuthorNote>
+      La tecnología es una herramienta poderosa, pero la integridad personal es el activo más valioso de SofIA. En un mundo de respuestas generadas por máquinas, la autenticidad humana se convierte en una ventaja competitiva.
+    </AuthorNote>
+
+    <h2 id="sec-etica-7" className="text-2xl font-bold mt-12 mb-6 text-indigo-400 scroll-mt-24">🤔 Preguntas de reflexión</h2>
     <div className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700">
       <ul className="list-decimal list-inside space-y-3 text-slate-300">
-        <li>¿Dónde trazas tú la línea ética al usar IA para optimizar tu perfil profesional?</li>
-        <li>¿Cómo puedes equilibrar la necesidad de ser competitivo ante un ATS con la honestidad sobre tus capacidades reales?</li>
-        <li>¿Qué principios del marco de la UNESCO consideras más relevantes para proteger tu propia identidad digital?</li>
+        <li>Si supieras que un reclutador usa IA para descartar currículums, ¿cambiaría eso tu perspectiva sobre usar IA para redactar el tuyo?</li>
+        <li>¿Cómo puedes asegurar que tu uso de la IA sea transparente y honesto?</li>
+        <li>¿Qué principios del marco de la UNESCO te parecen más difíciles de aplicar en la práctica diaria?</li>
       </ul>
     </div>
   </div>

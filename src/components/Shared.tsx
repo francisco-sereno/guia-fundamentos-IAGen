@@ -380,7 +380,8 @@ export const AboutModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
         <div className="flex justify-between items-start mb-8 relative z-10">
           <div>
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-2">Acerca de esta guía</h2>
-            <p className="text-indigo-400 font-medium">Dominando la Inteligencia Artificial</p>
+            <p className="text-indigo-400 font-medium text-lg">Dominando la IA</p>
+            <p className="text-slate-400 text-sm">por Francisco Sereño</p>
           </div>
           <button onClick={onClose} className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors border border-white/5">
             <X size={20} />
