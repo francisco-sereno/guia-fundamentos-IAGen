@@ -30,7 +30,7 @@ export const EticaContent = () => (
     </div>
 
     <h2 id="sec-etica-1" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <HeartHandshake size={24} /> 2. Caso de estudio: el dilema de SofIA
+      <HeartHandshake size={24} /> 2. Caso de estudio: El dilema de SofIA
     </h2>
     
     <InfoCard type="reflexion" title="Contexto del caso">
@@ -127,7 +127,7 @@ export const EticaContent = () => (
     </div>
 
     <h2 id="sec-etica-5" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <BookOpen size={24} /> 6. Para reflexionar: la ética del prompt
+      <BookOpen size={24} /> 6. Para reflexionar: La ética del prompt
     </h2>
     <p>La capacidad de influir en las salidas de la IA a través de la ingeniería de prompts conlleva una responsabilidad ética significativa. No se trata solo de <em>qué</em> podemos obtener, sino de <em>cómo</em> lo obtenemos y <em>para qué</em> lo usamos.</p>
     
@@ -144,7 +144,7 @@ export const EticaContent = () => (
     </div>
 
     <h2 id="sec-etica-6" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <Scale size={24} /> 7. Caso práctico: el espectro de la ética
+      <Scale size={24} /> 7. Caso práctico: El espectro de la ética
     </h2>
     <p className="mb-6">Consideremos tres niveles de uso de la IA por parte de SofIA para la formulación de su perfil:</p>
 

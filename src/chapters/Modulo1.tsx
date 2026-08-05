@@ -43,7 +43,7 @@ export const Modulo1Content = () => (
       </div>
     </Accordion>
 
-    <h2 id="sec-modulo1-2" className="text-2xl font-bold mt-12 mb-6 text-indigo-800 dark:text-indigo-300 scroll-mt-24">La trayectoria de la IA: ciclos de entusiasmo y realidad</h2>
+    <h2 id="sec-modulo1-2" className="text-2xl font-bold mt-12 mb-6 text-indigo-800 dark:text-indigo-300 scroll-mt-24">La trayectoria de la IA: Ciclos de entusiasmo y realidad</h2>
     <p className="mb-8 text-slate-700 dark:text-slate-300">La historia de la IA no es una línea recta, sino una serie de ciclos de éxito seguidos por crisis de financiamiento (inviernos de la IA).</p>
     
     <div className="relative border-l-[3px] border-indigo-200 dark:border-indigo-500/30 ml-4 md:ml-6 space-y-10 pb-8">
@@ -138,12 +138,12 @@ export const Modulo1Content = () => (
           </thead>
           <tbody className="text-slate-700 dark:text-slate-300">
             <tr>
-              <td className="p-3 border border-slate-200 dark:border-slate-700 font-bold text-indigo-800 dark:text-indigo-300">Machine Learning (ML)</td>
+              <td className="p-3 border border-slate-200 dark:border-slate-700 font-bold text-indigo-800 dark:text-indigo-300">Machine learning (ML)</td>
               <td className="p-3 border border-slate-200 dark:border-slate-700">Permite a los sistemas aprender y mejorar a partir de la experiencia sin ser programados explícitamente.</td>
               <td className="p-3 border border-slate-200 dark:border-slate-700">Sistemas de recomendación, detección de fraudes.</td>
             </tr>
             <tr>
-              <td className="p-3 border border-slate-200 dark:border-slate-700 font-bold text-indigo-800 dark:text-indigo-300">Deep Learning (DL)</td>
+              <td className="p-3 border border-slate-200 dark:border-slate-700 font-bold text-indigo-800 dark:text-indigo-300">Deep learning (DL)</td>
               <td className="p-3 border border-slate-200 dark:border-slate-700">Subconjunto del ML basado en redes neuronales artificiales con múltiples capas (profundas) para modelar abstracciones complejas.</td>
               <td className="p-3 border border-slate-200 dark:border-slate-700">Reconocimiento de voz avanzado, conducción autónoma.</td>
             </tr>
@@ -235,8 +235,8 @@ export const Modulo1Content = () => (
         <h4 className="font-bold text-indigo-800 dark:text-indigo-300 mb-3">Representación del conocimiento y razonamiento ontológico</h4>
         <p className="text-sm text-slate-700 dark:text-slate-300 mb-4">Para que un sistema posea verdadera pericia, debe ser capaz de interiorizar, organizar y razonar sobre la información estructuradamente. La Representación del Conocimiento busca describir el mundo de manera formal, detallando explícitamente los hechos, objetos, conceptos y las interrelaciones jerárquicas que los conectan.</p>
         <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
-          <p><strong>Ontologías Computacionales:</strong> Funcionan como el sistema central de archivo enciclopédico de la máquina, erradicando la ambigüedad lingüística. Se dividen en <em>Ontologías de Dominio</em> (específicas de un campo temático) y <em>Ontologías Generales</em> (conceptos filosóficos de alto nivel).</p>
-          <p><strong>El Motor de Inferencia:</strong> Actúa como el cerebro calculador dentro del sistema de representación. Al igual que un detective policial resolviendo un crimen, recolecta pistas (datos de entrada) y las contrasta contra un extenso archivo (la base de conocimientos y la ontología formal) utilizando métodos rigurosos de la lógica matemática para generar deducciones.</p>
+          <p><strong>Ontologías computacionales:</strong> Funcionan como el sistema central de archivo enciclopédico de la máquina, erradicando la ambigüedad lingüística. Se dividen en <em>Ontologías de dominio</em> (específicas de un campo temático) y <em>Ontologías generales</em> (conceptos filosóficos de alto nivel).</p>
+          <p><strong>El motor de inferencia:</strong> Actúa como el cerebro calculador dentro del sistema de representación. Al igual que un detective policial resolviendo un crimen, recolecta pistas (datos de entrada) y las contrasta contra un extenso archivo (la base de conocimientos y la ontología formal) utilizando métodos rigurosos de la lógica matemática para generar deducciones.</p>
         </div>
       </div>
 
@@ -321,7 +321,7 @@ export const Modulo1Content = () => (
       <Accordion title="Mito 5: la IA creará una singularidad tecnológica incontrolable" icon={AlertTriangle}>
         <p><strong>Realidad:</strong> La <GlossaryTerm term="Singularidad"><strong>singularidad</strong></GlossaryTerm> es una hipótesis teórica. El desarrollo de la IA en educación debe guiarse por los marcos de la <GlossaryTerm term="UNESCO AI"><strong>UNESCO AI</strong></GlossaryTerm>, <GlossaryTerm term="DECIDE-IA"><strong>DECIDE-IA</strong></GlossaryTerm> y <GlossaryTerm term="PotencIA"><strong>PotencIA</strong></GlossaryTerm>.</p>
       </Accordion>
-      <Accordion title="Mito 6: la IA avanzada siempre será malévola" icon={AlertTriangle}>
+      <Accordion title="Mito 6: La IA avanzada siempre será malévola" icon={AlertTriangle}>
         <p><strong>Realidad:</strong> La IA no tiene intenciones. Su comportamiento depende del diseño humano y los marcos de <GlossaryTerm term="Alineación"><strong>alineación</strong></GlossaryTerm> ética.</p>
       </Accordion>
     </div>
@@ -346,13 +346,13 @@ export const Modulo1Content = () => (
 
     <Accordion title="Proceso de entrenamiento y paradigmas de aprendizaje" icon={BookOpen}>
         <div className="space-y-4">
-            <InfoCard type="practica" title="Fase 1: preentrenamiento">
-                <p>El modelo es entrenado con <strong>vastos corpus de texto</strong> mediante <GlossaryTerm term="Aprendizaje no supervisado"><strong>aprendizaje no supervisado</strong></GlossaryTerm> para aprender patrones lingüísticos y conocimiento general. Este proceso permite el <GlossaryTerm term="Transfer Learning"><strong>Transfer Learning</strong></GlossaryTerm>.</p>
+            <InfoCard type="practica" title="Fase 1: Preentrenamiento">
+                <p>El modelo es entrenado con <strong>vastos corpus de texto</strong> mediante <GlossaryTerm term="Aprendizaje no supervisado"><strong>aprendizaje no supervisado</strong></GlossaryTerm> para aprender patrones lingüísticos y conocimiento general. Este proceso permite el <GlossaryTerm term="Transfer learning"><strong>Transfer learning</strong></GlossaryTerm>.</p>
             </InfoCard>
-            <InfoCard type="practica" title="Fase 2: afinamiento (fine-tuning)">
+            <InfoCard type="practica" title="Fase 2: Afinamiento (fine-tuning)">
                 <p>Se especializa el modelo con <strong>datos específicos</strong> de tareas o dominios particulares mediante <GlossaryTerm term="Aprendizaje supervisado"><strong>aprendizaje supervisado</strong></GlossaryTerm>.</p>
             </InfoCard>
-            <InfoCard type="practica" title="Fase 3: aprendizaje por refuerzo (RL)">
+            <InfoCard type="practica" title="Fase 3: Aprendizaje por refuerzo (RL)">
                 <p>Para que un agente trascienda la ejecución de reglas predefinidas, se utiliza el <GlossaryTerm term="Aprendizaje por refuerzo"><strong>aprendizaje por refuerzo</strong></GlossaryTerm>. Funciona mediante un bucle de retroalimentación donde el agente interactúa con el entorno y ajusta su comportamiento.</p>
             </InfoCard>
         </div>
@@ -384,7 +384,7 @@ export const Modulo1Content = () => (
     </Accordion>
 
     <h2 id="sec-modulo1-7" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <Target size={24} /> Aplicación práctica: el caso de SofIA
+      <Target size={24} /> Aplicación práctica: El caso de SofIA
     </h2>
     <InfoCard type="reflexion" title="El caso de SofIA">
         <p><strong>SofIA</strong> es una profesional del ámbito educativo que utiliza herramientas de <GlossaryTerm term="IA generativa"><strong>IA generativa</strong></GlossaryTerm> para realizar su propio diagnóstico de competencias: analizar su trayectoria pedagógica, extraer habilidades transferibles y mapearlas con las palabras clave que exigen los proyectos de <GlossaryTerm term="EdTech"><strong>tecnología educativa (EdTech)</strong></GlossaryTerm> y <GlossaryTerm term="Diseño instruccional"><strong>diseño instruccional</strong></GlossaryTerm>.</p>
@@ -439,7 +439,7 @@ export const Modulo1Content = () => (
     </Accordion>
 
     <h2 id="sec-modulo1-8" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <PenTool size={24} /> Ingeniería de prompts: la clave del éxito
+      <PenTool size={24} /> Ingeniería de prompts: La clave del éxito
     </h2>
     
     <InfoCard type="idea" title="La importancia del prompt">
@@ -463,7 +463,7 @@ export const Modulo1Content = () => (
         </div>
     </Accordion>
 
-    <Accordion title="Ejemplo práctico: prompts que usa SofIA" icon={Palette}>
+    <Accordion title="Ejemplo práctico: Prompts que usa SofIA" icon={Palette}>
         <div className="space-y-4">
             <div className="bg-red-500/10 border border-red-500/30 p-4 rounded-xl">
                 <h4 className="font-bold mb-3 text-red-700 dark:text-red-400 flex items-center gap-2">

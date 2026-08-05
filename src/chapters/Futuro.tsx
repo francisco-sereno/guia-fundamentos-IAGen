@@ -8,7 +8,7 @@ export const FuturoContent = () => (
       El futuro de la IA no es solo para expertos; es un camino que todas las personas estamos construyendo. Entender hacia dónde vamos nos permite prepararnos mejor para las herramientas que vendrán.
     </AuthorNote>
 
-    <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-6">El futuro de la IA: hacia la inteligencia general y la robótica integrada</h1>
+    <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-6">El futuro de la IA: Hacia la inteligencia general y la robótica integrada</h1>
     <p className="text-xl text-slate-600 dark:text-slate-300 mb-8">Explorando las fronteras de la inteligencia artificial y su impacto en la humanidad.</p>
 
     <h2 id="sec-futuro-0" className="text-2xl font-bold mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
@@ -43,7 +43,7 @@ export const FuturoContent = () => (
     </div>
 
     <h2 id="sec-futuro-2" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <Brain size={24} /> 3. El futuro del aprendizaje: de lo supervisado a lo predictivo
+      <Brain size={24} /> 3. El futuro del aprendizaje: De lo supervisado a lo predictivo
     </h2>
     <p>Estamos pasando de modelos que necesitan ser "guiados" por humanos (aprendizaje supervisado) a modelos que aprenden observando el mundo y prediciendo lo que sucederá a continuación (aprendizaje autosupervisado o predictivo).</p>
 
@@ -59,7 +59,7 @@ export const FuturoContent = () => (
     </Accordion>
 
     <h2 id="sec-futuro-3" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <Brain size={24} /> 4. Cognición vs. conciencia: el debate filosófico
+      <Brain size={24} /> 4. Cognición vs. conciencia: El debate filosófico
     </h2>
     <p>Es vital distinguir entre <strong>cognición</strong> (la capacidad de procesar información y resolver problemas) y <strong>conciencia</strong> (la experiencia subjetiva de existir). Una IA puede ser increíblemente inteligente sin sentir nada.</p>
     
@@ -75,7 +75,7 @@ export const FuturoContent = () => (
     </Accordion>
 
     <h2 id="sec-futuro-4" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <Radio size={24} /> 5. Impactos y riesgos: la singularidad tecnológica
+      <Radio size={24} /> 5. Impactos y riesgos: La singularidad tecnológica
     </h2>
     <p>La <strong>singularidad tecnológica</strong> es el punto hipotético en el que el crecimiento tecnológico se vuelve incontrolable e irreversible, resultando en cambios insondables para la civilización humana, a menudo asociados con la creación de una superinteligencia.</p>
 

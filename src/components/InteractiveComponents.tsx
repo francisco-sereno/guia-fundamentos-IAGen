@@ -1233,7 +1233,7 @@ export const CompetenceMappingCard = () => {
                 ) : (
                   <>
                     <Sparkles size={20} />
-                    <span>Articular Competencias EdTech</span>
+                    <span>Articular competencias EdTech</span>
                   </>
                 )}
               </button>

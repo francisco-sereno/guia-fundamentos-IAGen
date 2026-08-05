@@ -132,7 +132,7 @@ export const AgentesContent = () => (
     </Accordion>
 
     <h2 id="sec-agentes-4" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <Zap size={24} /> Las llaves al mundo exterior: herramientas
+      <Zap size={24} /> Las llaves al mundo exterior: Herramientas
     </h2>
     <p>
       Según la arquitectura propuesta por Google Cloud y OpenAI, los modelos fundacionales están limitados por su incapacidad para interactuar directamente con el mundo real. Las <strong>herramientas</strong> cierran esta brecha, permitiendo que el modelo pase de ser un sistema de "solo lectura" a uno de "lectura y escritura". Existen tres tipos principales:
@@ -148,7 +148,7 @@ export const AgentesContent = () => (
           Permiten al agente ejecutar llamadas directas a servicios de terceros para obtener información en tiempo real o realizar transacciones. El agente actúa como un "puente" entre el usuario y la web.
         </p>
         <div className="bg-white dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200 dark:border-white/5">
-          <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-2">Ejemplo práctico: agente de viajes</p>
+          <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-2">Ejemplo práctico: Agente de viajes</p>
           <p className="text-sm text-slate-600 dark:text-slate-400 italic">
             "Busca vuelos de Madrid a Tokio para el 15 de mayo y reserva el más económico que no tenga escalas."
           </p>
@@ -167,7 +167,7 @@ export const AgentesContent = () => (
           El modelo no ejecuta la acción directamente, sino que genera una estructura de datos (generalmente <GlossaryTerm term="JSON">JSON</GlossaryTerm>) con los argumentos necesarios para que tu propia aplicación ejecute una función local. Esto ofrece el máximo control de seguridad y privacidad.
         </p>
         <div className="bg-white dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200 dark:border-white/5">
-          <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-2">Ejemplo práctico: gestión de inventario</p>
+          <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-2">Ejemplo práctico: Gestión de inventario</p>
           <p className="text-sm text-slate-600 dark:text-slate-400 italic">
             "Actualiza el stock de 'Camisetas Azules' restando 5 unidades y genera una alerta si quedan menos de 10."
           </p>
@@ -227,27 +227,27 @@ export const AgentesContent = () => (
         </thead>
         <tbody className="text-sm text-slate-300">
           <tr className="border-b border-slate-800/50">
-            <td className="p-4 font-bold text-slate-200">Nivel 1: automatización sin IA</td>
+            <td className="p-4 font-bold text-slate-200">Nivel 1: Automatización sin IA</td>
             <td className="p-4">Sistemas rígidos basados en reglas fijas (if-then). Sin aprendizaje ni adaptación.</td>
             <td className="p-4">Chatbots de opciones predefinidas ("Presione 1 para ventas").</td>
           </tr>
           <tr className="border-b border-slate-800/50">
-            <td className="p-4 font-bold text-slate-200">Nivel 2: automatización con IA generativa</td>
+            <td className="p-4 font-bold text-slate-200">Nivel 2: Automatización con IA generativa</td>
             <td className="p-4">Incorpora IA pero requiere intervención activa del usuario para cada paso.</td>
             <td className="p-4">Usar ChatGPT o Copilot para redactar un correo basado en viñetas.</td>
           </tr>
           <tr className="border-b border-slate-800/50">
-            <td className="p-4 font-bold text-slate-200">Nivel 3: workflow agéntico de baja autonomía</td>
+            <td className="p-4 font-bold text-slate-200">Nivel 3: Workflow agéntico de baja autonomía</td>
             <td className="p-4">Ejecuta tareas de manera autónoma dentro de parámetros estrictos y revisión humana obligatoria.</td>
             <td className="p-4">Un GPT especializado que elabora borradores legales para revisión.</td>
           </tr>
           <tr className="border-b border-slate-800/50">
-            <td className="p-4 font-bold text-slate-200">Nivel 4: workflow agéntico de autonomía moderada</td>,TargetContent:
+            <td className="p-4 font-bold text-slate-200">Nivel 4: Workflow agéntico de autonomía moderada</td>,TargetContent:
             <td className="p-4">Impulsa la ejecución de tareas mediante rutas predefinidas y uso de herramientas.</td>
             <td className="p-4">Un flujo en n8n que clasifica correos, extrae datos y consulta una API.</td>
           </tr>
           <tr>
-            <td className="p-4 font-bold text-slate-200">Nivel 5: workflow agéntico de elevada autonomía</td>
+            <td className="p-4 font-bold text-slate-200">Nivel 5: Workflow agéntico de elevada autonomía</td>
             <td className="p-4">Gestiona flujos completos de manera autónoma, adaptativa y dinámica.</td>
             <td className="p-4">Un agente que organiza un viaje complejo y ajusta el itinerario ante cancelaciones.</td>
           </tr>
@@ -280,7 +280,7 @@ export const AgentesContent = () => (
     </InfoCard>
 
     <h2 id="sec-agentes-8" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <TerminalSquare size={24} /> Del concepto al código: construyendo un agente
+      <TerminalSquare size={24} /> Del concepto al código: Construyendo un agente
     </h2>
     <p>
       Para ver cómo se materializa la teoría, aquí tienes un ejemplo de cómo se construye un agente <strong>ReAct</strong> (Reason + Act) utilizando Python, el framework LangChain y un modelo de lenguaje. Este agente tiene acceso a una herramienta de búsqueda en la web (SerpAPI) para responder preguntas que requieren información actualizada, como se describe en la guía de ingeniería de prompts de Google.
@@ -335,7 +335,7 @@ agent.run(prompt)`}
     <div className="grid sm:grid-cols-2 gap-4 my-6">
       <div className="p-5 bg-slate-100 dark:bg-slate-800/30 rounded-xl border border-slate-200 dark:border-slate-700/50">
         <GraduationCap className="text-indigo-600 dark:text-indigo-400 mb-3" size={24} />
-        <h4 className="font-bold text-slate-900 dark:text-slate-200 mb-2">Educación: tutores inteligentes</h4>
+        <h4 className="font-bold text-slate-900 dark:text-slate-200 mb-2">Educación: Tutores inteligentes</h4>
         <p className="text-sm text-slate-600 dark:text-slate-400">Agentes como "Khanmigo" de Khan Academy actúan como tutores socráticos. No dan la respuesta directa, sino que guían al estudiante paso a paso, adaptándose a su nivel y manteniendo el contexto de la lección.</p>
       </div>
       <div className="p-5 bg-slate-100 dark:bg-slate-800/30 rounded-xl border border-slate-200 dark:border-slate-700/50">
@@ -372,7 +372,7 @@ agent.run(prompt)`}
     </Accordion>
 
     <h2 id="sec-agentes-11" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <Bot size={24} /> El factor humano: centauros y cyborgs
+      <Bot size={24} /> El factor humano: Centauros y cyborgs
     </h2>
     <p>
       La llegada de los agentes no elimina al humano, sino que redefine su rol. El paradigma de <strong>Human-in-the-Loop (HITL)</strong> es esencial para validar, refinar o anular respuestas generadas por la IA.
@@ -400,13 +400,13 @@ agent.run(prompt)`}
       La implementación exitosa de agentes requiere nuevas competencias en los equipos de trabajo. No se trata solo de saber usar herramientas, sino de cambiar la forma en que pensamos sobre los procesos:
     </p>
     <ul className="list-disc pl-5 space-y-2 mt-4 text-slate-700 dark:text-slate-300">
-      <li><strong>Pensamiento Sistémico:</strong> La habilidad de dividir problemas complejos en pasos simples, identificar qué información necesita el agente y planear verificaciones de calidad.</li>
+      <li><strong>Pensamiento sistémico:</strong> La habilidad de dividir problemas complejos en pasos simples, identificar qué información necesita el agente y planear verificaciones de calidad.</li>
       <li><strong>Ingeniería de Prompts (Avanzada):</strong> Pasar de dar órdenes simples ("Haz un reporte") a proporcionar contexto, objetivos, restricciones y formatos precisos.</li>
       <li><strong>Gestión de Agentes:</strong> Aprender a supervisar, auditar y optimizar sistemas autónomos, entendiendo cuándo confiar en la IA y cuándo escalar a un humano.</li>
     </ul>
 
     <h2 id="sec-agentes-13" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <Briefcase size={24} /> Caso práctico: el workflow agéntico de SofIA
+      <Briefcase size={24} /> Caso práctico: El workflow agéntico de SofIA
     </h2>
     <p>
       Para entender cómo todas estas piezas encajan, veamos cómo SofIA podría utilizar un sistema multiagente para automatizar su reconversión profesional, desde el análisis de su portafolio pedagógico hasta el mapeo de proyectos de tecnología educativa.
@@ -425,12 +425,12 @@ agent.run(prompt)`}
             <Layers size={24} />
           </div>
           <div className="bg-slate-100 dark:bg-slate-800/40 p-6 rounded-2xl border border-slate-200 dark:border-slate-700/50 flex-1">
-            <h4 className="text-lg font-bold text-indigo-800 dark:text-indigo-300 mb-2">Paso 1: ingesta de datos (Data Store / RAG)</h4>
+            <h4 className="text-lg font-bold text-indigo-800 dark:text-indigo-300 mb-2">Paso 1: Ingesta de datos (Data Store / RAG)</h4>
             <p className="text-sm text-slate-700 dark:text-slate-300 mb-3">
               SofIA sube su portafolio docente en PDF y un documento de texto con sus preferencias (rol en diseño instruccional, trabajo remoto, áreas de innovación).
             </p>
             <div className="bg-white dark:bg-slate-900/50 p-3 rounded-lg border border-slate-200 dark:border-slate-700 text-sm">
-              <strong className="text-emerald-700 dark:text-emerald-400">Agente "Analista de Perfil":</strong> Utiliza un <em>Data Store</em> para convertir los documentos en <GlossaryTerm term="Embeddings"><strong>embeddings vectoriales</strong></GlossaryTerm>. Extrae sus habilidades clave (ej. <GlossaryTerm term="Diseño instruccional"><strong>diseño instruccional</strong></GlossaryTerm>, <GlossaryTerm term="Evaluación formativa"><strong>evaluación formativa</strong></GlossaryTerm>, coordinación pedagógica) y sus preferencias de desarrollo en <GlossaryTerm term="EdTech"><strong>EdTech</strong></GlossaryTerm>.
+              <strong className="text-emerald-700 dark:text-emerald-400">Agente "Analista de perfil":</strong> Utiliza un <em>Data Store</em> para convertir los documentos en <GlossaryTerm term="Embeddings"><strong>embeddings vectoriales</strong></GlossaryTerm>. Extrae sus habilidades clave (ej. <GlossaryTerm term="Diseño instruccional"><strong>diseño instruccional</strong></GlossaryTerm>, <GlossaryTerm term="Evaluación formativa"><strong>evaluación formativa</strong></GlossaryTerm>, coordinación pedagógica) y sus preferencias de desarrollo en <GlossaryTerm term="EdTech"><strong>EdTech</strong></GlossaryTerm>.
             </div>
           </div>
         </div>
@@ -441,7 +441,7 @@ agent.run(prompt)`}
             <Zap size={24} />
           </div>
           <div className="bg-slate-100 dark:bg-slate-800/40 p-6 rounded-2xl border border-slate-200 dark:border-slate-700/50 flex-1">
-            <h4 className="text-lg font-bold text-indigo-800 dark:text-indigo-300 mb-2">Paso 2: búsqueda activa (extensiones / APIs)</h4>
+            <h4 className="text-lg font-bold text-indigo-800 dark:text-indigo-300 mb-2">Paso 2: Búsqueda activa (extensiones / APIs)</h4>
             <p className="text-sm text-slate-700 dark:text-slate-300 mb-3">
               El sistema necesita encontrar oportunidades de proyectos reales y actualizadas que coincidan con el perfil extraído.
             </p>
@@ -457,7 +457,7 @@ agent.run(prompt)`}
             <BrainCircuit size={24} />
           </div>
           <div className="bg-slate-100 dark:bg-slate-800/40 p-6 rounded-2xl border border-slate-200 dark:border-slate-700/50 flex-1">
-            <h4 className="text-lg font-bold text-indigo-800 dark:text-indigo-300 mb-2">Paso 3: razonamiento y filtrado (orquestador)</h4>
+            <h4 className="text-lg font-bold text-indigo-800 dark:text-indigo-300 mb-2">Paso 3: Razonamiento y filtrado (orquestador)</h4>
             <p className="text-sm text-slate-700 dark:text-slate-300 mb-3">
               Se han encontrado 50 posibles oportunidades, pero no todas son ideales. El sistema debe evaluar cada una.
             </p>
@@ -473,12 +473,12 @@ agent.run(prompt)`}
             <Target size={24} />
           </div>
           <div className="bg-slate-100 dark:bg-slate-800/40 p-6 rounded-2xl border border-slate-200 dark:border-slate-700/50 flex-1">
-            <h4 className="text-lg font-bold text-indigo-800 dark:text-indigo-300 mb-2">Paso 4: acción y formateo (function calling)</h4>
+            <h4 className="text-lg font-bold text-indigo-800 dark:text-indigo-300 mb-2">Paso 4: Acción y formateo (function calling)</h4>
             <p className="text-sm text-slate-700 dark:text-slate-300 mb-3">
               El sistema debe presentar los resultados a SofIA y preparar borradores de cartas de presentación.
             </p>
             <div className="bg-white dark:bg-slate-900/50 p-3 rounded-lg border border-slate-200 dark:border-slate-700 text-sm">
-              <strong className="text-emerald-700 dark:text-emerald-400">Agente "Estratega de Proyectos":</strong> Redacta propuestas personalizadas para el Top 3. Luego, utiliza <em>Function Calling</em> para estructurar toda esta información en un formato <GlossaryTerm term="JSON">JSON</GlossaryTerm> estricto, permitiendo que la interfaz web (UI) muestre las oportunidades en tarjetas interactivas.
+              <strong className="text-emerald-700 dark:text-emerald-400">Agente "Estratega de proyectos":</strong> Redacta propuestas personalizadas para el Top 3. Luego, utiliza <em>Function Calling</em> para estructurar toda esta información en un formato <GlossaryTerm term="JSON">JSON</GlossaryTerm> estricto, permitiendo que la interfaz web (UI) muestre las oportunidades en tarjetas interactivas.
             </div>
           </div>
         </div>

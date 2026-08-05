@@ -9,7 +9,7 @@ export const Modulo2Content = () => (
       En esta sección, veremos cómo dejar de tratar a la IA como un buscador y empezar a verla como un colaborador. La precisión en tus instrucciones es lo que permite que personas sin formación técnica logren resultados extraordinarios.
     </AuthorNote>
 
-    <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-6">Ingeniería de prompts: fundamentos y aplicaciones en inteligencia artificial generativa</h1>
+    <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-6">Ingeniería de prompts: Fundamentos y aplicaciones en inteligencia artificial generativa</h1>
     <p className="text-xl text-slate-600 dark:text-slate-300 mb-8">El arte y la ciencia de la comunicación efectiva con modelos de lenguaje</p>
 
     <h2 id="sec-modulo2-0" className="text-2xl font-bold mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24">1. Introducción</h2>
@@ -499,7 +499,7 @@ export const Modulo2Content = () => (
     </InfoCard>
     <p className="mt-4">La evaluación objetiva es crucial, usando métricas cuantitativas (relevancia semántica) y cualitativas. Herramientas como <strong>Promptfoo</strong> permiten automatizar este proceso con el mismo rigor que el código de software.</p>
 
-    <h2 id="sec-modulo2-7" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24">8. Conexión práctica: el mega-prompt</h2>
+    <h2 id="sec-modulo2-7" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24">8. Conexión práctica: El mega-prompt</h2>
     <p>El "mega-prompt" no es solo un ejemplo, sino un modelo de cómo construir herramientas de análisis complejas. Al integrar múltiples técnicas (rol, CoT, ToT, few-shot) en un solo prompt, se crea un "agente" especializado.</p>
     <div className="bg-slate-100 dark:bg-slate-900/80 p-6 rounded-xl border border-indigo-200 dark:border-indigo-500/30 mt-4">
       <h4 className="font-bold text-indigo-900 dark:text-indigo-300 mb-2">Ejemplo de estructura de mega-prompt:</h4>
