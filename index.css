@@ -1,88 +1,143 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Space Grotesk", ui-monospace, SFMono-Regular, monospace;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-slate-950 text-slate-300 font-sans antialiased selection:bg-indigo-500/30 selection:text-indigo-200;
+    @apply bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200 font-sans antialiased selection:bg-indigo-500/20 selection:text-indigo-950 dark:selection:bg-indigo-500/30 dark:selection:text-indigo-100 transition-colors duration-300;
     background-image: 
-      radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-      radial-gradient(at 50% 0%, hsla(225,39%,30%,0.1) 0, transparent 50%), 
-      radial-gradient(at 100% 0%, hsla(339,49%,30%,0.1) 0, transparent 50%);
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.05), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 100%, rgba(168, 85, 247, 0.03), transparent);
     background-attachment: fixed;
     overflow-x: hidden;
+  }
+
+  .dark body {
+    background-image: 
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.1), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 100%, rgba(168, 85, 247, 0.06), transparent),
+      radial-gradient(ellipse 60% 40% at 0% 100%, rgba(236, 72, 153, 0.04), transparent);
   }
 }
 
 @layer components {
   .glass-panel {
-    @apply bg-slate-900/40 backdrop-blur-xl border border-white/10 shadow-2xl;
+    @apply bg-white/90 dark:bg-slate-950/80 backdrop-blur-3xl border border-white/40 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.05)] dark:shadow-[0_16px_36px_rgba(0,0,0,0.85)] text-slate-900 dark:text-slate-100;
   }
   
   .glass-card {
-    @apply bg-slate-800/40 backdrop-blur-md border border-white/5 rounded-2xl shadow-xl hover:bg-slate-800/60 transition-all duration-300;
+    @apply bg-white/70 dark:bg-slate-900/60 backdrop-blur-xl border border-white/50 dark:border-white/10 rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-xl hover:-translate-y-1 hover:bg-white/90 dark:hover:bg-slate-800/80 hover:border-indigo-400/50 dark:hover:border-indigo-400/50 transition-all duration-500 ease-out;
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-800 dark:from-indigo-300 dark:via-purple-300 dark:to-pink-300 font-extrabold tracking-tight;
   }
 
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 dark:from-indigo-400 dark:via-indigo-300 dark:to-purple-400 font-bold;
+  }
+
+  /* Custom Prose Typography - High WCAG 2.1 AA Contrast */
   .prose-custom p {
-    @apply mb-8 leading-loose text-slate-300 text-lg md:text-xl font-light;
+    @apply mb-6 leading-relaxed text-slate-800 dark:text-slate-200 text-base md:text-lg font-normal;
   }
 
   .prose-custom h1 {
-    @apply text-slate-100 font-bold tracking-tight mb-8 mt-12 text-4xl md:text-5xl lg:text-6xl;
+    @apply text-slate-950 dark:text-slate-50 font-extrabold tracking-tight mb-6 mt-8 text-3xl md:text-4xl lg:text-5xl leading-tight;
   }
 
   .prose-custom h2 {
-    @apply text-slate-100 font-semibold tracking-tight mb-6 mt-16 text-2xl md:text-3xl;
+    @apply text-indigo-900 dark:text-indigo-300 font-bold tracking-tight mb-4 mt-12 text-2xl md:text-3xl leading-snug border-b border-slate-300 dark:border-slate-800 pb-3;
   }
 
   .prose-custom h3 {
-    @apply text-slate-100 font-medium tracking-tight mb-4 mt-10 text-xl md:text-2xl;
+    @apply text-slate-950 dark:text-indigo-200 font-semibold tracking-tight mb-3 mt-8 text-xl md:text-2xl;
+  }
+
+  .prose-custom h4 {
+    @apply text-slate-950 dark:text-slate-100 font-semibold tracking-tight mb-2 mt-6 text-lg md:text-xl;
   }
 
   .prose-custom ul {
-    @apply mb-8 space-y-3 pl-8 list-none relative text-lg md:text-xl font-light;
+    @apply mb-6 space-y-2.5 pl-6 list-none relative text-base md:text-lg;
   }
 
   .prose-custom li {
-    @apply relative text-slate-300 leading-relaxed;
+    @apply relative text-slate-800 dark:text-slate-200 leading-relaxed;
   }
 
   .prose-custom ul > li::before {
     content: "•";
-    @apply absolute left-[-1.25rem] text-indigo-400 font-bold text-xl;
+    @apply absolute left-[-1rem] text-indigo-700 dark:text-indigo-400 font-bold text-lg;
   }
 
   .prose-custom ol {
-    @apply mb-8 space-y-3 pl-8 list-decimal text-lg md:text-xl font-light;
+    @apply mb-6 space-y-2.5 pl-6 list-decimal text-base md:text-lg text-slate-800 dark:text-slate-200;
   }
 
   .prose-custom ol li {
-    @apply pl-2;
+    @apply pl-1 text-slate-800 dark:text-slate-200 leading-relaxed;
+  }
+
+  .prose-custom table {
+    @apply w-full text-left border-collapse my-6 rounded-xl overflow-hidden shadow-xs border border-slate-300 dark:border-slate-800;
+  }
+
+  .prose-custom th {
+    @apply p-3 bg-slate-200/90 dark:bg-slate-900 text-slate-950 dark:text-slate-100 font-bold border border-slate-300 dark:border-slate-800 text-sm md:text-base;
+  }
+
+  .prose-custom td {
+    @apply p-3 border border-slate-300 dark:border-slate-800 text-slate-800 dark:text-slate-200 text-sm md:text-base;
+  }
+
+  .prose-custom code {
+    @apply bg-indigo-100/80 dark:bg-slate-900/90 text-indigo-950 dark:text-indigo-200 border border-indigo-300 dark:border-indigo-500/30 px-2 py-0.5 rounded-md font-mono text-sm;
+  }
+
+  .prose-custom blockquote {
+    @apply border-l-4 border-indigo-700 dark:border-indigo-400 bg-indigo-50 dark:bg-indigo-950/40 px-6 py-4 rounded-r-2xl my-6 text-slate-900 dark:text-indigo-200 italic text-base md:text-lg;
+  }
+
+  .prose-custom strong {
+    @apply text-slate-950 dark:text-slate-50 font-semibold;
   }
 }
 
 /* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar,
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
+.custom-scrollbar::-webkit-scrollbar-track,
 ::-webkit-scrollbar-track {
-  @apply bg-slate-950;
+  @apply bg-slate-100 dark:bg-slate-950/50;
 }
 
+.custom-scrollbar::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-thumb {
-  @apply bg-slate-800 rounded-full border-2 border-slate-950;
+  @apply bg-slate-300 dark:bg-slate-800 rounded-full border border-slate-100 dark:border-slate-950 hover:bg-indigo-500/60 transition-colors;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-slate-700;
+/* Subtle glow animations */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
 }
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+

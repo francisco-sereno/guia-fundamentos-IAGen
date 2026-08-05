@@ -2,6 +2,7 @@ import React from 'react';
 import { InfoCard, GlossaryTerm, Accordion, AuthorNote, Workflow } from '../components/Shared';
 import { BrainCircuit, Cpu, Database, Network, Zap, GitBranch, MessageSquare, BookOpen, Search, Lightbulb, Target, Layers } from 'lucide-react';
 import { TransformerDiagram } from '../components/TransformerDiagram';
+import { RAGDiagram, ModelComparisonCarousel } from '../components/InteractiveComponents';
 
 export const LLMContent = () => (
   <div className="prose-custom">
@@ -10,9 +11,9 @@ export const LLMContent = () => (
     </AuthorNote>
 
     <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-6">Modelos de lenguaje grandes (LLMs)</h1>
-    <p className="text-xl text-slate-300 mb-8">El motor detrás de la revolución de la IA generativa.</p>
+    <p className="text-xl text-slate-600 dark:text-slate-300 mb-8">El motor detrás de la revolución de la IA generativa.</p>
 
-    <h2 id="sec-llms-0" className="text-2xl font-bold mb-4 text-indigo-400 scroll-mt-24 flex items-center gap-2">
+    <h2 id="sec-llms-0" className="text-2xl font-bold mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
       <BrainCircuit size={24} /> ¿Qué es un LLM?
     </h2>
     <p>
@@ -24,6 +25,10 @@ export const LLMContent = () => (
 
     <InfoCard type="idea" title="La ilusión de la comprensión">
       <p>Cuando un LLM responde a una pregunta compleja, no "entiende" el concepto de la misma manera que un humano. Lo que hace es calcular matemáticamente qué palabras tienen la mayor probabilidad de seguir a tu pregunta, basándose en miles de millones de ejemplos de texto que ha "leído" previamente.</p>
+    </InfoCard>
+
+    <InfoCard type="reflexion" title="Relación con los marcos DECIDE-IA y PotencIA">
+      <p>Entender los LLM como motores probabilísticos y no como entes conscientes es el pilar del <GlossaryTerm term="DECIDE-IA"><strong>Marco DECIDE-IA</strong></GlossaryTerm> (evaluación crítica e indagación de fuentes) y del <GlossaryTerm term="PotencIA"><strong>Marco PotencIA</strong></GlossaryTerm>, fundamentando por qué la o el <GlossaryTerm term="Docente de educación secundaria"><strong>docente de educación secundaria</strong></GlossaryTerm> debe mantener la supervisión humana activa e intencionada sobre cualquier contenido o secuencia didáctica generada.</p>
     </InfoCard>
 
     <h2 id="sec-llms-1" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24 flex items-center gap-2">
@@ -134,6 +139,11 @@ export const LLMContent = () => (
         { label: "5. Respuesta final", icon: Target, description: "El usuario recibe una respuesta precisa, citando fuentes si es necesario." }
       ]}
     />
+
+    <RAGDiagram />
+
+    {/* COMPONENT DE COMPARATIVA DE MODELOS LLM */}
+    <ModelComparisonCarousel />
 
     <h2 id="sec-llms-4" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24 flex items-center gap-2">
       <MessageSquare size={24} /> Configurando la salida del LLM
