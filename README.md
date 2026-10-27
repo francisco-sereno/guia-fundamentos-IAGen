@@ -329,12 +329,12 @@ Combina rigor académico actualizado a 2026 (modelos de razonamiento con <em>Tes
 **Registro BibTeX:**
 ```bibtex
 @misc{sereno2026dominandoia,
-  author       = {Sere{\~n}o, Francisco},
-  title        = {Dominando la IA: gu{\'i}a interactiva de fundamentos, razonamiento y agentes aut{\'o}nomos},
+  author       = {Sereño, Francisco},
+  title        = {Dominando la IA: guía interactiva de fundamentos, razonamiento y agentes autónomos},
   year         = {2026},
   version      = {2026.2},
   howpublished = {\url{https://github.com/francisco-sereno/guia-fundamentos-IAGen}},
-  note         = {Plataforma educativa abierta sobre IA generativa, ingenier{\'i}a de contexto y protocolos ag{\'e}nticos MCP/A2A}
+  note         = {Plataforma educativa abierta sobre IA generativa, ingeniería de contexto y protocolos agénticos MCP/A2A}
 }
 ```
 </details>
@@ -345,8 +345,11 @@ Combina rigor académico actualizado a 2026 (modelos de razonamiento con <em>Tes
 
 Este proyecto fue ideado, investigado, diseñado y desarrollado íntegramente por:
 
-**Francisco Sereño**  
-*Especialista en inteligencia artificial aplicada, tecnología educativa y arquitecturas agénticas*
+**Francisco Sereño Ahumada**  
+*Líder del Área de Tecnologías Educativas e Inteligencia Artificial — Vicerrectoría de Tecnologías de la Información (VTI), Universidad de Chile*  
+*Doctorando (PhDc) en Educación y Sociedad y máster en Entornos de Enseñanza y Aprendizaje Mediados por Tecnologías Digitales (Universidad de Barcelona) · Magíster en Pedagogía Universitaria y profesor (UMCE)*
+
+Especialista en la intersección entre educación, tecnología digital e inteligencia artificial aplicada a la educación superior, con foco en innovación tecnopedagógica, alfabetización algorítmica, diseño instruccional asistido por IA generativa y gobernanza ética de sistemas algorítmicos.
 
 [![Portafolio oficial](https://img.shields.io/badge/Portafolio_oficial-franciscosereno.cl-0284c7?style=for-the-badge&logo=safari&logoColor=white)](https://portafolio.franciscosereno.cl/sobre-mi)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Francisco_Sereño-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/franciscosereno/)

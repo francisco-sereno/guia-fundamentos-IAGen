@@ -442,7 +442,7 @@ const App = () => {
               rel="noopener noreferrer"
               className="text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors hidden sm:inline whitespace-nowrap shrink-0"
             >
-              por Francisco Sereno
+              por Francisco Sereño
             </a>
           </div>
         </div>
@@ -626,7 +626,7 @@ const App = () => {
               rel="noopener noreferrer"
               className="hover:text-sky-600 dark:hover:text-sky-400 inline-flex items-center gap-1 font-medium"
             >
-              <span>Autor: Francisco Sereno</span>
+              <span>Autor: Francisco Sereño</span>
               <ExternalLink className="w-3 h-3" />
             </a>
             <span className="font-mono">v2026.2</span>
