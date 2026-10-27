@@ -1,194 +1,214 @@
 import React from 'react';
-import { InfoCard, GlossaryTerm, Accordion, AuthorNote, Workflow } from '../components/Shared';
-import { BrainCircuit, Cpu, Database, Network, Zap, GitBranch, MessageSquare, BookOpen, Search, Lightbulb, Target, Layers } from 'lucide-react';
+import { 
+  Cpu, Layers, Sliders, Sparkles, Database, Eye, Zap, CheckCircle, AlertTriangle
+} from 'lucide-react';
+import { GlossaryTerm, InfoCard, QuizComponent, CodeBlock, AuthorNote } from '../components/Shared';
 import { TransformerDiagram } from '../components/TransformerDiagram';
-import { RAGDiagram, ModelComparisonCarousel } from '../components/InteractiveComponents';
+import { ModelComparisonCarousel, RAGDiagram } from '../components/InteractiveComponents';
 
-export const LLMContent = () => (
-  <div className="prose-custom">
-    <AuthorNote>
-      Antes de poder dominar la ingeniería de prompts o construir agentes complejos, es fundamental entender qué hay "debajo del capó". Esta sección desmitifica los Modelos de Lenguaje Grandes (LLMs), explicando su arquitectura base (Transformers) y cómo aprenden a predecir el lenguaje humano.
-    </AuthorNote>
-
-    <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-6">Modelos de lenguaje grandes (LLMs)</h1>
-    <p className="text-xl text-slate-600 dark:text-slate-300 mb-8">El motor detrás de la revolución de la IA generativa.</p>
-
-    <h2 id="sec-llms-0" className="text-2xl font-bold mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <BrainCircuit size={24} /> ¿Qué es un LLM?
+export const LLMs = () => (
+  <div className="space-y-8">
+    <h2 id="sec-llms-0" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      1. Del texto a la geometría: tokenización, embeddings y atención
     </h2>
     <p>
-      Un <strong>Modelo de Lenguaje Grande (LLM, por sus siglas en inglés)</strong> es un tipo de inteligencia artificial diseñada para comprender, generar y procesar lenguaje humano a una escala masiva. En su esencia más básica, un LLM es un <em>motor de predicción estadística</em> extremadamente sofisticado.
+      Los Grandes Modelos de Lenguaje (<GlossaryTerm term="LLM">LLMs</GlossaryTerm>) y los modelos multimodales contemporáneos no leen palabras ni ven píxeles como los humanos. Operan transformando cualquier modalidad (texto, código, audio, imagen o video) en secuencias de unidades discretas llamadas <strong><GlossaryTerm term="Token">tokens</GlossaryTerm></strong> mediante algoritmos como <em>Byte-Pair Encoding (BPE)</em>.
     </p>
     <p>
-      Como señala Google Cloud, un LLM toma un texto secuencial como entrada y predice cuál debería ser el siguiente <GlossaryTerm term="Token">token</GlossaryTerm> (fragmento de palabra), basándose en los patrones que aprendió durante su entrenamiento. Este proceso se repite una y otra vez para generar oraciones, párrafos o código completo.
+      Cada token se proyecta en un vector continuo de alta dimensión conocido como <strong><GlossaryTerm term="Embedding">Embedding</GlossaryTerm></strong>. En este espacio geométrico multidimensional, la cercanía semántica equivale a proximidad angular (similitud del coseno): conceptos pedagógicos, médicos o financieros afines habitan regiones contiguas del espacio latente.
     </p>
-
-    <InfoCard type="idea" title="La ilusión de la comprensión">
-      <p>Cuando un LLM responde a una pregunta compleja, no "entiende" el concepto de la misma manera que un humano. Lo que hace es calcular matemáticamente qué palabras tienen la mayor probabilidad de seguir a tu pregunta, basándose en miles de millones de ejemplos de texto que ha "leído" previamente.</p>
-    </InfoCard>
-
-    <InfoCard type="reflexion" title="Relación con los marcos DECIDE-IA y PotencIA">
-      <p>Entender los LLM como motores probabilísticos y no como entes conscientes es el pilar del <GlossaryTerm term="DECIDE-IA"><strong>Marco DECIDE-IA</strong></GlossaryTerm> (evaluación crítica e indagación de fuentes) y del <GlossaryTerm term="PotencIA"><strong>Marco PotencIA</strong></GlossaryTerm>, fundamentando por qué la o el <GlossaryTerm term="Docente de educación secundaria"><strong>docente de educación secundaria</strong></GlossaryTerm> debe mantener la supervisión humana activa e intencionada sobre cualquier contenido o secuencia didáctica generada.</p>
-    </InfoCard>
-
-    <h2 id="sec-llms-1" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24 flex items-center gap-2">
-      <Network size={24} /> La arquitectura Transformer
-    </h2>
-    <p>
-      El avance que hizo posibles a los LLMs modernos fue la arquitectura <strong>Transformer</strong>, presentada por investigadores de Google en 2017 en el famoso artículo <em>"Attention Is All You Need"</em>. Antes de los Transformers, los modelos de lenguaje leían el texto de forma secuencial (palabra por palabra), lo que los hacía lentos y propensos a "olvidar" el contexto en textos largos.
-    </p>
-    <p>
-      La arquitectura Transformer revolucionó esto introduciendo dos conceptos clave:
-    </p>
-
-    <div className="grid md:grid-cols-2 gap-6 my-8">
-      <div className="bg-slate-800/40 p-6 rounded-2xl border border-slate-700/50">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-indigo-500/20 rounded-lg text-indigo-400">
-            <Zap size={20} />
-          </div>
-          <h4 className="text-lg font-bold text-slate-200 m-0">Procesamiento paralelo</h4>
-        </div>
-        <p className="text-sm text-slate-300">
-          A diferencia de modelos anteriores, los Transformers pueden procesar todas las palabras de una oración al mismo tiempo. Esto permitió entrenar modelos con cantidades de datos exponencialmente mayores en mucho menos tiempo.
-        </p>
-      </div>
-      
-      <div className="bg-slate-800/40 p-6 rounded-2xl border border-slate-700/50">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-pink-500/20 rounded-lg text-pink-400">
-            <GitBranch size={20} />
-          </div>
-          <h4 className="text-lg font-bold text-slate-200 m-0">Mecanismo de auto-atención</h4>
-        </div>
-        <p className="text-sm text-slate-300">
-          El mecanismo de <em>Self-Attention</em> permite al modelo evaluar la importancia de cada palabra en relación con todas las demás palabras de la oración, sin importar qué tan lejos estén. Esto le da al modelo una comprensión profunda del contexto y la gramática.
-        </p>
-      </div>
-    </div>
 
     <TransformerDiagram />
 
-    <h2 id="sec-llms-2" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24 flex items-center gap-2">
-      <Database size={24} /> El proceso de entrenamiento
-    </h2>
-    <p>
-      Crear un LLM como GPT-4, Claude o Gemini no ocurre de la noche a la mañana. Es un proceso de varias etapas que requiere supercomputadoras masivas y meses de procesamiento.
-    </p>
-
-    <div className="space-y-4 my-6">
-      <Accordion title="Fase 1: pre-entrenamiento (pre-training)">
-        <p>El modelo es alimentado con un corpus masivo de datos de internet (libros, artículos, sitios web, código). En esta fase, el modelo aprende gramática, hechos sobre el mundo, razonamiento básico e incluso sesgos. Su único objetivo aquí es aprender a predecir la siguiente palabra. El resultado es un "Modelo Base" (Base Model), que es muy conocedor pero difícil de controlar.</p>
-      </Accordion>
-      <Accordion title="Fase 2: ajuste fino supervisado (supervised fine-tuning - SFT)">
-        <p>Para que el modelo sea útil como asistente, se le entrena con miles de ejemplos de alta calidad de formato "Pregunta-Respuesta" creados por humanos. Esto le enseña al modelo a seguir instrucciones y a comportarse como un asistente conversacional útil, en lugar de ser solo un autocompletador de texto.</p>
-      </Accordion>
-      <Accordion title="Fase 3: aprendizaje por refuerzo con retroalimentación humana (RLHF)">
-        <p>Esta es la fase crucial para la seguridad y la alineación. Humanos evalúan múltiples respuestas generadas por el modelo y las clasifican de mejor a peor. El modelo utiliza esta retroalimentación para ajustar sus parámetros internos, aprendiendo a preferir respuestas que sean útiles, honestas e inofensivas, y a evitar generar contenido tóxico o peligroso.</p>
-      </Accordion>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+      <InfoCard title="Mecanismo de Autoatención (Self-Attention)" icon={Eye} color="blue">
+        Introducido por Vaswani et al. (2017), permite que cada token consulte simultáneamente a todos los demás tokens de la secuencia mediante tres proyecciones matriciales: <strong>Query (Consulta)</strong>, <strong>Key (Clave)</strong> y <strong>Value (Valor)</strong>. Así resuelve ambigüedades contextuales a lo largo de cientos de miles de palabras.
+      </InfoCard>
+      <InfoCard title="Mixture of Experts (MoE)" icon={Layers} color="purple">
+        En lugar de activar el 100% de la red neuronal para cada palabra (arquitectura densa), los modelos de frontera actuales dividen sus capas en múltiples sub-redes especializadas ("expertos"). Un enrutador dinámico activa solo una fracción (ej. 2 de 16 expertos por token), multiplicando la velocidad y reduciendo el consumo energético.
+      </InfoCard>
     </div>
 
-    <h2 id="sec-llms-3" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24 flex items-center gap-2">
-      <Zap size={24} /> Técnicas de inferencia: RAG vs. CoT
-    </h2>
-    <p className="mb-6">
-      Aunque el entrenamiento crea la base del modelo, existen técnicas que se aplican durante la interacción (inferencia) para mejorar drásticamente sus resultados sin necesidad de reentrenarlo.
-    </p>
-
-    <div className="overflow-x-auto my-8">
-      <table className="w-full text-left border-collapse bg-slate-900/50 rounded-2xl overflow-hidden border border-slate-700">
-        <thead>
-          <tr className="bg-slate-800 text-indigo-300">
-            <th className="p-4 font-bold border-b border-slate-700">Característica</th>
-            <th className="p-4 font-bold border-b border-slate-700">Retrieval Augmented Generation (RAG)</th>
-            <th className="p-4 font-bold border-b border-slate-700">Chain of Thought (CoT)</th>
-          </tr>
-        </thead>
-        <tbody className="text-sm text-slate-300">
-          <tr className="border-b border-slate-800/50">
-            <td className="p-4 font-bold text-slate-200">Objetivo principal</td>
-            <td className="p-4">Extender el conocimiento del modelo con datos externos y actualizados.</td>
-            <td className="p-4">Mejorar la capacidad de razonamiento lógico y resolución de problemas.</td>
-          </tr>
-          <tr className="border-b border-slate-800/50">
-            <td className="p-4 font-bold text-slate-200">Mecanismo</td>
-            <td className="p-4">Busca información en una base de datos y la añade al prompt como contexto.</td>
-            <td className="p-4">Pide al modelo que "piense paso a paso" antes de dar la respuesta final.</td>
-          </tr>
-          <tr className="border-b border-slate-800/50">
-            <td className="p-4 font-bold text-slate-200">Ideal para...</td>
-            <td className="p-4">Hechos recientes, datos privados de una empresa, manuales técnicos.</td>
-            <td className="p-4">Matemáticas, lógica, planificación compleja, depuración de código.</td>
-          </tr>
-          <tr>
-            <td className="p-4 font-bold text-slate-200">Ventaja clave</td>
-            <td className="p-4">Reduce drásticamente las alucinaciones al basarse en fuentes reales.</td>
-            <td className="p-4">Permite al modelo resolver tareas que fallaría si intentara responder directamente.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h4 className="text-lg font-bold text-indigo-300 mb-4">Flujo de trabajo: el proceso RAG</h4>
-    <Workflow 
-      steps={[
-        { label: "1. Consulta del usuario", icon: MessageSquare, description: "El usuario hace una pregunta que requiere datos específicos o actualizados." },
-        { label: "2. Recuperación (Retrieval)", icon: Search, description: "El sistema busca en una base de datos vectorial los fragmentos de información más relevantes para la consulta." },
-        { label: "3. Aumentación", icon: Layers, description: "Se construye un nuevo prompt que combina la pregunta original con la información recuperada." },
-        { label: "4. Generación", icon: BrainCircuit, description: "El LLM procesa el prompt aumentado y genera una respuesta fundamentada en el contexto proporcionado." },
-        { label: "5. Respuesta final", icon: Target, description: "El usuario recibe una respuesta precisa, citando fuentes si es necesario." }
-      ]}
-    />
-
-    <RAGDiagram />
-
-    {/* COMPONENT DE COMPARATIVA DE MODELOS LLM */}
-    <ModelComparisonCarousel />
-
-    <h2 id="sec-llms-4" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24 flex items-center gap-2">
-      <MessageSquare size={24} /> Configurando la salida del LLM
+    <h2 id="sec-llms-1" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      2. El salto de paradigma 2025–2026: modelos de razonamiento y Test-Time Compute
     </h2>
     <p>
-      Cuando interactúas con un LLM a través de una API o un entorno de desarrollo (como Vertex AI Studio o OpenAI Playground), tienes acceso a parámetros que controlan cómo el modelo genera texto. Entender estos controles es vital para la ingeniería de prompts.
+      Durante años, la mejora de los LLMs dependió casi exclusivamente de escalar el <em>cómputo de pre-entrenamiento</em> (modelos más grandes leyendo más terabytes de internet). Sin embargo, entre 2024 y 2026 emergió una segunda ley de escalado fundamental: el <strong><GlossaryTerm term="Test-Time Compute">cómputo en tiempo de inferencia (Test-Time Compute)</GlossaryTerm></strong>.
+    </p>
+    <p>
+      Mediante <strong>Aprendizaje por Refuerzo con Recompensas Verificables (RLVR)</strong> en dominios exactos (matemáticas, compilación de código, lógica formal), los modelos aprendieron a desplegar una cadena de pensamiento interna (<em>Thinking Tokens</em>) antes de emitir una sola palabra al usuario:
+    </p>
+
+    <div className="my-6 p-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-xs">
+      <div className="text-xs font-mono uppercase tracking-wider text-sky-600 dark:text-sky-400 mb-2">
+        Comparativa cognitiva · Inferencia estándar vs. Inferencia con razonamiento
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="p-4 rounded-lg bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800">
+          <div className="text-xs font-bold text-slate-900 dark:text-white mb-1">
+            1. Respuesta autorregresiva directa ("Sistema 1")
+          </div>
+          <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-0">
+            El modelo emite el primer token de respuesta de forma inmediata con latencia mínima (~200 ms). Ideal para traducción, resumen ejecutivo, clasificación rápida y redacción creativa, pero propenso a errores en problemas de múltiples pasos si se equivoca en una premisa inicial.
+          </p>
+        </div>
+        <div className="p-4 rounded-lg bg-sky-50/50 dark:bg-sky-950/20 border border-sky-200 dark:border-sky-900/60">
+          <div className="text-xs font-bold text-sky-900 dark:text-sky-200 mb-1">
+            2. Razonamiento con Test-Time Compute ("Sistema 2")
+          </div>
+          <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed mb-0">
+            El modelo dedica un presupuesto configurable de tokens (<code className="font-mono">thinkingBudget</code> o <code className="font-mono">thinkingLevel</code>) a explorar hipótesis, detectar contradicciones, retroceder (<em>backtracking</em>) y verificar restricciones antes de redactar la salida final.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="sec-llms-2" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      3. Ventanas de contexto masivas frente a RAG Híbrido y GraphRAG
+    </h2>
+    <p>
+      Con la llegada de ventanas de contexto de <strong>1 a 2 millones de tokens</strong> (equivalentes a docenas de libros o repositorios de software enteros en memoria activa), surgió una pregunta habitual en el equipo EdTech de SofIA: <em>"¿Ha muerto <GlossaryTerm term="RAG">RAG</GlossaryTerm>?"</em>. La evidencia de ingeniería en producción demuestra que no; ambos enfoques son complementarios:
     </p>
 
     <div className="overflow-x-auto my-6">
-      <table className="w-full text-left border-collapse">
+      <table>
         <thead>
-          <tr className="bg-slate-800/50 border-b border-slate-700">
-            <th className="p-4 font-bold text-indigo-300">Parámetro</th>
-            <th className="p-4 font-bold text-indigo-300">¿Qué hace?</th>
-            <th className="p-4 font-bold text-indigo-300">Casos de uso</th>
+          <tr>
+            <th>Criterio de arquitectura</th>
+            <th>Contexto largo directo (In-Context / Context Caching)</th>
+            <th>RAG Híbrido y GraphRAG</th>
           </tr>
         </thead>
-        <tbody className="text-sm text-slate-300">
-          <tr className="border-b border-slate-800/50">
-            <td className="p-4 font-semibold text-white">Temperature (temperatura)</td>
-            <td className="p-4">Controla el grado de aleatoriedad. Una temperatura baja (ej. 0.1) hace que el modelo elija siempre las palabras más probables (respuestas deterministas). Una temperatura alta (ej. 0.9) permite elecciones menos probables, generando mayor diversidad.</td>
-            <td className="p-4"><strong>Baja:</strong> Código, matemáticas, análisis de datos, extracción de información.<br/><strong>Alta:</strong> Escritura creativa, lluvia de ideas, redacción de marketing.</td>
-          </tr>
-          <tr className="border-b border-slate-800/50">
-            <td className="p-4 font-semibold text-white">Top-K</td>
-            <td className="p-4">Limita la selección del siguiente token a los "K" tokens más probables. Un Top-K de 1 es equivalente a una búsqueda codiciosa (greedy decoding).</td>
-            <td className="p-4">Útil para evitar que el modelo genere palabras completamente fuera de contexto, manteniendo cierta creatividad.</td>
-          </tr>
-          <tr className="border-b border-slate-800/50">
-            <td className="p-4 font-semibold text-white">Top-P (nucleus sampling)</td>
-            <td className="p-4">Selecciona tokens cuya probabilidad acumulada no exceda un valor "P". Si P=0.9, el modelo solo considerará el subconjunto de palabras que en conjunto suman el 90% de probabilidad.</td>
-            <td className="p-4">A menudo se usa en conjunto con la temperatura para controlar la diversidad de la respuesta de manera más dinámica que Top-K.</td>
+        <tbody>
+          <tr>
+            <td><strong>Volumen documental</strong></td>
+            <td>Óptimo para conjuntos acotados (1 a 50 documentos extensos, un libro curricular o un código base mediano).</td>
+            <td>Indispensable para bibliotecas institucionales de miles o millones de documentos dinámicos.</td>
           </tr>
           <tr>
-            <td className="p-4 font-semibold text-white">Max Tokens</td>
-            <td className="p-4">Establece un límite estricto sobre la longitud de la respuesta generada.</td>
-            <td className="p-4">Control de costos, prevención de respuestas excesivamente largas, o forzar concisión.</td>
+            <td><strong>Latencia y costo por consulta</strong></td>
+            <td>Alto si se reenvía todo el corpus en cada turno; eficiente solo cuando se utiliza <em>Context Caching</em> para documentos fijos.</td>
+            <td>Baja latencia y costo reducido al inyectar únicamente los 5–15 fragmentos más relevantes tras el <em>Reranking</em>.</td>
+          </tr>
+          <tr>
+            <td><strong>Comprensión relacional</strong></td>
+            <td>Excelente atención cruzada sobre el documento completo cargado en memoria.</td>
+            <td>Con <strong>GraphRAG</strong> (grafos de entidades + vectores), conecta hechos dispersos en miles de archivos distintos.</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <InfoCard type="reflexion" title="El problema del bucle de repetición">
-      <p>Configuraciones extremas de temperatura o Top-P pueden causar que el modelo se "atasque" en un bucle, repitiendo la misma palabra o frase indefinidamente. Si observas esto, ajusta los parámetros para encontrar un mejor equilibrio entre determinismo y aleatoriedad.</p>
-    </InfoCard>
+    <RAGDiagram />
 
+    <h2 id="sec-llms-3" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      4. Hiperparámetros de inferencia y control de presupuesto de pensamiento
+    </h2>
+    <p>
+      Cuando SofIA configura el motor de IA para su plataforma educativa, ajusta tanto los parámetros clásicos de muestreo probabilístico como el nivel de razonamiento según la naturaleza pedagógica de la tarea:
+    </p>
+
+    <div className="overflow-x-auto my-6">
+      <table>
+        <thead>
+          <tr>
+            <th>Parámetro</th>
+            <th>Rango típico</th>
+            <th>Efecto matemático en la distribución</th>
+            <th>Recomendación de uso en producción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong><GlossaryTerm term="Temperatura">Temperatura</GlossaryTerm></strong></td>
+            <td className="font-mono text-xs">0.0 – 2.0</td>
+            <td>Escala los logits antes de la función Softmax. Valores cercanos a 0 concentran la probabilidad en el token más verosímil.</td>
+            <td><strong>0.0 – 0.2</strong> para extracción JSON, código y evaluación factual; <strong>0.7 – 0.9</strong> para lluvia de ideas y narrativa. (En modelos razonadores suele fijarse automáticamente).</td>
+          </tr>
+          <tr>
+            <td><strong><GlossaryTerm term="Top-P">Top-P (Nucleus Sampling)</GlossaryTerm></strong></td>
+            <td className="font-mono text-xs">0.1 – 1.0</td>
+            <td>Recorta dinámicamente la cola de distribución, muestreando solo el subconjunto mínimo cuya probabilidad acumulada suma <em>P</em>.</td>
+            <td>Mantener en <strong>0.9 – 0.95</strong> si se ajusta la temperatura; evita que el modelo seleccione palabras incoherentes de baja probabilidad.</td>
+          </tr>
+          <tr>
+            <td><strong>Thinking Level / Budget</strong></td>
+            <td className="font-mono text-xs">LOW / HIGH (o N tokens)</td>
+            <td>Controla la cantidad de cómputo en tiempo de prueba asignado a la cadena de verificación previa a la respuesta.</td>
+            <td>Usar nivel bajo para clasificación rápida de intenciones y nivel alto para diseño curricular complejo, matemáticas o depuración de código.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <CodeBlock
+      language="typescript"
+      code={`// Ejemplo 2026: Configuración de inferencia estructurada con @google/genai
+import { GoogleGenAI, Type } from '@google/genai';
+
+const ai = new GoogleGenAI();
+
+const response = await ai.models.generateContent({
+  model: 'gemini-3.8-flash',
+  contents: 'Diseña una rúbrica analítica de 3 criterios para evaluar pensamiento crítico en 2° Medio.',
+  config: {
+    temperature: 0.2,
+    responseMimeType: 'application/json',
+    responseSchema: {
+      type: Type.OBJECT,
+      properties: {
+        objetivoCurricular: { type: Type.STRING },
+        criterios: {
+          type: Type.ARRAY,
+          items: {
+            type: Type.OBJECT,
+            properties: {
+              dimension: { type: Type.STRING },
+              descriptorDestacado: { type: Type.STRING },
+              descriptorEnDesarrollo: { type: Type.STRING }
+            },
+            required: ['dimension', 'descriptorDestacado', 'descriptorEnDesarrollo']
+          }
+        }
+      },
+      required: ['objetivoCurricular', 'criterios']
+    }
+  }
+});`}
+    />
+
+    <h2 id="sec-llms-4" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      5. El ecosistema de modelos en 2026: multimodalidad nativa y pesos abiertos
+    </h2>
+    <p>
+      A diferencia de las primeras generaciones de LLMs que acoplaban módulos separados para voz o visión mediante "parches", los modelos actuales son <strong>nativamente multimodales</strong>: entrenan un mismo espacio de representación sobre texto, audio, imagen y video desde el inicio. Esto permite que SofIA suba la grabación de una clase o la fotografía de un experimento de laboratorio y el modelo comprenda simultáneamente la entonación, los diagramas en la pizarra y las fórmulas escritas.
+    </p>
+
+    <ModelComparisonCarousel />
+
+    <AuthorNote>
+      En la arquitectura moderna de software e innovación educativa ya no existe "un único modelo para todo". La práctica estándar es el <strong>enrutamiento inteligente de modelos (Model Routing)</strong>: emplear modelos rápidos y económicos para tareas de triaje y formateo, reservar los modelos con alto presupuesto de razonamiento para problemas lógicos profundos, y ejecutar modelos pequeños (SLMs) localmente cuando la privacidad de los datos es innegociable.
+    </AuthorNote>
+
+    <QuizComponent
+      question="¿Cuál es la diferencia fundamental que introdujeron los modelos de razonamiento con Test-Time Compute frente a los LLMs autorregresivos tradicionales?"
+      options={[
+        {
+          label: 'Eliminaron por completo el uso de tokens y funcionan únicamente con bases de datos relacionales SQL.',
+          isCorrect: false,
+          explanation: 'Incorrecto: siguen utilizando arquitecturas basadas en tokens y atención.'
+        },
+        {
+          label: 'Asignan cómputo adicional durante la inferencia para generar y verificar cadenas de pensamiento internas (entrenadas con RLVR) antes de producir la respuesta final.',
+          isCorrect: true,
+          explanation: '¡Exacto! El escalado en tiempo de inferencia permite descomponer problemas, explorar alternativas y corregir errores lógicos antes de entregar la salida al usuario.'
+        },
+        {
+          label: 'Solo pueden ejecutarse con temperatura igual a 2.0 para maximizar la aleatoriedad.',
+          isCorrect: false,
+          explanation: 'Incorrecto: una temperatura de 2.0 degradaría la coherencia lógica del razonamiento.'
+        }
+      ]}
+    />
   </div>
 );

@@ -1,927 +1,825 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
-import { motion, AnimatePresence } from 'framer-motion';
+import './index.css';
 import { 
-  BookOpen, ChevronLeft, ChevronRight, Menu, X, 
-  Sparkles, BrainCircuit, AlertTriangle, MapPin, 
-  TerminalSquare, ShieldCheck, Rocket, CheckCircle2,
-  Info, Lightbulb, Link as LinkIcon, HelpCircle, Bot, Network, Zap, Layers, Target, GraduationCap, Briefcase, Database, MessageSquare,
-  Search, Check, Bookmark, ArrowUpRight, ArrowUp, Sun, Moon, Clock
+  BookOpen, Cpu, MessageSquare, Shield, ChevronRight, 
+  ChevronLeft, Menu, X, CheckCircle, HelpCircle, Terminal, Layers, 
+  Bot, Compass, Sun, Moon, Maximize2, Minimize2, ArrowUp, Search, ExternalLink
 } from 'lucide-react';
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
+import { AboutModal, glossaryTerms } from './src/components/Shared';
+import { Modulo1 } from './src/chapters/Modulo1';
+import { LLMs } from './src/chapters/LLMs';
+import { Modulo2 } from './src/chapters/Modulo2';
+import { Catalogo } from './src/chapters/Catalogo';
+import { Etica } from './src/chapters/Etica';
+import { Agentes } from './src/chapters/Agentes';
+import { Futuro } from './src/chapters/Futuro';
+import { FAQ } from './src/chapters/FAQ';
+import { Referencias } from './src/chapters/Referencias';
 
-import { Modulo1Content } from './src/chapters/Modulo1';
-import { Modulo2Content } from './src/chapters/Modulo2';
-import { CatalogoContent } from './src/chapters/Catalogo';
-import { EticaContent } from './src/chapters/Etica';
-import { AgentesContent } from './src/chapters/Agentes';
-import { FuturoContent } from './src/chapters/Futuro';
-import { FAQContent } from './src/chapters/FAQ';
-import { ReferenciasContent } from './src/chapters/Referencias';
-import { LLMContent } from './src/chapters/LLMs';
-import { QuizComponent, AboutModal, glossaryTerms } from './src/components/Shared';
-
-// Utility for tailwind classes
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+export interface Chapter {
+  id: string;
+  code: string;
+  title: string;
+  subtitle: string;
+  icon: React.ElementType;
+  readTime: string;
+  subsections?: string[];
+  content: React.ReactNode;
 }
 
-// --- BOOK DATA ---
-const chapters = [
+const chapters: Chapter[] = [
   {
-    id: "modulo1",
-    title: "Fundamentos de la IA",
-    icon: BookOpen,
-    readTime: "5 min de lectura",
-    content: <Modulo1Content />,
-    subtitles: [
-      "Introducción: El caso de SofIA",
-      "¿Qué es la inteligencia artificial?",
-      "La trayectoria de la IA: Ciclos de entusiasmo y realidad",
-      "Modelos y agentes de IA",
-      "¿Qué es la inteligencia artificial generativa?",
-      "Mitos de la IA",
-      "Funcionamiento técnico: ¿cómo funciona realmente?",
-      "Aplicación práctica: El diagnóstico de competencias con SofIA",
-      "Ingeniería de prompts: La clave del éxito",
-      "Democratización del acceso profesional",
-      "Preguntas de reflexión"
+    id: 'modulo1',
+    code: 'MÓDULO 01',
+    title: 'Fundamentos de la IA',
+    subtitle: 'De la racionalidad computacional y el marco PEAS a los modelos pequeños (SLMs) y Edge AI en 2026',
+    icon: Cpu,
+    readTime: '14 min de lectura',
+    subsections: [
+      'Propósito y caso de estudio (SofIA)',
+      '1. ¿Qué es realmente la inteligencia artificial?',
+      '2. Evolución histórica (1950–2026)',
+      '3. Taxonomía por alcance: ANI, AGI y ASI',
+      '4. Anatomía en capas: IA, ML, DL e IA Generativa',
+      '5. Los cuatro paradigmas de entrenamiento',
+      '6. Revolución de los modelos pequeños (SLMs)',
+      '7. IA discriminativa frente a IA generativa',
+      '8. Límites estructurales: alucinaciones y sesgos',
+      '9. Marcos UNESCO y diagnóstico de competencias',
+      '10. Síntesis y autoevaluación'
     ],
-    icons: [
-      Info, BrainCircuit, BookOpen, BrainCircuit, Sparkles, 
-      AlertTriangle, TerminalSquare, MapPin, TerminalSquare, Rocket, HelpCircle
-    ],
-    quiz: {
-      question: "¿Cuál es la principal diferencia que introduce la IA generativa en el contexto educativo actual?",
-      options: [
-        "Reemplaza completamente la necesidad de trabajadores humanos en tareas creativas.",
-        "Permite crear contenido nuevo original, transformando cómo las personas abordan sus tareas diarias.",
-        "Solo sirve para analizar datos numéricos y crear gráficos estadísticos.",
-        "Es una tecnología exclusiva para programadores y científicos de datos."
-      ],
-      correctAnswerIndex: 1,
-      explanation: "La IA generativa no reemplaza al humano ni es exclusiva para técnicos; su mayor impacto es la capacidad de sintetizar y crear contenido nuevo, actuando como un copiloto que transforma la eficiencia en tareas diarias."
-    }
+    content: <Modulo1 />
   },
   {
-    id: "llms",
-    title: "Modelos de lenguaje (LLMs)",
-    icon: Database,
-    readTime: "6 min de lectura",
-    content: <LLMContent />,
-    subtitles: [
-      "¿Qué es un LLM?",
-      "La arquitectura Transformer",
-      "El proceso de entrenamiento",
-      "Técnicas de inferencia: RAG vs. CoT",
-      "Configurando la salida del LLM"
+    id: 'llms',
+    code: 'MÓDULO 02',
+    title: 'Modelos de lenguaje y razonamiento',
+    subtitle: 'Arquitectura Transformer, Mixture of Experts (MoE), Test-Time Compute, RLVR y RAG Híbrido / GraphRAG',
+    icon: Layers,
+    readTime: '12 min de lectura',
+    subsections: [
+      '1. Tokenización, embeddings y atención',
+      '2. Modelos de razonamiento y Test-Time Compute',
+      '3. Ventanas masivas frente a RAG y GraphRAG',
+      '4. Hiperparámetros y presupuesto de pensamiento',
+      '5. Ecosistema 2026: multimodalidad y pesos abiertos'
     ],
-    icons: [BrainCircuit, Network, Database, Zap, MessageSquare],
-    quiz: {
-      question: "¿Qué innovación arquitectónica permitió a los modelos de lenguaje procesar texto en paralelo y entender mejor el contexto a largo plazo?",
-      options: [
-        "Redes Neuronales Recurrentes (RNNs)",
-        "La arquitectura Transformer (Mecanismo de Auto-Atención)",
-        "Redes Neuronales Convolucionales (CNNs)",
-        "Sistemas Multiagente"
-      ],
-      correctAnswerIndex: 1,
-      explanation: "La arquitectura Transformer, introducida en 2017, revolucionó el procesamiento del lenguaje natural al permitir el procesamiento paralelo y utilizar el mecanismo de auto-atención para evaluar la importancia de cada palabra en relación con las demás."
-    }
+    content: <LLMs />
   },
   {
-    id: "modulo2",
-    title: "Ingeniería de prompts",
-    icon: TerminalSquare,
-    readTime: "12 min de lectura",
-    content: <Modulo2Content />,
-    subtitles: [
-      "1. Introducción",
-      "2. Fundamentos teóricos",
-      "3. Estructura de un prompt",
-      "4. Marcos y modelos pedagógicos de prompting",
-      "5. Técnicas avanzadas",
-      "6. Diferencias entre modelos principales",
-      "7. Metodologías de optimización",
-      "8. Conexión práctica: El mega-prompt",
-      "9. Aplicaciones prácticas y casos de estudio",
-      "10. Herramientas y ecosistema tecnológico",
-      "11. Perspectivas futuras y conclusiones",
-      "Preguntas de reflexión"
+    id: 'modulo2',
+    code: 'MÓDULO 03',
+    title: 'Ingeniería de prompts y de contexto',
+    subtitle: 'Marcos CO-STAR, PROSE y PARTE, delimitadores XML, esquemas tipados y evaluación continua (PromptOps)',
+    icon: Terminal,
+    readTime: '16 min de lectura',
+    subsections: [
+      'Propósito y evolución a Ingeniería de Contexto',
+      '1. ¿Por qué la estructura transforma la respuesta?',
+      '2. Anatomía de una especificación de contexto',
+      '3. Marcos estructurados: CO-STAR, PROSE y PARTE',
+      '4. La plantilla de Simulación Socrática',
+      '5. Aprendizaje en contexto: Zero, One y Few-Shot',
+      '6. Chain-of-Thought, Tree-of-Thoughts y CoVe',
+      '7. Delimitadores XML y JSON Schema',
+      '8. Evaluación sistemática (PromptOps y CI/CD)',
+      '9. Antipatrones frecuentes y corrección',
+      '10. Caso práctico completo de SofIA',
+      '11. Síntesis y autoevaluación'
     ],
-    icons: [Info, BrainCircuit, Sparkles, BookOpen, Zap, Layers, Target, TerminalSquare, Briefcase, Database, Rocket, HelpCircle],
-    quiz: {
-      question: "¿Qué técnica de prompting consiste en pedirle al modelo que muestre su razonamiento paso a paso?",
-      options: [
-        "Zero-shot prompting",
-        "Few-shot prompting",
-        "Chain of thought (CoT)",
-        "Self-consistency"
-      ],
-      correctAnswerIndex: 2,
-      explanation: "Chain of thought (CoT) es la técnica que solicita explícitamente al modelo que muestre su 'razonamiento paso a paso' antes de llegar a una conclusión."
-    }
+    content: <Modulo2 />
   },
   {
-    id: "catalogo",
-    title: "Catálogo de técnicas",
-    icon: Sparkles,
-    readTime: "7 min de lectura",
-    content: <CatalogoContent />,
-    subtitles: [
-      "Introducción al catálogo",
-      "Fundamentos del catálogo",
-      "Galería de técnicas aplicadas",
-      "Tabla resumen de técnicas",
-      "Preguntas de reflexión"
+    id: 'catalogo',
+    code: 'MÓDULO 04',
+    title: 'Catálogo interactivo de técnicas',
+    subtitle: 'Repositorio filtrable de arquitecturas de contexto, patrones socráticos y técnicas de frontera 2026',
+    icon: MessageSquare,
+    readTime: '10 min de lectura',
+    subsections: [
+      'Explorador interactivo del catálogo (2026)',
+      '1. Técnicas fundacionales y de estructuración',
+      '2. Técnicas de razonamiento y verificación',
+      '3. Patrones pedagógicos y de Frontera 2026',
+      '4. Matriz de decisión según Taxonomía de Bloom'
     ],
-    icons: [Sparkles, BookOpen, Layers, TerminalSquare, HelpCircle],
-    quiz: {
-      question: "¿Qué técnica de prompting implica proporcionar algunos ejemplos del tipo de respuesta que esperas?",
-      options: [
-        "Zero-shot prompting",
-        "Few-shot prompting",
-        "Role prompting",
-        "Prompt chaining"
-      ],
-      correctAnswerIndex: 1,
-      explanation: "Few-shot prompting consiste en proporcionar al modelo algunos ejemplos de la tarea deseada antes de solicitar que realice una instancia nueva."
-    }
+    content: <Catalogo />
   },
   {
-    id: "etica",
-    title: "Autenticidad y ética",
-    icon: ShieldCheck,
-    readTime: "7 min de lectura",
-    content: <EticaContent />,
-    subtitles: [
-      "1. Introducción",
-      "2. Caso de estudio: El dilema de SofIA",
-      "3. La crisis de la 'caja negra': Interpretabilidad y sesgos algorítmicos",
-      "4. Los sistemas de evaluación algorítmica: ¿eficiencia o sesgo?",
-      "5. El marco ético de la UNESCO",
-      "6. Para reflexionar: La ética del prompt",
-      "7. Caso práctico: El espectro de la ética",
-      "Preguntas de reflexión"
+    id: 'etica',
+    code: 'MÓDULO 05',
+    title: 'Ética, gobernanza y regulación',
+    subtitle: 'Reglamento Europeo (EU AI Act), marcos UNESCO, procedencia C2PA, sostenibilidad y protocolos PotencIA / DECIDE-IA',
+    icon: Shield,
+    readTime: '14 min de lectura',
+    subsections: [
+      'Propósito y urgencia de la gobernanza',
+      '1. Sesgos, opacidad y procedencia C2PA',
+      '2. Regulación vinculante: EU AI Act y UNESCO',
+      '3. Privacidad, soberanía de datos y Prompt Injection',
+      '4. Huella ecológica y sobriedad computacional',
+      '5. Metodología RAM de preparación institucional',
+      '6. Marcos prácticos: PotencIA y DECIDE-IA',
+      '7. Síntesis y autoevaluación ética'
     ],
-    icons: [Info, Lightbulb, BrainCircuit, AlertTriangle, ShieldCheck, MessageSquare, Target, HelpCircle],
-    quiz: {
-      question: "Según el continuo ético en la optimización de portafolios, ¿qué acción se considera 'claramente inaceptable'?",
-      options: [
-        "Uso de IA para mejorar la presentación sin alterar hechos.",
-        "Reformulación de experiencias que exagera sutilmente el nivel de responsabilidad.",
-        "Agregar habilidades que se están aprendiendo actualmente.",
-        "Fabricación de información falsa, como inventar títulos académicos o proyectos inexistentes."
-      ],
-      correctAnswerIndex: 3,
-      explanation: "La fabricación de información falsa, como inventar títulos académicos o proyectos inexistentes, cruza la línea hacia lo éticamente inaceptable y constituye un engaño."
-    }
+    content: <Etica />
   },
   {
-    id: "agentes",
-    title: "Agentes de IA",
+    id: 'agentes',
+    code: 'MÓDULO 06',
+    title: 'Agentes autónomos y protocolo MCP',
+    subtitle: 'Bucle ReAct, estándar abierto Model Context Protocol (MCP), interoperabilidad A2A y seguridad multi-agente',
     icon: Bot,
-    readTime: "15 min de lectura",
-    content: <AgentesContent />,
-    subtitles: [
-      "¿Qué es exactamente un agente de IA?",
-      "Modelos vs. agentes",
-      "La anatomía de un agente",
-      "Tipos de agentes de IA",
-      "Las llaves al mundo exterior: Herramientas",
-      "¿Cuándo necesitas realmente un agente?",
-      "Los 5 niveles de autonomía agéntica",
-      "Arquitecturas multiagente y frameworks",
-      "Del concepto al código: Construyendo un agente",
-      "Casos de uso reales",
-      "Seguridad y guardrails",
-      "El factor humano: Centauros y cyborgs",
-      "Preparando a tu equipo para la IA agéntica",
-      "Caso práctico: El flujo de trabajo agéntico de SofIA"
+    readTime: '16 min de lectura',
+    subsections: [
+      'Propósito y transición hacia sistemas agénticos',
+      '1. LLM pasivo frente a Agente autónomo',
+      '2. Los cuatro pilares de la arquitectura agéntica',
+      '3. El bucle operativo ReAct en detalle',
+      '4. Estándares 2026: MCP y Protocolo A2A',
+      '5. Implementación de Function Calling',
+      '6. Sistemas Multi-Agente y orquestación',
+      '7. Topologías: Jerárquica, Secuencial y Debate',
+      '8. Frameworks de desarrollo agéntico',
+      '9. Seguridad agéntica y aislamiento (Sandboxing)',
+      '10. Caso aplicado: ecosistema de SofIA',
+      '11. Observabilidad y control de costos',
+      '12. Cuándo NO usar un agente autónomo',
+      '13. Síntesis y autoevaluación'
     ],
-    icons: [Bot, BrainCircuit, BrainCircuit, Network, Zap, Target, Layers, Network, TerminalSquare, Target, ShieldCheck, Bot, GraduationCap, Briefcase],
-    quiz: {
-      question: "¿Cuál es la principal diferencia entre un chatbot básico y un agente de IA?",
-      options: [
-        "El chatbot puede usar herramientas externas, el agente no.",
-        "El agente es proactivo, puede planificar y usar herramientas para lograr objetivos, mientras el chatbot es reactivo.",
-        "El chatbot tiene memoria a largo plazo, el agente solo a corto plazo.",
-        "No hay diferencia, son dos términos para la misma tecnología."
-      ],
-      correctAnswerIndex: 1,
-      explanation: "A diferencia de un chatbot que solo responde a la entrada inmediata, un agente de IA es proactivo, puede planificar pasos, usar herramientas externas (como APIs) y trabajar de manera autónoma hacia un objetivo."
-    }
+    content: <Agentes />
   },
   {
-    id: "futuro",
-    title: "El futuro de la IA",
-    icon: Rocket,
-    readTime: "6 min de lectura",
-    content: <FuturoContent />,
-    subtitles: [
-      "1. Hacia una inteligencia general e integrada",
-      "2. Desafíos en el escalado de la IA",
-      "3. El futuro del aprendizaje: De lo supervisado a lo predictivo",
-      "4. Cognición vs. conciencia: El debate filosófico",
-      "5. Impactos y riesgos: La singularidad tecnológica",
-      "6. Impacto, responsabilidad y riesgos",
-      "Preguntas de reflexión"
+    id: 'futuro',
+    code: 'MÓDULO 07',
+    title: 'El futuro de la IA (Horizonte 2026–2030)',
+    subtitle: 'Modelos de Mundo (JEPA), robótica física, verificación formal neuro-simbólica, datos sintéticos y AI for Science',
+    icon: Compass,
+    readTime: '10 min de lectura',
+    subsections: [
+      '1. World Models, inteligencia espacial y robótica',
+      '2. Datos sintéticos verificados y auto-juego',
+      '3. Soberanía cognitiva y computación híbrida Edge',
+      '4. Transformación del trabajo y AI for Science',
+      '5. Gobernanza deliberativa y bienes públicos',
+      '6. Epílogo: la síntesis del viaje de SofIA',
+      '7. Autoevaluación final de cierre'
     ],
-    icons: [BrainCircuit, AlertTriangle, Zap, BrainCircuit, Sparkles, ShieldCheck, HelpCircle],
-    quiz: {
-      question: "¿Cuál es el principal desafío de la 'parálisis de la escala' en la planificación de la IA?",
-      options: [
-        "La falta de potencia computacional para procesar datos.",
-        "La dificultad de los algoritmos actuales para escalar a planes de millones de pasos.",
-        "La imposibilidad de entrenar modelos con datos no etiquetados.",
-        "El alto costo de los sensores LIDAR y RADAR."
-      ],
-      correctAnswerIndex: 1,
-      explanation: "La parálisis de la escala se refiere a que los algoritmos de búsqueda actuales solo escalan a decenas de pasos, mientras que tareas humanas complejas requieren millones de pasos primitivos."
-    }
+    content: <Futuro />
   },
   {
-    id: "faq",
-    title: "Preguntas frecuentes",
+    id: 'faq',
+    code: 'MÓDULO 08',
+    title: 'Preguntas frecuentes (FAQ)',
+    subtitle: 'Respuestas directas sobre modelos razonadores, RAG vs. contexto largo, MCP, detectores de IA y privacidad',
     icon: HelpCircle,
-    readTime: "4 min de lectura",
-    content: <FAQContent />,
-    subtitles: [
-      "Fundamentos de la IA",
-      "Ingeniería de prompts",
-      "Problemas comunes"
+    readTime: '8 min de lectura',
+    subsections: [
+      '1. Fundamentos, modelos y razonamiento',
+      '2. Ingeniería de Contexto, MCP y Agentes',
+      '3. Ética, privacidad y evaluación docente'
     ],
-    icons: [BrainCircuit, TerminalSquare, AlertTriangle]
+    content: <FAQ />
   },
   {
-    id: "referencias",
-    title: "Referencias",
-    icon: Info,
-    readTime: "2 min de lectura",
-    content: <ReferenciasContent />,
-    subtitles: ["Recursos y fuentes consultadas"],
-    icons: [LinkIcon]
+    id: 'referencias',
+    code: 'MÓDULO 09',
+    title: 'Referencias y bibliografía científica',
+    subtitle: 'Artículos seminales, reportes técnicos de frontera 2025–2026, especificaciones MCP/A2A y normativa internacional',
+    icon: BookOpen,
+    readTime: '6 min de lectura',
+    subsections: [
+      'Bibliografía científica y normativa (2026)'
+    ],
+    content: <Referencias />
   }
 ];
 
-const InteractiveBook = () => {
-  const [currentChapterIndex, setCurrentChapterIndex] = useState(0);
-  const [activeSubtitleIndex, setActiveSubtitleIndex] = useState(0);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [isFocusMode, setIsFocusMode] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
-    try {
-      const saved = localStorage.getItem('app_theme_v1');
-      return (saved === 'light' || saved === 'dark') ? saved : 'dark';
-    } catch {
-      return 'dark';
-    }
-  });
-  const [chapterProgress, setChapterProgress] = useState(0);
-  const [showScrollTop, setShowScrollTop] = useState(false);
-  const [dynamicReadTime, setDynamicReadTime] = useState<string>('');
-  const [chapterReadTimes, setChapterReadTimes] = useState<Record<string, string>>({});
-  const chapterContentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const root = document.documentElement;
-    if (theme === 'light') {
-      root.classList.add('light');
-      root.classList.remove('dark');
-    } else {
-      root.classList.add('dark');
-      root.classList.remove('light');
-    }
-    try {
-      localStorage.setItem('app_theme_v1', theme);
-    } catch {}
-  }, [theme]);
-  const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
-  const [isGlossaryModalOpen, setIsGlossaryModalOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [glossaryFilter, setGlossaryFilter] = useState('');
+const App = () => {
+  const [activeChapterId, setActiveChapterId] = useState<string>(chapters[0].id);
   const [completedChapters, setCompletedChapters] = useState<string[]>(() => {
     try {
-      const saved = localStorage.getItem('completed_chapters_v1');
+      const saved = localStorage.getItem('dominando_ia_completed_2026');
       return saved ? JSON.parse(saved) : [];
     } catch {
       return [];
     }
   });
-
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      const mobile = window.innerWidth < 768;
-      setIsMobile(mobile);
-      if (mobile) setIsSidebarOpen(false);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
+  const [isGlossaryOpen, setIsGlossaryOpen] = useState(false);
+  const [glossaryFilter, setGlossaryFilter] = useState('');
+  const [activeSection, setActiveSection] = useState<string>('');
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const [isFocusMode, setIsFocusMode] = useState(false);
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark' || saved === 'light') return saved;
+    }
+    return 'light';
+  });
 
   useEffect(() => {
     try {
-      localStorage.setItem('completed_chapters_v1', JSON.stringify(completedChapters));
-    } catch {}
+      localStorage.setItem('dominando_ia_completed_2026', JSON.stringify(completedChapters));
+    } catch {
+      // ignore storage errors
+    }
   }, [completedChapters]);
 
-  // Calculate dynamic reading time based on actual chapter text content length
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (chapterContentRef.current) {
-        const text = chapterContentRef.current.innerText || chapterContentRef.current.textContent || '';
-        const words = text.trim().split(/\s+/).filter(Boolean).length;
-        const mins = Math.max(1, Math.ceil(words / 200));
-        const timeStr = `${mins} min de lectura`;
-        setDynamicReadTime(timeStr);
-        setChapterReadTimes(prev => ({
-          ...prev,
-          [chapters[currentChapterIndex].id]: timeStr
-        }));
+    const root = window.document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+  };
+
+  const currentIndex = chapters.findIndex((c) => c.id === activeChapterId);
+  const currentChapter = chapters[currentIndex];
+  const prevChapter = currentIndex > 0 ? chapters[currentIndex - 1] : null;
+  const nextChapter = currentIndex < chapters.length - 1 ? chapters[currentIndex + 1] : null;
+
+  // Keyboard shortcuts: Alt + Left / Right to switch chapters
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.altKey && e.key === 'ArrowRight' && nextChapter) {
+        e.preventDefault();
+        setActiveChapterId(nextChapter.id);
+      } else if (e.altKey && e.key === 'ArrowLeft' && prevChapter) {
+        e.preventDefault();
+        setActiveChapterId(prevChapter.id);
       }
-    }, 150);
-    return () => clearTimeout(timer);
-  }, [currentChapterIndex]);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [prevChapter, nextChapter]);
 
   useEffect(() => {
-    setActiveSubtitleIndex(0);
-    setShowScrollTop(false);
-    const container = scrollContainerRef.current;
-    if (!container) return;
-    container.scrollTop = 0;
+    const mainContent = document.getElementById('main-content');
+    if (mainContent) {
+      mainContent.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    if (currentChapter.subsections && currentChapter.subsections.length > 0) {
+      setActiveSection(`sec-${currentChapter.id}-0`);
+    } else {
+      setActiveSection('');
+    }
+    if (typeof document !== 'undefined') {
+      document.title = `${currentChapter.title} | Dominando la IA — Guía de IA generativa`;
+      const canonical = document.getElementById('canonical-link') as HTMLLinkElement | null;
+      if (canonical && typeof window !== 'undefined') {
+        canonical.href = window.location.origin + window.location.pathname;
+      }
+    }
+  }, [activeChapterId, currentChapter]);
 
-    const observerOptions = {
-      root: container,
-      rootMargin: '-20% 0px -50% 0px',
-      threshold: 0
-    };
-
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          const match = id.match(/sec-[a-zA-Z0-9]+-(\d+)/);
-          if (match) {
-            setActiveSubtitleIndex(parseInt(match[1], 10));
-          }
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    const timeoutId = setTimeout(() => {
-      const headings = container.querySelectorAll(`[id^="sec-${chapters[currentChapterIndex].id}-"]`);
-      headings.forEach(h => observer.observe(h));
-    }, 500);
+  useEffect(() => {
+    const mainContent = document.getElementById('main-content');
+    if (!mainContent) return;
 
     const handleScroll = () => {
-      if (!container) return;
-      const { scrollTop, scrollHeight, clientHeight } = container;
-      const progress = (scrollTop / (scrollHeight - clientHeight)) * 100;
-      const currentProgress = isNaN(progress) ? 0 : progress;
-      setChapterProgress(currentProgress);
-      setShowScrollTop(scrollTop > 250);
-
-      if (currentProgress > 85) {
-        const currentId = chapters[currentChapterIndex].id;
-        setCompletedChapters(prev => prev.includes(currentId) ? prev : [...prev, currentId]);
-      }
+      const { scrollTop, scrollHeight, clientHeight } = mainContent;
+      const totalScroll = scrollHeight - clientHeight;
+      const currentProgress = totalScroll > 0 ? (scrollTop / totalScroll) * 100 : 0;
+      setScrollProgress(currentProgress);
+      setShowBackToTop(scrollTop > 350);
     };
 
-    container.addEventListener('scroll', handleScroll);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { root: mainContent, rootMargin: '-10% 0px -75% 0px', threshold: 0 }
+    );
+
+    const headings = mainContent.querySelectorAll('h2[id^="sec-"]');
+    headings.forEach((h) => observer.observe(h));
+    mainContent.addEventListener('scroll', handleScroll);
 
     return () => {
-      clearTimeout(timeoutId);
-      observer.disconnect();
-      container.removeEventListener('scroll', handleScroll);
+      headings.forEach((h) => observer.unobserve(h));
+      mainContent.removeEventListener('scroll', handleScroll);
     };
-  }, [currentChapterIndex]);
+  }, [activeChapterId]);
 
-  const currentChapter = chapters[currentChapterIndex];
-  const overallProgress = ((completedChapters.length) / chapters.length) * 100;
-
-  const filteredChapters = chapters.filter(chap => {
-    if (!searchQuery) return true;
-    const q = searchQuery.toLowerCase();
-    const titleMatch = chap.title.toLowerCase().includes(q);
-    const subtitleMatch = chap.subtitles?.some(s => s.toLowerCase().includes(q));
-    return titleMatch || subtitleMatch;
-  });
-
-  const filteredGlossary = Object.entries(glossaryTerms).filter(([term, def]) => {
-    if (!glossaryFilter) return true;
-    const q = glossaryFilter.toLowerCase();
-    return term.toLowerCase().includes(q) || def.toLowerCase().includes(q);
-  });
-
-  const goToNext = () => {
-    if (currentChapterIndex < chapters.length - 1) {
-      setCurrentChapterIndex(prev => prev + 1);
-      if (scrollContainerRef.current) {
-        scrollContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-      if (isMobile) setIsSidebarOpen(false);
-    }
+  const toggleChapterCompletion = (id: string) => {
+    setCompletedChapters((prev) =>
+      prev.includes(id) ? prev.filter((cId) => cId !== id) : [...prev, id]
+    );
   };
 
-  const goToPrev = () => {
-    if (currentChapterIndex > 0) {
-      setCurrentChapterIndex(prev => prev - 1);
-      if (scrollContainerRef.current) {
-        scrollContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-      if (isMobile) setIsSidebarOpen(false);
-    }
-  };
+  const progressPercentage = Math.round((completedChapters.length / chapters.length) * 100);
 
-  const scrollToSection = (subIdx: number) => {
-    const element = document.getElementById(`sec-${chapters[currentChapterIndex].id}-${subIdx}`);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      if (isMobile) setIsSidebarOpen(false);
-    }
-  };
+  const uniqueGlossaryEntries = Object.entries(glossaryTerms).filter(
+    ([term, def]) =>
+      term.toLowerCase().includes(glossaryFilter.toLowerCase()) ||
+      def.toLowerCase().includes(glossaryFilter.toLowerCase())
+  );
 
   return (
-    <div className="min-h-screen flex bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-200 overflow-hidden selection:bg-indigo-500/20 dark:selection:bg-indigo-500/30 transition-colors duration-300 relative">
-      
-      {/* Abstract Background Blobs */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-500/20 dark:bg-indigo-600/15 blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-screen" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-500/20 dark:bg-cyan-600/15 blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-screen" />
-      <div className="absolute top-[40%] right-[20%] w-[30%] h-[30%] rounded-full bg-purple-500/15 dark:bg-purple-600/10 blur-[100px] pointer-events-none mix-blend-multiply dark:mix-blend-screen" />
+    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans selection:bg-sky-500/20 selection:text-sky-600 dark:selection:text-sky-300">
+      <AboutModal isOpen={isAboutModalOpen} onClose={() => setIsAboutModalOpen(false)} />
 
-      {/* Mobile Backdrop */}
-      <AnimatePresence>
-        {isMobile && isSidebarOpen && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setIsSidebarOpen(false)}
-            className="fixed inset-0 bg-slate-900/60 dark:bg-black/70 backdrop-blur-md z-40"
+      {/* Glossary Modal */}
+      {isGlossaryOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-xs">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl max-w-2xl w-full p-6 shadow-xl max-h-[85vh] flex flex-col">
+            <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-200 dark:border-slate-800">
+              <div>
+                <div className="text-xs font-mono uppercase tracking-wider text-sky-600 dark:text-sky-400">
+                  Léxico técnico · Edición 2026
+                </div>
+                <h3 className="text-lg font-bold font-display text-slate-900 dark:text-white">
+                  Glosario interactivo de conceptos clave
+                </h3>
+              </div>
+              <button
+                onClick={() => setIsGlossaryOpen(false)}
+                className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
+                aria-label="Cerrar glosario"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="relative mb-4">
+              <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+              <input
+                type="text"
+                value={glossaryFilter}
+                onChange={(e) => setGlossaryFilter(e.target.value)}
+                placeholder="Filtrar término (ej. MCP, Test-Time Compute, RAG, EU AI Act)..."
+                className="w-full pl-9 pr-4 py-2 text-xs rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:border-sky-500"
+              />
+            </div>
+
+            <div className="overflow-y-auto space-y-2.5 pr-1">
+              {uniqueGlossaryEntries.map(([term, definition]) => (
+                <div
+                  key={term}
+                  className="p-3.5 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800"
+                >
+                  <div className="text-xs font-mono font-bold text-sky-600 dark:text-sky-400 mb-1">
+                    {term}
+                  </div>
+                  <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed m-0">
+                    {definition}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 3-Zone Top Bar Contract (<header>) */}
+      <header className="sticky top-0 z-30 h-14 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 lg:px-8 flex items-center justify-between gap-4">
+        {/* Zone 1: Brand Identity + Author Credit */}
+        <div className="flex items-center gap-3 min-w-0">
+          <button
+            onClick={() => setActiveChapterId('modulo1')}
+            className="group relative w-8 h-8 rounded-lg bg-slate-900 dark:bg-sky-500/15 border border-slate-800 dark:border-sky-400/30 flex items-center justify-center text-white shrink-0 shadow-xs hover:border-sky-500 dark:hover:border-sky-400 transition-all cursor-pointer"
+            title="Ir al inicio · Dominando la IA"
+            aria-label="Ir al inicio de Dominando la IA"
+          >
+            <svg
+              className="w-4 h-4 text-sky-400 group-hover:scale-105 transition-transform"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              {/* Isometric Hexagonal Prism / Technical Codex Frame */}
+              <path
+                d="M12 2.5L20.5 7.25V16.75L12 21.5L3.5 16.75V7.25L12 2.5Z"
+                className="stroke-sky-400/40 dark:stroke-sky-400/50"
+                strokeWidth="1.5"
+                strokeLinejoin="round"
+              />
+              {/* Internal Neural Graph & Open Book Spine */}
+              <path
+                d="M12 21.5V12M12 12L20.5 7.25M12 12L3.5 7.25"
+                className="stroke-sky-400/30"
+                strokeWidth="1.25"
+                strokeLinecap="round"
+              />
+              {/* Active Reasoning Circuit Paths */}
+              <path
+                d="M7.5 9.5L12 7L16.5 9.5V14.5L12 17L7.5 14.5V9.5Z"
+                className="stroke-white dark:stroke-sky-300"
+                strokeWidth="1.75"
+                strokeLinejoin="round"
+              />
+              {/* Central Core Node & Vertex Nodes */}
+              <circle cx="12" cy="12" r="2" className="fill-sky-400" />
+              <circle cx="12" cy="7" r="1.2" className="fill-white" />
+              <circle cx="7.5" cy="14.5" r="1.2" className="fill-white" />
+              <circle cx="16.5" cy="14.5" r="1.2" className="fill-white" />
+            </svg>
+          </button>
+          <div className="flex items-baseline gap-2.5 truncate">
+            <span className="font-bold font-display text-base tracking-tight text-slate-900 dark:text-white whitespace-nowrap shrink-0">
+              Dominando la IA
+            </span>
+            <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">·</span>
+            <a
+              href="https://portafolio.franciscosereno.cl/sobre-mi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors hidden sm:inline whitespace-nowrap shrink-0"
+            >
+              por Francisco Sereno
+            </a>
+          </div>
+        </div>
+
+        {/* Zone 2: Concise Single-Line Navigation Links (Max 4 items) */}
+        <nav className="hidden md:flex items-center gap-6">
+          <button
+            onClick={() => setActiveChapterId('modulo1')}
+            className={`text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
+              activeChapterId === 'modulo1'
+                ? 'text-sky-600 dark:text-sky-400'
+                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
+            }`}
+          >
+            Fundamentos
+          </button>
+          <button
+            onClick={() => setActiveChapterId('catalogo')}
+            className={`text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
+              activeChapterId === 'catalogo'
+                ? 'text-sky-600 dark:text-sky-400'
+                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
+            }`}
+          >
+            Catálogo 2026
+          </button>
+          <button
+            onClick={() => setIsGlossaryOpen(true)}
+            className="text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer whitespace-nowrap shrink-0"
+          >
+            Glosario
+          </button>
+          <button
+            onClick={() => setIsAboutModalOpen(true)}
+            className="text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer whitespace-nowrap shrink-0"
+          >
+            Acerca de
+          </button>
+        </nav>
+
+        {/* Zone 3: Single Primary Action Button (GitHub Repository Badge) */}
+        <div className="flex items-center">
+          <a
+            href="https://github.com/francisco-sereno/guia-fundamentos-IAGen"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-white text-xs font-semibold transition-colors whitespace-nowrap shrink-0"
+          >
+            <svg className="w-3.5 h-3.5 shrink-0 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+            <span>guia-fundamentos-IAGen</span>
+          </a>
+        </div>
+      </header>
+
+      {/* Reading Workspace Layout */}
+      <div className="flex-1 flex overflow-hidden relative">
+        {/* Mobile Sidebar Backdrop */}
+        {isMobileMenuOpen && (
+          <div
+            className="fixed inset-0 z-40 bg-slate-950/50 backdrop-blur-xs lg:hidden"
+            onClick={() => setIsMobileMenuOpen(false)}
           />
         )}
-      </AnimatePresence>
 
-      {/* Sidebar Navigation */}
-      <motion.aside 
-        initial={false}
-        animate={{ 
-          width: isSidebarOpen && !isFocusMode ? (isMobile ? '85%' : '320px') : '0px',
-          x: isSidebarOpen && !isFocusMode ? 0 : (isMobile ? '-100%' : 0),
-          opacity: isSidebarOpen && !isFocusMode ? 1 : 0
-        }}
-        transition={{ type: 'spring', bounce: 0, duration: 0.35 }}
-        className={cn(
-          "fixed md:relative z-50 h-screen flex-shrink-0 bg-slate-100/95 dark:bg-slate-900/90 backdrop-blur-2xl border-r border-slate-200 dark:border-white/10 overflow-hidden flex flex-col shadow-2xl transition-colors duration-300",
-          (!isSidebarOpen || isFocusMode) && !isMobile && "md:w-0 md:border-none"
-        )}
-      >
-        {/* Sidebar Header */}
-        <div className="p-5 flex items-center justify-between border-b border-slate-200/80 dark:border-white/5 bg-slate-200/50 dark:bg-slate-900/40">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-indigo-500/10 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20 dark:border-indigo-500/30 shadow-inner">
-              <BookOpen size={20} />
-            </div>
-            <div className="flex flex-col min-w-0">
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="font-extrabold text-base tracking-tight text-slate-900 dark:text-white truncate">Dominando la IA</span>
-                <a href="https://github.com/francisco-sereno/guia-fundamentos-IAGen" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-md text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors shrink-0" title="Ver repositorio en GitHub">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                  GitHub
-                </a>
-                <span className="text-slate-300 dark:text-slate-600 text-xs hidden sm:inline">•</span>
-                <a href="https://portafolio.franciscosereno.cl/sobre-mi" target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400 font-medium transition-colors w-fit">
-                  Por Francisco Sereño
-                </a>
-              </div>
-            </div>
-          </div>
-          {isMobile && (
-            <button onClick={() => setIsSidebarOpen(false)} className="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-white/5 text-slate-500 dark:text-slate-400">
-              <X size={18} />
-            </button>
-          )}
-        </div>
-
-        {/* Sidebar Search Bar */}
-        <div className="px-4 pt-4 pb-2">
-          <div className="relative">
-            <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-            <input 
-              type="text" 
-              placeholder="Buscar tema o capítulo..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 bg-white dark:bg-slate-950/60 border border-slate-300 dark:border-white/10 rounded-xl text-xs text-slate-900 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-indigo-500/50 transition-colors"
-            />
-            {searchQuery && (
-              <button onClick={() => setSearchQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
-                <X size={12} />
-              </button>
-            )}
-          </div>
-        </div>
-
-        {/* Chapter List */}
-        <div className="flex-1 overflow-y-auto py-3 px-3 space-y-1.5 custom-scrollbar">
-          <div className="text-[11px] font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2 px-2 flex justify-between items-center">
-            <span>Tabla de contenidos</span>
-            <span className="text-indigo-600 dark:text-indigo-400 font-bold">{chapters.length} temas</span>
-          </div>
-
-          {filteredChapters.map((chapter) => {
-            const originalIndex = chapters.findIndex(c => c.id === chapter.id);
-            const Icon = chapter.icon;
-            const isActive = originalIndex === currentChapterIndex;
-            const isCompleted = completedChapters.includes(chapter.id);
-
-            return (
-              <div key={chapter.id} className="flex flex-col">
+        {/* Sidebar Navigation (Collapsible in Focus Mode) */}
+        <aside
+          className={`fixed lg:static inset-y-0 left-0 z-40 w-80 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col transition-all duration-300 ${
+            isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+          } ${isFocusMode ? 'lg:hidden' : 'lg:translate-x-0'}`}
+        >
+          {/* Sidebar Progress Header */}
+          <div className="p-4 border-b border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                Progreso del curso
+              </span>
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-mono font-bold text-sky-600 dark:text-sky-400 tabular-nums">
+                  {completedChapters.length}/{chapters.length} ({progressPercentage}%)
+                </span>
                 <button
-                  onClick={() => {
-                    setCurrentChapterIndex(originalIndex);
-                    if (isMobile) setIsSidebarOpen(false);
-                    if (scrollContainerRef.current) {
-                      scrollContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
-                    }
-                  }}
-                  className={cn(
-                    "w-full flex items-center justify-between gap-2.5 px-3.5 py-2.5 rounded-xl text-left transition-all duration-200 group relative",
-                    isActive 
-                      ? "bg-indigo-50 dark:bg-slate-900 dark:bg-gradient-to-r dark:from-indigo-950/90 dark:to-slate-900 text-indigo-950 dark:text-slate-100 border border-indigo-200 dark:border-indigo-500/40 shadow-sm font-semibold" 
-                      : "text-slate-600 dark:text-slate-400 hover:bg-slate-200/60 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-slate-200 border border-transparent"
-                  )}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="lg:hidden p-1 text-slate-400 hover:text-slate-700 dark:hover:text-white"
+                  aria-label="Cerrar menú"
                 >
-                  <div className="flex items-center gap-2.5 min-w-0">
-                    <Icon size={17} className={cn("shrink-0 transition-transform duration-300", isActive ? "text-indigo-600 dark:text-indigo-400 scale-110" : "group-hover:text-slate-800 dark:group-hover:text-slate-300")} />
-                    <div className="flex flex-col min-w-0">
-                      <span className="text-xs md:text-sm tracking-tight truncate">{chapter.title}</span>
-                      <span className={cn("text-[10px] font-medium flex items-center gap-1 mt-0.5", isActive ? "text-indigo-700 dark:text-indigo-300" : "text-slate-500 dark:text-slate-400")}>
-                        <Clock size={10} className="text-indigo-500/80 dark:text-indigo-400/80 shrink-0" />
-                        <span>{chapterReadTimes[chapter.id] || chapter.readTime}</span>
-                      </span>
-                    </div>
-                  </div>
-                  {isCompleted && (
-                    <span className="p-1 rounded-full bg-emerald-500/15 dark:bg-emerald-500/20 border border-emerald-500/30 dark:border-emerald-500/40 text-emerald-600 dark:text-emerald-400 shrink-0" title="Capítulo completado">
-                      <Check size={10} />
-                    </span>
-                  )}
+                  <X className="w-4 h-4" />
                 </button>
-
-                {isActive && chapter.subtitles && (
-                  <motion.div 
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    className="ml-8 mt-1 mb-2 space-y-1 border-l border-indigo-500/30 dark:border-indigo-500/20 pl-3.5"
-                  >
-                    {chapter.subtitles.map((subtitle, subIdx) => {
-                      const SubIcon = chapter.icons ? chapter.icons[subIdx] : null;
-                      const isSubActive = activeSubtitleIndex === subIdx;
-                      return (
-                        <div 
-                          key={subIdx} 
-                          onClick={() => scrollToSection(subIdx)}
-                          className={cn(
-                            "flex items-center gap-2 text-xs transition-all cursor-pointer py-1.5 px-2 rounded-lg leading-tight",
-                            isSubActive 
-                              ? "text-indigo-950 dark:text-indigo-200 font-semibold bg-indigo-100/90 dark:bg-indigo-950/80 border border-indigo-300 dark:border-indigo-500/40 shadow-xs" 
-                              : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-white/5"
-                          )}
-                        >
-                          {SubIcon && <SubIcon size={12} className={cn("shrink-0", isSubActive ? "text-indigo-600 dark:text-indigo-400" : "text-slate-400 dark:text-slate-500")} />}
-                          <span className="truncate">{subtitle}</span>
-                        </div>
-                      );
-                    })}
-                  </motion.div>
-                )}
               </div>
-            );
-          })}
-        </div>
-
-        {/* Sidebar Footer */}
-        <div className="p-4 border-t border-slate-200/80 dark:border-white/5 bg-slate-200/40 dark:bg-slate-900/60 space-y-3">
-          <button
-            onClick={() => setIsGlossaryModalOpen(true)}
-            className="w-full flex items-center justify-between px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-white/5 text-xs font-medium text-indigo-700 dark:text-indigo-300 transition-all hover:border-indigo-400/50 dark:hover:border-indigo-500/30 shadow-xs"
-          >
-            <span className="flex items-center gap-2">
-              <BookOpen size={14} className="text-indigo-600 dark:text-indigo-400" />
-              Glosario interactivo
-            </span>
-            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-indigo-500/10 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300">
-              {Object.keys(glossaryTerms).length}
-            </span>
-          </button>
-
-          <div>
-            <div className="flex justify-between text-[11px] text-slate-500 dark:text-slate-400 mb-1.5 font-mono">
-              <span>Progreso general</span>
-              <span className="text-indigo-600 dark:text-indigo-400 font-bold">{Math.round(overallProgress)}%</span>
             </div>
-            <div className="h-1.5 w-full bg-slate-200 dark:bg-slate-950 rounded-full overflow-hidden border border-slate-300/50 dark:border-white/5">
-              <motion.div 
-                className="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
-                initial={{ width: 0 }}
-                animate={{ width: `${overallProgress}%` }}
-                transition={{ duration: 0.5 }}
+            <div className="w-full h-1.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+              <div
+                className="bg-sky-600 dark:bg-sky-500 h-full transition-all duration-500"
+                style={{ width: `${progressPercentage}%` }}
               />
             </div>
           </div>
-        </div>
-      </motion.aside>
 
-      {/* Main Content Area */}
-      <main className="flex-1 flex flex-col h-screen overflow-hidden relative bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
-        
-        {/* Top Navigation Bar */}
-        <header className="h-16 flex-shrink-0 flex items-center justify-between px-4 md:px-8 border-b border-slate-200/80 dark:border-white/10 bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl sticky top-0 z-30 transition-colors duration-300">
-          <div className="flex items-center gap-3 min-w-0">
-            <button 
-              onClick={() => {
-                if (isFocusMode) setIsFocusMode(false);
-                setIsSidebarOpen(!isSidebarOpen);
-              }}
-              className="p-2 -ml-2 rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors border border-transparent hover:border-slate-200 dark:hover:border-white/10"
-              title="Alternar índice"
-            >
-              <Menu size={20} />
-            </button>
-            <div className="flex items-center gap-2 min-w-0">
-              <span className="text-xs font-mono px-2 py-0.5 rounded bg-indigo-500/10 border border-indigo-500/20 text-indigo-700 dark:text-indigo-300 hidden sm:inline-block shrink-0">
-                Capítulo {currentChapterIndex + 1}/{chapters.length}
-              </span>
-              <span className="text-sm font-semibold text-slate-900 dark:text-slate-100 truncate">
-                {currentChapter.title}
-              </span>
-              <span className="text-xs font-medium text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 px-2.5 py-0.5 rounded-full hidden md:inline-flex items-center gap-1.5 shrink-0">
-                <Clock size={12} className="text-indigo-600 dark:text-indigo-400" />
-                <span>{dynamicReadTime || currentChapter.readTime}</span>
-              </span>
-            </div>
-          </div>
-          
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            <button
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className={cn(
-                "flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all border",
-                theme === 'light'
-                  ? "bg-amber-500/15 text-amber-900 border-amber-500/30 hover:bg-amber-500/25 shadow-xs"
-                  : "bg-slate-900/60 text-slate-300 border-white/10 hover:bg-slate-800 hover:text-white"
-              )}
-              title={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
-            >
-              {theme === 'dark' ? (
-                <>
-                  <Sun size={13} className="text-amber-400" />
-                  <span className="hidden xs:inline sm:inline">Modo claro</span>
-                </>
-              ) : (
-                <>
-                  <Moon size={13} className="text-indigo-600" />
-                  <span className="hidden xs:inline sm:inline">Modo oscuro</span>
-                </>
-              )}
-            </button>
+          {/* Chapters List */}
+          <nav className="flex-1 overflow-y-auto p-3 space-y-1">
+            {chapters.map((chapter) => {
+              const Icon = chapter.icon;
+              const isActive = chapter.id === activeChapterId;
+              const isCompleted = completedChapters.includes(chapter.id);
 
-            <button
-              onClick={() => setIsGlossaryModalOpen(true)}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all border bg-slate-100 dark:bg-slate-900/60 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-white/10 hover:bg-slate-200 dark:hover:bg-slate-800 hover:text-indigo-700 dark:hover:text-indigo-300 hover:border-indigo-400/30 dark:hover:border-indigo-500/30"
-              title="Glosario de conceptos"
-            >
-              <BookOpen size={13} className="text-indigo-600 dark:text-indigo-400" />
-              <span className="hidden sm:inline">Glosario</span>
-            </button>
+              return (
+                <div key={chapter.id} className="space-y-1">
+                  <button
+                    onClick={() => {
+                      setActiveChapterId(chapter.id);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className={`w-full flex items-start gap-3 p-2.5 rounded-lg text-left transition-colors cursor-pointer ${
+                      isActive
+                        ? 'bg-sky-50/90 dark:bg-sky-950/40 text-sky-900 dark:text-sky-100 border border-sky-200/80 dark:border-sky-800/60'
+                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100/70 dark:hover:bg-slate-800/50 hover:text-slate-900 dark:hover:text-slate-200 border border-transparent'
+                    }`}
+                  >
+                    <div
+                      className={`mt-0.5 p-1.5 rounded-md shrink-0 ${
+                        isActive
+                          ? 'bg-sky-600 text-white'
+                          : isCompleted
+                          ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400'
+                          : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400'
+                      }`}
+                    >
+                      {isCompleted ? <CheckCircle className="w-3.5 h-3.5" /> : <Icon className="w-3.5 h-3.5" />}
+                    </div>
 
-            {!isMobile && (
-              <button
-                onClick={() => setIsAboutModalOpen(true)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all border bg-slate-100 dark:bg-slate-900/60 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-white/10 hover:bg-slate-200 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white"
-                title="Acerca de esta guía"
-              >
-                <Info size={13} className="text-blue-600 dark:text-blue-400" />
-                <span>Acerca de</span>
-              </button>
-            )}
+                    <div className="flex-1 min-w-0">
+                      <div className="text-[10px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                        {chapter.code} · {chapter.readTime.replace(' de lectura', '')}
+                      </div>
+                      <div className={`text-xs font-semibold leading-snug mt-0.5 ${isActive ? 'text-sky-950 dark:text-white' : ''}`}>
+                        {chapter.title}
+                      </div>
+                    </div>
+                  </button>
 
-            {!isMobile && (
-              <button
-                onClick={() => setIsFocusMode(!isFocusMode)}
-                className={cn(
-                  "flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all border",
-                  isFocusMode 
-                    ? "bg-indigo-500/15 text-indigo-900 dark:text-indigo-300 border-indigo-400 dark:border-indigo-500/40 shadow-xs" 
-                    : "bg-slate-100 dark:bg-slate-900/60 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-white/10 hover:bg-slate-200 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white"
-                )}
-                title="Modo lectura sin distracciones"
-              >
-                <Sparkles size={13} className={isFocusMode ? "text-indigo-600 dark:text-indigo-400" : "text-slate-400"} />
-                <span>{isFocusMode ? "Modo lectura activo" : "Modo lectura"}</span>
-              </button>
-            )}
-          </div>
-          
-          {/* Reading Progress Indicator Line */}
-          <div className="absolute bottom-0 left-0 h-[2px] bg-slate-200 dark:bg-slate-900 w-full overflow-hidden">
-            <motion.div 
-              className="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
-              style={{ width: `${chapterProgress}%` }}
-              layout
-            />
-          </div>
-        </header>
-
-        {/* Scrollable Main Article Content */}
-        <div 
-          ref={scrollContainerRef}
-          className="flex-1 overflow-y-auto scroll-smooth pb-32 pt-8 px-4 md:px-12 lg:px-20 xl:px-28 custom-scrollbar"
-        >
-          <motion.div 
-            animate={{ maxWidth: isFocusMode ? '64rem' : '48rem' }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="mx-auto"
-          >
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentChapter.id}
-                initial={{ opacity: 0, y: 15, filter: 'blur(8px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                exit={{ opacity: 0, y: -15, filter: 'blur(8px)' }}
-                transition={{ duration: 0.35, ease: "easeOut" }}
-                className="min-h-[60vh] prose-custom"
-              >
-                {/* Chapter Meta Bar */}
-                <div className="not-prose flex flex-wrap items-center justify-between gap-3 mb-8 pb-4 border-b border-slate-200/80 dark:border-white/10">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-500/15 border border-indigo-200/80 dark:border-indigo-500/30 text-indigo-900 dark:text-indigo-300 text-xs font-semibold shadow-xs">
-                      <Clock size={13} className="text-indigo-600 dark:text-indigo-400" />
-                      <span>{dynamicReadTime || currentChapter.readTime}</span>
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200/80 dark:border-white/10 text-slate-700 dark:text-slate-300 text-xs font-medium">
-                      <BookOpen size={13} className="text-slate-500 dark:text-slate-400" />
-                      <span>{currentChapter.subtitles.length} secciones</span>
-                    </span>
-                  </div>
-                  {completedChapters.includes(currentChapter.id) && (
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 dark:bg-emerald-500/20 border border-emerald-500/30 dark:border-emerald-500/40 text-emerald-800 dark:text-emerald-300 text-xs font-semibold">
-                      <CheckCircle2 size={13} className="text-emerald-600 dark:text-emerald-400" />
-                      <span>Capítulo completado</span>
-                    </span>
+                  {/* Subsections Tree for Active Chapter */}
+                  {isActive && chapter.subsections && (
+                    <div className="ml-5 pl-3 border-l border-slate-200 dark:border-slate-800 space-y-0.5 py-1">
+                      {chapter.subsections.map((sub, subIdx) => {
+                        const secId = `sec-${chapter.id}-${subIdx}`;
+                        const isSecActive = activeSection === secId;
+                        return (
+                          <button
+                            key={secId}
+                            onClick={() => {
+                              const el = document.getElementById(secId);
+                              if (el) {
+                                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                setActiveSection(secId);
+                                setIsMobileMenuOpen(false);
+                              }
+                            }}
+                            className={`w-full text-left py-1.5 px-2 rounded text-[11px] transition-colors cursor-pointer line-clamp-1 ${
+                              isSecActive
+                                ? 'font-semibold text-sky-600 dark:text-sky-400 bg-sky-50/60 dark:bg-sky-950/30'
+                                : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                            }`}
+                          >
+                            {sub}
+                          </button>
+                        );
+                      })}
+                    </div>
                   )}
                 </div>
+              );
+            })}
+          </nav>
 
-                <div ref={chapterContentRef}>
-                  {currentChapter.content}
-                </div>
-                {currentChapter.quiz && <QuizComponent quiz={currentChapter.quiz} />}
-              </motion.div>
-            </AnimatePresence>
+          {/* Sidebar Footer Author Credit */}
+          <div className="p-3.5 border-t border-slate-200 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-between bg-slate-50/40 dark:bg-slate-900/40">
+            <a
+              href="https://portafolio.franciscosereno.cl/sobre-mi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-sky-600 dark:hover:text-sky-400 inline-flex items-center gap-1 font-medium"
+            >
+              <span>Autor: Francisco Sereno</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
+            <span className="font-mono">v2026.2</span>
+          </div>
+        </aside>
 
-            {/* Bottom Chapter Navigation Controls */}
-            <div className="mt-16 pt-8 border-t border-slate-200 dark:border-white/10 flex items-center justify-between gap-4">
+        {/* Main Content Area */}
+        <main
+          id="main-content"
+          className="flex-1 overflow-y-auto h-[calc(100vh-3.5rem)] relative scroll-smooth"
+        >
+          {/* Thin Reading Progress Bar */}
+          <div className="sticky top-0 z-20 w-full h-0.5 bg-slate-200/60 dark:bg-slate-800/60">
+            <div
+              className="h-full bg-sky-600 dark:bg-sky-400 transition-all duration-150"
+              style={{ width: `${scrollProgress}%` }}
+            />
+          </div>
+
+          {/* Secondary Workspace Utility Bar */}
+          <div className="sticky top-0.5 z-10 bg-slate-50/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 px-4 sm:px-8 py-2.5 flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3 min-w-0">
               <button
-                onClick={goToPrev}
-                disabled={currentChapterIndex === 0}
-                className={cn(
-                  "flex items-center gap-2 px-5 py-3 rounded-xl font-medium text-xs sm:text-sm transition-all duration-300",
-                  currentChapterIndex === 0 
-                    ? "opacity-0 pointer-events-none" 
-                    : "bg-white dark:bg-slate-900/80 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10 hover:border-indigo-400 dark:hover:border-indigo-500/30 shadow-xs"
-                )}
+                onClick={() => setIsMobileMenuOpen(true)}
+                className="lg:hidden p-1.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 cursor-pointer"
+                aria-label="Abrir índice de capítulos"
               >
-                <ChevronLeft size={18} />
-                <span>Capítulo anterior</span>
+                <Menu className="w-4 h-4" />
+              </button>
+
+              {/* Unboxed Metadata with Middot Separators (Zero-Pill Rule) */}
+              <div className="text-xs font-mono text-slate-500 dark:text-slate-400 truncate">
+                <span className="font-semibold text-sky-600 dark:text-sky-400">{currentChapter.code}</span>
+                <span className="mx-2">·</span>
+                <span>{currentChapter.readTime}</span>
+                <span className="hidden sm:inline mx-2">·</span>
+                <span className="hidden sm:inline tabular-nums">
+                  Lectura: {Math.round(scrollProgress)}%
+                </span>
+              </div>
+            </div>
+
+            {/* Workspace Controls: Glossary, Focus Mode, Theme Toggle */}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setIsGlossaryOpen(true)}
+                className="px-2.5 py-1 rounded-md border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-xs font-medium text-slate-600 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-700 transition-colors cursor-pointer whitespace-nowrap shrink-0 md:hidden"
+              >
+                Glosario
               </button>
 
               <button
-                onClick={goToNext}
-                disabled={currentChapterIndex === chapters.length - 1}
-                className={cn(
-                  "flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-xs sm:text-sm transition-all duration-300",
-                  currentChapterIndex === chapters.length - 1 
-                    ? "opacity-0 pointer-events-none" 
-                    : "bg-indigo-600 hover:bg-indigo-500 text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
-                )}
+                onClick={() => setIsFocusMode(!isFocusMode)}
+                className={`hidden lg:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border text-xs font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
+                  isFocusMode
+                    ? 'border-sky-500 bg-sky-50 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400'
+                    : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-700'
+                }`}
+                title="Alternar modo de lectura enfocada"
               >
-                <span>Siguiente capítulo</span>
-                <ChevronRight size={18} />
+                {isFocusMode ? <Minimize2 className="w-3.5 h-3.5" /> : <Maximize2 className="w-3.5 h-3.5" />}
+                <span>{isFocusMode ? 'Mostrar índice' : 'Modo lectura'}</span>
+              </button>
+
+              <button
+                onClick={toggleTheme}
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-xs font-medium text-slate-600 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-700 transition-colors cursor-pointer whitespace-nowrap shrink-0"
+                title={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+              >
+                {theme === 'dark' ? (
+                  <>
+                    <Sun className="w-3.5 h-3.5 text-amber-400" />
+                    <span className="hidden sm:inline">Claro</span>
+                  </>
+                ) : (
+                  <>
+                    <Moon className="w-3.5 h-3.5 text-slate-600" />
+                    <span className="hidden sm:inline">Oscuro</span>
+                  </>
+                )}
               </button>
             </div>
-          </motion.div>
-        </div>
+          </div>
 
-        {/* Floating Back to Top Button */}
-        <AnimatePresence>
-          {showScrollTop && (
-            <motion.button
-              initial={{ opacity: 0, y: 16, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 16, scale: 0.9 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-              onClick={() => {
-                if (scrollContainerRef.current) {
-                  scrollContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-              }}
-              className="fixed bottom-6 right-6 z-40 flex items-center gap-2 px-3.5 py-2.5 rounded-full bg-white/95 dark:bg-slate-900/95 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-white/15 shadow-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-indigo-500/50 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all text-xs font-semibold backdrop-blur-md group"
-              title="Volver al inicio"
-              aria-label="Volver al inicio"
-            >
-              <ArrowUp size={16} className="text-indigo-600 dark:text-indigo-400 group-hover:-translate-y-0.5 transition-transform duration-200" />
-              <span className="hidden sm:inline">Volver al inicio</span>
-            </motion.button>
-          )}
-        </AnimatePresence>
-      </main>
+          {/* Editorial Content Container */}
+          <div className="max-w-4xl mx-auto px-4 sm:px-8 lg:px-12 py-8 md:py-12">
+            {/* Chapter Hero Header */}
+            <div className="mb-10 pb-8 border-b border-slate-200 dark:border-slate-800">
+              <div className="text-xs font-mono uppercase tracking-wider text-sky-600 dark:text-sky-400 mb-2">
+                {currentChapter.code} · {currentChapter.readTime} · Actualización 2026
+              </div>
+              <h1 className="text-3xl sm:text-4xl font-extrabold font-display text-slate-900 dark:text-white tracking-tight mb-3">
+                {currentChapter.title}
+              </h1>
+              <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl">
+                {currentChapter.subtitle}
+              </p>
+            </div>
 
-      {/* Interactive Modals */}
-      <AboutModal isOpen={isAboutModalOpen} onClose={() => setIsAboutModalOpen(false)} />
+            {/* Chapter Prose Content */}
+            <article className="prose-custom">
+              {currentChapter.content}
+            </article>
 
-      {/* Glossary Quick Lookup Modal */}
-      <AnimatePresence>
-        {isGlossaryModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-900/40 dark:bg-slate-950/80 backdrop-blur-xl" onClick={() => setIsGlossaryModalOpen(false)}>
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="bg-white dark:bg-slate-900/95 border border-slate-200 dark:border-white/10 p-6 rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-hidden flex flex-col shadow-2xl text-slate-800 dark:text-slate-200"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex justify-between items-center mb-4">
-                <div className="flex items-center gap-2.5">
-                  <div className="p-2 bg-indigo-500/10 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 rounded-xl border border-indigo-500/20 dark:border-indigo-500/30">
-                    <BookOpen size={20} />
+            {/* Chapter Completion & Prev/Next Footer */}
+            <div className="mt-14 pt-8 border-t border-slate-200 dark:border-slate-800 space-y-6">
+              <div className="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <div className="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                    Registro de avance personal
                   </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white m-0">Glosario de conceptos</h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 m-0">Términos clave de IA e ingeniería de prompts</p>
-                  </div>
+                  <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
+                    {completedChapters.includes(currentChapter.id)
+                      ? '¡Módulo completado y registrado en tu progreso!'
+                      : '¿Terminaste de revisar los conceptos y simuladores de este módulo?'}
+                  </h4>
                 </div>
-                <button onClick={() => setIsGlossaryModalOpen(false)} className="p-2 rounded-full bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
-                  <X size={18} />
+                <button
+                  onClick={() => toggleChapterCompletion(currentChapter.id)}
+                  className={`inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
+                    completedChapters.includes(currentChapter.id)
+                      ? 'bg-emerald-600 text-white hover:bg-emerald-500'
+                      : 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-200'
+                  }`}
+                >
+                  <CheckCircle className="w-4 h-4" />
+                  <span>
+                    {completedChapters.includes(currentChapter.id)
+                      ? 'Módulo completado'
+                      : 'Marcar como completado'}
+                  </span>
                 </button>
               </div>
 
-              {/* Glossary Search Input */}
-              <div className="relative mb-4">
-                <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
-                <input 
-                  type="text" 
-                  placeholder="Filtrar concepto o definición..."
-                  value={glossaryFilter}
-                  onChange={(e) => setGlossaryFilter(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-950/70 border border-slate-300 dark:border-white/10 rounded-xl text-sm text-slate-900 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-indigo-500/50"
-                />
-                {glossaryFilter && (
-                  <button onClick={() => setGlossaryFilter('')} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
-                    <X size={14} />
-                  </button>
-                )}
-              </div>
-
-              {/* Terms List */}
-              <div className="flex-1 overflow-y-auto space-y-3 pr-2 custom-scrollbar prose-custom">
-                {filteredGlossary.length > 0 ? (
-                  filteredGlossary.map(([term, def], idx) => (
-                    <div key={idx} className="group p-4 rounded-2xl bg-white/60 dark:bg-slate-800/40 backdrop-blur-md border border-slate-200/80 dark:border-white/5 hover:border-indigo-400/50 dark:hover:border-indigo-500/50 hover:shadow-lg hover:shadow-indigo-500/10 transition-all duration-300 relative overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                      <div className="flex items-center gap-2 mb-1.5 relative z-10">
-                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 dark:bg-indigo-400 group-hover:scale-125 transition-transform duration-300" />
-                        <h4 className="font-bold text-indigo-800 dark:text-indigo-300 text-sm md:text-base m-0">{term}</h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {prevChapter ? (
+                  <button
+                    onClick={() => setActiveChapterId(prevChapter.id)}
+                    className="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-sky-500 dark:hover:border-sky-500 text-left transition-all cursor-pointer group flex items-center gap-3"
+                  >
+                    <ChevronLeft className="w-5 h-5 text-slate-400 group-hover:text-sky-600 dark:group-hover:text-sky-400 shrink-0" />
+                    <div className="min-w-0">
+                      <div className="text-[11px] font-mono text-slate-400">Módulo anterior (Alt + ←)</div>
+                      <div className="text-sm font-bold text-slate-900 dark:text-white truncate">
+                        {prevChapter.title}
                       </div>
-                      <p className="text-xs md:text-sm text-slate-700 dark:text-slate-300 leading-relaxed m-0 pl-3.5 relative z-10">{def}</p>
                     </div>
-                  ))
+                  </button>
                 ) : (
-                  <div className="text-center py-12 text-slate-400 dark:text-slate-500 text-sm">
-                    No se encontraron conceptos que coincidan con "{glossaryFilter}".
-                  </div>
+                  <div />
+                )}
+
+                {nextChapter ? (
+                  <button
+                    onClick={() => setActiveChapterId(nextChapter.id)}
+                    className="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-sky-500 dark:hover:border-sky-500 text-right transition-all cursor-pointer group flex items-center justify-end gap-3"
+                  >
+                    <div className="min-w-0">
+                      <div className="text-[11px] font-mono text-slate-400">Siguiente módulo (Alt + →)</div>
+                      <div className="text-sm font-bold text-slate-900 dark:text-white truncate">
+                        {nextChapter.title}
+                      </div>
+                    </div>
+                    <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-sky-600 dark:group-hover:text-sky-400 shrink-0" />
+                  </button>
+                ) : (
+                  <div />
                 )}
               </div>
-            </motion.div>
+            </div>
           </div>
-        )}
-      </AnimatePresence>
 
+          {/* Back to Top Floating Button */}
+          {showBackToTop && (
+            <button
+              onClick={() => {
+                const mainContent = document.getElementById('main-content');
+                if (mainContent) mainContent.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="fixed bottom-6 right-6 z-30 p-2.5 rounded-lg bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 shadow-lg hover:bg-sky-600 dark:hover:bg-sky-400 transition-colors cursor-pointer"
+              aria-label="Volver arriba"
+            >
+              <ArrowUp className="w-4 h-4" />
+            </button>
+          )}
+        </main>
+      </div>
     </div>
   );
 };
 
-const rootElement = document.getElementById('root');
-if (rootElement) {
-  const root = createRoot(rootElement);
-  root.render(<InteractiveBook />);
+const container = document.getElementById('root');
+if (container) {
+  const root = createRoot(container);
+  root.render(<App />);
 }

@@ -12,52 +12,117 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
     
-    <!-- SEO Básico -->
-    <title>Fundamentos de la inteligencia artificial generativa</title>
-    <meta name="description" content="Guía interactiva y visual sobre los fundamentos de la inteligencia artificial generativa, modelos de lenguaje (LLMs) y agentes autónomos. Aprende conceptos clave, arquitecturas y ética en IA.">
-    <meta name="keywords" content="inteligencia artificial, IA generativa, LLM, agentes autónomos, machine learning, guía interactiva, curso de IA, fundamentos de IA">
-    <meta name="author" content="Francisco Sereno">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://guia-iagen.franciscosereno.cl/">
+    <!-- SEO principal y metadatos semánticos -->
+    <title>Dominando la IA — Guía de IA generativa, razonamiento y agentes</title>
+    <meta name="description" content="Explora los fundamentos de la IA generativa, modelos de razonamiento (TTC), ingeniería de contexto, ética (EU AI Act) y agentes autónomos (MCP) con simuladores.">
+    <meta name="keywords" content="inteligencia artificial generativa, modelos de lenguaje, LLM, modelos de razonamiento, test-time compute, ingeniería de prompts, ingeniería de contexto, CO-STAR, PARTE, RAG híbrido, GraphRAG, agentes autónomos, protocolo MCP, A2A, ética en IA, EU AI Act, UNESCO, Francisco Sereño">
+    <meta name="author" content="Francisco Sereño">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <link rel="canonical" id="canonical-link" href="https://guia-iagen.franciscosereno.cl/">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="shortcut icon" href="/favicon.svg">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph / LinkedIn / Facebook -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dominando la IA · Francisco Sereño">
     <meta property="og:url" content="https://guia-iagen.franciscosereno.cl/">
-    <meta property="og:title" content="Fundamentos de la inteligencia artificial generativa">
-    <meta property="og:description" content="Guía interactiva y visual sobre los fundamentos de la inteligencia artificial generativa, modelos de lenguaje (LLMs) y agentes autónomos.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:title" content="Dominando la IA — Guía de IA generativa, razonamiento y agentes">
+    <meta property="og:description" content="Explora los fundamentos de la IA generativa, modelos de razonamiento (TTC), ingeniería de contexto, ética (EU AI Act) y agentes autónomos (MCP) con simuladores.">
+    <meta property="og:image" content="https://guia-iagen.franciscosereno.cl/assets/app-preview.svg">
+    <meta property="og:image:alt" content="Interfaz interactiva de Dominando la IA con simuladores de modelos Transformer, ingeniería de contexto y agentes MCP">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="760">
     <meta property="og:locale" content="es_ES">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://guia-iagen.franciscosereno.cl/">
-    <meta property="twitter:title" content="Fundamentos de la inteligencia artificial generativa">
-    <meta property="twitter:description" content="Guía interactiva y visual sobre los fundamentos de la inteligencia artificial generativa, modelos de lenguaje (LLMs) y agentes autónomos.">
-    <meta property="twitter:image" content="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop">
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://guia-iagen.franciscosereno.cl/">
+    <meta name="twitter:title" content="Dominando la IA — Guía de IA generativa, razonamiento y agentes">
+    <meta name="twitter:description" content="Explora los fundamentos de la IA generativa, modelos de razonamiento (TTC), ingeniería de contexto, ética (EU AI Act) y agentes autónomos (MCP) con simuladores.">
+    <meta name="twitter:image" content="https://guia-iagen.franciscosereno.cl/assets/app-preview.svg">
+    <meta name="twitter:image:alt" content="Interfaz interactiva de Dominando la IA con simuladores técnicos de inteligencia artificial">
 
-    <!-- Datos Estructurados (JSON-LD) -->
+    <!-- Datos estructurados Schema.org (JSON-LD: WebApplication + Course + FAQPage) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "EducationalResource",
-      "name": "Fundamentos de la inteligencia artificial generativa",
-      "description": "Guía interactiva y visual sobre los fundamentos de la inteligencia artificial generativa, modelos de lenguaje (LLMs) y agentes autónomos.",
-      "inLanguage": "es",
-      "author": {
-        "@type": "Person",
-        "name": "Francisco Sereno"
-      },
-      "audience": {
-        "@type": "Audience",
-        "audienceType": "Estudiantes, profesionales y entusiastas de la tecnología"
-      },
-      "about": [
-        {"@type": "Thing", "name": "Inteligencia artificial"},
-        {"@type": "Thing", "name": "Modelos de lenguaje grandes (LLMs)"},
-        {"@type": "Thing", "name": "Agentes autónomos"}
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://guia-iagen.franciscosereno.cl/#webapp",
+          "name": "Dominando la IA: Guía interactiva de fundamentos, razonamiento y agentes autónomos",
+          "alternateName": "guia-fundamentos-iagen",
+          "url": "https://guia-iagen.franciscosereno.cl/",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "All",
+          "inLanguage": "es",
+          "description": "Plataforma educativa interactiva con 9 módulos y 11 simuladores sobre inteligencia artificial generativa, modelos de razonamiento (Test-Time Compute), ingeniería de contexto, gobernanza ética (EU AI Act) y protocolos agénticos (MCP y A2A).",
+          "image": "https://guia-iagen.franciscosereno.cl/assets/app-preview.svg",
+          "author": {
+            "@type": "Person",
+            "name": "Francisco Sereño",
+            "url": "https://portafolio.franciscosereno.cl/sobre-mi"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "Course",
+          "@id": "https://guia-iagen.franciscosereno.cl/#course",
+          "name": "Fundamentos de la inteligencia artificial generativa, ingeniería de contexto y agentes autónomos",
+          "description": "Curso técnico e interactivo estructurado en 9 módulos sobre arquitectura Transformer, Mixture of Experts (MoE), Test-Time Compute, marcos CO-STAR/PROSE/PARTE, RAG híbrido, ética regulatoria y agentes con Model Context Protocol (MCP).",
+          "provider": {
+            "@type": "Person",
+            "name": "Francisco Sereño",
+            "url": "https://portafolio.franciscosereno.cl/sobre-mi"
+          },
+          "inLanguage": "es",
+          "educationalLevel": "Intermedio a avanzado",
+          "audience": {
+            "@type": "Audience",
+            "audienceType": "Docentes, especialistas EdTech, ingenieros de software, investigadores y estudiantes"
+          },
+          "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "online",
+            "courseWorkload": "PT2H"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://guia-iagen.franciscosereno.cl/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Cuál es la diferencia entre un LLM tradicional y un modelo de razonamiento con Test-Time Compute (TTC)?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Un LLM tradicional responde en una sola pasada estadística (Sistema 1), mientras que un modelo con Test-Time Compute invierte cómputo adicional durante la inferencia para generar, explorar y verificar cadenas de pensamiento antes de emitir la respuesta final (Sistema 2)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Cuándo conviene utilizar RAG híbrido y GraphRAG frente a una ventana de contexto masiva?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "El RAG híbrido y GraphRAG son indispensables cuando el repositorio documental es dinámico, supera millones de tokens, requiere control estricto de costos/latencia por consulta y exige trazabilidad exacta de citas sin degradación por atención dispersa (lost-in-the-middle)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Qué función cumple el estándar Model Context Protocol (MCP) en los agentes autónomos?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "El protocolo MCP estandariza mediante JSON-RPC 2.0 la conexión segura entre modelos de lenguaje, fuentes de datos locales o remotas y herramientas ejecutables, evitando integraciones ad hoc y facilitando permisos auditables con supervisión humana."
+              }
+            }
+          ]
+        }
       ]
     }
     </script>
@@ -66,10 +131,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 </head>
-<body class="bg-gris-claro">
+<body class="bg-slate-50 dark:bg-slate-950">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
 </body>

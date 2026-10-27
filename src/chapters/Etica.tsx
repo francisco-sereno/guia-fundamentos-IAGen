@@ -1,195 +1,159 @@
 import React from 'react';
-import { InfoCard, GlossaryTerm, Accordion, AuthorNote } from '../components/Shared';
+import { 
+  Shield, Scale, AlertTriangle, CheckCircle, Users, Lock, Eye, Globe, Leaf
+} from 'lucide-react';
+import { GlossaryTerm, InfoCard, QuizComponent, AuthorNote } from '../components/Shared';
 import { EticaSpectrumMatrix } from '../components/InteractiveComponents';
-import { HelpCircle, UserCheck, ShieldCheck, Scale, AlertTriangle, BookOpen, HeartHandshake, CheckCircle2 } from 'lucide-react';
 
-export const EticaContent = () => (
-  <div className="prose-custom">
-    <AuthorNote>
-      La tecnología avanza rápido, pero nuestra integridad debe ser la brújula. En esta sección exploramos cómo las personas pueden usar la IA de forma honesta, manteniendo su esencia mientras navegan sistemas automatizados.
-    </AuthorNote>
-
-    <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-6">Ética y responsabilidad en la era de la IA generativa</h1>
-    <p className="text-xl text-slate-600 dark:text-slate-300 mb-8">Navegando los desafíos morales de la automatización inteligente.</p>
-
-    <h2 id="sec-etica-0" className="text-2xl font-bold mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <Scale size={24} /> 1. Introducción
+export const Etica = () => (
+  <div className="space-y-8">
+    <h2 id="sec-etica-0" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      Propósito y urgencia de la gobernanza en IA (2025–2026)
     </h2>
-    <p>En la era de la inteligencia artificial generativa, muchas personas enfrentan un dilema existencial y ético: ¿cómo utilizar estas poderosas herramientas tecnológicas sin comprometer la autenticidad personal y los principios éticos fundamentales? Esta guía examina críticamente las tensiones entre eficiencia tecnológica e integridad.</p>
+    <p>
+      A medida que los sistemas de IA pasan de generar borradores de texto a tomar decisiones que afectan la admisión escolar, la contratación laboral, el diagnóstico clínico y el consumo de recursos hídricos y energéticos, la ética deja de ser un apéndice filosófico opcional para convertirse en un requisito de ingeniería y cumplimiento legal.
+    </p>
 
-    <div className="grid md:grid-cols-3 gap-6 mt-8 mb-8">
-        <InfoCard type="idea" title="Objetivo">
-            <p className="text-sm">Desarrollar competencias críticas para el uso ético de IA generativa en contextos de búsqueda de herramientas y oportunidades.</p>
-        </InfoCard>
-        <InfoCard type="conexion" title="Desafío">
-            <p className="text-sm">Equilibrar la eficiencia tecnológica con la autenticidad y responsabilidad personal.</p>
-        </InfoCard>
-        <InfoCard type="practica" title="Propuesta">
-            <p className="text-sm">Un marco ético fundamentado en estándares internacionales y reflexión crítica.</p>
-        </InfoCard>
+    <div className="p-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-xs">
+      <div className="text-xs font-mono uppercase tracking-wider text-sky-600 dark:text-sky-400 mb-1">
+        Dilema ético en el caso de estudio · SofIA
+      </div>
+      <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-0">
+        Un proveedor comercial ofrece al colegio de SofIA un software gratuito que promete "detectar automáticamente el nivel de atención de los estudiantes mediante las cámaras del aula y predecir quién reprobará el año". Gracias a su formación en el <strong>Marco UNESCO</strong> y el <strong><GlossaryTerm term="EU AI Act">Reglamento Europeo de IA (EU AI Act)</GlossaryTerm></strong>, SofIA identifica de inmediato que el reconocimiento emocional biométrico en educación está catalogado como <strong>riesgo inaceptable (prohibido)</strong> y que la predicción académica constituye un sistema de <strong>alto riesgo</strong>.
+      </p>
     </div>
 
-    <h2 id="sec-etica-1" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <HeartHandshake size={24} /> 2. Caso de estudio: El dilema de SofIA
+    <h2 id="sec-etica-1" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      1. Sesgos algorítmicos, opacidad y desinformación sintética
     </h2>
-    
-    <InfoCard type="reflexion" title="Contexto del caso">
-        <p className="mb-4">SofIA es una <GlossaryTerm term="Docente de educación secundaria"><strong>docente de educación secundaria</strong></GlossaryTerm> con amplia trayectoria en aula y coordinación pedagógica que busca reorientarse hacia el <GlossaryTerm term="Diseño instruccional"><strong>diseño instruccional</strong></GlossaryTerm> y proyectos de <GlossaryTerm term="EdTech"><strong>tecnología educativa (EdTech)</strong></GlossaryTerm>. A pesar de su experiencia comprobada, enfrenta un obstáculo recurrente en su proceso de articulación: sus propuestas de proyectos son sistemáticamente rechazadas por sistemas de evaluación algorítmica debido a que su portafolio pedagógico describe sus logros en jerga docente tradicional de enseñanza secundaria y no utiliza las palabras clave específicas que las plataformas priorizan.</p>
-        <p>Durante los últimos seis meses, ha enviado más de 40 propuestas a proyectos para las cuales se considera plenamente calificada, recibiendo respuestas de menos del 10%. La frustración la lleva a investigar sobre los sistemas de evaluación algorítmica y descubre que su perfil profesional carece del lenguaje específico que estas plataformas buscan.</p>
-    </InfoCard>
-
-    <Accordion title="Preguntas centrales del dilema" icon={HelpCircle}>
-        <ul className="space-y-2 text-slate-700 dark:text-slate-300">
-            <li>¿Es ético usar una <GlossaryTerm term="IA generativa"><strong>IA generativa</strong></GlossaryTerm> para redactar logros pedagógicos que, aunque reales, están expresados en terminología que SofIA nunca usaría habitualmente?</li>
-            <li>¿Dónde termina la "optimización de competencias" y dónde empieza la "falta de autenticidad"?</li>
-            <li>¿Usar <GlossaryTerm term="Ingeniería de prompts"><strong>ingeniería de prompts</strong></GlossaryTerm> para adaptar su portafolio al perfil EdTech equivale a "engañar al sistema"?</li>
-        </ul>
-    </Accordion>
-
-    <Accordion title="El conflicto interior" icon={UserCheck}>
-        <ul className="space-y-3 text-slate-700 dark:text-slate-300">
-            <li><GlossaryTerm term="Mapeo de competencias"><strong>Presión:</strong></GlossaryTerm> Necesita participar en nuevos proyectos para sostener su desarrollo profesional y está cansada de ser descartada por algoritmos de evaluación sin revisión humana.</li>
-            <li><GlossaryTerm term="Sesgos"><strong>Duda ética:</strong></GlossaryTerm> Teme que usar IA para "embellecer" o traducirse al lenguaje corporativo constituya una forma de engaño profesional.</li>
-            <li><GlossaryTerm term="Alineación"><strong>Identidad:</strong></GlossaryTerm> Se pregunta si el documento resultante realmente representa su identidad docente o si se convertirá en una versión artificialmente fabricada de sí misma.</li>
-        </ul>
-    </Accordion>
-
-    <h2 id="sec-etica-2" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <AlertTriangle size={24} /> 3. La crisis de la "caja negra": interpretabilidad y sesgos algorítmicos
-    </h2>
-    <p>A medida que los modelos de IA se vuelven más profundos y paramétricamente densos, surge un problema fundamental: la pérdida de interpretabilidad. Operan como "cajas negras" donde incluso sus creadores no pueden rastrear exactamente cómo una entrada específica produjo una salida determinada.</p>
-
-    <Accordion title="Interpretabilidad vs. explicabilidad" icon={ShieldCheck}>
-        <div className="space-y-4">
-            <InfoCard type="definicion" title="Interpretabilidad (el 'cómo')">
-                <p>Es una propiedad intrínseca del modelo. Un modelo es interpretable si un humano puede comprender su mecánica interna (ej. un árbol de decisión simple). Las redes neuronales profundas tienen interpretabilidad casi nula.</p>
-            </InfoCard>
-            <InfoCard type="definicion" title="Explicabilidad (el 'por qué')">
-                <p>Es una propiedad extrínseca. Implica crear herramientas o modelos secundarios que intentan justificar las decisiones de la caja negra en términos comprensibles para los humanos (ej. "El crédito fue denegado porque la variable 'ingresos' tuvo el mayor peso negativo").</p>
-            </InfoCard>
-        </div>
-    </Accordion>
-
-    <h2 id="sec-etica-3" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <UserCheck size={24} /> 4. Los sistemas de evaluación algorítmica: ¿eficiencia o sesgo?
-    </h2>
-    <p>Los sistemas de evaluación algorítmica son plataformas que automatizan la gestión de procesos de integración en proyectos. Utilizan <GlossaryTerm term="Algoritmo">algoritmos</GlossaryTerm> de procesamiento de lenguaje natural (PLN) e inteligencia artificial para analizar portafolios y perfiles, identificar palabras clave relevantes y clasificar perfiles.</p>
-
-    <Accordion title="¿Cómo funcionan los sistemas de evaluación?" icon={BookOpen}>
-        <div className="space-y-4">
-            <InfoCard type="definicion" title="1. Análisis inicial">
-                <p>El sistema analiza el portafolio mediante análisis léxico, identificando palabras clave, roles docentes, instituciones, duración de proyectos y competencias técnicas.</p>
-            </InfoCard>
-            <InfoCard type="definicion" title="2. Puntuación algorítmica">
-                <p>Asigna una puntuación de compatibilidad basada en: coincidencia con palabras clave de la descripción del proyecto, presencia de competencias requeridas, estructura cronológica de la trayectoria pedagógica y ausencia de "banderas rojas".</p>
-            </InfoCard>
-            <InfoCard type="definicion" title="3. Clasificación y filtrado">
-                <p>Los perfiles son clasificados en categorías. Solo los perfiles con puntuaciones superiores a un umbral predeterminado llegan a revisión humana en el comité.</p>
-            </InfoCard>
-        </div>
-    </Accordion>
-
-    <InfoCard type="idea" title="El problema de los sesgos algorítmicos">
-        <p>El caso de Amazon (2018) ilustra dramáticamente los riesgos del <GlossaryTerm term="Sesgos">sesgo algorítmico</GlossaryTerm> en evaluación de proyectos. La empresa desarrolló un sistema de IA para automatizar la revisión de perfiles de ingenieros de software. Sin embargo, descubrieron que el sistema penalizaba sistemáticamente a perfiles de mujeres porque fue entrenado con datos históricos dominados por hombres.</p>
-    </InfoCard>
-
-    <Accordion title="Tipos de sesgos documentados en evaluación algorítmica" icon={AlertTriangle}>
-        <ul className="space-y-3 text-slate-700 dark:text-slate-300">
-            <li><strong>Sesgo de género:</strong> Preferencia implícita por términos o trayectorias tradicionalmente masculinas.</li>
-            <li><strong>Sesgo de prestigio:</strong> Sobrevaloración de ciertas universidades o empresas de renombre, ignorando el talento de otras instituciones.</li>
-            <li><strong>Sesgo de brecha profesional:</strong> Penalización automática de periodos de inactividad (como cuidados familiares), que afectan desproporcionadamente a las mujeres.</li>
-            <li><strong>Sesgo racial y étnico:</strong> Discriminación basada en nombres que suenan "étnicos" o códigos postales asociados con comunidades minoritarias.</li>
-        </ul>
-    </Accordion>
-
-    <h2 id="sec-etica-4" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <ShieldCheck size={24} /> 5. Marcos éticos: UNESCO, DECIDE-IA y PotencIA
-    </h2>
-    <p className="mb-6">La <em>Recomendación sobre la ética de la inteligencia artificial</em> de la UNESCO, en articulación con el <GlossaryTerm term="DECIDE-IA"><strong>Marco DECIDE-IA</strong></GlossaryTerm> y el <GlossaryTerm term="PotencIA"><strong>Marco PotencIA</strong></GlossaryTerm>, constituye la referencia normativa para guiar la práctica de la o el <GlossaryTerm term="Docente de educación secundaria"><strong>docente de educación secundaria</strong></GlossaryTerm>. Garantizan que el uso de la IA promueva la rendición de cuentas, la transparencia y la equidad pedagógica.</p>
-
-    <div className="grid md:grid-cols-2 gap-6 my-8">
-      <div className="p-5 bg-slate-100 dark:bg-slate-800/40 rounded-xl border border-slate-200 dark:border-slate-700">
-        <h4 className="font-bold text-slate-900 dark:text-white mb-2">Proporcionalidad e inocuidad</h4>
-        <p className="text-sm text-slate-600 dark:text-slate-400">El uso de la IA no debe exceder lo necesario para lograr un objetivo legítimo ni causar daño a terceros.</p>
-      </div>
-      <div className="p-5 bg-slate-100 dark:bg-slate-800/40 rounded-xl border border-slate-200 dark:border-slate-700">
-        <h4 className="font-bold text-slate-900 dark:text-white mb-2">Transparencia y explicabilidad</h4>
-        <p className="text-sm text-slate-600 dark:text-slate-400">Debemos ser capaces de entender y explicar por qué una IA tomó cierta decisión o generó cierto contenido.</p>
-      </div>
-      <div className="p-5 bg-slate-100 dark:bg-slate-800/40 rounded-xl border border-slate-200 dark:border-slate-700">
-        <h4 className="font-bold text-slate-900 dark:text-white mb-2">Responsabilidad y rendición de cuentas</h4>
-        <p className="text-sm text-slate-600 dark:text-slate-400">Los humanos siempre deben ser los responsables finales de las decisiones tomadas con ayuda de la IA.</p>
-      </div>
-      <div className="p-5 bg-slate-100 dark:bg-slate-800/40 rounded-xl border border-slate-200 dark:border-slate-700">
-        <h4 className="font-bold text-slate-900 dark:text-white mb-2">Equidad y no discriminación</h4>
-        <p className="text-sm text-slate-600 dark:text-slate-400">Asegurar que los beneficios de la IA sean accesibles para todos y no refuercen desigualdades existentes.</p>
-      </div>
+    <p>
+      Los modelos fundacionales no son espejos neutrales de la realidad; reflejan las asimetrías históricas, lingüísticas y socioeconómicas de los corpus con los que fueron entrenados:
+    </p>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+      <InfoCard title="Sesgo de representación y asignación" icon={Scale} color="amber">
+        Cuando un sistema de selección de personal (ATS) o de evaluación educativa penaliza dialectos regionales, trayectorias no lineales o grupos subrepresentados en los datos históricos de entrenamiento.
+      </InfoCard>
+      <InfoCard title="Sesgo de automatización y complacencia" icon={Eye} color="rose">
+        La tendencia psicológica humana a confiar acríticamente en el dictamen de un sistema automatizado (o a ser seducido por la <em>adulación / sycophancy</em> del chatbot), atrofiando el juicio profesional propio.
+      </InfoCard>
+      <InfoCard title="Integridad de la información y C2PA" icon={Shield} color="blue">
+        La facilidad para clonar voces y generar video sintético hiperrealista exige estándares criptográficos de procedencia de contenido como <strong>C2PA (Coalition for Content Provenance and Authenticity)</strong> y marcas de agua imperceptibles como <em>SynthID</em>.
+      </InfoCard>
     </div>
 
-    <h2 id="sec-etica-5" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <BookOpen size={24} /> 6. Para reflexionar: La ética del prompt
+    <h2 id="sec-etica-2" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      2. Regulación vinculante: el EU AI Act y los marcos UNESCO (2025–2026)
     </h2>
-    <p>La capacidad de influir en las salidas de la IA a través de la ingeniería de prompts conlleva una responsabilidad ética significativa. No se trata solo de <em>qué</em> podemos obtener, sino de <em>cómo</em> lo obtenemos y <em>para qué</em> lo usamos.</p>
-    
-    <div className="space-y-4 mt-6">
-      <Accordion title="6.1 La delgada línea de la veracidad" icon={CheckCircle2}>
-        <p>¿Es aceptable usar un prompt para "embellecer" una experiencia pedagógica hasta el punto de que no refleje la realidad? La ética del prompt sugiere que la IA debe ser una herramienta de <strong>amplificación</strong> de la verdad, no de <strong>fabricación</strong> de la misma.</p>
-      </Accordion>
-      <Accordion title="6.2 Sesgos inducidos por el usuario" icon={AlertTriangle}>
-        <p>A veces, nuestros propios prompts pueden inducir sesgos en la IA. Por ejemplo, pedirle que "redacte un perfil para un líder agresivo y dominante" puede forzar al modelo a recurrir a estereotipos de género perjudiciales.</p>
-      </Accordion>
-      <Accordion title="6.3 Propiedad intelectual y autoría" icon={Scale}>
-        <p>¿Quién es el autor de un texto generado por IA? ¿El ingeniero que diseñó el prompt o el modelo que procesó la información? Este debate sigue abierto y redefine nuestra comprensión de la creatividad y el trabajo intelectual.</p>
-      </Accordion>
-    </div>
-
-    <h2 id="sec-etica-6" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <Scale size={24} /> 7. Caso práctico: El espectro de la ética
-    </h2>
-    <p className="mb-6">Consideremos tres niveles de uso de la IA por parte de SofIA para la formulación de su perfil:</p>
-
-    <div className="space-y-4">
-      <div className="flex gap-4 items-start p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl">
-        <div className="mt-1 text-emerald-600 dark:text-emerald-400 font-bold">Nivel 1</div>
-        <div>
-          <h5 className="font-bold text-slate-900 dark:text-white">Uso ético (Asistente)</h5>
-          <p className="text-sm text-slate-700 dark:text-slate-300">SofIA usa la IA para corregir la gramática de sus logros reales y sugerir sinónimos más profesionales. La esencia y los datos son 100% suyos.</p>
-        </div>
-      </div>
-
-      <div className="flex gap-4 items-start p-4 bg-amber-500/10 border border-amber-500/30 rounded-xl">
-        <div className="mt-1 text-amber-600 dark:text-amber-400 font-bold">Nivel 2</div>
-        <div>
-          <h5 className="font-bold text-slate-900 dark:text-white">Zona gris (Optimizador)</h5>
-          <p className="text-sm text-slate-700 dark:text-slate-300">SofIA le pide a la IA que "traduzca" sus actividades de docencia de aula en educación secundaria al lenguaje corporativo de diseño instruccional y EdTech. El riesgo es que la IA exagere la relevancia de sus tareas previas.</p>
-        </div>
-      </div>
-
-      <div className="flex gap-4 items-start p-4 bg-red-500/10 border border-red-500/30 rounded-xl">
-        <div className="mt-1 text-red-600 dark:text-red-400 font-bold">Nivel 3</div>
-        <div>
-          <h5 className="font-bold text-slate-900 dark:text-white">Uso no ético (Fabricante)</h5>
-          <p className="text-sm text-slate-700 dark:text-slate-300">SofIA le pide a la IA que invente logros con números específicos (ej. "aumenté la retención un 20%") que nunca ocurrieron, solo para pasar el filtro algorítmico.</p>
-        </div>
-      </div>
-    </div>
+    <p>
+      El hito regulatorio global más importante de 2025–2026 es la entrada en vigor progresiva del <strong><GlossaryTerm term="EU AI Act">Reglamento de Inteligencia Artificial de la Unión Europea (EU AI Act)</GlossaryTerm></strong>, cuyo estándar (al igual que ocurrió con el GDPR) impacta a desarrolladores y organizaciones en América Latina y todo el mundo. Su arquitectura clasifica los sistemas no por su tecnología interna, sino por el <strong>nivel de riesgo para la seguridad, la salud y los derechos fundamentales</strong>:
+    </p>
 
     <EticaSpectrumMatrix />
 
+    <p>
+      En paralelo, los <strong>Marcos de Competencias en IA de la UNESCO para Docentes y Estudiantes</strong> establecen directrices pedagógicas claras: proteger la agencia cognitiva humana, evitar la delegación de la evaluación sumativa a cajas negras, establecer criterios de madurez y edad para el uso autónomo en el aula, e integrar la sostenibilidad ambiental.
+    </p>
+
+    <h2 id="sec-etica-3" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      3. Privacidad, soberanía de datos y seguridad (Prompt Injection)
+    </h2>
+    <p>
+      Cuando una institución educativa, hospital o empresa conecta modelos de lenguaje a sus flujos de trabajo, debe blindar dos frentes críticos de seguridad de la información:
+    </p>
+    <ul>
+      <li><strong>Protección de Datos Personales Identificables (PII):</strong> Nunca ingresar nombres completos, números de identificación nacional, diagnósticos psicopedagógicos o historiales clínicos en versiones gratuitas de consumo cuyos términos de servicio utilicen las conversaciones para reentrenar modelos públicos. Se debe exigir contratos institucionales con garantía de <em>Zero Data Retention</em> o utilizar <GlossaryTerm term="SLM">SLMs</GlossaryTerm> en infraestructura local.</li>
+      <li><strong>Defensa contra <GlossaryTerm term="Prompt Injection">Prompt Injection</GlossaryTerm> directa e indirecta:</strong> Un atacante (o un documento externo malicioso leído por un agente) puede insertar instrucciones ocultas para exfiltrar información privada o alterar el comportamiento del sistema. La defensa requiere separación estricta de privilegios, validación de esquemas y confirmación humana para acciones sensibles.</li>
+    </ul>
+
+    <h2 id="sec-etica-4" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      4. Huella ecológica y sostenibilidad computacional
+    </h2>
+    <p>
+      La inteligencia artificial no es etérea; tiene una materialidad física intensa en centros de datos, consumo eléctrico, refrigeración hídrica y minerales críticos para GPUs/TPUs. Una consulta a un modelo gigante con alto presupuesto de razonamiento puede consumir entre 10 y 30 veces más energía que una búsqueda web tradicional.
+    </p>
+    <div className="p-4 rounded-xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900/50 my-4">
+      <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-bold text-sm mb-1.5">
+        <Leaf className="w-4 h-4 shrink-0" />
+        <span>Principio de Proporcionalidad Computacional (Green AI)</span>
+      </div>
+      <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed mb-0">
+        Practicar una IA sostenible implica aplicar la <strong>sobriedad algorítmica</strong>: no invocar un modelo multimodal de frontera para tareas que resuelve una expresión regular, una consulta SQL, un clasificador ligero o un modelo pequeño cuantizado (SLM).
+      </p>
+    </div>
+
+    <h2 id="sec-etica-5" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      5. Metodología RAM (Evaluación de preparación) y gobernanza institucional
+    </h2>
+    <p>
+      La <strong>Metodología de Evaluación del Estadio de Preparación (RAM - Readiness Assessment Methodology)</strong> de la UNESCO permite a países e instituciones auditar cinco pilares antes de desplegar IA a gran escala: (1) Marco legal y regulatorio, (2) Inclusión social y diversidad cultural, (3) Capacidad científica y educativa, (4) Económica y laboral, y (5) Infraestructura técnica y de datos.
+    </p>
+
+    <h2 id="sec-etica-6" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      6. Marcos prácticos de acción responsable: PotencIA y DECIDE-IA
+    </h2>
+    <p>
+      Para traducir los grandes tratados internacionales en decisiones cotidianas dentro del aula o la oficina, utilizamos dos marcos operativos complementarios:
+    </p>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+      <div className="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <div className="text-xs font-mono uppercase tracking-wider text-sky-600 dark:text-sky-400 mb-1">
+          Marco pedagógico · PotencIA
+        </div>
+        <h4 className="text-base font-bold text-slate-900 dark:text-white mt-0 mb-2">
+          Ampliación de capacidades sin atrofia cognitiva
+        </h4>
+        <ul className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 m-0 pl-4">
+          <li><strong>Preservar el esfuerzo deseable:</strong> La IA no debe eliminar la fricción cognitiva necesaria para consolidar el aprendizaje en la memoria a largo plazo.</li>
+          <li><strong>Transparencia de autoría:</strong> Declarar explícitamente qué partes de un documento o código fueron co-diseñadas con asistencia generativa.</li>
+          <li><strong>Inclusión universal (DUA):</strong> Utilizar la multimodalidad para adaptar materiales a estudiantes con necesidades educativas diversas.</li>
+        </ul>
+      </div>
+
+      <div className="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <div className="text-xs font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-1">
+          Marco de auditoría · DECIDE-IA
+        </div>
+        <h4 className="text-base font-bold text-slate-900 dark:text-white mt-0 mb-2">
+          Protocolo de 6 pasos antes de automatizar una decisión
+        </h4>
+        <ul className="space-y-1 text-xs text-slate-600 dark:text-slate-300 m-0 list-none p-0">
+          <li><strong className="font-mono text-emerald-600 dark:text-emerald-400">D</strong>efinir si el problema requiere realmente IA generativa.</li>
+          <li><strong className="font-mono text-emerald-600 dark:text-emerald-400">E</strong>valuar la privacidad y anonimización de los datos de entrada.</li>
+          <li><strong className="font-mono text-emerald-600 dark:text-emerald-400">C</strong>ontrastar las salidas frente a fuentes primarias verificadas.</li>
+          <li><strong className="font-mono text-emerald-600 dark:text-emerald-400">I</strong>dentificar posibles sesgos contra grupos vulnerables.</li>
+          <li><strong className="font-mono text-emerald-600 dark:text-emerald-400">D</strong>ocumentar la trazabilidad y el prompt utilizado.</li>
+          <li><strong className="font-mono text-emerald-600 dark:text-emerald-400">E</strong>jercer supervisión humana final (<GlossaryTerm term="Human-in-the-Loop">Human-in-the-Loop</GlossaryTerm>).</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 id="sec-etica-7" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      7. Síntesis y autoevaluación ética
+    </h2>
     <AuthorNote>
-      La tecnología es una herramienta poderosa, pero la integridad personal es el activo más valioso de SofIA. En un mundo de respuestas generadas por máquinas, la autenticidad humana se convierte en una ventaja competitiva.
+      La responsabilidad moral y legal de una decisión nunca puede delegarse a una matriz de pesos estadísticos. En palabras de los marcos internacionales vigentes: <strong>la IA puede asesorar, estructurar y simular, pero la firma, la empatía y la rendición de cuentas pertenecen siempre a la persona</strong>.
     </AuthorNote>
 
-    <h2 id="sec-etica-7" className="text-2xl font-bold mt-12 mb-6 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <HelpCircle size={24} /> Preguntas de reflexión
-    </h2>
-    <div className="bg-slate-100 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
-      <ul className="list-decimal list-inside space-y-3 text-slate-700 dark:text-slate-300">
-        <li>Si supieras que un evaluador de proyectos usa IA para descartar portafolios, ¿cambiaría eso tu perspectiva sobre usar IA para redactar el tuyo?</li>
-        <li>¿Cómo puedes asegurar que tu uso de la IA sea transparente y honesto?</li>
-        <li>¿Qué principios del marco de la UNESCO te parecen más difíciles de aplicar en la práctica diaria?</li>
-      </ul>
-    </div>
+    <QuizComponent
+      question="De acuerdo con el Reglamento Europeo de IA (EU AI Act) y las directrices de la UNESCO, ¿cómo se clasifican los sistemas de IA que evalúan resultados de aprendizaje para determinar el acceso o admisión de personas a instituciones educativas?"
+      options={[
+        {
+          label: 'Sistemas de riesgo mínimo exentos de cualquier obligación de transparencia o auditoría.',
+          isCorrect: false,
+          explanation: 'Incorrecto: al afectar directamente el derecho a la educación y el futuro académico de las personas, no pueden considerarse de riesgo mínimo.'
+        },
+        {
+          label: 'Sistemas de Alto Riesgo (Anexo III), sujetos a obligaciones estrictas de auditoría de sesgos, trazabilidad documental, calidad de datos y supervisión humana efectiva.',
+          isCorrect: true,
+          explanation: '¡Correcto! La admisión educativa, la evaluación certificativa y la selección laboral están catalogadas explícitamente como casos de Alto Riesgo.'
+        },
+        {
+          label: 'Sistemas de uso obligatorio sin intervención docente para ahorrar costos administrativos.',
+          isCorrect: false,
+          explanation: 'Incorrecto: la normativa prohíbe delegar decisiones de alto impacto sin supervisión humana efectiva (Human-in-the-Loop).'
+        }
+      ]}
+    />
   </div>
 );
-

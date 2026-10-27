@@ -1,567 +1,306 @@
 import React from 'react';
-import { InfoCard, GlossaryTerm, Accordion, AuthorNote } from '../components/Shared';
+import { 
+  Cpu, Network, Brain, Sparkles, GitBranch, Compass, 
+  Layers, Database, CheckCircle, AlertTriangle, Users, BookOpen, Shield
+} from 'lucide-react';
+import { GlossaryTerm, InfoCard, QuizComponent, AuthorNote } from '../components/Shared';
 import { PEASInteractiveExplorer, CompetenceMappingCard } from '../components/InteractiveComponents';
-import { Bot, Sparkles, XCircle, Settings, Target, PenTool, Globe, HelpCircle, Box, UserCheck, Search, AlertTriangle, Layers, BookOpen, Eye, Zap, Wrench, FileText, Palette, Key, BarChart2, CheckCircle2 } from 'lucide-react';
 
-export const Modulo1Content = () => (
-  <div className="prose-custom">
-    <AuthorNote>
-      Esta guía nace para desmitificar la IA y acercarla a personas que, como SofIA, buscan herramientas prácticas para potenciar su camino sin necesidad de ser expertos técnicos. El caso de SofIA nos servirá de hilo conductor para entender cómo la tecnología se aplica a desafíos reales.
-    </AuthorNote>
+export const Modulo1 = () => (
+  <div className="space-y-8">
+    <h2 id="sec-modulo1-0" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      Propósito y objetivos de aprendizaje
+    </h2>
 
-    <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-6">Fundamentos de la IA generativa</h1>
-    <p className="text-xl text-slate-600 dark:text-slate-300 mb-8">El caso de SofIA: docente de educación secundaria y el diagnóstico de competencias</p>
-
-    <h2 id="sec-modulo1-0" className="text-2xl font-bold mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24">Introducción: el caso de SofIA</h2>
-    <p>La <GlossaryTerm term="IA generativa"><strong>inteligencia artificial generativa</strong></GlossaryTerm> representa una de las transformaciones tecnológicas más significativas de nuestra era. Esta guía explora sus fundamentos conceptuales, funcionamiento técnico y aplicaciones prácticas, utilizando como eje articulador el caso de <strong>SofIA</strong>: una <GlossaryTerm term="Docente de educación secundaria"><strong>docente de educación secundaria</strong></GlossaryTerm> que utiliza herramientas de IA generativa para realizar su propio diagnóstico de competencias pedagógicas y optimizar su proceso de articulación e innovación profesional en el sector de <GlossaryTerm term="EdTech"><strong>tecnología educativa (EdTech)</strong></GlossaryTerm> y <GlossaryTerm term="Diseño instruccional"><strong>diseño instruccional</strong></GlossaryTerm>.</p>
-
-    <InfoCard type="idea" title="Idea central">
-      <p>La IA generativa no es magia, ni debe reemplazar el pensamiento crítico del docente. Es una <strong>herramienta de amplificación pedagógica</strong> que, utilizada con comprensión conceptual y <GlossaryTerm term="Prompt">prompts</GlossaryTerm> efectivos en consonancia con el <GlossaryTerm term="PotencIA"><strong>Marco PotencIA</strong></GlossaryTerm> y el <GlossaryTerm term="DECIDE-IA"><strong>Marco DECIDE-IA</strong></GlossaryTerm>, puede democratizar el acceso a capacidades que antes estaban reservadas para consultores especializados.</p>
-    </InfoCard>
-
-    <h2 id="sec-modulo1-1" className="text-2xl font-bold mt-12 mb-4 text-indigo-400 scroll-mt-24">¿Qué es la inteligencia artificial?</h2>
-    <p>La inteligencia artificial (IA) es la ciencia y la ingeniería de crear máquinas inteligentes. A pesar de su impacto, no existe una sola definición. Históricamente, la investigación se ha dividido en torno a dos preguntas fundamentales: ¿El objetivo es el pensamiento interno o el comportamiento externo? ¿Nos enfocamos en la fidelidad humana o en la racionalidad?</p>
-    
-    <Accordion title="Los cuatro enfoques para definir la inteligencia" icon={BookOpen}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-        <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl">
-          <h4 className="font-bold text-indigo-300 mb-2">Pensar como humanos</h4>
-          <p className="text-sm text-slate-300"><strong>Modelado cognitivo:</strong> Construir programas que piensen como humanos, comparando los pasos del razonamiento del programa con los de sujetos humanos.</p>
-        </div>
-        <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl">
-          <h4 className="font-bold text-indigo-300 mb-2">Pensar racionalmente</h4>
-          <p className="text-sm text-slate-300"><strong>Leyes del pensamiento:</strong> Basado en la lógica y el razonamiento irrefutable (silogismos de Aristóteles). Intentar codificar el "pensamiento correcto".</p>
-        </div>
-        <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl">
-          <h4 className="font-bold text-indigo-300 mb-2">Actuar como humanos</h4>
-          <p className="text-sm text-slate-300"><strong>Prueba de Turing:</strong> Crear una máquina que sea indistinguible de un ser humano a través de respuestas escritas.</p>
-        </div>
-        <div className="p-4 bg-slate-900/50 border border-slate-700 rounded-xl">
-          <h4 className="font-bold text-indigo-300 mb-2">Actuar racionalmente</h4>
-          <p className="text-sm text-slate-300"><strong>Agente racional:</strong> Diseñar agentes que actúan para lograr el mejor resultado esperado. Es el modelo estándar actual de la IA.</p>
-        </div>
+    <div className="p-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-xs">
+      <div className="text-xs font-mono uppercase tracking-wider text-sky-600 dark:text-sky-400 mb-1">
+        Hilo conductor · Caso de estudio transversal
       </div>
-    </Accordion>
-
-    <h2 id="sec-modulo1-2" className="text-2xl font-bold mt-12 mb-6 text-indigo-800 dark:text-indigo-300 scroll-mt-24">La trayectoria de la IA: Ciclos de entusiasmo y realidad</h2>
-    <p className="mb-8 text-slate-700 dark:text-slate-300">La historia de la IA no es una línea recta, sino una serie de ciclos de éxito seguidos por crisis de financiamiento (inviernos de la IA).</p>
-    
-    <div className="relative border-l-[3px] border-indigo-200 dark:border-indigo-500/30 ml-4 md:ml-6 space-y-10 pb-8">
-      {/* Event 1 */}
-      <div className="relative pl-8 md:pl-10 group">
-        <div className="absolute w-5 h-5 bg-indigo-500 rounded-full -left-[11px] top-1 border-4 border-slate-50 dark:border-slate-950 group-hover:scale-125 group-hover:bg-indigo-600 transition-all duration-300 shadow-[0_0_15px_rgba(99,102,241,0.5)]"></div>
-        <h4 className="font-bold text-lg text-indigo-800 dark:text-indigo-300 flex flex-col md:flex-row md:items-center gap-1 md:gap-3 mb-2">
-          Gestación 
-          <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded-full bg-indigo-100 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-400 w-fit">1943-1956</span>
-        </h4>
-        <div className="p-5 rounded-2xl bg-white/70 dark:bg-slate-900/60 backdrop-blur-sm border border-slate-200/80 dark:border-white/5 shadow-sm group-hover:shadow-md transition-all">
-          <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed m-0">McCulloch y Pitts proponen neuronas artificiales. Turing introduce la Prueba de Turing. El término "inteligencia artificial" nace en el Taller de Dartmouth (1956).</p>
-        </div>
-      </div>
-
-      {/* Event 2 */}
-      <div className="relative pl-8 md:pl-10 group">
-        <div className="absolute w-5 h-5 bg-indigo-500 rounded-full -left-[11px] top-1 border-4 border-slate-50 dark:border-slate-950 group-hover:scale-125 group-hover:bg-indigo-600 transition-all duration-300 shadow-[0_0_15px_rgba(99,102,241,0.5)]"></div>
-        <h4 className="font-bold text-lg text-indigo-800 dark:text-indigo-300 flex flex-col md:flex-row md:items-center gap-1 md:gap-3 mb-2">
-          Gran entusiasmo 
-          <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded-full bg-indigo-100 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-400 w-fit">1952-1969</span>
-        </h4>
-        <div className="p-5 rounded-2xl bg-white/70 dark:bg-slate-900/60 backdrop-blur-sm border border-slate-200/80 dark:border-white/5 shadow-sm group-hover:shadow-md transition-all">
-          <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed m-0">Programas de damas que aprenden. Micromundos (mundo de los bloques) permiten avances en visión y planificación.</p>
-        </div>
-      </div>
-
-      {/* Event 3 (Winter) */}
-      <div className="relative pl-8 md:pl-10 group">
-        <div className="absolute w-5 h-5 bg-rose-500 rounded-full -left-[11px] top-1 border-4 border-slate-50 dark:border-slate-950 group-hover:scale-125 group-hover:bg-rose-600 transition-all duration-300 shadow-[0_0_15px_rgba(244,63,94,0.5)]"></div>
-        <h4 className="font-bold text-lg text-rose-700 dark:text-rose-400 flex flex-col md:flex-row md:items-center gap-1 md:gap-3 mb-2">
-          Dosis de realidad / 1er invierno 
-          <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded-full bg-rose-100 dark:bg-rose-500/20 text-rose-700 dark:text-rose-400 w-fit">1966-1973</span>
-        </h4>
-        <div className="p-5 rounded-2xl bg-rose-50/50 dark:bg-rose-950/20 backdrop-blur-sm border border-rose-200/50 dark:border-rose-900/30 shadow-sm group-hover:shadow-md transition-all">
-          <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed m-0">Explosión combinatoria: los sistemas fallan al escalar. El informe Lighthill corta el financiamiento.</p>
-        </div>
-      </div>
-
-      {/* Event 4 */}
-      <div className="relative pl-8 md:pl-10 group">
-        <div className="absolute w-5 h-5 bg-indigo-500 rounded-full -left-[11px] top-1 border-4 border-slate-50 dark:border-slate-950 group-hover:scale-125 group-hover:bg-indigo-600 transition-all duration-300 shadow-[0_0_15px_rgba(99,102,241,0.5)]"></div>
-        <h4 className="font-bold text-lg text-indigo-800 dark:text-indigo-300 flex flex-col md:flex-row md:items-center gap-1 md:gap-3 mb-2">
-          Sistemas expertos 
-          <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded-full bg-indigo-100 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-400 w-fit">1969-1986</span>
-        </h4>
-        <div className="p-5 rounded-2xl bg-white/70 dark:bg-slate-900/60 backdrop-blur-sm border border-slate-200/80 dark:border-white/5 shadow-sm group-hover:shadow-md transition-all">
-          <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed m-0">Cambio de paradigma: conocimiento poderoso y específico del dominio (DENDRAL, MYCIN).</p>
-        </div>
-      </div>
-
-      {/* Event 5 */}
-      <div className="relative pl-8 md:pl-10 group">
-        <div className="absolute w-5 h-5 bg-indigo-500 rounded-full -left-[11px] top-1 border-4 border-slate-50 dark:border-slate-950 group-hover:scale-125 group-hover:bg-indigo-600 transition-all duration-300 shadow-[0_0_15px_rgba(99,102,241,0.5)]"></div>
-        <h4 className="font-bold text-lg text-indigo-800 dark:text-indigo-300 flex flex-col md:flex-row md:items-center gap-1 md:gap-3 mb-2">
-          Redes neuronales y Big Data 
-          <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded-full bg-indigo-100 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-400 w-fit">1986-presente</span>
-        </h4>
-        <div className="p-5 rounded-2xl bg-white/70 dark:bg-slate-900/60 backdrop-blur-sm border border-slate-200/80 dark:border-white/5 shadow-sm group-hover:shadow-md transition-all">
-          <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed m-0">Reinvención del back-propagation. El auge de la web y el poder computacional crean el Deep Learning moderno (ImageNet 2012).</p>
-        </div>
-      </div>
+      <h3 className="text-base font-bold font-display text-slate-900 dark:text-white mb-2">
+        El viaje de SofIA: de la docencia tradicional al diseño de ecosistemas cognitivos
+      </h3>
+      <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-0">
+        A lo largo de esta guía acompañaremos a <strong>SofIA</strong>, profesora de ciencias en educación secundaria que lidera la transición hacia tecnologías educativas (<GlossaryTerm term="EdTech">EdTech</GlossaryTerm>) en su institución. Su desafío en el horizonte 2026 no es simplemente "usar un chatbot", sino diseñar flujos de trabajo rigurosos, éticos y verificables que combinen modelos de razonamiento, modelos ligeros en dispositivo (<GlossaryTerm term="SLM">SLMs</GlossaryTerm>) y protocolos agénticos bajo supervisión humana.
+      </p>
     </div>
 
-    <h2 className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24">Tipos y componentes de la IA</h2>
-    
-    <Accordion title="Tipos de inteligencia artificial" icon={Layers}>
-      <p className="mb-4">La inteligencia artificial se clasifica generalmente en tres categorías principales según sus capacidades y nivel de desarrollo:</p>
-      <div className="space-y-4">
-        <InfoCard type="definicion" title="1. IA estrecha o débil (Narrow AI)">
-          <p>Es la IA que existe hoy en día. Está diseñada y entrenada para realizar una tarea específica o un conjunto limitado de tareas (ej. reconocimiento facial, asistentes de voz, recomendaciones de productos). Aunque puede parecer muy inteligente, opera bajo un conjunto estricto de restricciones y limitaciones.</p>
-        </InfoCard>
-        <InfoCard type="definicion" title="2. IA general o fuerte (AGI)">
-          <p>Es una forma teórica de IA que tendría una inteligencia equivalente a la humana. Podría comprender, aprender y aplicar conocimientos en diferentes dominios para resolver problemas complejos, de manera similar a como lo hace un ser humano. Aún no existe.</p>
-        </InfoCard>
-        <InfoCard type="definicion" title="3. Superinteligencia artificial (ASI)">
-          <p>Es un concepto hipotético donde la IA superaría la inteligencia y capacidad humana en todos los aspectos, desde la creatividad hasta la resolución de problemas generales y las habilidades sociales.</p>
-        </InfoCard>
+    <div className="p-5 bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl">
+      <div className="text-xs font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-2">
+        Resultados de aprendizaje verificables
       </div>
-    </Accordion>
-
-    <Accordion title="Componentes y disciplinas de la IA" icon={Settings}>
-      <p className="mb-4">La IA es un campo amplio que abarca múltiples subdisciplinas y tecnologías:</p>
-      <div className="overflow-x-auto">
-        <table className="w-full text-left border-collapse">
-          <thead>
-            <tr className="bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-200">
-              <th className="p-3 border border-slate-200 dark:border-slate-700">Disciplina</th>
-              <th className="p-3 border border-slate-200 dark:border-slate-700">Descripción</th>
-              <th className="p-3 border border-slate-200 dark:border-slate-700">Ejemplos de uso</th>
-            </tr>
-          </thead>
-          <tbody className="text-slate-700 dark:text-slate-300">
-            <tr>
-              <td className="p-3 border border-slate-200 dark:border-slate-700 font-bold text-indigo-800 dark:text-indigo-300">Machine learning (ML)</td>
-              <td className="p-3 border border-slate-200 dark:border-slate-700">Permite a los sistemas aprender y mejorar a partir de la experiencia sin ser programados explícitamente.</td>
-              <td className="p-3 border border-slate-200 dark:border-slate-700">Sistemas de recomendación, detección de fraudes.</td>
-            </tr>
-            <tr>
-              <td className="p-3 border border-slate-200 dark:border-slate-700 font-bold text-indigo-800 dark:text-indigo-300">Deep learning (DL)</td>
-              <td className="p-3 border border-slate-200 dark:border-slate-700">Subconjunto del ML basado en redes neuronales artificiales con múltiples capas (profundas) para modelar abstracciones complejas.</td>
-              <td className="p-3 border border-slate-200 dark:border-slate-700">Reconocimiento de voz avanzado, conducción autónoma.</td>
-            </tr>
-            <tr>
-              <td className="p-3 border border-slate-200 dark:border-slate-700 font-bold text-indigo-800 dark:text-indigo-300">Procesamiento de Lenguaje Natural (NLP)</td>
-              <td className="p-3 border border-slate-200 dark:border-slate-700">Permite a las computadoras entender, interpretar y manipular el lenguaje humano.</td>
-              <td className="p-3 border border-slate-200 dark:border-slate-700">Chatbots, traducción automática, análisis de sentimientos.</td>
-            </tr>
-            <tr>
-              <td className="p-3 border border-slate-200 dark:border-slate-700 font-bold text-indigo-800 dark:text-indigo-300">Visión por Computadora</td>
-              <td className="p-3 border border-slate-200 dark:border-slate-700">Permite a las máquinas extraer información significativa de imágenes digitales, videos y otras entradas visuales.</td>
-              <td className="p-3 border border-slate-200 dark:border-slate-700">Análisis de imágenes médicas, control de calidad en manufactura.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </Accordion>
-
-    <h2 id="sec-modulo1-3" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <Bot size={24} /> Modelos y agentes de IA
-    </h2>
-    
-    <Accordion title="¿Qué es un modelo de IA?" icon={Box}>
-      <p>Un <strong>modelo de IA</strong> es un programa que ha sido entrenado con un conjunto de datos para reconocer determinados patrones o tomar decisiones sin más intervención humana. Aplican diferentes algoritmos a las entradas de datos para lograr las salidas para las que han sido programados.</p>
-      <InfoCard type="definicion" title="Algoritmos vs. modelos">
-        <p>Los <strong>algoritmos</strong> son procedimientos lógicos o matemáticos que se aplican a un conjunto de datos. Los <strong>modelos</strong> son el resultado (output) de un algoritmo que se ha aplicado a un conjunto de datos. En términos sencillos, un modelo de IA se utiliza para hacer predicciones o tomar decisiones y un algoritmo es la lógica con la que funciona ese modelo.</p>
-      </InfoCard>
-    </Accordion>
-
-    <Accordion title="¿Qué son los agentes de IA?" icon={UserCheck}>
-      <p>Un <strong>agente de IA</strong> es cualquier entidad capaz de percibir su entorno a través de sensores y actuar sobre ese entorno mediante actuadores para alcanzar objetivos específicos.</p>
-      
-      <div className="mt-6">
-        <h4 className="font-bold text-indigo-800 dark:text-indigo-300 mb-3">El marco PEAS: especificación del entorno de tarea</h4>
-        <p className="text-sm text-slate-700 dark:text-slate-300 mb-4">La arquitectura subyacente y la evaluación de cualquier agente inteligente se diseña mediante el marco conceptual PEAS, que define los cuatro pilares inexorables de su operatividad:</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="p-4 bg-slate-100 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-xl">
-            <p className="text-slate-800 dark:text-slate-200"><strong>[P]erformance (Rendimiento):</strong> Define el criterio de éxito del agente computacional. Es la métrica cualitativa o cuantitativa de su capacidad para alcanzar un objetivo (ej. satisfacción del usuario, seguridad).</p>
-          </div>
-          <div className="p-4 bg-slate-100 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-xl">
-            <p className="text-slate-800 dark:text-slate-200"><strong>[E]nvironment (Entorno):</strong> El espacio operativo en el que el agente existe y toma decisiones, ya sea digital (una base de datos) o físico (una habitación).</p>
-          </div>
-          <div className="p-4 bg-slate-100 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-xl">
-            <p className="text-slate-800 dark:text-slate-200"><strong>[A]ctuators (Actuadores):</strong> Los mecanismos de salida mediante los cuales el agente interviene en su entorno (ej. motores en un robot, altavoces o llamadas a API en un asistente).</p>
-          </div>
-          <div className="p-4 bg-slate-100 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-xl">
-            <p className="text-slate-800 dark:text-slate-200"><strong>[S]ensors (Sensores):</strong> Las entradas de datos cruciales que capturan la información del mundo exterior para alimentar el estado interno del agente (ej. cámaras, reconocimiento de voz).</p>
-          </div>
-        </div>
-        
-        {/* Interactive PEAS Explorer */}
-        <PEASInteractiveExplorer />
-      </div>
-
-      <div className="mt-6">
-        <h4 className="font-bold text-indigo-800 dark:text-indigo-300 mb-3">Dimensiones del entorno</h4>
-        <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
-          <li><strong>Observabilidad:</strong> Totalmente observable (Ajedrez) vs. Parcialmente observable (Conducción, Póker).</li>
-          <li><strong>Dinamismo:</strong> Estático (Crucigramas) vs. Dinámico (Taxi).</li>
-          <li><strong>Causalidad:</strong> Determinista (Ajedrez) vs. Estocástico (Taxi: fallas, tráfico).</li>
-          <li><strong>Tiempo:</strong> Episódico (Clasificar imágenes) vs. Secuencial (Ajedrez, Taxi).</li>
-          <li><strong>Interacción:</strong> Agente único (Crucigrama) vs. Multiagente (Tráfico, Ajedrez).</li>
-        </ul>
-      </div>
-
-      <div className="mt-6">
-        <h4 className="font-bold text-indigo-800 dark:text-indigo-300 mb-3">Evolución de los agentes (de simple a complejo)</h4>
-        <p className="text-sm text-slate-700 dark:text-slate-300 mb-4">La sofisticación de la inteligencia artificial no es uniforme; los agentes se clasifican en una jerarquía evolutiva estricta basada en su capacidad de procesamiento lógico, uso de la memoria y razonamiento prospectivo.</p>
-        <div className="space-y-4">
-          <InfoCard type="definicion" title="1. Agentes de reflejos simples">
-            <p>Operan bajo strictly reglas predefinidas de "condición-acción". Dependen únicamente de la percepción actual, ignorando el historial de datos. <em>Nivel de inteligencia: Limitada/Baja.</em></p>
-          </InfoCard>
-          <InfoCard type="definicion" title="2. Agentes reactivos basados en modelos">
-            <p>Poseen y mantienen un modelo interno del mundo. Consideran el historial de interacciones pasadas para entender las partes del entorno que sus sensores no pueden observar directamente en el momento actual. <em>Nivel de inteligencia: Media.</em></p>
-          </InfoCard>
-          <InfoCard type="definicion" title="3. Agentes basados en objetivos (metas)">
-            <p>Razonan de manera proyectiva. Simulan futuros posibles y comparan diferentes enfoques y secuencias de acciones para elegir el camino más eficiente hacia una meta futura específica. <em>Nivel de inteligencia: Alta.</em></p>
-          </InfoCard>
-          <InfoCard type="definicion" title="4. Agentes basados en utilidad">
-            <p>Evalúan estados futuros mediante una función matemática de "utilidad" (felicidad o eficiencia). Cuando existen múltiples metas en conflicto, eligen la que maximiza el rendimiento global del sistema. <em>Nivel de inteligencia: Muy Alta.</em></p>
-          </InfoCard>
-          <InfoCard type="definicion" title="5. Agentes de aprendizaje continuo">
-            <p>Modifican su propia arquitectura y reglas internas con el tiempo. Observan los resultados de sus acciones pasadas y utilizan retroalimentación para perfeccionar su desempeño, logrando tareas que no fueron explícitamente programadas. <em>Nivel de inteligencia: Evolutiva.</em></p>
-          </InfoCard>
-        </div>
-      </div>
-
-      <div className="mt-6">
-        <h4 className="font-bold text-indigo-800 dark:text-indigo-300 mb-3">Representación del conocimiento y razonamiento ontológico</h4>
-        <p className="text-sm text-slate-700 dark:text-slate-300 mb-4">Para que un sistema posea verdadera pericia, debe ser capaz de interiorizar, organizar y razonar sobre la información estructuradamente. La Representación del Conocimiento busca describir el mundo de manera formal, detallando explícitamente los hechos, objetos, conceptos y las interrelaciones jerárquicas que los conectan.</p>
-        <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
-          <p><strong>Ontologías computacionales:</strong> Funcionan como el sistema central de archivo enciclopédico de la máquina, erradicando la ambigüedad lingüística. Se dividen en <em>Ontologías de dominio</em> (específicas de un campo temático) y <em>Ontologías generales</em> (conceptos filosóficos de alto nivel).</p>
-          <p><strong>El motor de inferencia:</strong> Actúa como el cerebro calculador dentro del sistema de representación. Al igual que un detective policial resolviendo un crimen, recolecta pistas (datos de entrada) y las contrasta contra un extenso archivo (la base de conocimientos y la ontología formal) utilizando métodos rigurosos de la lógica matemática para generar deducciones.</p>
-        </div>
-      </div>
-
-      <div className="mt-8">
-        <h4 className="font-bold text-indigo-800 dark:text-indigo-300 mb-3">Ejemplos prácticos de agentes de IA en acción</h4>
-        <p className="text-sm text-slate-700 dark:text-slate-300 mb-4">A continuación, se presentan tres ejemplos concretos de cómo los agentes de IA operan en diferentes escenarios, detallando su entorno, objetivo, actuadores y sensores (PEAS):</p>
-        <div className="space-y-4">
-          <InfoCard type="ejemplo" title="1. Agente de productividad personal">
-            <p className="text-sm text-slate-700 dark:text-slate-300 mb-2"><strong>Objetivo (Rendimiento):</strong> Maximizar el tiempo libre del usuario, minimizar conflictos de agenda y asegurar respuestas oportunas a correos importantes.</p>
-            <p className="text-sm text-slate-700 dark:text-slate-300 mb-2"><strong>Entorno:</strong> Calendario digital, bandeja de entrada de correo electrónico, lista de contactos y preferencias del usuario.</p>
-            <p className="text-sm text-slate-700 dark:text-slate-300 mb-2"><strong>Actuadores:</strong> Crear/modificar eventos en el calendario, redactar y enviar correos electrónicos, establecer recordatorios.</p>
-            <p className="text-sm text-slate-700 dark:text-slate-300 mb-2"><strong>Sensores:</strong> Nuevos correos entrantes, invitaciones a reuniones, cambios en la disponibilidad del usuario.</p>
-            <p className="text-sm text-slate-700 dark:text-slate-300"><strong>Razonamiento:</strong> Al recibir una invitación, el agente verifica la disponibilidad en el calendario. Si hay conflicto, sugiere horarios alternativos basados en las preferencias del usuario. Si es un correo urgente, redacta un borrador de respuesta y notifica al usuario.</p>
-          </InfoCard>
-          <InfoCard type="ejemplo" title="2. Agente de servicio al cliente">
-            <p className="text-sm text-slate-700 dark:text-slate-300 mb-2"><strong>Objetivo (Rendimiento):</strong> Resolver consultas de clientes rápidamente, mantener alta satisfacción del cliente y reducir la carga de trabajo de los agentes humanos.</p>
-            <p className="text-sm text-slate-700 dark:text-slate-300 mb-2"><strong>Entorno:</strong> Plataforma de chat en vivo del sitio web, base de datos de conocimientos de la empresa, historial de pedidos del cliente.</p>
-            <p className="text-sm text-slate-700 dark:text-slate-300 mb-2"><strong>Actuadores:</strong> Enviar mensajes de texto en el chat, proporcionar enlaces a artículos de ayuda, escalar el ticket a un humano si es necesario.</p>
-            <p className="text-sm text-slate-700 dark:text-slate-300 mb-2"><strong>Sensores:</strong> Mensajes de texto del cliente, clics en opciones del menú del chat, información de la cuenta del usuario conectado.</p>
-            <p className="text-sm text-slate-700 dark:text-slate-300"><strong>Razonamiento:</strong> Analiza el mensaje del cliente para identificar la intención (ej. "dónde está mi pedido"). Consulta la base de datos con el número de pedido del cliente y formula una respuesta con el estado actual. Si la consulta es compleja, transfiere el contexto a un agente humano.</p>
-          </InfoCard>
-          <InfoCard type="ejemplo" title="3. Agente de análisis de datos">
-            <p className="text-sm text-slate-700 dark:text-slate-300 mb-2"><strong>Objetivo (Rendimiento):</strong> Proporcionar insights precisos y accionables, generar informes a tiempo y detectar anomalías en los datos.</p>
-            <p className="text-sm text-slate-700 dark:text-slate-300 mb-2"><strong>Entorno:</strong> Bases de datos de la empresa (SQL, NoSQL), herramientas de visualización, repositorios de archivos (CSV, Excel).</p>
-            <p className="text-sm text-slate-700 dark:text-slate-300 mb-2"><strong>Actuadores:</strong> Ejecutar consultas de bases de datos, generar gráficos y tablas, enviar informes por correo electrónico o Slack.</p>
-            <p className="text-sm text-slate-700 dark:text-slate-300 mb-2"><strong>Sensores:</strong> Actualizaciones en las bases de datos, solicitudes de informes de los usuarios, alertas de umbrales predefinidos.</p>
-            <p className="text-sm text-slate-700 dark:text-slate-300"><strong>Razonamiento:</strong> Monitorea continuamente las métricas clave. Si detecta una caída inusual en las ventas, ejecuta consultas para identificar la causa raíz (ej. por región o producto). Genera un informe visual con los hallazgos y alerta al equipo correspondiente.</p>
-          </InfoCard>
-        </div>
-      </div>
-    </Accordion>
-
-    <h2 id="sec-modulo1-4" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <Sparkles size={24} /> ¿Qué es la inteligencia artificial generativa?
-    </h2>
-    
-    <InfoCard type="definicion" title="Definición">
-      <p>La <GlossaryTerm term="IA generativa">IA generativa</GlossaryTerm> es una rama de la inteligencia artificial que tiene la capacidad de <strong>crear contenido original y novedoso</strong> —como textos, imágenes, audio o código— a partir de patrones aprendidos de grandes cantidades de datos.</p>
-    </InfoCard>
-
-    <Accordion title="Características clave de la IA generativa" icon={Search}>
-      <ul className="space-y-3">
-          <li><strong>Creatividad algorítmica:</strong> No replica, sino que genera contenido nuevo basándose en patrones aprendidos</li>
-          <li><strong>Adaptabilidad contextual:</strong> Ajusta sus respuestas según el contexto y las instrucciones recibidas</li>
-          <li><strong>Escalabilidad:</strong> Puede procesar y generar grandes volúmenes de contenido en poco tiempo</li>
-          <li><strong><GlossaryTerm term="Multimodalidad">Multimodalidad</GlossaryTerm>:</strong> Algunas versiones pueden trabajar con múltiples tipos de datos simultáneamente (texto, imagen, audio)</li>
+      <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300 m-0 list-none p-0">
+        <li className="flex items-start gap-2.5">
+          <span className="font-mono text-xs text-emerald-600 dark:text-emerald-400 mt-0.5">01.</span>
+          <span>Distinguir con precisión arquitectónica entre Inteligencia Artificial simbólica, <GlossaryTerm term="Machine Learning">Machine Learning</GlossaryTerm> predictivo, <GlossaryTerm term="Deep Learning">Deep Learning</GlossaryTerm>, IA Generativa y sistemas de razonamiento con <GlossaryTerm term="Test-Time Compute">Test-Time Compute</GlossaryTerm>.</span>
+        </li>
+        <li className="flex items-start gap-2.5">
+          <span className="font-mono text-xs text-emerald-600 dark:text-emerald-400 mt-0.5">02.</span>
+          <span>Modelar cualquier sistema inteligente mediante el marco formal <strong>PEAS</strong> (Rendimiento, Entorno, Actuadores y Sensores) de Russell y Norvig.</span>
+        </li>
+        <li className="flex items-start gap-2.5">
+          <span className="font-mono text-xs text-emerald-600 dark:text-emerald-400 mt-0.5">03.</span>
+          <span>Seleccionar el paradigma de aprendizaje (supervisado, no supervisado, por refuerzo o <GlossaryTerm term="RLHF">RLHF</GlossaryTerm> / RLVR) y la escala de modelo (Frontera en nube vs. <GlossaryTerm term="SLM">SLM</GlossaryTerm> local) según restricciones de privacidad y latencia.</span>
+        </li>
       </ul>
-    </Accordion>
-
-    <Accordion title="Limitaciones importantes" icon={AlertTriangle}>
-      <InfoCard type="conexion" title="Lo que la IA generativa NO hace:">
-        <ul className="space-y-2">
-            <li>No comprende el significado real de lo que genera</li>
-            <li>No tiene conciencia ni intencionalidad</li>
-            <li>No puede verificar la veracidad de sus propias respuestas</li>
-            <li>No tiene juicio ético autónomo</li>
-            <li>Puede generar <GlossaryTerm term="Alucinaciones">alucinaciones</GlossaryTerm> (información falsa presentada con confianza)</li>
-        </ul>
-      </InfoCard>
-      <InfoCard type="reflexion" title="Relación con los marcos DECIDE-IA y PotencIA">
-        <p>Reconocer estas limitaciones es indispensable para aplicar el <GlossaryTerm term="DECIDE-IA"><strong>Marco DECIDE-IA</strong></GlossaryTerm> (Evaluación crítica de impactos y verificación de fuentes) y el <GlossaryTerm term="PotencIA"><strong>Marco PotencIA</strong></GlossaryTerm> (Supervisión docente activa e integración ética en la educación secundaria).</p>
-      </InfoCard>
-    </Accordion>
-
-    <h2 id="sec-modulo1-5" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <XCircle size={24} /> Mitos de la IA
-    </h2>
-    
-    <div className="space-y-4">
-      <Accordion title="Mito 1: la IA es 100% objetiva y neutral" icon={AlertTriangle}>
-        <p><strong>Realidad:</strong> Los modelos de IA aprenden de datos generados por humanos, los cuales contienen <GlossaryTerm term="Sesgos"><strong>sesgos</strong></GlossaryTerm> históricos y culturales. Si no se auditan mediante el <GlossaryTerm term="DECIDE-IA"><strong>Marco DECIDE-IA</strong></GlossaryTerm>, los sistemas pueden perpetuar inequidades.</p>
-      </Accordion>
-      <Accordion title="Mito 2: la IA reemplazará todos los trabajos humanos" icon={AlertTriangle}>
-        <p><strong>Realidad:</strong> Si bien la IA automatizará ciertas tareas, potencia el rol del <GlossaryTerm term="Docente de educación secundaria"><strong>docente de educación secundaria</strong></GlossaryTerm> como copiloto pedagógico según el <GlossaryTerm term="PotencIA"><strong>Marco PotencIA</strong></GlossaryTerm>.</p>
-      </Accordion>
-      <Accordion title="Mito 3: la IA tiene conciencia y entiende lo que dice" icon={AlertTriangle}>
-        <p><strong>Realidad:</strong> Los modelos como los <GlossaryTerm term="LLM"><strong>LLM</strong></GlossaryTerm> son motores estadísticos avanzados que predicen la siguiente palabra basándose en patrones. No tienen comprensión real, empatía, ni conciencia de sí mismos.</p>
-      </Accordion>
-      <Accordion title="Mito 4: la IA es una caja mágica infalible" icon={AlertTriangle}>
-        <p><strong>Realidad:</strong> La IA comete errores, sufre de <GlossaryTerm term="Alucinaciones"><strong>alucinaciones</strong></GlossaryTerm> y depende de la calidad de sus datos e instrucciones (<GlossaryTerm term="Prompt"><strong>prompts</strong></GlossaryTerm>).</p>
-      </Accordion>
-      <Accordion title="Mito 5: la IA creará una singularidad tecnológica incontrolable" icon={AlertTriangle}>
-        <p><strong>Realidad:</strong> La <GlossaryTerm term="Singularidad"><strong>singularidad</strong></GlossaryTerm> es una hipótesis teórica. El desarrollo de la IA en educación debe guiarse por los marcos de la <GlossaryTerm term="UNESCO AI"><strong>UNESCO AI</strong></GlossaryTerm>, <GlossaryTerm term="DECIDE-IA"><strong>DECIDE-IA</strong></GlossaryTerm> y <GlossaryTerm term="PotencIA"><strong>PotencIA</strong></GlossaryTerm>.</p>
-      </Accordion>
-      <Accordion title="Mito 6: La IA avanzada siempre será malévola" icon={AlertTriangle}>
-        <p><strong>Realidad:</strong> La IA no tiene intenciones. Su comportamiento depende del diseño humano y los marcos de <GlossaryTerm term="Alineación"><strong>alineación</strong></GlossaryTerm> ética.</p>
-      </Accordion>
     </div>
 
-    <h2 id="sec-modulo1-6" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <Settings size={24} /> Funcionamiento técnico: ¿cómo funciona realmente?
+    <h2 id="sec-modulo1-1" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      1. ¿Qué es realmente la inteligencia artificial?
     </h2>
-    
-    <Accordion title="Arquitectura Transformer" icon={Layers}>
-        <p className="mb-3">Los modelos de lenguaje generativo modernos se basan en la arquitectura <GlossaryTerm term="Transformer"><strong>Transformer</strong></GlossaryTerm> (Vaswani et al., 2017), que revolucionó el <GlossaryTerm term="Procesamiento de Lenguaje Natural"><strong>procesamiento de lenguaje natural</strong></GlossaryTerm>.</p>
-        <InfoCard type="definicion" title="Componentes clave:">
-            <ul className="space-y-2">
-                <li><GlossaryTerm term="Mecanismo de atención"><strong>Mecanismo de atención</strong></GlossaryTerm>: Permite al modelo "enfocarse" en las partes relevantes del contexto.</li>
-                <li><GlossaryTerm term="Codificación posicional"><strong>Codificación posicional</strong></GlossaryTerm>: Mantiene el orden de las palabras en la secuencia.</li>
-                <li><strong>Capas de procesamiento:</strong> Múltiples capas que refinan progresivamente la representación del lenguaje.</li>
-            </ul>
-        </InfoCard>
-        <InfoCard type="reflexion" title="Aplicación ética (DECIDE-IA y PotencIA)">
-          <p>Comprender que los Transformers operan mediante patrones de atención matemática refuerza la necesidad del <GlossaryTerm term="DECIDE-IA"><strong>Marco DECIDE-IA</strong></GlossaryTerm> y del <GlossaryTerm term="PotencIA"><strong>Marco PotencIA</strong></GlossaryTerm>, recordando al docente que la herramienta sintetiza probabilidades probabilísticas sin criterio valorativo propio.</p>
-        </InfoCard>
-    </Accordion>
+    <p>
+      Lejos del antropomorfismo mediático, la <GlossaryTerm term="IA">Inteligencia Artificial</GlossaryTerm> es una disciplina de la ciencia de la computación y la matemática aplicada que diseña sistemas capaces de percibir su entorno, procesar representaciones de información y ejecutar decisiones que maximizan la probabilidad de alcanzar un objetivo definido.
+    </p>
+    <p>
+      En la formulación canónica de Stuart Russell y Peter Norvig, el foco moderno no reside en imitar la conciencia biológica humana, sino en la <strong>racionalidad computacional</strong>: hacer lo correcto dados los datos percibidos y los límites de cómputo disponibles.
+    </p>
 
-    <Accordion title="Proceso de entrenamiento y paradigmas de aprendizaje" icon={BookOpen}>
-        <div className="space-y-4">
-            <InfoCard type="practica" title="Fase 1: Preentrenamiento">
-                <p>El modelo es entrenado con <strong>vastos corpus de texto</strong> mediante <GlossaryTerm term="Aprendizaje no supervisado"><strong>aprendizaje no supervisado</strong></GlossaryTerm> para aprender patrones lingüísticos y conocimiento general. Este proceso permite el <GlossaryTerm term="Transfer learning"><strong>Transfer learning</strong></GlossaryTerm>.</p>
-            </InfoCard>
-            <InfoCard type="practica" title="Fase 2: Afinamiento (fine-tuning)">
-                <p>Se especializa el modelo con <strong>datos específicos</strong> de tareas o dominios particulares mediante <GlossaryTerm term="Aprendizaje supervisado"><strong>aprendizaje supervisado</strong></GlossaryTerm>.</p>
-            </InfoCard>
-            <InfoCard type="practica" title="Fase 3: Aprendizaje por refuerzo (RL)">
-                <p>Para que un agente trascienda la ejecución de reglas predefinidas, se utiliza el <GlossaryTerm term="Aprendizaje por refuerzo"><strong>aprendizaje por refuerzo</strong></GlossaryTerm>. Funciona mediante un bucle de retroalimentación donde el agente interactúa con el entorno y ajusta su comportamiento.</p>
-            </InfoCard>
-        </div>
-    </Accordion>
+    <PEASInteractiveExplorer />
 
-    <Accordion title="Percepción computacional avanzada" icon={Eye}>
-        <p className="mb-3">Antes de que un agente lógico pueda razonar, necesita captar información. La percepción computacional convierte estímulos visuales y acústicos en estructuras de datos procesables.</p>
-        <div className="space-y-4">
-            <InfoCard type="definicion" title="Visión artificial">
-                <p>Enseña a las máquinas a otorgar significado semántico a estímulos ópticos mediante redes neuronales convolucionales y clasificación de patrones.</p>
-            </InfoCard>
-            <InfoCard type="definicion" title="Procesamiento de lenguaje natural (PLN)">
-                <p>Actúa como el córtex auditivo y discursivo. Inicia con la <GlossaryTerm term="Tokenización"><strong>tokenización</strong></GlossaryTerm> (fragmentar texto en trozos manejables), seguido de la <GlossaryTerm term="NLU (Comprensión del Lenguaje Natural)"><strong>comprensión del lenguaje natural (NLU)</strong></GlossaryTerm> para analizar el significado semántico, y finaliza con la <GlossaryTerm term="NLG (Generación de Lenguaje Natural)"><strong>generación de lenguaje natural (NLG)</strong></GlossaryTerm> para producir texto fluido y estructurado.</p>
-            </InfoCard>
-        </div>
-    </Accordion>
-
-    <Accordion title="Generación de respuestas" icon={Zap}>
-        <p className="mb-3">La IA generativa no "piensa" ni "comprende". En cambio:</p>
-        <ol className="space-y-2">
-            <li>Procesa el texto de entrada (<GlossaryTerm term="Prompt">prompt</GlossaryTerm>) convirtiéndolo en representaciones numéricas</li>
-            <li>Calcula <strong>probabilidades</strong> de qué palabra debería seguir en la secuencia</li>
-            <li>Selecciona palabras basándose en estas probabilidades (con algún grado de aleatoriedad controlada)</li>
-            <li>Repite el proceso hasta completar la respuesta</li>
-        </ol>
-        <InfoCard type="idea" title="Metáfora clave">
-            <p>Es como un "autocomplete ultra sofisticado" que predice la continuación más probable del texto basándose en patrones estadísticos, no en comprensión genuina.</p>
-        </InfoCard>
-    </Accordion>
-
-    <h2 id="sec-modulo1-7" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <Target size={24} /> Aplicación práctica: El caso de SofIA
+    <h2 id="sec-modulo1-2" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      2. Evolución histórica: de la lógica simbólica a la era del razonamiento (1950–2026)
     </h2>
-    <InfoCard type="reflexion" title="El caso de SofIA">
-        <p><strong>SofIA</strong> es una profesional del ámbito educativo que utiliza herramientas de <GlossaryTerm term="IA generativa"><strong>IA generativa</strong></GlossaryTerm> para realizar su propio diagnóstico de competencias: analizar su trayectoria pedagógica, extraer habilidades transferibles y mapearlas con las palabras clave que exigen los proyectos de <GlossaryTerm term="EdTech"><strong>tecnología educativa (EdTech)</strong></GlossaryTerm> y <GlossaryTerm term="Diseño instruccional"><strong>diseño instruccional</strong></GlossaryTerm>.</p>
-    </InfoCard>
+    <p>
+      Comprender la genealogía de la IA evita caer en el solucionismo tecnológico. La historia del campo no es una línea recta, sino una alternancia entre paradigmas simbólicos (reglas explícitas) y conexionistas (redes neuronales estadísticas) que hoy convergen en arquitecturas neuro-simbólicas y de razonamiento en tiempo de inferencia:
+    </p>
+
+    <div className="my-6 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden bg-white dark:bg-slate-900">
+      <div className="divide-y divide-slate-200 dark:divide-slate-800">
+        {[
+          {
+            era: '1950 – 1956 · Fundamentos y Dartmouth',
+            title: 'Test de Turing y nacimiento formal del campo',
+            desc: 'Alan Turing publica "Computing Machinery and Intelligence" (1950). En el verano de 1956, John McCarthy, Marvin Minsky, Claude Shannon y Nathaniel Rochester acuñan el término "Inteligencia Artificial" en el taller de Dartmouth.'
+          },
+          {
+            era: '1970 – 1989 · Sistemas expertos e inviernos de la IA',
+            title: 'Auge de la IA simbólica (GOFAI) y límites combinatorios',
+            desc: 'Sistemas como MYCIN codifican reglas "SI-ENTONCES" creadas por expertos humanos. La incapacidad de manejar la incertidumbre del mundo real y el cuello de botella en la adquisición manual de conocimiento provocaron recortes de financiación ("inviernos de la IA").'
+          },
+          {
+            era: '1997 – 2016 · Triunfo estadístico y Deep Learning',
+            title: 'Del aprendizaje automático al aprendizaje profundo en GPUs',
+            desc: 'Deep Blue vence a Kasparov (1997) por búsqueda heurística masiva. En 2012, AlexNet demuestra el poder de las redes convolucionales profundas entrenadas en GPUs, y en 2016 AlphaGo combina redes profundas con búsqueda de árbol Monte Carlo.'
+          },
+          {
+            era: '2017 – 2023 · La revolución Transformer y los LLMs',
+            title: 'Attention Is All You Need y emergencia de la IA generativa',
+            desc: 'Investigadores de Google introducen la arquitectura Transformer (2017), permitiendo paralelizar el entrenamiento sobre corpus masivos. Nacen los modelos fundacionales (BERT, serie GPT, Gemini, Claude, Llama) capaces de procesar y generar lenguaje y código.'
+          },
+          {
+            era: '2024 – 2026 · Razonamiento verificable, SLMs y ecosistemas agénticos',
+            title: 'Test-Time Compute, multimodalidad nativa y protocolo MCP',
+            desc: 'El escalado se desplaza del simple tamaño de pre-entrenamiento al cómputo en tiempo de prueba (Test-Time Compute) mediante aprendizaje por refuerzo con recompensas verificables (RLVR). Los modelos piensan paso a paso antes de responder, operan herramientas mediante el estándar abierto MCP y coexisten con modelos pequeños (SLMs) ejecutados localmente en dispositivos.'
+          }
+        ].map((item, idx) => (
+          <div key={idx} className="p-4 sm:p-5 flex flex-col sm:flex-row gap-3 sm:gap-6">
+            <div className="sm:w-56 shrink-0">
+              <span className="text-xs font-mono font-semibold text-sky-600 dark:text-sky-400">
+                {item.era}
+              </span>
+            </div>
+            <div>
+              <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1 mt-0">
+                {item.title}
+              </h4>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-0">
+                {item.desc}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <h2 id="sec-modulo1-3" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      3. Taxonomía por alcance y capacidad: ANI, AGI y ASI
+    </h2>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+      <InfoCard title="IA Estrecha o Especializada (ANI)" icon={Cpu} color="blue">
+        <strong>Estado actual (2026):</strong> Sistemas diseñados y optimizados para dominios acotados o multimodales específicos. Aunque los modelos de frontera razonan sobre código, ciencia y lenguaje con nivel experto, carecen de intencionalidad propia, conciencia o adaptabilidad física universal fuera de su distribución de entrenamiento.
+      </InfoCard>
+      <InfoCard title="IA General (AGI)" icon={Brain} color="purple">
+        <strong>Horizonte teórico en debate:</strong> Sistema hipotético con autonomía cognitiva transversal capaz de aprender cualquier habilidad intelectual o física que un ser humano pueda dominar, transfiriendo conocimiento entre dominios inéditos con muestras mínimas y modelado causal del mundo físico.
+      </InfoCard>
+      <InfoCard title="Superinteligencia (ASI)" icon={Sparkles} color="amber">
+        <strong>Especulación filosófica:</strong> Intelecto sintético que superaría ampliamente la capacidad cognitiva combinada de la humanidad en creatividad científica, estrategia y diseño de ingeniería. Constituye el eje de los debates de alineación existencial a largo plazo.
+      </InfoCard>
+    </div>
+
+    <h2 id="sec-modulo1-4" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      4. Anatomía en capas: IA, Machine Learning, Deep Learning e IA Generativa
+    </h2>
+    <p>
+      Para que SofIA pueda evaluar proveedores tecnológicos sin dejarse confundir por el marketing, necesita visualizar la arquitectura de la IA como cuatro capas concéntricas de especialización matemática:
+    </p>
+
+    <div className="my-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <div className="text-xs font-mono text-slate-500 dark:text-slate-400 mb-1">CAPA 01 · PARAGUAS DISCIPLINAR</div>
+        <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0 mb-1.5">Inteligencia Artificial (IA)</h4>
+        <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-0">
+          Incluye tanto sistemas basados en reglas lógicas explícitas (árboles de decisión deterministas, planificadores simbólicos) como sistemas estadísticos que aprenden de datos.
+        </p>
+      </div>
+      <div className="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <div className="text-xs font-mono text-sky-600 dark:text-sky-400 mb-1">CAPA 02 · INFERENCIA ESTADÍSTICA</div>
+        <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0 mb-1.5"><GlossaryTerm term="Machine Learning">Machine Learning (ML)</GlossaryTerm></h4>
+        <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-0">
+          Algoritmos (regresión, Random Forests, XGBoost, SVM) que ajustan sus parámetros internos optimizando una función de pérdida sobre datos históricos para predecir o clasificar.
+        </p>
+      </div>
+      <div className="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <div className="text-xs font-mono text-indigo-600 dark:text-indigo-400 mb-1">CAPA 03 · REPRESENTACIÓN PROFUNDA</div>
+        <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0 mb-1.5"><GlossaryTerm term="Deep Learning">Deep Learning (DL)</GlossaryTerm></h4>
+        <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-0">
+          Redes neuronales artificiales con múltiples capas ocultas que extraen automáticamente jerarquías de características complejas desde texto, audio, imagen o series temporales sin ingeniería manual de variables.
+        </p>
+      </div>
+      <div className="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <div className="text-xs font-mono text-emerald-600 dark:text-emerald-400 mb-1">CAPA 04 · SÍNTESIS Y RAZONAMIENTO</div>
+        <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0 mb-1.5"><GlossaryTerm term="IA Generativa">IA Generativa</GlossaryTerm> y Modelos Razonadores</h4>
+        <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-0">
+          Modelos basados en arquitecturas <GlossaryTerm term="Transformer">Transformer</GlossaryTerm> y difusión que modelan la distribución conjunta de probabilidad para sintetizar texto, código, audio o video inéditos y ejecutar cadenas de razonamiento.
+        </p>
+      </div>
+    </div>
+
+    <h2 id="sec-modulo1-5" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      5. Los cuatro paradigmas de entrenamiento
+    </h2>
+    <p>
+      ¿Cómo adquiere conocimiento un modelo? En la práctica contemporánea, un sistema de frontera atraviesa varias etapas que combinan distintos paradigmas de aprendizaje:
+    </p>
+
+    <div className="overflow-x-auto my-6">
+      <table>
+        <thead>
+          <tr>
+            <th>Paradigma</th>
+            <th>Mecanismo matemático</th>
+            <th>Rol en el ciclo de vida 2026</th>
+            <th>Ejemplo aplicado (Caso SofIA)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Aprendizaje Supervisado</strong></td>
+            <td>Minimiza el error entre la predicción y etiquetas explícitas provistas por humanos <span className="font-mono text-xs">(X → Y)</span>.</td>
+            <td>Ajuste fino de instrucciones (SFT) y clasificadores predictivos de deserción o riesgo.</td>
+            <td>Entrenar un detector de nivel lector usando 5,000 ensayos previamente calificados por docentes.</td>
+          </tr>
+          <tr>
+            <td><strong>Auto-supervisado / No supervisado</strong></td>
+            <td>Descubre estructura latente o predice partes ocultas del propio dato sin etiquetas externas.</td>
+            <td>Fase base de pre-entrenamiento de <GlossaryTerm term="LLM">LLMs</GlossaryTerm> y agrupación (clustering) de perfiles.</td>
+            <td>Agrupar automáticamente patrones de participación estudiantil para identificar estilos de estudio.</td>
+          </tr>
+          <tr>
+            <td><strong>Aprendizaje por Refuerzo (RL / RLVR)</strong></td>
+            <td>Un agente optimiza una política de decisión mediante recompensas y penalizaciones verificables.</td>
+            <td>Alineación (<GlossaryTerm term="RLHF">RLHF</GlossaryTerm>) y entrenamiento de modelos razonadores en matemáticas y código (RLVR).</td>
+            <td>Entrenar un modelo para que verifique sus propios cálculos físicos antes de mostrar la solución al alumno.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="sec-modulo1-6" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      6. De las redes neuronales clásicas a la revolución de los modelos pequeños (SLMs)
+    </h2>
+    <p>
+      Una tendencia definitoria de 2025–2026 es la ruptura del dogma "más grande siempre es mejor". Mientras que los modelos de frontera en la nube superan el billón de parámetros mediante arquitecturas <GlossaryTerm term="MoE">Mixture of Experts (MoE)</GlossaryTerm>, los <strong>Modelos de Lenguaje Pequeños (<GlossaryTerm term="SLM">SLMs</GlossaryTerm>)</strong> de entre 1,000 y 14,000 millones de parámetros (como las familias Gemma, Llama, Qwen o Phi) han alcanzado capacidades de razonamiento equivalentes a los modelos gigantes de hace dos años.
+    </p>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+      <InfoCard title="Modelos de Frontera en Nube" icon={Network} color="blue">
+        Ideales para razonamiento multidisciplinar profundo, síntesis de repositorios completos (1M–2M tokens) y coordinación de sistemas multi-agente complejos. Requieren conexión y gobernanza de datos en tránsito.
+      </InfoCard>
+      <InfoCard title="SLMs y Edge AI (En dispositivo)" icon={Shield} color="emerald">
+        Ejecutables directamente en la laptop del docente o en el servidor local de la escuela. Garantizan <strong>privacidad absoluta</strong> (ningún dato estudiantil sale del centro), latencia de milisegundos y funcionamiento sin conexión a internet.
+      </InfoCard>
+    </div>
+
+    <h2 id="sec-modulo1-7" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      7. IA discriminativa (predictiva) frente a IA generativa
+    </h2>
+    <p>
+      Un error frecuente en proyectos de transformación digital es usar un modelo generativo costoso cuando basta un modelo discriminativo clásico (o viceversa). SofIA aplica esta regla de decisión:
+    </p>
+    <div className="overflow-x-auto my-6">
+      <table>
+        <thead>
+          <tr>
+            <th>Dimensión</th>
+            <th>IA Discriminativa / Predictiva</th>
+            <th>IA Generativa y Razonadora</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Objetivo matemático</strong></td>
+            <td>Estimar la probabilidad condicional <span className="font-mono text-xs">P(Y | X)</span> (trazar fronteras de decisión).</td>
+            <td>Modelar la distribución de probabilidad para muestrear secuencias nuevas coherentes.</td>
+          </tr>
+          <tr>
+            <td><strong>Salida típica</strong></td>
+            <td>Una etiqueta, clase o valor numérico (ej. "Riesgo de abandono: 0.82").</td>
+            <td>Un artefacto complejo: explicación socrática, código fuente, rúbrica o informe.</td>
+          </tr>
+          <tr>
+            <td><strong>Determinismo y auditoría</strong></td>
+            <td>Altamente determinista; métricas exactas de precisión, recall y F1-Score.</td>
+            <td>Estocástico; requiere ingeniería de contexto, esquemas estructurados y evaluación con jueces/rúbricas.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="sec-modulo1-8" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      8. Límites estructurales: alucinaciones, sesgo estadístico y opacidad
+    </h2>
+    <p>
+      Todo modelo fundacional opera por compresión estadística y plausibilidad semántica, no por verificación ontológica nativa. Esto introduce tres vulnerabilidades que todo profesional debe gestionar:
+    </p>
+    <ul>
+      <li><strong><GlossaryTerm term="Alucinación">Confabulación o alucinación</GlossaryTerm>:</strong> Cuando el modelo carece de anclaje documental (<GlossaryTerm term="RAG">RAG</GlossaryTerm>) o presupuesto de verificación, puede fabricar citas bibliográficas, artículos legales o datos históricos con una sintaxis impecable y tono de absoluta certeza.</li>
+      <li><strong>Amplificación de sesgos históricos:</strong> Si los corpus de entrenamiento subrepresentan contextos locales o reproducen estereotipos de género y nivel socioeconómico, el modelo tenderá a perpetuarlos en sus ejemplos y evaluaciones.</li>
+      <li><strong>Opacidad de caja negra:</strong> Con miles de millones de pesos sinápticos, explicar exactamente por qué se activó un token requiere técnicas de interpretabilidad mecanística o exigir trazas de pensamiento explícitas.</li>
+    </ul>
+
+    <h2 id="sec-modulo1-9" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      9. Marcos de competencias en IA: UNESCO y diagnóstico profesional
+    </h2>
+    <p>
+      Los marcos globales de competencias de IA de la <strong>UNESCO</strong> para docentes y estudiantes establecen que la alfabetización en IA no consiste en memorizar comandos efímeros, sino en articular tres dimensiones: <strong>mentalidad centrada en el ser humano</strong>, <strong>comprensión técnica de datos y modelos</strong>, y <strong>ética aplicada a la toma de decisiones</strong>. Utiliza el siguiente evaluador interactivo para diagnosticar tu propio perfil o el de SofIA:
+    </p>
+
     <CompetenceMappingCard />
 
-    <Accordion title="¿Por qué el diagnóstico de competencias es crucial?" icon={Search}>
-        <p className="mb-3">Muchas profesionales en educación poseen una experiencia valiosa pero necesitan estructurar cómo:</p>
-        <ul className="space-y-2">
-            <li>Identificar qué competencias demuestran sus experiencias docentes y de gestión previas</li>
-            <li>Expresarlas en el lenguaje que filtran los sistemas de evaluación algorítmica</li>
-            <li>Conectar su práctica de aula y diseño didáctico con los requisitos de proyectos e instituciones de innovación</li>
-            <li>Reformular su portafolio y perfiles de proyectos de manera estratégica</li>
-        </ul>
-        <InfoCard type="conexion" title="Ejemplo real del caso de SofIA:">
-            <p>Una profesional con 8 años de experiencia en educación y gestión pedagógica que realiza su reconversión e innovación hacia roles de diseño instruccional, coordinación de proyectos educativos y tecnología educativa (EdTech) posee competencias avanzadas en:</p>
-            <ul className="ml-4 mt-2 space-y-1">
-                <li>Diseño de secuencias didácticas y evaluación formativa centrada en el aprendizaje</li>
-                <li>Liderazgo de proyectos educativos y coordinación de equipos docentes multitarea</li>
-                <li>Aplicación de la Taxonomía de Bloom para la graduación de objetivos cognitivos</li>
-                <li>Integración pedagógica de herramientas digitales e IA generativa</li>
-            </ul>
-            <p className="mt-2">Sin embargo, sin una articulación estratégica, podría limitarse a describir su labor como "dictar clases y corregir pruebas", perdiendo oportunidades de participación en roles como Especialista en Diseño Instruccional y Proyectos EdTech.</p>
-        </InfoCard>
-    </Accordion>
-
-    <Accordion title="¿Cómo utiliza SofIA la IA generativa en su proceso?" icon={Wrench}>
-        <div className="space-y-4">
-            <InfoCard type="practica" title="1. Análisis de su trayectoria pedagógica">
-                <p>Utiliza herramientas de IA generativa para procesar descripciones de su experiencia educativa e identificar competencias implícitas que no había reconocido explícitamente.</p>
-            </InfoCard>
-            <InfoCard type="practica" title="2. Mapeo con requerimientos de proyectos EdTech">
-                <p>Compara las competencias extraídas con las palabras clave de proyectos de innovación educativa específicos, identificando coincidencias y brechas en su perfil docente.</p>
-            </InfoCard>
-            <InfoCard type="practica" title="3. Reformulación estratégica">
-                <p>Solicita a la IA versiones optimizadas de sus descripciones docentes usando el lenguaje especializado que buscan los comités de evaluación y sistemas de evaluación algorítmica.</p>
-            </InfoCard>
-            <InfoCard type="practica" title="4. Preparación para presentaciones de proyectos">
-                <p>Practica con la IA para articular respuestas que conecten sus experiencias concretas de aula con las competencias valoradas por las instituciones de innovación.</p>
-            </InfoCard>
-        </div>
-    </Accordion>
-
-    <Accordion title="Ventajas de usar IA generativa para diagnóstico de competencias" icon={Zap}>
-        <ul className="space-y-3">
-            <li><strong>Escalabilidad personal:</strong> Permite analizar múltiples versiones del portafolio y explorar diferentes enfoques simultáneamente</li>
-            <li><strong>Actualización constante:</strong> Acceso a información actualizada sobre tendencias del sector EdTech y lenguaje corporativo vigente</li>
-            <li><strong>Personalización inmediata:</strong> Adaptación del lenguaje al sector y nivel profesional específico de cada oferta</li>
-            <li><strong>Democratización del acceso:</strong> Herramientas antes disponibles solo a través de servicios costosos de coaching profesional</li>
-            <li><strong>Iteración rápida:</strong> Posibilidad de probar múltiples versiones de portafolios, propuestas y perfiles en minutos</li>
-        </ul>
-    </Accordion>
-
-    <h2 id="sec-modulo1-8" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <PenTool size={24} /> Ingeniería de prompts: La clave del éxito
+    <h2 id="sec-modulo1-10" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      10. Síntesis del módulo y autoevaluación
     </h2>
-    
-    <InfoCard type="idea" title="La importancia del prompt">
-        <p><strong>La calidad de los resultados de una IA generativa depende directamente de la calidad de las instrucciones (prompts) que le proporcionamos.</strong> Un prompt mal formulado generará respuestas genéricas o irrelevantes; un prompt bien diseñado puede producir resultados excepcionalmente útiles.</p>
-    </InfoCard>
+    <AuthorNote>
+      Antes de pasar al funcionamiento interno de los modelos de lenguaje, recuerda el principio rector que adoptó SofIA: <strong>la IA no reemplaza el criterio profesional del experto; amplifica tanto el rigor metodológico como la falta de él</strong>. Un buen diagnóstico de problema distingue cuándo necesitas una regresión estadística simple, cuándo un SLM local por privacidad y cuándo un modelo de razonamiento multimodal.
+    </AuthorNote>
 
-    <Accordion title="Componentes de un prompt efectivo" icon={FileText}>
-        <div className="space-y-4">
-            <InfoCard type="definicion" title="1. Contexto completo">
-                <p>Proporcione toda la información relevante sobre la situación, incluyendo antecedentes, limitaciones y objetivos específicos.</p>
-            </InfoCard>
-            <InfoCard type="definicion" title="2. Objetivo claro">
-                <p>Sea explícito sobre qué espera obtener. En lugar de "ayúdame con mi portafolio", especifique "reformula mi experiencia docente para resaltar competencias en diseño instruccional y proyectos EdTech".</p>
-            </InfoCard>
-            <InfoCard type="definicion" title="3. Formato deseado">
-                <p>Indique cómo quiere recibir la respuesta: lista con viñetas, párrafo narrativo, tabla comparativa, etc.</p>
-            </InfoCard>
-            <InfoCard type="definicion" title="4. Restricciones específicas">
-                <p>Establezca límites claros: longitud máxima, tono (formal/informal), perspectiva (primera/tercera persona), etc.</p>
-            </InfoCard>
-        </div>
-    </Accordion>
-
-    <Accordion title="Ejemplo práctico: Prompts que usa SofIA" icon={Palette}>
-        <div className="space-y-4">
-            <div className="bg-red-500/10 border border-red-500/30 p-4 rounded-xl">
-                <h4 className="font-bold mb-3 text-red-700 dark:text-red-400 flex items-center gap-2">
-                  <XCircle size={18} />
-                  <span>Prompt deficiente:</span>
-                </h4>
-                <div className="bg-slate-100 dark:bg-slate-900/80 p-4 rounded-lg mb-4 border border-slate-200 dark:border-white/5">
-                    <p className="italic text-slate-800 dark:text-slate-300">"Ayúdame a mejorar mi portafolio"</p>
-                </div>
-                <p className="mb-2 text-slate-900 dark:text-slate-200"><strong>Problemas:</strong></p>
-                <ul className="space-y-1 text-slate-700 dark:text-slate-300">
-                    <li>Demasiado vago</li>
-                    <li>Sin contexto profesional</li>
-                    <li>Sin objetivo específico</li>
-                </ul>
-            </div>
-
-            <div className="bg-emerald-500/10 border border-emerald-500/30 p-4 rounded-xl">
-                <h4 className="font-bold mb-3 text-emerald-700 dark:text-emerald-400 flex items-center gap-2">
-                  <CheckCircle2 size={18} />
-                  <span>Prompt efectivo:</span>
-                </h4>
-                <div className="bg-slate-100 dark:bg-slate-900/80 p-4 rounded-lg mb-4 border border-slate-200 dark:border-white/5">
-                    <p className="italic text-slate-800 dark:text-slate-300">"Soy SofIA, una docente con 8 años de experiencia en aula y gestión pedagógica. He coordinado equipos de 12 profesores, optimizado planificaciones y mejorado los resultados de aprendizaje en un 20%. Quiero insertarme en un rol de .Especialista en Diseño Instruccional EdTech.. Reformula mi experiencia en 3 viñetas que resalten: (1) liderazgo de equipos educativos, (2) diseño de recursos de aprendizaje, (3) mejora continua con tecnología. Usa terminología de diseño instruccional y mantén un tono profesional. Máximo 50 palabras por viñeta."</p>
-                </div>
-                <p className="mb-2 text-slate-900 dark:text-slate-200"><strong>Fortalezas:</strong></p>
-                <ul className="space-y-1 text-slate-700 dark:text-slate-300">
-                    <li>Contexto profesional detallado</li>
-                    <li>Objetivo específico (tipo de proyecto)</li>
-                    <li>Formato claro (3 viñetas)</li>
-                    <li>Restricciones precisas (tono, longitud)</li>
-                </ul>
-            </div>
-        </div>
-    </Accordion>
-
-    <Accordion title="Principios clave de la ingeniería de prompts" icon={Key}>
-        <ol className="space-y-3">
-            <li><strong>Especificidad sobre generalidad:</strong> Cuanto más específico sea el prompt, más relevante será la respuesta</li>
-            <li><strong>Iteración es normal:</strong> Raramente el primer prompt produce resultados perfectos. Refine y ajuste según sea necesario</li>
-            <li><strong>Proporcione ejemplos:</strong> Si es posible, incluya ejemplos del tipo de respuesta que espera</li>
-            <li><strong>Solicite justificación:</strong> Pida a la IA que explique su razonamiento para detectar errores lógicos</li>
-            <li><strong>Verificación es esencial:</strong> Nunca use resultados sin revisarlos críticamente. La IA puede "alucinar" información falsa</li>
-        </ol>
-    </Accordion>
-
-    <h2 id="sec-modulo1-9" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <Globe size={24} /> Democratización del acceso profesional
-    </h2>
-    
-    <p>Una de las promesas más importantes de la IA generativa es la <strong>democratización del acceso</strong> a herramientas y servicios que antes estaban reservados para quienes podían pagar consultores especializados.</p>
-
-    <InfoCard type="reflexion" title="¿Quiénes se benefician?">
-        <p className="mb-3">La IA generativa es especialmente valiosa para:</p>
-        <ul className="space-y-2">
-            <li><strong>Profesionales en transición:</strong> Personas que cambian de sector y necesitan "traducir" su experiencia</li>
-            <li><strong>Trabajadores de oficios tradicionales:</strong> Gasfíteres, cocineros, choferes, estilistas que quieren formalizar su experiencia</li>
-            <li><strong>Migrantes profesionales:</strong> Personas que necesitan adaptar su historial profesional a nuevos contextos culturales</li>
-            <li><strong>Profesionales sin acceso a redes:</strong> Quienes no tienen contactos en sus sectores objetivo</li>
-            <li><strong>Emprendedores tempranos:</strong> Personas que inician proyectos sin presupuesto para servicios especializados</li>
-        </ul>
-    </InfoCard>
-
-    <Accordion title="Impacto en el sector educativo chileno" icon={BarChart2}>
-        <p className="mb-3">Según estudios de CEPAL (2024) y Deloitte (2025), la IA generativa está transformando el panorama profesional en América Latina:</p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <InfoCard type="practica" title="Oportunidades">
-                <ul className="space-y-1 text-sm">
-                    <li>Reducción de brechas de acceso a herramientas avanzadas</li>
-                    <li>Aceleración de procesos de articulación en proyectos</li>
-                    <li>Mejora en la articulación estratégica de grupos tradicionalmente excluidos</li>
-                </ul>
-            </InfoCard>
-            <InfoCard type="conexion" title="Desafíos">
-                <ul className="space-y-1 text-sm">
-                    <li>Brecha digital y acceso a tecnología</li>
-                    <li>Necesidad de alfabetización digital</li>
-                    <li>Riesgo de dependencia tecnológica</li>
-                </ul>
-            </InfoCard>
-        </div>
-    </Accordion>
-
-    <InfoCard type="idea" title="Reflexión final">
-        <p>La IA generativa no debe verse como un "reemplazo" del desarrollo de competencias humanas, sino como un <strong>"copiloto profesional"</strong> que amplifica nuestras capacidades. El pensamiento crítico, la autenticidad y la verificación constante siguen siendo responsabilidades humanas ineludibles.</p>
-    </InfoCard>
-
-    <h2 id="sec-modulo1-10" className="text-2xl font-bold mt-12 mb-4 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <HelpCircle size={24} /> Preguntas de reflexión
-    </h2>
-    <InfoCard type="reflexion" title="Para profundizar en el capítulo">
-        <ul className="list-disc ml-5 space-y-2 text-slate-700 dark:text-slate-300">
-            <li>¿Cómo crees que el caso de SofIA se aplica a tu propia trayectoria profesional?</li>
-            <li>¿Qué mitos sobre la IA te sorprendieron más y por qué?</li>
-            <li>¿De qué manera podrías utilizar la ingeniería de prompts para mejorar tu comunicación profesional?</li>
-        </ul>
-    </InfoCard>
+    <QuizComponent
+      question="SofIA necesita implementar en una escuela rural sin conexión estable a internet un asistente que ayude a redactar retroalimentación formativa sin que los datos de los estudiantes salgan de las computadoras del colegio. ¿Qué arquitectura de 2026 es la más adecuada?"
+      options={[
+        {
+          label: 'Un modelo de frontera masivo de 1.5 billones de parámetros consumido exclusivamente vía API en la nube pública.',
+          isCorrect: false,
+          explanation: 'Incorrecto: depende de conectividad constante y transmite datos fuera del entorno local.'
+        },
+        {
+          label: 'Un Modelo de Lenguaje Pequeño (SLM) cuantizado de pesos abiertos (ej. 4B–8B parámetros) ejecutado en dispositivo (Edge AI) con plantillas estructuradas.',
+          isCorrect: true,
+          explanation: '¡Correcto! Los SLMs modernos ejecutados en dispositivo garantizan soberanía total de los datos estudiantiles y operan sin necesidad de conexión a internet.'
+        },
+        {
+          label: 'Un sistema experto simbólico clásico programado manualmente con 20 reglas SI-ENTONCES fijas.',
+          isCorrect: false,
+          explanation: 'Incorrecto: carece de la flexibilidad lingüística necesaria para generar retroalimentación formativa adaptada a textos abiertos.'
+        }
+      ]}
+    />
   </div>
 );
-

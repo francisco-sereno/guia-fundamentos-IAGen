@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" fill="none">
+  <rect width="960" height="440" rx="14" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+  
+  <!-- Header -->
+  <text x="40" y="44" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="700">BENCHMARK PEDAGÓGICO Y TÉCNICO · EDICIÓN 2026</text>
+  <text x="40" y="72" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="800">Impacto de la arquitectura de contexto y Test-Time Compute en tareas complejas</text>
+  <text x="40" y="94" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12.5">Comparativa de precisión factual (azul) frente a tasa de alucinación (rojo) según el nivel de ingeniería aplicada</text>
+
+  <!-- Legend -->
+  <rect x="650" y="56" width="12" height="12" rx="3" fill="#0ea5e9"/>
+  <text x="668" y="66" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Precisión / adherencia (%)</text>
+  <rect x="820" y="56" width="12" height="12" rx="3" fill="#f43f5e"/>
+  <text x="838" y="66" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Alucinación (%)</text>
+
+  <!-- Horizontal Grid Lines -->
+  <line x1="270" y1="130" x2="900" y2="130" stroke="#1e293b" stroke-width="1"/>
+  <line x1="270" y1="185" x2="900" y2="185" stroke="#1e293b" stroke-width="1"/>
+  <line x1="270" y1="240" x2="900" y2="240" stroke="#1e293b" stroke-width="1"/>
+  <line x1="270" y1="295" x2="900" y2="295" stroke="#1e293b" stroke-width="1"/>
+  <line x1="270" y1="350" x2="900" y2="350" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- X-Axis Scale -->
+  <line x1="270" y1="380" x2="900" y2="380" stroke="#334155" stroke-width="1.5"/>
+  <text x="270" y="402" fill="#64748b" font-family="monospace" font-size="11" text-anchor="middle">0%</text>
+  <text x="427.5" y="402" fill="#64748b" font-family="monospace" font-size="11" text-anchor="middle">25%</text>
+  <text x="585" y="402" fill="#64748b" font-family="monospace" font-size="11" text-anchor="middle">50%</text>
+  <text x="742.5" y="402" fill="#64748b" font-family="monospace" font-size="11" text-anchor="middle">75%</text>
+  <text x="900" y="402" fill="#64748b" font-family="monospace" font-size="11" text-anchor="middle">100%</text>
+
+  <!-- Row 1: Prompt ambiguo (Zero-Shot sin contexto) -->
+  <text x="254" y="140" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12.5" font-weight="700" text-anchor="end">1. Prompt ambiguo (Zero-Shot)</text>
+  <text x="254" y="156" fill="#64748b" font-family="monospace" font-size="10" text-anchor="end">Sin rol ni restricciones</text>
+  <rect x="270" y="124" width="239" height="14" rx="4" fill="#0ea5e9"/>
+  <text x="517" y="135" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="700">38%</text>
+  <rect x="270" y="142" width="264" height="12" rx="4" fill="#f43f5e"/>
+  <text x="542" y="152" fill="#fb7185" font-family="monospace" font-size="11" font-weight="700">42% alucinación</text>
+
+  <!-- Row 2: Few-Shot + Marco CO-STAR / PARTE -->
+  <text x="254" y="195" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12.5" font-weight="700" text-anchor="end">2. Marco CO-STAR + Few-Shot</text>
+  <text x="254" y="211" fill="#64748b" font-family="monospace" font-size="10" text-anchor="end">Delimitadores XML + ejemplos</text>
+  <rect x="270" y="179" width="466" height="14" rx="4" fill="#0ea5e9"/>
+  <text x="744" y="190" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="700">74%</text>
+  <rect x="270" y="197" width="113" height="12" rx="4" fill="#f43f5e"/>
+  <text x="391" y="207" fill="#fb7185" font-family="monospace" font-size="11" font-weight="700">18% alucinación</text>
+
+  <!-- Row 3: Chain-of-Thought + Test-Time Compute (TTC) -->
+  <text x="254" y="250" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12.5" font-weight="700" text-anchor="end">3. Razonamiento TTC + CoVe</text>
+  <text x="254" y="266" fill="#64748b" font-family="monospace" font-size="10" text-anchor="end">Sistema 2 + autoverificación</text>
+  <rect x="270" y="234" width="548" height="14" rx="4" fill="#0ea5e9"/>
+  <text x="826" y="245" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="700">87%</text>
+  <rect x="270" y="252" width="57" height="12" rx="4" fill="#f43f5e"/>
+  <text x="335" y="262" fill="#fb7185" font-family="monospace" font-size="11" font-weight="700">9% alucinación</text>
+
+  <!-- Row 4: RAG híbrido + GraphRAG + JSON Schema -->
+  <text x="254" y="305" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12.5" font-weight="700" text-anchor="end">4. RAG híbrido + GraphRAG</text>
+  <text x="254" y="321" fill="#64748b" font-family="monospace" font-size="10" text-anchor="end">BM25 + vectores + grafo</text>
+  <rect x="270" y="289" width="586" height="14" rx="4" fill="#0ea5e9"/>
+  <text x="864" y="300" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="700">93%</text>
+  <rect x="270" y="307" width="28" height="12" rx="4" fill="#f43f5e"/>
+  <text x="306" y="317" fill="#fb7185" font-family="monospace" font-size="11" font-weight="700">4.5% alucinación</text>
+
+  <!-- Row 5: Agente ReAct + MCP + verificación HITL -->
+  <text x="254" y="360" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="12.5" font-weight="800" text-anchor="end">5. Agente MCP + TTC + HITL</text>
+  <text x="254" y="376" fill="#38bdf8" font-family="monospace" font-size="10" font-weight="700" text-anchor="end">Arquitectura de frontera 2026</text>
+  <rect x="270" y="344" width="611" height="14" rx="4" fill="#10b981"/>
+  <text x="889" y="355" fill="#34d399" font-family="monospace" font-size="11" font-weight="800">97%</text>
+  <rect x="270" y="362" width="13" height="12" rx="4" fill="#f43f5e"/>
+  <text x="291" y="372" fill="#fb7185" font-family="monospace" font-size="11" font-weight="700">1.8% alucinación</text>
+</svg>

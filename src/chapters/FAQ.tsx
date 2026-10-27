@@ -1,63 +1,104 @@
 import React from 'react';
-import { Accordion, InfoCard, GlossaryTerm } from '../components/Shared';
-import { BrainCircuit, TerminalSquare, AlertTriangle, HelpCircle, Lock, Briefcase, Zap, BookOpen } from 'lucide-react';
+import { Accordion, AuthorNote } from '../components/Shared';
 
-export const FAQContent = () => (
-  <div className="prose-custom">
-    <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-6">Preguntas frecuentes (FAQ)</h1>
-    <p className="text-xl text-slate-600 dark:text-slate-300 mb-12">Respuestas a las dudas más comunes sobre la inteligencia artificial y la ingeniería de prompts.</p>
-
-    <h2 id="sec-faq-0" className="text-2xl font-bold mb-6 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <BrainCircuit size={24} /> Fundamentos de la IA
+export const FAQ = () => (
+  <div className="space-y-8">
+    <h2 id="sec-faq-0" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      1. Preguntas frecuentes sobre fundamentos, modelos y razonamiento (2026)
     </h2>
-    
-    <Accordion title="¿Qué modelo de IA es el mejor para empezar?" icon={HelpCircle}>
-      <p>No existe un único "mejor" modelo, ya que depende de la tarea. Sin embargo, para principiantes, modelos como ChatGPT (OpenAI), Claude (Anthropic) o Gemini (Google) son excelentes puntos de partida debido a sus interfaces intuitivas y capacidades generales. Es recomendable probar varios para entender sus diferencias.</p>
-    </Accordion>
+    <p>
+      A continuación respondemos con rigor técnico y claridad práctica las dudas más habituales que surgen al implementar sistemas de IA generativa, modelos razonadores y flujos agénticos en entornos educativos y profesionales:
+    </p>
 
-    <Accordion title="¿Mis datos son privados cuando uso IA?" icon={Lock}>
-      <p>Depende de la plataforma y de tu configuración. En las versiones gratuitas de muchos modelos, tus conversaciones pueden ser utilizadas para entrenar futuras versiones. Si manejas información confidencial, debes usar versiones empresariales (Enterprise) o desactivar el historial de chat en la configuración de privacidad.</p>
-    </Accordion>
+    <Accordion
+      items={[
+        {
+          title: '¿Cuándo debo usar un modelo de razonamiento (Test-Time Compute) en lugar de un modelo conversacional estándar?',
+          content: (
+            <p className="m-0">
+              Utiliza un <strong>modelo conversacional estándar</strong> (o nivel de pensamiento bajo) cuando necesites baja latencia y costo mínimo en tareas directas: resumir un documento claro, traducir, formatear JSON o redactar comunicaciones. Reserva los <strong>modelos de razonamiento</strong> (con presupuesto alto de <em>Test-Time Compute</em>) para problemas donde la respuesta no es obvia y requiere planificación multicapa: demostrar teoremas, depurar arquitecturas complejas de código, resolver restricciones de horarios o auditar contradicciones normativas.
+            </p>
+          )
+        },
+        {
+          title: 'Si un modelo tiene una ventana de contexto de 1 o 2 millones de tokens, ¿sigue siendo necesario implementar RAG?',
+          content: (
+            <p className="m-0">
+              Sí, para la mayoría de los sistemas en producción. Aunque puedes cargar varios libros completos directamente en la ventana de contexto (especialmente útil combinado con <em>Context Caching</em>), cuando tu organización maneja decenas de miles de documentos que cambian a diario, reenviar millones de tokens en cada pregunta resulta lento y costoso. La arquitectura óptima en 2026 combina <strong>RAG Híbrido / GraphRAG</strong> para recuperar con precisión los fragmentos relevantes y un modelo de amplio contexto para sintetizarlos con trazabilidad.
+            </p>
+          )
+        },
+        {
+          title: '¿Un modelo de lenguaje "comprende" realmente lo que dice o sólo repite texto memorizado?',
+          content: (
+            <p className="m-0">
+              Ninguno de los dos extremos describe bien la realidad técnica. Un LLM no tiene conciencia subjetiva ni intencionalidad biológica (no "sabe" qué es el dolor o el sabor del café), pero tampoco es un simple diccionario de copiar y pegar: durante el entrenamiento construye <strong>representaciones geométricas internas y modelos funcionales</strong> de relaciones sintácticas, lógicas y causales que le permiten generalizar y resolver problemas inéditos fuera de sus datos exactos de entrenamiento.
+            </p>
+          )
+        }
+      ]}
+    />
 
-    <Accordion title="¿La IA reemplazará mi trabajo?" icon={Briefcase}>
-      <p>La IA está diseñada para automatizar tareas, no necesariamente roles docentes completos. Como indica el marco de integración educativa, el enfoque debe ser aprender a utilizar la IA como un "copiloto" para aumentar tu productividad, capacidad de diseño instruccional y creatividad.</p>
-    </Accordion>
-
-    <h2 id="sec-faq-1" className="text-2xl font-bold mt-12 mb-6 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <TerminalSquare size={24} /> Ingeniería de prompts
+    <h2 id="sec-faq-1" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      2. Preguntas sobre Ingeniería de Contexto, MCP y Agentes
     </h2>
 
-    <Accordion title="¿Qué tan largo debe ser un prompt?" icon={Zap}>
-      <p>Un <GlossaryTerm term="Prompt">prompt</GlossaryTerm> debe ser tan largo como sea necesario para dar el contexto adecuado, pero tan conciso como sea posible para evitar confundir al modelo. La clave es la claridad. Utiliza la técnica de "<GlossaryTerm term="Zero-shot">Zero-shot</GlossaryTerm>" para tareas simples y "<GlossaryTerm term="Few-shot">Few-shot</GlossaryTerm>" o "Chain of thought" para tareas más complejas que requieran mayor contexto.</p>
-    </Accordion>
+    <Accordion
+      items={[
+        {
+          title: '¿Cuál es la diferencia práctica entre Ingeniería de Prompts e Ingeniería de Contexto?',
+          content: (
+            <p className="m-0">
+              La <strong>Ingeniería de Prompts</strong> tradicional se enfocaba en cómo redactar la pregunta del usuario en una caja de chat. La <strong>Ingeniería de Contexto (Context Engineering)</strong> abarca la arquitectura completa que rodea al modelo en producción: instrucciones de sistema jerárquicas, delimitadores XML, inyección dinámica de memoria y documentos verificados (RAG), declaración de herramientas vía <strong>MCP</strong>, presupuesto de pensamiento y validación estricta del esquema de salida (<code className="font-mono text-xs">responseSchema</code>).
+            </p>
+          )
+        },
+        {
+          title: '¿Qué es exactamente el Model Context Protocol (MCP) y por qué se volvió un estándar?',
+          content: (
+            <p className="m-0">
+              <strong>MCP</strong> es un protocolo abierto (alojado bajo la Linux Foundation) que estandariza cómo las aplicaciones de IA se conectan con fuentes de datos y herramientas externas. En lugar de programar conectores distintos para cada modelo del mercado, una institución crea un único servidor MCP seguro (por ejemplo, para su sistema académico o su base de datos SQL) y cualquier cliente o agente compatible puede interactuar con él respetando los permisos del usuario.
+            </p>
+          )
+        },
+        {
+          title: '¿Por qué a veces un modelo razonador empeora si le doy un prompt con demasiados pasos detallados (Chain-of-Thought manual)?',
+          content: (
+            <p className="m-0">
+              Los modelos entrenados mediante <em>Reinforcement Learning with Verifiable Rewards (RLVR)</em> ya desarrollan internamente estrategias avanzadas de exploración y verificación de hipótesis. Si en el prompt les impones un camino rígido paso a paso diseñado por ti, puedes restringir su espacio de búsqueda interno. Con estos modelos es mejor especificar con nitidez <strong>qué objetivo se busca, qué datos son válidos y qué restricciones debe cumplir la entrega final</strong>.
+            </p>
+          )
+        }
+      ]}
+    />
 
-    <Accordion title="¿Por qué la IA a veces inventa información?" icon={AlertTriangle}>
-      <p>Esto se conoce como <GlossaryTerm term="Alucinaciones">alucinaciones</GlossaryTerm>. Los modelos de lenguaje están diseñados para predecir la siguiente palabra más probable, no para buscar la verdad absoluta en una base de datos. Para reducir las alucinaciones, pide al modelo que cite sus fuentes, usa técnicas como <GlossaryTerm term="RAG">RAG</GlossaryTerm>, o indícale explícitamente: "Si no sabes la respuesta, di que no lo sabes".</p>
-    </Accordion>
-
-    <Accordion title="¿Cómo puedo hacer que la IA escriba con mi estilo?" icon={BookOpen}>
-      <p>Puedes lograr esto proporcionando ejemplos de tus propios textos en el prompt (técnica Few-shot) y dándole instrucciones claras sobre el tono. Por ejemplo: "Analiza el estilo, tono y vocabulario de los siguientes textos. Luego, escribe un nuevo artículo sobre [tema] imitando exactamente ese mismo estilo."</p>
-    </Accordion>
-
-    <h2 id="sec-faq-2" className="text-2xl font-bold mt-12 mb-6 text-indigo-800 dark:text-indigo-300 scroll-mt-24 flex items-center gap-2">
-      <AlertTriangle size={24} /> Problemas comunes
+    <h2 id="sec-faq-2" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
+      3. Preguntas sobre ética, privacidad y docencia
     </h2>
 
-    <Accordion title="El modelo se detiene a mitad de la respuesta, ¿qué hago?" icon={AlertTriangle}>
-      <p>Esto suele ocurrir porque el modelo ha alcanzado su límite máximo de <GlossaryTerm term="Token">tokens</GlossaryTerm> de salida por respuesta. Simplemente escribe "Continúa" o "Sigue desde donde te quedaste" y el modelo retomará la generación del texto.</p>
-    </Accordion>
+    <Accordion
+      items={[
+        {
+          title: '¿Son confiables los "detectores de texto generado por IA" para sancionar a un estudiante?',
+          content: (
+            <p className="m-0">
+              <strong>No.</strong> La evidencia empírica y las guías de la UNESCO coinciden en que los detectores estadísticos de texto sufren tasas inaceptables de falsos positivos (acusando injustamente a estudiantes que escriben con estructura formal o hablantes no nativos) y son fácilmente evadibles mediante paráfrasis. La respuesta pedagógica rigurosa no es la vigilancia punitiva por software, sino rediseñar la evaluación hacia procesos trazables, defensas orales, análisis de casos locales y trabajo en aula.
+            </p>
+          )
+        },
+        {
+          title: '¿Cómo puedo usar IA con datos sensibles de estudiantes o pacientes sin violar leyes de protección de datos?',
+          content: (
+            <p className="m-0">
+              Tienes dos rutas seguras: (1) Aplicar <strong>anonimización irreversible</strong> previa y utilizar entornos empresariales/institucionales cuyos contratos garanticen explícitamente <em>Zero Data Retention</em> (no entrenamiento con tus datos) y cumplimiento GDPR / normativas locales; o (2) Ejecutar <strong>Modelos de Lenguaje Pequeños (SLMs)</strong> localmente en tu propio hardware (<em>Edge AI</em>) para que ningún byte abandone la red interna de tu institución.
+            </p>
+          )
+        }
+      ]}
+    />
 
-    <Accordion title="La IA ignora parte de mis instrucciones." icon={AlertTriangle}>
-      <p>Cuando los prompts son muy largos, los modelos pueden sufrir de "amnesia" en el medio del texto. Para solucionarlo: 1) Coloca las instrucciones más importantes al principio o al final del prompt. 2) Estructura tu prompt usando viñetas o etiquetas XML (ej. <code>&lt;instrucciones&gt;</code>). 3) Divide la tarea en pasos más pequeños (Prompt Chaining).</p>
-    </Accordion>
-
-    <Accordion title="¿Cómo aplico los marcos éticos DECIDE-IA y PotencIA en la docencia de educación secundaria?" icon={BookOpen}>
-      <p>El <GlossaryTerm term="DECIDE-IA"><strong>Marco DECIDE-IA</strong></GlossaryTerm> y el <GlossaryTerm term="PotencIA"><strong>Marco PotencIA</strong></GlossaryTerm> ofrecen pautas para que la o el <GlossaryTerm term="Docente de educación secundaria"><strong>docente de educación secundaria</strong></GlossaryTerm> utilice la IA como mediador pedagógico: definiendo objetivos transparentes, evaluando los riesgos de alucinación o sesgo, declarando el uso de herramientas inteligentes y manteniendo la supervisión pedagógica crítica en todo momento.</p>
-    </Accordion>
-
-    <InfoCard type="idea" title="¿Tienes más dudas?">
-      <p>El campo de la IA evoluciona rápidamente. Te recomendamos experimentar constantemente y mantenerte actualizado consultando la sección de <button onClick={() => document.getElementById('sec-referencias-0')?.scrollIntoView({behavior: 'smooth'})} className="text-indigo-700 dark:text-indigo-400 font-semibold hover:underline">Referencias</button> de esta guía.</p>
-    </InfoCard>
+    <AuthorNote>
+      ¿Tienes una pregunta adicional o detectaste un caso de uso que te gustaría ver documentado en la guía? Puedes abrir un <em>issue</em> o enviar una contribución directamente en el repositorio abierto de GitHub enlazado en la cabecera.
+    </AuthorNote>
   </div>
 );
-

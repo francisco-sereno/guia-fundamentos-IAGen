@@ -1,6 +1,9 @@
 {
   "name": "guia-fundamentos-iagen",
-  "description": "Una guía interactiva y educativa sobre los conceptos, técnicas y ética de la IA generativa, centrada en el empoderamiento profesional.",
+  "description": "Explora los fundamentos de la IA generativa, modelos de razonamiento (TTC), ingeniería de contexto, ética (EU AI Act) y agentes autónomos (MCP) con simuladores.",
   "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ],
   "prompt": ""
 }
