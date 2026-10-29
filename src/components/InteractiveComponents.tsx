@@ -50,7 +50,7 @@ export const PEASInteractiveExplorer = () => {
       <div className="p-5 border-b border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-slate-50/60 dark:bg-slate-900/60">
         <div>
           <div className="text-xs font-mono uppercase tracking-wider text-sky-600 dark:text-sky-400">
-            Simulador de arquitectura · Marco PEAS
+            Arquitectura de agentes · Marco PEAS
           </div>
           <h4 className="text-base font-bold font-display text-slate-900 dark:text-white mt-0.5">
             Explorador interactivo de agentes racionales
@@ -921,3 +921,302 @@ export const CompetenceMappingCard = () => {
     </div>
   );
 };
+
+// 10. Interactive AI Evolution Timeline (1950–2026) (Modulo 1)
+export const AIHistoryTimeline = () => {
+  const [activeIndex, setActiveIndex] = useState<number>(5);
+  const [showAll, setShowAll] = useState<boolean>(false);
+
+  const eras = [
+    {
+      period: '1950 – 1956',
+      shortLabel: '1950–1956',
+      tag: 'Fundamentos y Dartmouth',
+      paradigm: 'Lógica formal y cibernética',
+      title: 'Test de Turing y nacimiento formal del campo',
+      desc: 'Alan Turing publica "Computing Machinery and Intelligence" (1950), formulando el Juego de la Imitación. En el verano de 1956, John McCarthy, Marvin Minsky, Claude Shannon y Nathaniel Rochester organizan el taller de Dartmouth y acuñan formalmente el término "Inteligencia Artificial".',
+      milestones: [
+        '1943: Modelo neuronal lógico de McCulloch y Pitts',
+        '1950: Test de Turing y máquinas de aprendizaje',
+        '1956: Logic Theorist (Newell, Simon y Shaw) demuestra teoremas matemáticos',
+        '1956: Conferencia fundacional de Dartmouth College'
+      ],
+      mechanism: 'Manipulación de símbolos discretos según reglas deductivas y búsqueda en árboles de estados.',
+      bottleneck: 'Hardware extremadamente limitado (válvulas de vacío) y ausencia de datos digitales a escala.'
+    },
+    {
+      period: '1957 – 1973',
+      shortLabel: '1957–1973',
+      tag: 'Primer auge y conexión',
+      paradigm: 'Heurística y Perceptrón inicial',
+      title: 'Del Perceptrón de Rosenblatt a los micro-mundos simbólicos',
+      desc: 'Frank Rosenblatt presenta el Perceptrón (1957), precursor físico de las redes neuronales, mientras Joseph Weizenbaum crea ELIZA (1966) y Terry Winograd desarrolla SHRDLU. El optimismo inicial choca con las limitaciones matemáticas de las redes de una sola capa (Minsky y Papert, 1969).',
+      milestones: [
+        '1957: Perceptrón Mark I de Frank Rosenblatt',
+        '1958: John McCarthy inventa el lenguaje LISP',
+        '1966: ELIZA simula psicoterapia mediante patrones léxicos',
+        '1973: Informe Lighthill desencadena el primer invierno de la IA'
+      ],
+      mechanism: 'Clasificadores lineales de una capa y resolución simbólica en dominios cerrados ("micro-mundos").',
+      bottleneck: 'Incapacidad del perceptrón simple para resolver funciones no lineales (XOR) y explosión combinatoria.'
+    },
+    {
+      period: '1974 – 1996',
+      shortLabel: '1974–1996',
+      tag: 'Sistemas expertos',
+      paradigm: 'IA simbólica (GOFAI) y retropropagación',
+      title: 'Auge de los sistemas expertos e incubación conexionista',
+      desc: 'Las corporaciones adoptan sistemas expertos basados en reglas "SI-ENTONCES" como MYCIN (diagnóstico médico) y XCON. Aunque un segundo invierno golpea a fines de los 80 por la fragilidad de las reglas manuales, en paralelo Rumelhart, Hinton y Williams popularizan el algoritmo Backpropagation (1986).',
+      milestones: [
+        '1975: MYCIN para diagnóstico de infecciones sanguíneas',
+        '1986: Redescubrimiento de la retropropagación del error (Backpropagation)',
+        '1989: Yann LeCun aplica redes convolucionales (LeNet) a dígitos postales',
+        '1988: Judea Pearl introduce redes bayesianas e inferencia probabilística'
+      ],
+      mechanism: 'Motores de inferencia lógica sobre bases de conocimiento codificadas manualmente por expertos humanos.',
+      bottleneck: 'Cuello de botella de adquisición del conocimiento: los expertos no pueden verbalizar todo su saber tácito.'
+    },
+    {
+      period: '1997 – 2016',
+      shortLabel: '1997–2016',
+      tag: 'Deep Learning',
+      paradigm: 'Aprendizaje estadístico y redes profundas',
+      title: 'Del triunfo estadístico a la revolución del aprendizaje profundo en GPUs',
+      desc: 'Deep Blue vence a Garry Kasparov (1997). Con la llegada del Big Data y el uso de tarjetas gráficas (GPUs), AlexNet (2012) revoluciona la visión artificial en ImageNet y AlphaGo (2016) derrota a Lee Sedol combinando redes neuronales profundas con aprendizaje por refuerzo y búsqueda Monte Carlo.',
+      milestones: [
+        '1997: Deep Blue (IBM) derrota al campeón mundial de ajedrez',
+        '2012: AlexNet (Krizhevsky, Sutskever y Hinton) reduce drásticamente el error en ImageNet',
+        '2013: Word2Vec inaugura los espacios densos de embeddings semánticos',
+        '2016: AlphaGo (DeepMind) domina el juego de Go mediante Deep RL'
+      ],
+      mechanism: 'Optimización por descenso de gradiente estocástico sobre redes multicapa profundas (CNN, RNN, LSTM).',
+      bottleneck: 'Las redes recurrentes (RNN/LSTM) procesaban el texto palabra por palabra de forma secuencial, impidiendo paralelizar corpus masivos.'
+    },
+    {
+      period: '2017 – 2023',
+      shortLabel: '2017–2023',
+      tag: 'Era Transformer',
+      paradigm: 'Modelos fundacionales e IA generativa',
+      title: 'Attention Is All You Need y emergencia de los grandes modelos de lenguaje',
+      desc: 'Investigadores de Google publican la arquitectura Transformer (2017), reemplazando la recurrencia por mecanismos de autoatención paralela. Esto permite escalar el pre-entrenamiento autosupervisado a billones de tokens, dando origen a BERT, la serie GPT, Gemini, Claude y Llama.',
+      milestones: [
+        '2017: Vaswani et al. presentan el Transformer ("Attention Is All You Need")',
+        '2020: Leyes de escalado neuronal y aprendizaje Few-Shot en GPT-3',
+        '2021: AlphaFold 2 resuelve el plegamiento de proteínas',
+        '2022–2023: Alineación RLHF y masificación global de asistentes generativos'
+      ],
+      mechanism: 'Autoatención multicabeza paralela + pre-entrenamiento autorregresivo seguido de ajuste fino y RLHF.',
+      bottleneck: 'Respuestas de "Sistema 1" (rápidas pero propensas a alucinaciones lógicas) y desconexión de herramientas en vivo.'
+    },
+    {
+      period: '2024 – 2026',
+      shortLabel: '2024–2026',
+      tag: 'Frontera actual',
+      paradigm: 'Test-Time Compute, SLMs y agentes MCP',
+      title: 'Razonamiento verificable, multimodalidad nativa y ecosistemas agénticos',
+      desc: 'El escalado se expande hacia el cómputo en tiempo de inferencia (Test-Time Compute) entrenado con recompensas verificables (RLVR). Los modelos deliberan y verifican hipótesis antes de responder, se conectan de forma estándar mediante el protocolo MCP, delegan tareas vía A2A y coexisten con modelos pequeños (SLMs) en el dispositivo.',
+      milestones: [
+        '2024–2025: Consolidación de modelos razonadores con Test-Time Compute y RLVR',
+        '2025: Adopción universal del estándar abierto Model Context Protocol (MCP)',
+        '2025–2026: Auge de SLMs en dispositivo (Edge AI) y entrada en vigor del EU AI Act',
+        '2026: Orquestación multi-agente (A2A), GraphRAG y modelos de mundo (JEPA)'
+      ],
+      mechanism: 'Arquitecturas Sparse MoE multimodales + cadenas de pensamiento verificadas (TTC) + protocolos JSON-RPC agénticos.',
+      bottleneck: 'Gobernanza de autonomía agéntica, eficiencia energética y verificación formal libre de alucinaciones.'
+    }
+  ];
+
+  const current = eras[activeIndex];
+
+  return (
+    <div className="my-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-xs">
+      {/* Header Bar */}
+      <div className="p-5 border-b border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-slate-50/60 dark:bg-slate-900/60">
+        <div>
+          <div className="text-xs font-mono uppercase tracking-wider text-sky-600 dark:text-sky-400">
+            Cronología interactiva · 1950–2026
+          </div>
+          <h4 className="text-base font-bold font-display text-slate-900 dark:text-white mt-0.5">
+            Genealogía de paradigmas: de la lógica simbólica al razonamiento agéntico
+          </h4>
+        </div>
+
+        <div className="flex items-center gap-2 shrink-0">
+          <button
+            type="button"
+            onClick={() => setShowAll(!showAll)}
+            className={`px-3 py-1.5 rounded-lg border text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap ${
+              showAll
+                ? 'border-sky-500 bg-sky-50 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400'
+                : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
+            }`}
+          >
+            {showAll ? 'Vista interactiva por etapa' : 'Ver las 6 etapas completas'}
+          </button>
+        </div>
+      </div>
+
+      {/* Interactive Timeline Stepper Track */}
+      <div className="px-5 pt-5 pb-4 border-b border-slate-100 dark:border-slate-800/80 bg-white dark:bg-slate-900">
+        <div className="relative">
+          {/* Connecting Progress Line (Desktop) */}
+          <div className="hidden md:block absolute top-3.5 left-6 right-6 h-0.5 bg-slate-200 dark:bg-slate-800" />
+          <div
+            className="hidden md:block absolute top-3.5 left-6 h-0.5 bg-sky-600 dark:bg-sky-400 transition-all duration-300"
+            style={{ width: `calc(${(activeIndex / (eras.length - 1)) * 100}% - 2.5rem)` }}
+          />
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 relative z-10">
+            {eras.map((era, idx) => {
+              const isSelected = idx === activeIndex && !showAll;
+              const isPast = idx <= activeIndex;
+              return (
+                <button
+                  key={era.period}
+                  type="button"
+                  onClick={() => {
+                    setActiveIndex(idx);
+                    setShowAll(false);
+                  }}
+                  className={`group flex flex-col items-start md:items-center text-left md:text-center p-2.5 md:p-2 rounded-lg border md:border-transparent transition-all cursor-pointer ${
+                    isSelected
+                      ? 'bg-sky-50/80 dark:bg-sky-950/40 border-sky-300 dark:border-sky-800 md:bg-transparent'
+                      : 'border-slate-200/70 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/40'
+                  }`}
+                >
+                  <div
+                    className={`w-7 h-7 rounded-full font-mono text-xs font-bold flex items-center justify-center border-2 transition-all mb-1.5 ${
+                      isSelected
+                        ? 'bg-sky-600 text-white border-sky-600 ring-4 ring-sky-500/20 scale-110'
+                        : isPast
+                        ? 'bg-white dark:bg-slate-900 text-sky-600 dark:text-sky-400 border-sky-500 dark:border-sky-400'
+                        : 'bg-white dark:bg-slate-900 text-slate-400 border-slate-300 dark:border-slate-700 group-hover:border-slate-400'
+                    }`}
+                  >
+                    0{idx + 1}
+                  </div>
+                  <div
+                    className={`text-[11px] font-mono font-bold tabular-nums ${
+                      isSelected
+                        ? 'text-sky-600 dark:text-sky-400'
+                        : 'text-slate-700 dark:text-slate-300'
+                    }`}
+                  >
+                    {era.shortLabel}
+                  </div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1 mt-0.5">
+                    {era.tag}
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Content Area: Single Selected Era vs All Eras */}
+      {!showAll ? (
+        <div className="p-5 space-y-5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100 dark:border-slate-800">
+            <div>
+              <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-sky-600 dark:text-sky-400 mb-1">
+                <span>ETAPA 0{activeIndex + 1} DE 0{eras.length}</span>
+                <span>·</span>
+                <span>{current.period}</span>
+                <span>·</span>
+                <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
+                  Paradigma: {current.paradigm}
+                </span>
+              </div>
+              <h5 className="text-lg font-bold font-display text-slate-900 dark:text-white m-0">
+                {current.title}
+              </h5>
+            </div>
+
+            <div className="flex items-center gap-2 shrink-0">
+              <button
+                type="button"
+                onClick={() => setActiveIndex((prev) => (prev > 0 ? prev - 1 : eras.length - 1))}
+                className="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
+              >
+                ← Anterior
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveIndex((prev) => (prev + 1) % eras.length)}
+                className="px-3 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white text-xs font-semibold cursor-pointer whitespace-nowrap"
+              >
+                Siguiente etapa →
+              </button>
+            </div>
+          </div>
+
+          <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed m-0">
+            {current.desc}
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-1">
+            <div className="p-4 rounded-lg bg-slate-50 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-800">
+              <div className="text-xs font-mono uppercase tracking-wider text-sky-600 dark:text-sky-400 font-semibold mb-2">
+                Hitos y sistemas clave
+              </div>
+              <ul className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 m-0 p-0 list-none">
+                {current.milestones.map((m, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="font-mono text-sky-500">•</span>
+                    <span>{m}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="p-4 rounded-lg bg-slate-50 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-800">
+              <div className="text-xs font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-semibold mb-2">
+                Mecanismo computacional
+              </div>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed m-0">
+                {current.mechanism}
+              </p>
+            </div>
+
+            <div className="p-4 rounded-lg bg-slate-50 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-800">
+              <div className="text-xs font-mono uppercase tracking-wider text-amber-600 dark:text-amber-400 font-semibold mb-2">
+                {activeIndex === eras.length - 1 ? 'Desafío de frontera 2026' : 'Límite que impulsó la siguiente era'}
+              </div>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed m-0">
+                {current.bottleneck}
+              </p>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="divide-y divide-slate-200 dark:divide-slate-800">
+          {eras.map((item, idx) => (
+            <div key={idx} className="p-4 sm:p-5 flex flex-col sm:flex-row gap-3 sm:gap-6">
+              <div className="sm:w-56 shrink-0">
+                <span className="text-xs font-mono font-semibold text-sky-600 dark:text-sky-400 block">
+                  {item.period} · {item.tag}
+                </span>
+                <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
+                  {item.paradigm}
+                </span>
+              </div>
+              <div className="flex-1">
+                <h5 className="text-sm font-bold text-slate-900 dark:text-white mb-1 mt-0">
+                  {item.title}
+                </h5>
+                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-2">
+                  {item.desc}
+                </p>
+                <div className="flex flex-wrap gap-x-4 gap-y-1 text-[11px] font-mono text-slate-500 dark:text-slate-400">
+                  <span><strong className="text-slate-700 dark:text-slate-300">Mecanismo:</strong> {item.mechanism}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+

@@ -78,7 +78,7 @@ A diferencia de los manuales estáticos, esta aplicación articula un hilo condu
 - **Gobernanza y regulación vigente:** análisis práctico del Reglamento Europeo de Inteligencia Artificial (**EU AI Act**), los marcos de competencias de la **UNESCO** para docentes y estudiantes, las credenciales criptográficas **C2PA** y los protocolos institucionales **PotencIA** y **DECIDE-IA**.
 
 ### 2. Inventario de los 11 laboratorios y simuladores interactivos
-1. **Simulador de arquitectura racional PEAS (módulo 01):** laboratorio de doble zona para diseñar agentes seleccionando medida de rendimiento, entorno, actuadores y sensores con telemetría de riesgo y topología recomendada.
+1. **Explorador interactivo de arquitectura racional PEAS (módulo 01):** panel interactivo para analizar sistemas inteligentes desglosando medida de rendimiento, entorno, actuadores y sensores en distintos dominios.
 2. **Evaluador diagnóstico de competencias de la UNESCO con IA en vivo (módulo 01):** conectado a un endpoint seguro de servidor (`/api/evaluate-competence`) mediante el SDK `@google/genai` (`gemini-2.5-flash`) y motor heurístico de respaldo para diagnosticar el nivel del usuario (*adquisición*, *profundización* o *creación*).
 3. **Inspector interactivo Transformer + Sparse MoE + Test-Time Compute (módulo 02):** diagrama de cuatro fases que desglosa tokenización y *embeddings*, *Self-Attention* con *KV-Cache*, enrutamiento *Top-K* de expertos y bucle de autoverificación en inferencia.
 4. **Arquitectura comparativa de RAG híbrido y GraphRAG frente a ventana de contexto masiva (módulo 02):** visualizador interactivo de recuperación léxica (BM25), búsqueda vectorial densa, grafos de conocimiento y *reranking* con *Cross-Encoder*.
@@ -156,7 +156,7 @@ graph TD
     ROOT --> M8["Módulo 08: Preguntas frecuentes (FAQ)\n(respuestas directas sobre arquitectura y docencia)"]
     ROOT --> M9["Módulo 09: Referencias científicas (APA 7)\n(artículos seminales, reportes 2026 y normativa)"]
 
-    M1 --> S1["Simulador PEAS + evaluador UNESCO"]
+    M1 --> S1["Explorador PEAS + evaluador UNESCO"]
     M2 --> S2["Inspector Transformer MoE/TTC + RAG híbrido"]
     M3 --> S3["Playground de contexto + gráficos de impacto"]
     M4 --> S4["Explorador filtrable + copiado instantáneo"]
@@ -197,7 +197,7 @@ sequenceDiagram
 
 | Código | Título del módulo | Contenidos clave (estado del arte en 2026) | Componentes interactivos incluidos | Lectura |
 | :--- | :--- | :--- | :--- | :---: |
-| **MÓDULO 01** | **Fundamentos de la IA** | Racionalidad computacional, marco PEAS, evolución histórica (1950–2026), taxonomía ANI/AGI/ASI, paradigmas de aprendizaje automático, revolución de los modelos pequeños (*SLMs / Edge AI*) y marcos de la UNESCO. | • Simulador PEAS de doble zona<br>• Evaluador de competencias de la UNESCO (API Gemini)<br>• Cuestionario de autoevaluación | 14 min |
+| **MÓDULO 01** | **Fundamentos de la IA** | Racionalidad computacional, marco PEAS, evolución histórica (1950–2026), taxonomía ANI/AGI/ASI, paradigmas de aprendizaje automático, revolución de los modelos pequeños (*SLMs / Edge AI*) y marcos de la UNESCO. | • Explorador interactivo del marco PEAS<br>• Evaluador de competencias de la UNESCO (API Gemini)<br>• Cuestionario de autoevaluación | 14 min |
 | **MÓDULO 02** | **Modelos de lenguaje y razonamiento** | Tokenización BPE, *embeddings*, atención multicabeza, *Sparse Mixture of Experts* (MoE), *Test-Time Compute* (TTC), RLVR, **RAG híbrido** y **GraphRAG**. | • Inspector Transformer + MoE + TTC (4 fases)<br>• Diagrama de RAG híbrido y GraphRAG<br>• Simulador de temperatura y *thinking budget*<br>• Comparador de modelos 2026 | 12 min |
 | **MÓDULO 03** | **Ingeniería de prompts y de contexto** | Transición del *prompting* artesanal a la ingeniería de contexto, marcos CO-STAR, PROSE y PARTE, plantilla socrática, *Chain-of-Thought*, *Chain-of-Verification* (CoVe), delimitadores XML, JSON Schema y *PromptOps*. | • Playground de ingeniería de contexto<br>• Tabla comparativa CO-STAR, PROSE y PARTE<br>• Gráficos de impacto y reducción de errores | 16 min |
 | **MÓDULO 04** | **Catálogo interactivo de técnicas** | Más de 18 patrones organizados en técnicas fundacionales, razonamiento verificable, dinámicas pedagógicas y patrones de frontera 2026 alineados con la taxonomía de Bloom. | • Buscador y filtro interactivo de técnicas<br>• Copiado de plantillas en un clic<br>• Matriz de decisión por nivel de Bloom | 10 min |

@@ -748,7 +748,7 @@ const App = () => {
                   <h4 className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
                     {completedChapters.includes(currentChapter.id)
                       ? '¡Módulo completado y registrado en tu progreso!'
-                      : '¿Terminaste de revisar los conceptos y simuladores de este módulo?'}
+                      : '¿Terminaste de revisar los conceptos y recursos interactivos de este módulo?'}
                   </h4>
                 </div>
                 <button

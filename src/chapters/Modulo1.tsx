@@ -4,7 +4,7 @@ import {
   Layers, Database, CheckCircle, AlertTriangle, Users, BookOpen, Shield
 } from 'lucide-react';
 import { GlossaryTerm, InfoCard, QuizComponent, AuthorNote } from '../components/Shared';
-import { PEASInteractiveExplorer, CompetenceMappingCard } from '../components/InteractiveComponents';
+import { PEASInteractiveExplorer, CompetenceMappingCard, AIHistoryTimeline } from '../components/InteractiveComponents';
 
 export const Modulo1 = () => (
   <div className="space-y-8">
@@ -26,7 +26,7 @@ export const Modulo1 = () => (
 
     <div className="p-5 bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl">
       <div className="text-xs font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-2">
-        Resultados de aprendizaje verificables
+        Resultados de aprendizaje
       </div>
       <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300 m-0 list-none p-0">
         <li className="flex items-start gap-2.5">
@@ -63,53 +63,7 @@ export const Modulo1 = () => (
       Comprender la genealogía de la IA evita caer en el solucionismo tecnológico. La historia del campo no es una línea recta, sino una alternancia entre paradigmas simbólicos (reglas explícitas) y conexionistas (redes neuronales estadísticas) que hoy convergen en arquitecturas neuro-simbólicas y de razonamiento en tiempo de inferencia:
     </p>
 
-    <div className="my-6 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden bg-white dark:bg-slate-900">
-      <div className="divide-y divide-slate-200 dark:divide-slate-800">
-        {[
-          {
-            era: '1950 – 1956 · Fundamentos y Dartmouth',
-            title: 'Test de Turing y nacimiento formal del campo',
-            desc: 'Alan Turing publica "Computing Machinery and Intelligence" (1950). En el verano de 1956, John McCarthy, Marvin Minsky, Claude Shannon y Nathaniel Rochester acuñan el término "Inteligencia Artificial" en el taller de Dartmouth.'
-          },
-          {
-            era: '1970 – 1989 · Sistemas expertos e inviernos de la IA',
-            title: 'Auge de la IA simbólica (GOFAI) y límites combinatorios',
-            desc: 'Sistemas como MYCIN codifican reglas "SI-ENTONCES" creadas por expertos humanos. La incapacidad de manejar la incertidumbre del mundo real y el cuello de botella en la adquisición manual de conocimiento provocaron recortes de financiación ("inviernos de la IA").'
-          },
-          {
-            era: '1997 – 2016 · Triunfo estadístico y Deep Learning',
-            title: 'Del aprendizaje automático al aprendizaje profundo en GPUs',
-            desc: 'Deep Blue vence a Kasparov (1997) por búsqueda heurística masiva. En 2012, AlexNet demuestra el poder de las redes convolucionales profundas entrenadas en GPUs, y en 2016 AlphaGo combina redes profundas con búsqueda de árbol Monte Carlo.'
-          },
-          {
-            era: '2017 – 2023 · La revolución Transformer y los LLMs',
-            title: 'Attention Is All You Need y emergencia de la IA generativa',
-            desc: 'Investigadores de Google introducen la arquitectura Transformer (2017), permitiendo paralelizar el entrenamiento sobre corpus masivos. Nacen los modelos fundacionales (BERT, serie GPT, Gemini, Claude, Llama) capaces de procesar y generar lenguaje y código.'
-          },
-          {
-            era: '2024 – 2026 · Razonamiento verificable, SLMs y ecosistemas agénticos',
-            title: 'Test-Time Compute, multimodalidad nativa y protocolo MCP',
-            desc: 'El escalado se desplaza del simple tamaño de pre-entrenamiento al cómputo en tiempo de prueba (Test-Time Compute) mediante aprendizaje por refuerzo con recompensas verificables (RLVR). Los modelos piensan paso a paso antes de responder, operan herramientas mediante el estándar abierto MCP y coexisten con modelos pequeños (SLMs) ejecutados localmente en dispositivos.'
-          }
-        ].map((item, idx) => (
-          <div key={idx} className="p-4 sm:p-5 flex flex-col sm:flex-row gap-3 sm:gap-6">
-            <div className="sm:w-56 shrink-0">
-              <span className="text-xs font-mono font-semibold text-sky-600 dark:text-sky-400">
-                {item.era}
-              </span>
-            </div>
-            <div>
-              <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1 mt-0">
-                {item.title}
-              </h4>
-              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-0">
-                {item.desc}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+    <AIHistoryTimeline />
 
     <h2 id="sec-modulo1-3" className="text-2xl font-bold font-display text-slate-900 dark:text-white">
       3. Taxonomía por alcance y capacidad: ANI, AGI y ASI

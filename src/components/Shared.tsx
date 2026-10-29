@@ -594,7 +594,7 @@ export const AboutModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                 <Layers size={15} className="text-sky-600 dark:text-sky-400" /> Arquitectura de contenidos
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                9 módulos estructurados con laboratorios interactivos, simuladores PEAS, comparativas de modelos de frontera, catálogo de 58 técnicas y evaluaciones formativas.
+                9 módulos estructurados con recursos interactivos, explorador del marco PEAS, comparativas de modelos de frontera, catálogo de técnicas y evaluaciones formativas.
               </p>
             </section>
 
