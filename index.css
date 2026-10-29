@@ -16,7 +16,7 @@
 
   body {
     @apply bg-[#F8FAFC] text-slate-800 dark:bg-[#0B1120] dark:text-slate-200 font-sans antialiased selection:bg-sky-500/20 selection:text-sky-950 dark:selection:bg-sky-500/30 dark:selection:text-sky-100 transition-colors duration-200;
-    overflow-x: hidden;
+    overflow: hidden;
   }
 
   h1, h2, h3, .font-display {
@@ -46,7 +46,7 @@
   }
 
   .prose-custom h2 {
-    @apply text-slate-900 dark:text-slate-100 font-bold tracking-tight mb-4 mt-12 text-xl md:text-2xl leading-snug border-b border-slate-200 dark:border-slate-800/90 pb-3;
+    @apply text-slate-900 dark:text-slate-100 font-bold tracking-tight mb-4 mt-12 text-xl md:text-2xl leading-snug border-b border-slate-200 dark:border-slate-800/90 pb-3 scroll-mt-16;
     font-family: var(--font-display);
     text-wrap: balance;
   }

@@ -331,7 +331,7 @@ const App = () => {
   );
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans selection:bg-sky-500/20 selection:text-sky-600 dark:selection:text-sky-300">
+    <div className="h-dvh flex flex-col overflow-hidden bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans selection:bg-sky-500/20 selection:text-sky-600 dark:selection:text-sky-300">
       <AboutModal isOpen={isAboutModalOpen} onClose={() => setIsAboutModalOpen(false)} />
 
       {/* Glossary Modal */}
@@ -387,7 +387,7 @@ const App = () => {
       )}
 
       {/* 3-Zone Top Bar Contract (<header>) */}
-      <header className="sticky top-0 z-30 h-14 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 lg:px-8 flex items-center justify-between gap-4">
+      <header className="sticky top-0 z-30 h-14 shrink-0 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 lg:px-8 flex items-center justify-between gap-4">
         {/* Zone 1: Brand Identity + Author Credit */}
         <div className="flex items-center gap-3 min-w-0">
           <button
@@ -500,7 +500,7 @@ const App = () => {
       </header>
 
       {/* Reading Workspace Layout */}
-      <div className="flex-1 flex overflow-hidden relative">
+      <div className="flex-1 min-h-0 flex overflow-hidden relative">
         {/* Mobile Sidebar Backdrop */}
         {isMobileMenuOpen && (
           <div
@@ -511,12 +511,12 @@ const App = () => {
 
         {/* Sidebar Navigation (Collapsible in Focus Mode) */}
         <aside
-          className={`fixed lg:static inset-y-0 left-0 z-40 w-80 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col transition-all duration-300 ${
+          className={`fixed lg:static top-14 lg:top-0 bottom-0 left-0 z-40 w-80 h-[calc(100dvh-3.5rem)] lg:h-full min-h-0 shrink-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col transition-all duration-300 ${
             isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
           } ${isFocusMode ? 'lg:hidden' : 'lg:translate-x-0'}`}
         >
           {/* Sidebar Progress Header */}
-          <div className="p-4 border-b border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
+          <div className="p-4 shrink-0 border-b border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
             <div className="flex items-center justify-between mb-2">
               <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">
                 Progreso del curso
@@ -543,7 +543,7 @@ const App = () => {
           </div>
 
           {/* Chapters List */}
-          <nav className="flex-1 overflow-y-auto p-3 space-y-1">
+          <nav className="flex-1 min-h-0 overflow-y-auto overscroll-contain custom-scrollbar p-3 space-y-1">
             {chapters.map((chapter) => {
               const Icon = chapter.icon;
               const isActive = chapter.id === activeChapterId;
@@ -595,8 +595,15 @@ const App = () => {
                             key={secId}
                             onClick={() => {
                               const el = document.getElementById(secId);
-                              if (el) {
-                                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                              const mainContent = document.getElementById('main-content');
+                              if (el && mainContent) {
+                                const headerOffset = 56;
+                                const elTop =
+                                  el.getBoundingClientRect().top -
+                                  mainContent.getBoundingClientRect().top +
+                                  mainContent.scrollTop -
+                                  headerOffset;
+                                mainContent.scrollTo({ top: Math.max(0, elTop), behavior: 'smooth' });
                                 setActiveSection(secId);
                                 setIsMobileMenuOpen(false);
                               }
@@ -619,7 +626,7 @@ const App = () => {
           </nav>
 
           {/* Sidebar Footer Author Credit */}
-          <div className="p-3.5 border-t border-slate-200 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-between bg-slate-50/40 dark:bg-slate-900/40">
+          <div className="p-3.5 shrink-0 border-t border-slate-200 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-between bg-slate-50/40 dark:bg-slate-900/40">
             <a
               href="https://portafolio.franciscosereno.cl/sobre-mi"
               target="_blank"
@@ -636,7 +643,7 @@ const App = () => {
         {/* Main Content Area */}
         <main
           id="main-content"
-          className="flex-1 overflow-y-auto h-[calc(100vh-3.5rem)] relative scroll-smooth"
+          className="flex-1 h-full min-h-0 overflow-y-auto overscroll-contain relative scroll-smooth"
         >
           {/* Thin Reading Progress Bar */}
           <div className="sticky top-0 z-20 w-full h-0.5 bg-slate-200/60 dark:bg-slate-800/60">
